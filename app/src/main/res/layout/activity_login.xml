@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="100dp"
+    android:paddingBottom="100dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:background="@drawable/curved_rect"
+    tools:context=".MembersArea.Login">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/whitebg"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:text="Sign In"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Username *"
+            android:textColorHint="#000000"
+            android:backgroundTint="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:backgroundTint="#000000"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Password *"
+            android:textColorHint="#000000"
+            android:backgroundTint="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:backgroundTint="#000000"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            android:layout_gravity="right"
+            android:textColor="#000000"
+            android:text="Forgot Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/signin"
+            android:layout_marginTop="10dp"
+            android:text="Sign In"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:paddingRight="50dp"
+            android:paddingLeft="50dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btnbg"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+    <com.wang.avi.AVLoadingIndicatorView
+android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:id="@+id/login_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorName="LineSpinFadeLoaderIndicator"
+        app:indicatorColor="#FFC107"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+
+            android:icon="@drawable/dashboard"
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard" />
+
+        <item
+            android:icon="@drawable/strategy"
+            android:id="@+id/nav_productstore"
+            android:title="Product Store" />
+        <item
+            android:icon="@drawable/registrationform"
+            android:id="@+id/nav_regform"
+            android:title="Registration Form" />
+
+        <item
+            android:icon="@drawable/genealogy"
+            android:id="@+id/nav_genealogy"
+            android:title="Genealogy">
+            <menu>
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_silver_plan_genealogy"
+                    android:title="Silver Plan Genealogy" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_gold_plan_genealogy"
+                    android:title=" Gold Plan Geneology" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_sponsortree"
+                    android:title=" Sponsor Tree" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_sponsortree_tabularview"
+                    android:title=" * Sponsor Tree Tabular View" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_sponsor_downline_list"
+                    android:title=" * Sponsor Downline List" />
+            </menu>
+        </item>
+
+        <item
+            android:icon="@drawable/wallet"
+            android:id="@+id/nav_reports"
+            android:title="Reports" >
+            <menu>
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_myproducts"
+                    android:title=" My Products" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_first_purchase_bv"
+                    android:title="First Purchase BV Report" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_left_side_member"
+                    android:title="Left Side Member" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_right_side_member"
+                    android:title="Right Side Member" />
+
+            </menu>
+        </item>
+
+        <item
+            android:icon="@drawable/report"
+            android:id="@+id/nav_silver_plan_reports"
+            android:title="Silver Plan Reports" >
+            <menu>
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_left_side_sales"
+                    android:title=" Left Side Sales" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_right_side_sales"
+                    android:title=" Right Side Sales" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_team_salesbv"
+                    android:title=" Team Sales BV Matching" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_team_sales_bonus"
+                    android:title="Team Sales Bonus Details" />
+
+            </menu>
+        </item>
+
+        <item
+            android:icon="@drawable/incomedetails"
+            android:id="@+id/nav_gold_plan_reports"
+            android:title="Gold Plan Reports" >
+            <menu>
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_gold_left_side_sales"
+                    android:title=" Right Side Sales" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_gold_right_side_sales"
+                    android:title=" Right Side Sales" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_gold_team_salesbv"
+                    android:title=" Team Sales BV Matching" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_gold_team_sales_bonus"
+                    android:title=" Team Sales Bonus Details" />
+            </menu>
+        </item>
+        <item
+            android:icon="@drawable/news"
+            android:id="@+id/nav_repurchase_plan_report"
+            android:title="Repurchase Plan Reports">
+            <menu>
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_repurchase_bv_report"
+                    android:title="Repurchase BV Report" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_downline_repurchase_details"
+                    android:title="Downline Repurchase Details" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_repurchase_income"
+                    android:title="Repurchase Income" />
+                <item
+                android:visible="true"
+                android:id="@+id/nav_repurchase_income_details"
+                android:title="Repurchase Income Details" />
+
+            </menu>
+        </item>
+
+
+    </group>
+
+
+
+</menu>

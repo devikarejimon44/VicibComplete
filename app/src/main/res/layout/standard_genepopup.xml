@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:padding="20dp"
+        android:background="@drawable/whitebg"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/vacant"
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:text="Vacant"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/notactive"
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:text="Not Active"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/active"
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:text="Standard Plan"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+
+
+
+

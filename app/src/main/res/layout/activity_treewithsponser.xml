@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:id="@+id/appbarcustom"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@color/colorAccent">
+    <ImageView
+        android:id="@+id/back_income"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/arrow" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Sponser Tree List"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/parent2"
+    android:padding="9dp"
+    android:layout_below="@+id/appbarcustom"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".atv.Treewithsponsers">
+
+
+</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_dashboard">
+
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.gipra.vicibcomplete.MembersArea.ui.Dashboard.DashBoardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dash_board" />
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_regform"-->
+<!--        android:name="com.Vicib.vicibapp.ui.RegistrationFragment"-->
+<!--        android:label="Registration"-->
+<!--        tools:layout="@layout/fragment_registration" />-->
+
+
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_sponsorlist"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Report.SponsorList"-->
+<!--        android:label="Sponsor List"-->
+<!--        tools:layout="@layout/fragment_sponsor_list" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_cponelist"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Report.Cp_One_List.ChannelPartnerOneList"-->
+<!--        android:label="Channel Partner 1 List"-->
+<!--        tools:layout="@layout/fragment_channel_partner_one_list" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_cptwolist"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Report.Cp_One_List.ChannelPartnerTwoList"-->
+<!--        android:label="Channel Partner 2 List"-->
+<!--        tools:layout="@layout/fragment_channel_partner_two_list" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_cponesales"-->
+<!--        android:name="com.Vicib.vicibapp.Report.CpSales.ChannelPartnerOneSales"-->
+<!--        android:label="Channel Partner 1 Sales"-->
+<!--        tools:layout="@layout/fragment_channel_partner_one_sales" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_cptwosales"-->
+<!--        android:name="com.Vicib.vicibapp.Report.CpSales.ChannelPartnerTwoSales"-->
+<!--        android:label="Channel Partner 2 Sales"-->
+<!--        tools:layout="@layout/fragment_channel_partner_two_sales" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_group_repurchase"-->
+<!--        android:name="com.Vicib.vicibapp.Report.GroupRepurchaseSales.GroupRepurchaseSales"-->
+<!--        android:label="Group Repurchase Sales"-->
+<!--        tools:layout="@layout/fragment_channel_partner_one_sales" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_personal_firstpurchaseBV"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Report.PersonalPurchaseBV.PersonalFirstPurchaseBV"-->
+<!--        android:label="Personal First Purchase BV"-->
+<!--        tools:layout="@layout/fragment_personal_first_purchase_bv" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_personal_repurchasePV"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Report.PersonalRepurschasePV.PersonalRepurchasePV"-->
+<!--        android:label="Personal Repurchase PV"-->
+<!--        tools:layout="@layout/fragment_personal_repurchase_pv" />-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/nav_incomedetails"-->
+    <!--        android:name="com.gipra.shero.ui.IncomeDetailsFragment"-->
+    <!--        android:label="@string/menu_incomedetails"-->
+    <!--        tools:layout="@layout/fragment_income_details" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_account_statement"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.AccountStatement"-->
+<!--        android:label="Account Statement"-->
+<!--        tools:layout="@layout/fragment_account_statement" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_cp_GBVmatching"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.Team_Sales_BV_matching.TeamSalesBVMatchingFragment"-->
+<!--        android:label="Channel Partner GBV Matching"-->
+<!--        tools:layout="@layout/fragment_channel_partner_gbv" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_cpbonus"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.LeaderSuccessBonus.LeaderSuccessBonusFragment"-->
+<!--        android:label="Channel Partner Bonus"-->
+<!--        tools:layout="@layout/fragment_leader_success_bonus" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_per_bonus_details"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.Repurchase_Income.RepurchaseIncomeFragment"-->
+<!--        android:label="Performance Bonus Details"-->
+<!--        tools:layout="@layout/fragment_repurchase_income" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_per_bonus_income"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.Team_Sales_Bonus_details.TeamSalesBonusFragment"-->
+<!--        android:label="Performance Bonus Income"-->
+<!--        tools:layout="@layout/fragment_performance__bonus__income" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_royaltyincome"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.Repurchase_BV_Report.RepurchaseBVReportFragment"-->
+<!--        android:label="Royalty Income"-->
+<!--        tools:layout="@layout/fragment_royalty_income" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_desig_achiev"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.Leader_Level_BV.LeaderLevelBVFragment"-->
+<!--        android:label="Designation Achievements"-->
+<!--        tools:layout="@layout/fragment_designation_achievements" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_desig_achiev_bonus"-->
+<!--        android:name="com.Vicib.vicibapp.ui.IncomeDetails.First_Purchase_BV_Report.FirstPurchaseBVFragment"-->
+<!--        android:label="Designation Achievements Bonus"-->
+<!--        tools:layout="@layout/fragment_designation_achievement_bonus" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_news"-->
+<!--        android:name="com.Vicib.vicibapp.ui.News.NewsFragment"-->
+<!--        android:label="@string/menu_news"-->
+<!--        tools:layout="@layout/fragment_news" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_newentryposition"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Genealogy.SponsorsTree"-->
+<!--        android:label="New Entry Position"-->
+<!--        tools:layout="@layout/fragment_sponsors_tree"/>-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_binarygene"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Genealogy.SilverPlanGene"-->
+<!--        android:label="Binary Geneology"-->
+<!--        tools:layout="@layout/fragment_silver_plan_gene"/>-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_sponsortree"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Genealogy.GoldPlanGene"-->
+<!--        android:label="Sponsor Tree"-->
+<!--        tools:layout="@layout/fragment_gold_plan_gene"/>-->
+<!--    <fragment-->
+<!--        android:id="@+id/nav_sponsortree_tabview"-->
+<!--        android:name="com.Vicib.vicibapp.ui.Genealogy.SponsorTreeTabularView"-->
+<!--        android:label="Sponsor Tree Tabular View"-->
+<!--        tools:layout="@layout/fragment_sponsor_tree_tabular_view"/>-->
+
+
+
+
+
+
+</navigation>

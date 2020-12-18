@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.gipra.vicibcomplete">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:remove="android:maxSdkVersion" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MembersArea.Gene.StandardPlanGene"></activity>
+        <activity android:name=".MembersArea.Reports.BasicActiveMembers" />
+        <activity android:name=".MembersArea.Complaints.ComplaintStatus" />
+        <activity android:name=".MembersArea.Complaints.ComplaintsRegistration" />
+        <activity android:name=".MembersArea.IDCard" />
+        <activity android:name=".MembersArea.Payout.PayoutLedger" />
+        <activity android:name=".MembersArea.RepurchasePlanReports.RepurchaseIncomeDetails" />
+        <activity android:name=".MembersArea.RepurchasePlanReports.RepurchaseIncome" />
+        <activity android:name=".MembersArea.RepurchasePlanReports.DownlineRepurchaseDetails" />
+        <activity android:name=".MembersArea.RepurchasePlanReports.RepurchaseBVReports" />
+        <activity android:name=".MembersArea.PremiumPlanReports.PremiumTeamSalesBonusDetails" />
+        <activity android:name=".MembersArea.PremiumPlanReports.PremiumTeamSalesBVMatching" />
+        <activity android:name=".MembersArea.PremiumPlanReports.PremiumRightSideSales" />
+        <activity android:name=".MembersArea.PremiumPlanReports.PremiumLeftSideSales" />
+        <activity android:name=".MembersArea.StandardPlanReports.StandardTeamSalesBonusDetails" />
+        <activity android:name=".MembersArea.StandardPlanReports.StandardTeamSalesBVMatching" />
+        <activity android:name=".MembersArea.StandardPlanReports.StandardRightSideSales" />
+        <activity android:name=".MembersArea.StandardPlanReports.StandardLeftSideSales" />
+        <activity android:name=".MembersArea.Reports.RightSideMembers" />
+        <activity android:name=".MembersArea.Reports.LeftSideMembers" />
+        <activity android:name=".MembersArea.Reports.SponsorsList" />
+        <activity android:name=".MembersArea.Reports.FirstPurchaseBVReport" />
+        <activity android:name=".MembersArea.Reports.MyProducts" />
+        <activity android:name=".MembersArea.Gene.SponsorDownlineList" />
+        <activity android:name=".MembersArea.Gene.SponsorTabularView" />
+        <activity android:name=".MembersArea.Gene.SponsorTree" />
+        <activity android:name=".MembersArea.Gene.PremiumPlanGenealogy" />
+        <activity android:name=".MembersArea.Registration" /> <!-- <activity android:name="com.Vicib.vicibapp.ui.Report.My_Product.MyProduct"></activity> -->
+        <activity android:name=".MembersArea.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MembersArea.District.Dist_list_item" />
+        <activity android:name=".MembersArea.District.district_list_item" />
+        <activity android:name=".MembersArea.State.state_list_item" />
+        <activity android:name=".MembersArea.ChangePassword" />
+        <activity android:name=".MembersArea.ProductStore" />
+        <activity android:name=".MembersArea.MyProfile.MyProfile" />
+        <activity android:name=".MembersArea.Login" />
+        <activity
+            android:name=".MembersArea.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:usesCleartextTraffic="true" /> <!-- Shopping cart -->
+        <activity android:name="com.gipra.vicibshoppy.activity.SearchActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.OrderHistoryActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.FinishActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.CheckoutActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.SelectAddress" />
+        <activity android:name="com.gipra.vicibshoppy.activity.AddressActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.ViewcartActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.CategoryProducts" />
+        <activity android:name="com.gipra.vicibshoppy.activity.ProductActivity" />
+        <activity android:name="com.gipra.vicibshoppy.activity.ShoppyHome" />
+
+        <receiver
+            android:name="com.gipra.vicibshoppy.application.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

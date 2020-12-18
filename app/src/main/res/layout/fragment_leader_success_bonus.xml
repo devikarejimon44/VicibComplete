@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.IncomeDetails.LeaderSuccessBonus.LeaderSuccessBonusFragment">
+
+    <LinearLayout
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="From"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:hint="DD/MM/YYYY"
+                    android:id="@+id/fromdate_lsb"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:background="@drawable/searchbg"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:text="To"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:hint="DD/MM/YYYY"
+                    android:id="@+id/todate_lsb"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/searchbg"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"/>
+                <Button
+                    android:id="@+id/btnsearch_lsb"
+                    android:layout_marginLeft="5dp"
+                    android:text="Search"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:background="@color/colorAccent"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"/>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/lsb_search"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/searchbg"
+                android:layout_alignParentRight="true"
+                android:layout_width="250dp"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/horizontal_line"
+            android:layout_width="match_parent"
+            android:layout_height="5dp">
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/recycler_lsb"
+            android:padding="5dp"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/txtnodata_lsb"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+</FrameLayout>

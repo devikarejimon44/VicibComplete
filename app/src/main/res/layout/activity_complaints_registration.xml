@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Complaints.ComplaintsRegistration">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:id="@+id/back_complaintregistration"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrowback"
+                android:layout_marginLeft="5dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+            <TextView
+                android:text="Complaint Registration"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <LinearLayout
+               android:paddingBottom="90dp"
+               android:layout_margin="8dp"
+               android:layout_marginBottom="60dp"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <TextView
+                   android:layout_marginTop="10dp"
+                   android:text="WRITE WITH US!"
+                   android:textColor="@color/colorPrimaryDark"
+                   android:textSize="15dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:layout_marginTop="10dp"
+                   android:text="Complaint In"
+                   android:textSize="15dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+               <Spinner
+                   android:layout_marginTop="5dp"
+                   android:background="@drawable/linebg"
+                   android:layout_width="match_parent"
+                   android:layout_height="40dp"/>
+               <TextView
+                   android:layout_marginTop="10dp"
+                   android:text="Priority"
+                   android:textSize="15dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+               <Spinner
+                   android:layout_marginTop="5dp"
+                   android:background="@drawable/linebg"
+                   android:layout_width="match_parent"
+                   android:layout_height="40dp"/>
+               <TextView
+                   android:layout_marginTop="10dp"
+                   android:text="Subject"
+                   android:textSize="15dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:layout_marginTop="5dp"
+                   android:background="@drawable/linebg"
+                   android:layout_width="match_parent"
+                   android:layout_height="40dp"/>
+               <TextView
+                   android:layout_marginTop="10dp"
+                   android:text="Description"
+                   android:textSize="15dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:layout_marginTop="5dp"
+                   android:background="@drawable/linebg"
+                   android:layout_width="match_parent"
+                   android:layout_height="80dp"/>
+               <com.google.android.material.button.MaterialButton
+                   android:layout_gravity="center"
+                   android:layout_marginTop="10dp"
+                   android:text="Upload File"
+                   android:textSize="15dp"
+                   android:textColor="#FFFFFF"
+                   android:textAllCaps="false"
+                   android:background="@drawable/bluebg"
+                   android:layout_width="wrap_content"
+                   android:layout_height="40dp"/>
+               <ImageView
+                   android:layout_gravity="center"
+                   android:layout_marginTop="10dp"
+                   android:src="@drawable/ic_image_gallery"
+                   android:layout_width="200dp"
+                   android:layout_height="150dp"/>
+               <LinearLayout
+
+                   android:layout_gravity="center"
+                   android:gravity="center"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp">
+                   <com.google.android.material.button.MaterialButton
+                       android:layout_gravity="center"
+
+                       android:text="Submit"
+                       android:textSize="15dp"
+                       android:textColor="#FFFFFF"
+                       android:textAllCaps="false"
+                       android:background="@drawable/bluebg"
+                       android:layout_width="100dp"
+                       android:layout_height="40dp"/>
+                   <com.google.android.material.button.MaterialButton
+                       android:layout_marginLeft="15dp"
+                       android:layout_gravity="center"
+                       android:text="Reset"
+                       android:textSize="15dp"
+                       android:textColor="#FFFFFF"
+                       android:textAllCaps="false"
+                       android:background="@drawable/bluebg"
+                       android:layout_width="100dp"
+                       android:layout_height="40dp"/>
+               </LinearLayout>
+
+           </LinearLayout>
+       </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:id="@+id/complaints_dash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_dashboard"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/complaints_productstore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_cart_bottom"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Store"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/complaints_compliants"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_complaint_bottom"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complaints"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/complaints_idcard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_idcard"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Card"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/compliants_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/account_profile_pic"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_perosn_bottom"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

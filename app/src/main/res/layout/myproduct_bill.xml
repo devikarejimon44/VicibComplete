@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:background="@drawable/whitebg"
+    android:layout_height="wrap_content">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:layout_margin="20dp"
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <ImageView
+               android:src="@drawable/logo"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"/>
+           <TextView
+               android:text="@string/vicibaddress"
+               android:textColor="@android:color/black"
+               android:textSize="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+           <LinearLayout
+               android:layout_gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:text="GSTIN"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Invoice No"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Date"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Franchisee"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginLeft="20dp"
+                   android:orientation="vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:text="GSTIN"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Invoice No"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Date"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <TextView
+                       android:text="Franchisee"
+                       android:textColor="@android:color/black"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+               </LinearLayout>
+           </LinearLayout>
+           <TextView
+               android:layout_marginTop="20dp"
+               android:layout_gravity="center"
+               android:text="TAX INVOICE"
+               android:textColor="@android:color/black"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+           <LinearLayout
+               android:background="@drawable/dottedline"
+               android:layerType="software"
+               android:layout_width="match_parent"
+               android:layout_height="5dp"/>
+           <TextView
+               android:layout_marginTop="10dp"
+               android:text="MANU CM"
+               android:textColor="@android:color/black"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+           <TextView
+               android:text="CHIRAYIL HOUSE NADUBHAGOM CHAMPAKULAM PO ALAPPUZHA"
+               android:textColor="@android:color/black"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+           <TextView
+               android:text="8592055442"
+               android:textColor="@android:color/black"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <TextView
+               android:text="Item Name"
+               android:textColor="@android:color/black"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <LinearLayout
+               android:layout_marginTop="10dp"
+               android:background="@drawable/linepopup"
+               android:layerType="software"
+               android:layout_width="match_parent"
+               android:layout_height="5dp"/>
+           <TextView
+               android:text="GST SUMMARY"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+           <LinearLayout
+               android:background="@drawable/dottedline"
+               android:layerType="software"
+               android:layout_width="match_parent"
+               android:layout_height="5dp"/>
+       </LinearLayout>
+
+
+
+
+
+   </ScrollView>
+
+</RelativeLayout>
