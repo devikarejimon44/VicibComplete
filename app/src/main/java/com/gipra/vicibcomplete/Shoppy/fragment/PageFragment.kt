@@ -103,9 +103,7 @@ class PageFragment : Fragment() {
                         shimmerHomeCat?.stopShimmerAnimation()
                         shimmerHomeCat?.visibility =  View.GONE
 
-                        val layoutManager = GridLayoutManager(activity, 2)
-                        layoutManager.orientation = GridLayoutManager.VERTICAL
-                        categoryRecycler?.layoutManager = layoutManager
+
                         val Adaptor = CategoryHomeRecycler(activity,array)
 
                         categoryRecycler?.visibility =View.VISIBLE

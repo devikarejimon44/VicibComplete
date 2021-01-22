@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="130dp"
     android:layout_height="wrap_content">
 
@@ -73,11 +74,11 @@
                 android:id="@+id/deleteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?selectableItemBackgroundBorderless"
-                android:padding="5dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"                android:padding="5dp"
                 android:src="@drawable/ic_delete"
                 android:tint="#C9B8B8B8"
-                android:visibility="gone"></ImageButton>
+                android:visibility="gone"
+                tools:ignore="NewApi" />
 
 
         </RelativeLayout>
@@ -100,7 +101,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/ic_shopping_cart"
+                android:background="@drawable/ic_shopping_cart_shoppy"
                 android:backgroundTint="@color/colorWhiteShoppy"></View>
 
             <TextView

@@ -56,7 +56,7 @@ class CartRecycler(
             itemView.productName.text = dataObject.getString("item_name")
             itemView.actualPrice.text = "₹ " + dataObject.getString("price")
             itemView.category.text =   dataObject.getString("category_name")
-            itemView.pCount.text = "₹ " + dataObject.getString("product_count")
+            itemView.pCount.text =  dataObject.getString("product_count")
             //  itemView.discountPrice.setPaintFlags(itemView.discountPrice.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
         }
         //************************************************************************************************
@@ -160,7 +160,7 @@ class CartRecycler(
                             button.isEnabled = true
 
 
-                            itemView.pCount.text = "₹ " + count.toString()
+                            itemView.pCount.text =   count.toString()
                             var priceChange = count * price
                             itemView.actualPrice.text = "₹ " + priceChange.toString() +"0"
 

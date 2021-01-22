@@ -145,7 +145,9 @@ class CartItemRecycler(
 
                     if (jsonObject.getString("status") == "1") {
                         context?.showToast(jsonObject.getString("message"))
-                        array.remove(position)
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                            array.remove(position)
+                        }
                         notifyItemRemoved(position)
 
                         clickListiner.onDelete(jsonObject)

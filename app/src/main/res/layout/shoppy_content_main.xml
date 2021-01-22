@@ -72,33 +72,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp"
             android:orientation="vertical">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
+                app:tabBackground="@drawable/viewpager_tab_indicator"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="@dimen/padding_10"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
                 app:tabIndicatorColor="@color/colorPrimaryShoppy"
                 app:tabIndicatorFullWidth="false"
-                app:tabIndicatorHeight="3dp"
+                app:tabIndicatorHeight="0dp"
+                app:tabPadding="@dimen/padding_10"
                 app:tabMode="scrollable"
                 app:tabRippleColor="@color/colorDarkPrimaryShoppy"
-                app:tabSelectedTextColor="@color/colorPrimaryShoppy"
+                app:tabSelectedTextColor="@color/colorWhiteShoppy"
                 app:tabTextAppearance="@style/tab_text"
                 app:tabTextColor="@color/colorPrimaryShoppy"
-                app:tabUnboundedRipple="true"></com.google.android.material.tabs.TabLayout>
+                app:tabUnboundedRipple="true"/>
 
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
+                android:layout_height="440dp"
                 android:layout_marginLeft="15dp"
-                android:visibility="gone">
-            </androidx.viewpager.widget.ViewPager>
+                android:visibility="gone"/>
+
         </LinearLayout>
 
 
@@ -107,6 +107,7 @@
             android:id="@+id/shimmerHomeCat"
             android:layout_width="match_parent"
             android:layout_height="400dp"
+            android:visibility="visible"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
 
@@ -146,9 +147,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="15dp"
+            android:layout_margin="12dp"
             android:orientation="vertical">
 
             <RelativeLayout

@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include layout="@layout/shimmer_product_details" />
+
         <RelativeLayout
             android:id="@+id/topLayout"
             android:layout_width="match_parent"
@@ -31,7 +33,7 @@
                     android:layout_height="300dp"
                     android:layout_margin="20dp"
                     android:src="@drawable/no_image"
-                    android:visibility="gone"></ImageView>
+                    android:visibility="gone" />
 
                 <com.github.islamkhsh.CardSliderViewPager
                     android:id="@+id/productSlider"
@@ -61,10 +63,9 @@
                 android:layout_marginTop="12dp"
                 android:background="?selectableItemBackgroundBorderless"
                 android:padding="10dp"
-                android:src="@drawable/ic_arrow_black"></ImageButton>
+                android:src="@drawable/ic_arrow_black" />
         </RelativeLayout>
 
-            <include layout="@layout/shimmer_product_details"></include>
 
         <LinearLayout
             android:id="@+id/details"
@@ -85,7 +86,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/open_sans_semibold"
                 android:textColor="@color/colorBlackShoppy"
-                android:textSize="20dp"></TextView>
+                android:textSize="20dp" />
 
 
             <RelativeLayout
@@ -111,7 +112,7 @@
                         android:fontFamily="@font/open_sans_semibold"
                         android:paddingLeft="20dp"
                         android:textColor="@color/colorPrimaryShoppy"
-                        android:textSize="20dp"></TextView>
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/dPrice"
@@ -119,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans_semibold"
                         android:textColor="@color/colorGreyShoppy"
-                        android:textSize="10dp"></TextView>
+                        android:textSize="10dp" />
                 </LinearLayout>
 
 
@@ -146,7 +147,7 @@
                             android:layout_height="30dp"
                             android:layout_centerInParent="true"
                             android:background="@drawable/ic_shopping_cart_shoppy"
-                            android:backgroundTint="@color/colorWhiteShoppy"></View>
+                            android:backgroundTint="@color/colorWhiteShoppy" />
 
                         <TextView
                             android:id="@+id/itemCount"
@@ -186,7 +187,7 @@
                         android:text=" - "
                         android:textColor="@color/colorBlackShoppy"
                         android:textSize="30dp"
-                        android:textStyle="bold"></TextView>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/pCount"
@@ -198,7 +199,7 @@
                         android:text="1"
                         android:textColor="@color/colorBlackShoppy"
                         android:textSize="25dp"
-                        android:textStyle="bold"></TextView>
+                        android:textStyle="bold" />
 
 
                     <TextView
@@ -211,7 +212,7 @@
                         android:text=" + "
                         android:textColor="@color/colorBlackShoppy"
                         android:textSize="30dp"
-                        android:textStyle="bold"></TextView>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -226,7 +227,7 @@
                 android:paddingLeft="10dp"
                 android:text="About this product"
                 android:textColor="@color/colorBlackShoppy"
-                android:textSize="15dp"></TextView>
+                android:textSize="15dp" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -241,7 +242,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/AboutOrange"
-                    android:textColor="@color/colorGreyShoppy"></TextView>
+                    android:textColor="@color/colorGreyShoppy" />
 
             </ScrollView>
 
@@ -249,24 +250,20 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:layout_marginTop="20dp">
 
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                     android:id="@+id/addToCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:gravity="center"
-                    android:padding="@dimen/padding_10"
-                    android:elevation="0dp"
-                    app:elevation="0dp"
                     android:text="Add to Cart"
+                    android:textAllCaps="false"
                     android:textAppearance="?attr/textAppearanceButton"
                     android:textColor="@color/colorWhiteShoppy"
-                    android:textStyle="bold"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:backgroundTint="@color/colorAccentShoppy"
                     app:iconTint="@color/colorWhiteShoppy"
                     app:rippleColor="@color/colorDarkPrimaryShoppy">
@@ -277,22 +274,16 @@
                     android:id="@+id/viewCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10"
-                    android:layout_alignParentLeft="true"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:layout_margin="20dp"
                     android:gravity="center"
-                    android:elevation="0dp"
-                    app:elevation="0dp"
                     android:text="View Cart"
+                    android:textAllCaps="false"
                     android:textAppearance="?attr/textAppearanceButton"
                     android:textColor="@color/colorWhiteShoppy"
-                    android:textStyle="bold"
                     android:visibility="gone"
                     app:backgroundTint="@color/colorAccentShoppy"
                     app:iconTint="@color/colorWhiteShoppy"
-                    app:rippleColor="@color/colorDarkPrimaryShoppy">
-
-                </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+                    app:rippleColor="@color/colorDarkPrimaryShoppy" />
 
 
             </RelativeLayout>

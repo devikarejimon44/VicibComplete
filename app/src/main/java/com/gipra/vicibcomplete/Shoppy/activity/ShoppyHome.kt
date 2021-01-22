@@ -149,6 +149,10 @@ class ShoppyHome : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceive
         }
 
 
+
+
+
+
     }
 
 
@@ -536,10 +540,10 @@ class ShoppyHome : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceive
     }
 
     override fun onItemClicked() {
-        if (standardBottomSheet.visibility == View.VISIBLE)
-            standardBottomSheet.visibility = View.GONE
-        else
-            standardBottomSheet.visibility = View.VISIBLE
+//        if (standardBottomSheet.visibility == View.VISIBLE)
+//            standardBottomSheet.visibility = View.GONE
+//        else
+//            standardBottomSheet.visibility = View.VISIBLE
     }
 
     //***************************************************************************************************************

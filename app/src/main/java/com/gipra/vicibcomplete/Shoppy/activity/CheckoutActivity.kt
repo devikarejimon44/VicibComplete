@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.AuthFailureError
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.gipra.vicibcomplete.R
@@ -23,11 +24,16 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.shimmer_chechout_layout.*
+import kotlinx.android.synthetic.main.shimmer_chechout_layout.totalPrice
 
 import kotlinx.android.synthetic.main.shoppy_activity_checkout.*
+import kotlinx.android.synthetic.main.shoppy_activity_viewcart.*
 import kotlinx.android.synthetic.main.shoppy_show_checkout.*
+import kotlinx.android.synthetic.main.shoppy_show_checkout.fabCheckout
+import kotlinx.android.synthetic.main.shoppy_show_placeorder.*
 
 import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
 
 class CheckoutActivity : AppCompatActivity(), CartItemRecycler.CartItemClickListiner,
@@ -58,7 +64,7 @@ class CheckoutActivity : AppCompatActivity(), CartItemRecycler.CartItemClickList
 
 
         get_SharedPreferences()
-        getCartItems(login_id)
+        getCartList(login_id)
 
         if (address_id != "0") {
             getSelectedAddress(address_id.toString())
@@ -142,36 +148,47 @@ class CheckoutActivity : AppCompatActivity(), CartItemRecycler.CartItemClickList
 
     //************************************************************************************************
     //getCartItems
-    private fun getCartItems(loginId: String?) {
+    private fun getCartList(loginId: String?) {
         shimmerCheckoutItem.startShimmerAnimation()
+        val stringRequest =
+            object : StringRequest(
+                Method.POST, MySingleton.webService + "View_Cart_List",
+                Response.Listener<String> { response ->
+                    try {
 
-        val service = ServiceVolley()
-        val apiController = APIController(service)
-        val path = "View_Cart_List"
-        val params = JSONObject()
-        params.put("login_id", "4")
-        apiController.post(path, params) { jsonResponse ->
-            Log.e(TAG, "Response  $jsonResponse")
-            if (jsonResponse != null) {
 
-                if (jsonResponse.getString("status").equals("1")) {
+                        val objects = JSONObject(response)
 
-                    jsonArray = jsonResponse.getJSONArray("data")
-                    generateCartList(jsonArray)
-                    var total = jsonResponse.getString("total_sum")
-                    order_id = jsonResponse.getString("order_id")
-                    setTotals(total)
+                        if (objects.getString("status").equals("1")) {
+                            jsonArray = objects.getJSONArray("data")
+                            generateCartList(jsonArray)
+                            var total = objects.getString("total_sum")
+                            order_id = objects.getString("order_id")
+                            setTotals(total)
+                        }
+                        //  Log.e(TAG,response)
+                        else {
+//                            shimmerCheckoutItem.stopShimmerAnimation()
+//                            shimmerCheckoutItem.visibility = View.GONE
+                        }
 
-                } else {
-//                    shimmerCartActivity.stopShimmerAnimation()
-//                    shimmerCartActivity.visibility = View.GONE
-//                    checkoutView.visibility = View.VISIBLE
-//                    emptyCart.visibility = View.VISIBLE
+                    } catch (e: JSONException) {
+                        Log.e(TAG, e.toString())
+                    }
+                },
+                Response.ErrorListener { error ->
+                    Log.e(TAG, error.toString())
+                }) {
+                @Throws(AuthFailureError::class)
+                override fun getParams(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    loginId?.let { params.put("login_id", it) }
+                    return params
                 }
             }
-        }
-
+        VolleySingleton.getInstance(applicationContext).addToRequestQueue(stringRequest)
     }
+
 
     private fun setTotals(total: String) {
 
@@ -297,9 +314,6 @@ class CheckoutActivity : AppCompatActivity(), CartItemRecycler.CartItemClickList
                 snackBar?.setBackgroundTint(Color.rgb(33, 150, 243))
                 snackBar?.duration = BaseTransientBottomBar.LENGTH_SHORT
                 snackBar?.show()
-
-
-
 
 
 

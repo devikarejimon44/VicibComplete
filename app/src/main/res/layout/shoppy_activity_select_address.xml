@@ -37,6 +37,7 @@
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/listAddressShimmer"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
@@ -61,23 +62,25 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/padding_10"
-                android:onClick="addNewAddress"
-                android:id="@+id/addNew"
-                android:text="Add new address"
-                android:textAllCaps="false"
-                android:visibility="gone"
-                app:backgroundTint="@color/colorAccentShoppy"
-                app:icon="@android:drawable/ic_input_add">
-
-            </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="addNewAddress"
+        android:id="@+id/addNew"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:text="Add address"
+        android:textAllCaps="false"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorAccentShoppy"
+        app:icon="@android:drawable/ic_input_add">
+
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
