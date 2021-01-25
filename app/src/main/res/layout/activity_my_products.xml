@@ -5,42 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rlmyproducts"
-    tools:context=".MembersArea.Reports.MyProducts">
+    tools:context=".MembersArea.Reports.Mem_MyProducts.MyProducts">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:background="@color/colorPrimaryDark"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:id="@+id/back_myproducts"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrowback"
-                android:layout_marginLeft="5dp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-            <TextView
-                android:text="My Products"
-                android:textColor="@android:color/white"
-                android:textSize="18dp"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:id="@+id/bill"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_orderhistory"
-                android:layout_marginLeft="5dp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/myproducts_ToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="My Products"
+                app:titleTextColor="@color/colorWhiteShoppy">
+
+
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
+                android:id="@+id/ll_myproducts"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
@@ -102,10 +98,13 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"/>
             </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:layout_margin="5dp"
                     android:id="@+id/recycler_myproducts"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                     />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

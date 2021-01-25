@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,11 +49,12 @@ public class FirstPurchaseBVReport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_purchase_b_v_report);
-        ImageView back_firstpurchase_bvreport=findViewById(R.id.back_firstpurchase_bvreport);
-        back_firstpurchase_bvreport.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.firstpurchase_bvreport_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                onBackPressed();
             }
         });
         recyler_first_purchase_bv_report=findViewById(R.id.recyler_first_purchase_bv_report);

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,11 +52,12 @@ public class RepurchaseIncome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repurchase_income);
-        ImageView back_repurchaseincome=findViewById(R.id.back_repurchaseincome);
-        back_repurchaseincome.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.repurchaseincome_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                onBackPressed();
             }
         });
         re_incomeloader=findViewById(R.id.re_incomeloader);

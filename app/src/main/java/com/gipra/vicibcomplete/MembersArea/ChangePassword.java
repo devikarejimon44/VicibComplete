@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.gipra.vicibcomplete.R;
 
@@ -28,12 +29,12 @@ public class ChangePassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
-        back_changepsd=findViewById(R.id.back_changepsd);
-        back_changepsd.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.changepsd_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
         currentpsd=findViewById(R.id.currentpsd);

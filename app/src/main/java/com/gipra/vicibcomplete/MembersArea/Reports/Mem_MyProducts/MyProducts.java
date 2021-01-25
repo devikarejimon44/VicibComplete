@@ -1,4 +1,4 @@
-package com.gipra.vicibcomplete.MembersArea.Reports;
+package com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -67,14 +68,15 @@ public class MyProducts extends AppCompatActivity {
         rlmyproducts=findViewById(R.id.rlmyproducts);
 
 
-        ImageView back_myproducts=findViewById(R.id.back_myproducts);
-        back_myproducts.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.myproducts_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                onBackPressed();
             }
         });
-        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         fromdate.setInputType(InputType.TYPE_NULL);
         fromdate.requestFocus();
         fromdate.setOnClickListener(new View.OnClickListener() {
@@ -118,27 +120,27 @@ public class MyProducts extends AppCompatActivity {
                 searchmyproducts();
             }
         });
-        bill=findViewById(R.id.bill);
-        bill.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LayoutInflater layoutInflater = (LayoutInflater) MyProducts.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View customview = layoutInflater.inflate(R.layout.myproduct_bill, null);
-//                Button yes = customview.findViewById(R.id.yes);
-//                yes.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Logout();
-//                        popupWindow.dismiss();
-//                    }
-//                });
-
-                popupWindow = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.showAtLocation(rlmyproducts, Gravity.CENTER, 0, 0);
-                popupWindow.setFocusable(true);
-                popupWindow.update();
-            }
-        });
+//        bill=findViewById(R.id.bill);
+//        bill.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                LayoutInflater layoutInflater = (LayoutInflater) MyProducts.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//                View customview = layoutInflater.inflate(R.layout.myproduct_bill, null);
+////                Button yes = customview.findViewById(R.id.yes);
+////                yes.setOnClickListener(new View.OnClickListener() {
+////                    @Override
+////                    public void onClick(View v) {
+////                        Logout();
+////                        popupWindow.dismiss();
+////                    }
+////                });
+//
+//                popupWindow = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                popupWindow.showAtLocation(rlmyproducts, Gravity.CENTER, 0, 0);
+//                popupWindow.setFocusable(true);
+//                popupWindow.update();
+//            }
+//        });
 
     }
     private void searchmyproducts() {
@@ -150,7 +152,8 @@ public class MyProducts extends AppCompatActivity {
         String fdate=fromdate.getText().toString();
         String tdate=todate.getText().toString();
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseMyProducts> usercall=api.searchmyproducts(17426,"06/01/2020","08/09/2020");
+        Call<ResponseMyProducts> usercall=api.searchmyproducts(1,"06-01-2020","08-09-2020");
+      //  Call<ResponseMyProducts> usercall=api.searchmyproducts(1,fdate,tdate);
         usercall.enqueue(new Callback<ResponseMyProducts>() {
             @Override
             public void onResponse(Call<ResponseMyProducts> call, Response<ResponseMyProducts> response) {

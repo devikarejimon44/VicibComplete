@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,11 +52,12 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standard_team_sales_bonus_details);
-        ImageView back_silver_teamsalesbonusdetails=findViewById(R.id.back_silver_teamsalesbonusdetails);
-        back_silver_teamsalesbonusdetails.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.stand_teamsalesbonusdetails_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                onBackPressed();
             }
         });
         st_salesloader=findViewById(R.id.st_salesloader);

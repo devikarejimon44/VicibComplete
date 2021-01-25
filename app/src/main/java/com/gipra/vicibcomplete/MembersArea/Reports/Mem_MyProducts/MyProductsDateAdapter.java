@@ -1,42 +1,50 @@
-package com.gipra.vicibcomplete.MembersArea.Reports;
+package com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.gipra.vicibcomplete.R;
 
 import java.util.List;
 
-public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.ViewHolder>  {
-    private List<ListMyProducts> listMyProducts;
+public class MyProductsDateAdapter extends RecyclerView.Adapter<MyProductsDateAdapter.ViewHolder>{
+    private List<ListMyProductsDate> listMyProductsDate;
     private Context context;
-
-
-    public  MyProductsAdapter(List<ListMyProducts>listMyProducts,Context context){
-        this.listMyProducts=listMyProducts;
+    private static final String TAG = "MyProductsDateAdapter";
+    public  MyProductsDateAdapter(List<ListMyProductsDate>listMyProductsDate,Context context){
+        this.listMyProductsDate=listMyProductsDate;
         this.context=context;
     }
-    public MyProductsAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
-        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.myproduct_list,viewGroup,false);
-        return new MyProductsAdapter.ViewHolder(view);
+    public MyProductsDateAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
+        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.my_products_viewmore,viewGroup,false);
+        return new MyProductsDateAdapter.ViewHolder(view);
     }
-    public  void onBindViewHolder(MyProductsAdapter.ViewHolder viewHolder,final int i){
-        viewHolder.myproduct_product.setText(listMyProducts.get(i).getProductname());
-        viewHolder.myproduct_quantity.setText(listMyProducts.get(i).getBquantity());
-        viewHolder.myproduct_amount.setText(listMyProducts.get(i).getDp());
-        viewHolder.myproduct_totalamount.setText(String.valueOf(listMyProducts.get(i).getTotalAmount()));
-        viewHolder.myproduct_BV.setText(String.valueOf(listMyProducts.get(i).getTotalBv()));
-        viewHolder.myproduct_totalBV.setText(String.valueOf(listMyProducts.get(i).getTotalBv()));
-        viewHolder.myproducts_total_amount.setText(String.valueOf(listMyProducts.get(i).getTotalAmount()));
+    public  void onBindViewHolder(MyProductsDateAdapter.ViewHolder viewHolder,final int i){
+        try {
+            viewHolder.myproduct_product.setText(listMyProductsDate.get(i).getProductname());
+            viewHolder.myproduct_quantity.setText(listMyProductsDate.get(i).getBquantity());
+            viewHolder.myproduct_amount.setText(listMyProductsDate.get(i).getDp());
+            viewHolder.myproduct_totalamount.setText(String.valueOf(listMyProductsDate.get(i).getTotalAmount()));
+            viewHolder.myproduct_BV.setText(String.valueOf(listMyProductsDate.get(i).getTotalBv()));
+            viewHolder.myproduct_totalBV.setText(String.valueOf(listMyProductsDate.get(i).getTotalBv()));
+        }catch (Exception e){
+            Log.e(TAG, "error" + e);
+        }
+      
 
 
-//
+
+
 //        final String userimg = userStoryList.get(i).getUserImage();
 //        Glide.with(context)
 //                .load(userimg)
@@ -69,17 +77,15 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
 //        });
 
 
-
     }
     @Override
     public int getItemCount() {
-        return listMyProducts.size();
+        return listMyProductsDate.size();
     }
     public  class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView myproduct_product,myproduct_quantity,myproduct_amount,myproduct_totalamount;
-        TextView myproduct_BV,myproduct_totalBV,myproducts_total_amount;
-
+        TextView myproduct_BV,myproduct_totalBV;
 
 
         public ViewHolder(View view) {
@@ -90,9 +96,6 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
             myproduct_totalamount=view.findViewById(R.id.myproduct_totalamount);
             myproduct_BV=view.findViewById(R.id.myproduct_BV);
             myproduct_totalBV=view.findViewById(R.id.myproduct_totalBV);
-            myproducts_total_amount=view.findViewById(R.id.myproducts_total_amount);
-
-
 
         }
     }

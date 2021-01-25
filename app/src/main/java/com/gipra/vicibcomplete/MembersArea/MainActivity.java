@@ -1,14 +1,19 @@
 package com.gipra.vicibcomplete.MembersArea;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -20,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -34,7 +40,6 @@ import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintStatus;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 
 import com.gipra.vicibcomplete.MembersArea.Gene.PremiumPlanGenealogy;
-import com.gipra.vicibcomplete.MembersArea.Gene.SponsorTree;
 import com.gipra.vicibcomplete.MembersArea.Gene.StandardPlanGene;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
 import com.gipra.vicibcomplete.MembersArea.Payout.PayoutLedger;
@@ -45,7 +50,7 @@ import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.PremiumTeamSalesBo
 import com.gipra.vicibcomplete.MembersArea.Reports.BasicActiveMembers;
 import com.gipra.vicibcomplete.MembersArea.Reports.FirstPurchaseBVReport;
 import com.gipra.vicibcomplete.MembersArea.Reports.LeftSideMembers;
-import com.gipra.vicibcomplete.MembersArea.Reports.MyProducts;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.MyProducts;
 import com.gipra.vicibcomplete.MembersArea.Reports.RightSideMembers;
 import com.gipra.vicibcomplete.MembersArea.Reports.SponsorsList;
 import com.gipra.vicibcomplete.MembersArea.RepurchasePlanReports.DownlineRepurchaseDetails;
@@ -56,7 +61,6 @@ import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardLeftSideS
 import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardRightSideSales;
 import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardTeamSalesBVMatching;
 import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardTeamSalesBonusDetails;
-import com.gipra.vicibcomplete.MembersArea.ui.Genealogy.SponsorsDownlineList;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
 import com.google.android.material.navigation.NavigationView;
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     PopupWindow popupWindow2;
     ImageView logout;
     AVLoadingIndicatorView logout_loader;
+    CoordinatorLayout layout_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,12 +105,41 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         logout_loader=findViewById(R.id.logout_loader);
+        layout_home=findViewById(R.id.layout_home);
         logout=findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                logout();
+
+                LogoutSheet logoutSheet = new LogoutSheet();
+                logoutSheet.show(getSupportFragmentManager(),
+                        "ModalBottomSheet");
+
+
+//                LayoutInflater layoutInflater = (LayoutInflater) MainActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//                View customview = layoutInflater.inflate(R.layout.story_delete_popup, null);
+//                Button yes = customview.findViewById(R.id.yes);
+//                yes.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        logout();
+//
+//                    }
+//                });
+//                Button no = customview.findViewById(R.id.no);
+//                no.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        popupWindow2.dismiss();
+//                    }
+//                });
+//                popupWindow2 = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                popupWindow2.showAtLocation(layout_home, Gravity.CENTER, 0, 0);
+//                popupWindow2.setFocusable(true);
+//                popupWindow2.update();
+//
+
             }
         });
         setSupportActionBar(toolbar);
@@ -355,6 +389,11 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent Intent = new Intent(getApplicationContext(), ShoppyHome.class);
                        startActivity(Intent);
+                       // DashBoardFragment fragment = new DashBoardFragment();
+                    //                    getSupportFragmentManager().beginTransaction()
+                    //                            .replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                    //                    //toolbar.setTitle("Dashboard");
+                    //                    onBackPressed();
 
 
                 }
@@ -401,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                    if (groupPosition==4){
+                if (groupPosition==4){
                         if(childPosition == 0){
                             Intent Intent = new Intent(getApplicationContext(), MyProducts.class);
                             startActivity(Intent);
@@ -660,32 +699,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
-        finish();
+//        Intent a = new Intent(Intent.ACTION_MAIN);
+//        a.addCategory(Intent.CATEGORY_HOME);
+//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(a);
+//        finish();
 
-//        DrawerLayout layout = (DrawerLayout)findViewById(R.id.drawer_layout);
-//        if (layout.isDrawerOpen(GravityCompat.START)) {
-//            layout.closeDrawer(GravityCompat.START);
-//        }
-//        else{
-//            FragmentManager fm = getFragmentManager();
-//            if (fm.getBackStackEntryCount() > 0 && fm.getBackStackEntryCount() != 1) {
-//                fm.popBackStackImmediate();
-//            } else if (fm.getBackStackEntryCount() == 1) {
-//                toolbar.setTitle("dashboard..");
-//                fm.popBackStackImmediate();
-//            } else {
-//                toolbar.setTitle("Dashboard");
-//                super.onBackPressed();
-//
-//            }
-//
-//           //MainActivity.super.onBackPressed();
-//
-//        }
+        DrawerLayout layout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        if (layout.isDrawerOpen(GravityCompat.START)) {
+            layout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            FragmentManager fm = getFragmentManager();
+            if (fm.getBackStackEntryCount() > 0 && fm.getBackStackEntryCount() != 1) {
+                fm.popBackStackImmediate();
+            } else if (fm.getBackStackEntryCount() == 1) {
+                toolbar.setTitle("dashboard..");
+                fm.popBackStackImmediate();
+            } else {
+                toolbar.setTitle("Dashboard");
+                super.onBackPressed();
+
+            }
+
+           //MainActivity.super.onBackPressed();
+
+        }
 
 
 

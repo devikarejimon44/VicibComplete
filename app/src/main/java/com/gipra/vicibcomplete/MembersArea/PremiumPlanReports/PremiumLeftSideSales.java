@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,11 +51,12 @@ public class PremiumLeftSideSales extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_premium_left_side_sales);
-        ImageView back_gold_leftsidesales=findViewById(R.id.back_gold_leftsidesales);
-        back_gold_leftsidesales.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.premium_leftsales_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                onBackPressed();
             }
         });
         premium_leftloader=findViewById(R.id.premium_leftloader);

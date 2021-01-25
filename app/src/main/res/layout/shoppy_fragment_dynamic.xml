@@ -29,7 +29,6 @@
             android:textAllCaps="false"
             android:textAlignment="center"
             android:drawableRight="@drawable/ic_next_shoppy"
-            android:background="?selectableItemBackgroundBorderless"
             app:backgroundTint="@color/colorAccentShoppy">
 
         </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>

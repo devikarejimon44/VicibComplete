@@ -2,6 +2,8 @@ package com.gipra.vicibcomplete.MembersArea;
 
 
 
+import com.gipra.vicibcomplete.MembersArea.Complaints.ResponseComplaintsImageUpload;
+import com.gipra.vicibcomplete.MembersArea.Complaints.ResponseComplaintsList;
 import com.gipra.vicibcomplete.MembersArea.District.ResponseDistrict;
 import com.gipra.vicibcomplete.MembersArea.Gene.ResponsePremiumGenealogy;
 import com.gipra.vicibcomplete.MembersArea.Gene.ResponseStandardGenealogy;
@@ -12,9 +14,11 @@ import com.gipra.vicibcomplete.MembersArea.Payout.ResponsePayoutLedger;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumListLeftSideSales;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumTeamSalesBVMatching;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumTeamSalesBonusDetails;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.MyproductDate;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ResponseMyProductsDate;
 import com.gipra.vicibcomplete.MembersArea.Reports.ResponseFirstPurchaseBVReport;
 import com.gipra.vicibcomplete.MembersArea.Reports.ResponseLeftSideMembers;
-import com.gipra.vicibcomplete.MembersArea.Reports.ResponseMyProducts;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ResponseMyProducts;
 import com.gipra.vicibcomplete.MembersArea.Reports.ResponseSponsorsList;
 import com.gipra.vicibcomplete.MembersArea.RepurchasePlanReports.ResponseDownlineRepurchaseDetails;
 import com.gipra.vicibcomplete.MembersArea.RepurchasePlanReports.ResponseRepurchaseBvReport;
@@ -64,6 +68,13 @@ public interface ApiInterface {
     Call<ResponseMyProducts>searchmyproducts(@Field("userid") int userid,
                                              @Field("fromdate") String fromdate,
                                              @Field("todate") String todate);
+
+    @FormUrlEncoded
+    @POST("Myproduct_date")
+    Call<ResponseMyProductsDate>searchmyproductsdate(@Field("userid") int userid,
+                                                 @Field("fromdate") String fromdate);
+
+
     @FormUrlEncoded
     @POST("First_purchase_bv_report")
     Call<ResponseFirstPurchaseBVReport>SearchFirstPurchase(@Field("userid") int userid,
@@ -85,6 +96,7 @@ public interface ApiInterface {
                                        @Field("c_address") String c_address,
                                        @Field("n_pincode") String n_pincode,
                                        @Field("c_country") String c_country,
+                                       @Field("C_STATE")String C_STATE,
                                        @Field("C_DISTRICT") String C_DISTRICT,
                                        @Field("C_PANCHAYAT") String C_PANCHAYAT,
                                        @Field("c_nominee_name") String c_nominee_name,
@@ -243,6 +255,17 @@ public interface ApiInterface {
                                         @Field("C_IFC_CODE") String C_IFC_CODE,
                                         @Field("c_nominee_name") String c_nominee_name,
                                         @Field("c_relation") String c_relation);
+
+    @FormUrlEncoded
+    @POST("Complaint_list")
+    Call<ResponseComplaintsList>ComplaintsList(@Field("id") int id,
+                                                   @Field("from_date") String fromdate,
+                                                   @Field("to_date") String todate);
+    @Multipart
+    @POST("Complaint_image_upload")
+    Call<ResponseComplaintsImageUpload>CompImageUpload(@Part("c_profile_photo\";filename=\"myfile.jpg\"") RequestBody file,
+                                                   @Part("member_id") int member_id);
+
 
 
 

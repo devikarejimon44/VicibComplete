@@ -29,6 +29,7 @@ import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 import com.gipra.vicibcomplete.MembersArea.IDCard;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.MyProfile;
 import com.gipra.vicibcomplete.MembersArea.ProductStore;
+import com.gipra.vicibcomplete.MembersArea.SavePdf;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
 import com.google.android.material.tabs.TabLayout;
@@ -131,9 +132,9 @@ public class DashBoardFragment extends Fragment {
                 d_standard_layout.setVisibility(View.GONE);
                 d_btnprofile.setBackgroundResource(R.drawable.yellowbg);
                 d_btnprofile.setTextColor(Color.WHITE);
-                d_btnpremium.setBackgroundColor(Color.WHITE);
+                d_btnpremium.setBackgroundResource(R.drawable.white_bg);
                 d_btnpremium.setTextColor(Color.BLACK);
-                d_btnstandard.setBackgroundColor(Color.WHITE);
+                d_btnstandard.setBackgroundResource(R.drawable.white_bg);
                 d_btnstandard.setTextColor(Color.BLACK);
 //  yourView.setBackgroundColor(Color.parseColor("#ffffff"));
 
@@ -154,9 +155,9 @@ public class DashBoardFragment extends Fragment {
 
                 d_btnpremium.setBackgroundResource(R.drawable.yellowbg);
                 d_btnpremium.setTextColor(Color.WHITE);
-                d_btnprofile.setBackgroundColor(Color.WHITE);
+                d_btnprofile.setBackgroundResource(R.drawable.white_bg);
                 d_btnprofile.setTextColor(Color.BLACK);
-                d_btnstandard.setBackgroundColor(Color.WHITE);
+                d_btnstandard.setBackgroundResource(R.drawable.white_bg);
                 d_btnstandard.setTextColor(Color.BLACK);
             }
         });
@@ -169,9 +170,9 @@ public class DashBoardFragment extends Fragment {
 
                 d_btnstandard.setBackgroundResource(R.drawable.yellowbg);
                 d_btnstandard.setTextColor(Color.WHITE);
-                d_btnprofile.setBackgroundColor(Color.WHITE);
+                d_btnprofile.setBackgroundResource(R.drawable.white_bg);
                 d_btnprofile.setTextColor(Color.BLACK);
-                d_btnpremium.setBackgroundColor(Color.WHITE);
+                d_btnpremium.setBackgroundResource(R.drawable.white_bg);
                 d_btnpremium.setTextColor(Color.BLACK);
             }
         });
@@ -188,7 +189,7 @@ public class DashBoardFragment extends Fragment {
         dash_compliants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ComplaintsRegistration.class);
+                Intent intent = new Intent(getActivity(), SavePdf.class);
                 startActivity(intent);
             }
         });

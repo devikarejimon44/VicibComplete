@@ -12,33 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <RelativeLayout
-            android:background="@color/colorPrimaryDark"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrowback"
-                android:layout_marginLeft="5dp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-            <TextView
-                android:text="Standard Plan Genealogy"
-                android:textColor="@android:color/white"
-                android:textSize="18dp"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:id="@+id/st_info"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/info"
-                android:layout_gravity="right"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/standard_geneToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="Standard Plan Genealogy"
+                app:titleTextColor="@color/colorWhiteShoppy">
+
+                <ImageView
+                    android:id="@+id/st_info"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/info" />
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -440,8 +438,6 @@
                         android:textColor="#FFFFFF"
                         android:textSize="12sp" />
                 </LinearLayout>
-
-
 
 
             </LinearLayout>

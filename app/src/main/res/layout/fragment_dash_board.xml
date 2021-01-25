@@ -223,7 +223,7 @@
                          android:id="@+id/d_btnpremium"
                          android:textSize="10dp"
                          android:text="Premium Plan Team"
-                         android:background="@android:color/white"
+                         android:background="@drawable/white_bg"
                          android:textColor="@android:color/black"
                          android:layout_margin="8dp"
                          android:layout_width="10dp"
@@ -233,7 +233,7 @@
                          android:id="@+id/d_btnstandard"
                          android:textSize="10dp"
                          android:text="Standard Plan Team"
-                         android:background="@android:color/white"
+                         android:background="@drawable/white_bg"
                          android:textColor="@android:color/black"
                          android:layout_margin="8dp"
                          android:layout_width="0dp"
@@ -360,7 +360,6 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-
 
 
                 </LinearLayout>

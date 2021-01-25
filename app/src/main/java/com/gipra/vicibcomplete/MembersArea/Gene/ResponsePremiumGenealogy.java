@@ -29,4 +29,5 @@ public class ResponsePremiumGenealogy {
         this.data = data;
     }
 
+
 }

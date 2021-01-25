@@ -2,6 +2,7 @@ package com.gipra.vicibcomplete.MembersArea.MyProfile;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,9 +15,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -42,6 +46,8 @@ import com.gipra.vicibcomplete.MembersArea.MainActivity;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 import com.gipra.vicibcomplete.MembersArea.ProductStore;
+import com.gipra.vicibcomplete.MembersArea.Reports.LeftSideMembers;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.MyProducts;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.OrderHistoryActivity;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
@@ -49,6 +55,9 @@ import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
@@ -71,12 +80,18 @@ public class MyProfile extends AppCompatActivity {
  RadioGroup edit_gender;
  RadioButton radioButton;
  ImageView order_history_myprof;
+ ImageView bank_upload;
+ Button btn_back_upload;
+
+    DatePickerDialog from;
+    SimpleDateFormat dateFormatter;
 
 
     ImageView picphoto;
     CircleImageView changephoto;
     AVLoadingIndicatorView photo_loader;
     private static final int SELECT_PIC = 100;
+    private static final int SELECT_BANK = 100;
     private static final String TAG = "MyProfile";
 
 
@@ -84,9 +99,16 @@ public class MyProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
+       Toolbar toolbar=findViewById(R.id.myprofileToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
-        photo_loader=findViewById(R.id.photo_loader);
-        order_history_myprof=findViewById(R.id.order_history_myprof);
+        order_history_myprof=toolbar.findViewById(R.id.order_history_myprof);
         order_history_myprof.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +116,19 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
+
+
+        photo_loader=findViewById(R.id.photo_loader);
+        bank_upload=findViewById(R.id.bank_upload);
+        btn_back_upload=findViewById(R.id.btn_back_upload);
+        btn_back_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handlePermission();
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, 100);
+            }
+        });
         myprofile_name=findViewById(R.id.myprofile_name);
         prof_userid=findViewById(R.id.prof_userid);
         prof_sponsorid=findViewById(R.id.prof_sponsorid);
@@ -106,6 +141,28 @@ public class MyProfile extends AppCompatActivity {
         edit_gender=findViewById(R.id.edit_gender);
         edit_mobile=findViewById(R.id.edit_mobile);
         edit_dob=findViewById(R.id.edit_dob);
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        edit_dob.setInputType(InputType.TYPE_NULL);
+        edit_dob.requestFocus();
+        edit_dob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                from.show();
+            }
+        });
+
+        Calendar newCalendar = Calendar.getInstance();
+        from = new DatePickerDialog(MyProfile.this, new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                edit_dob.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
         edit_email=findViewById(R.id.edit_email);
         edit_address=findViewById(R.id.edit_address);
         edit_country=findViewById(R.id.edit_country);
@@ -227,6 +284,7 @@ public class MyProfile extends AppCompatActivity {
      });
     }
     private void Upadte() {
+        Toast.makeText(this, "sfsdgsdgds", Toast.LENGTH_SHORT).show();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -246,28 +304,47 @@ public class MyProfile extends AppCompatActivity {
         String accountnum=edit_accountnum.getText().toString();
         String ifsc=edit_ifsc.getText().toString();
         String gen=radioButton.getText().toString();
-        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseEditProfile> call = api.UpdateProf(Integer.parseInt(id),name,gen,dob,mobile,email,address,"99","KL","Kottayam",panchayth,zipcode,pannumber,bankname,branch,accountnum,ifsc,noiminenname,nomineerelation);
+        ApiInterface api=ApiClient.getClient().create(ApiInterface.class);
+        Call<ResponseEditProfile>call=api.UpdateProf(1,"keerthana","female","10/10/2000","9695695656",
+                "dsacasc","dasdc","99","KL","Kottayam","636363","636565","DVFgvhhgf",
+                "Fedral","Kottayam","2516436251","FDG52555","ghjhhd","ghgsdfgs");
         call.enqueue(new Callback<ResponseEditProfile>() {
             @Override
             public void onResponse(Call<ResponseEditProfile> call, Response<ResponseEditProfile> response) {
                 if (response.body().getStatus().equals("1")){
-                    Toast.makeText(MyProfile.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyProfile.this, "dsadada", Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-                    Toast.makeText(MyProfile.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-
             }
-
             @Override
             public void onFailure(Call<ResponseEditProfile> call, Throwable t) {
+                Toast.makeText(MyProfile.this, "Error", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-
+//        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
+//        Call<ResponseEditProfile> call = api.UpdateProf(1,"keerthana","female","10/10/2000","9695695656",
+//                "dsacasc","dasdc","99","KL","Kottayam","636363","636565","DVFgvhhgf",
+//                "Fedral","Kottayam","2516436251","FDG52555","ghjhhd","ghgsdfgs");
+//        call.enqueue(new Callback<ResponseEditProfile>() {
+//            @Override
+//            public void onResponse(Call<ResponseEditProfile> call, Response<ResponseEditProfile> response) {
+//                Log.i("onResponse", new Gson().toJson(response.body()));
+//                if (response.body().getStatus().equals("1")){
+//                    Toast.makeText(MyProfile.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//                else
+//                {
+//                    Toast.makeText(MyProfile.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseEditProfile> call, Throwable t) {
+//
+//            }
+//        });
     }
     private  void ViewPhoto(){
      SharedPreferences shpref;
@@ -304,6 +381,12 @@ public class MyProfile extends AppCompatActivity {
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     SELECT_PIC);
         }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            //ask for permission
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    SELECT_BANK);
+        }
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -321,6 +404,8 @@ public class MyProfile extends AppCompatActivity {
                         }
                     }
                 }
+
+
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
@@ -367,8 +452,6 @@ public class MyProfile extends AppCompatActivity {
             final Uri selectedImage = data.getData();
             if (null !=selectedImage){
                 String path=getRealPathFromURI(selectedImage);
-
-
 
 
                 Log.i(TAG, "Image Path : " + path);

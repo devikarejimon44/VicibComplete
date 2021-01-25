@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,11 +51,12 @@ public class StandardLeftSideSales extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standard_left_side_sales);
-        ImageView back_silver_lefttsidesales=findViewById(R.id.back_silver_lefttsidesales);
-        back_silver_lefttsidesales.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar=findViewById(R.id.stand_lefttsidesales_ToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                onBackPressed();
             }
         });
         st_leftloader=findViewById(R.id.st_leftloader);
