@@ -482,7 +482,6 @@ class ShoppyHome : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceive
         ConnectivityReceiver.connectivityReceiverListener = this
     }
 
-
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
         showNetworkMessage(isConnected)
     }

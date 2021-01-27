@@ -26,5 +26,4 @@ public class StateList {
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
     }
-
 }

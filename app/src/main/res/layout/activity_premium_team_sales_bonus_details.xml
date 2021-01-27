@@ -9,25 +9,28 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:background="@color/colorPrimaryDark"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:id="@+id/back_gold_teamsalesbonusdetails"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrowback"
-                android:layout_marginLeft="5dp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-            <TextView
-                android:text="Team Sales Bonus Details"
-                android:textColor="@android:color/white"
-                android:textSize="18dp"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/premium_teamsales_ToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="Team Sales Bonus Details"
+                app:titleTextColor="@color/colorWhiteShoppy">
+
+
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">

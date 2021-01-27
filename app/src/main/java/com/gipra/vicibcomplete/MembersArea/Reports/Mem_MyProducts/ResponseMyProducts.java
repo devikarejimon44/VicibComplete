@@ -1,5 +1,6 @@
-package com.gipra.vicibcomplete.MembersArea.Reports;
+package com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts;
 
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ListMyProducts;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

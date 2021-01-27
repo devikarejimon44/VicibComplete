@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gipra.vicibcomplete">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -19,7 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MembersArea.Gene.StandardPlanGene"></activity>
+        <activity android:name=".MembersArea.IDCardPdf"></activity>
+        <activity android:name=".MembersArea.LogoutSheet" />
+        <activity android:name=".MembersArea.Gene.StandardPlanGene" />
         <activity android:name=".MembersArea.Reports.BasicActiveMembers" />
         <activity android:name=".MembersArea.Complaints.ComplaintStatus" />
         <activity android:name=".MembersArea.Complaints.ComplaintsRegistration" />
@@ -41,7 +46,7 @@
         <activity android:name=".MembersArea.Reports.LeftSideMembers" />
         <activity android:name=".MembersArea.Reports.SponsorsList" />
         <activity android:name=".MembersArea.Reports.FirstPurchaseBVReport" />
-        <activity android:name=".MembersArea.Reports.MyProducts" />
+        <activity android:name=".MembersArea.Reports.Mem_MyProducts.MyProducts" />
         <activity android:name=".MembersArea.Gene.SponsorDownlineList" />
         <activity android:name=".MembersArea.Gene.SponsorTabularView" />
         <activity android:name=".MembersArea.Gene.SponsorTree" />
@@ -56,6 +61,10 @@
         <activity android:name=".MembersArea.ProductStore" />
         <activity android:name=".MembersArea.MyProfile.MyProfile" />
         <activity android:name=".MembersArea.Login" />
+
+        <activity android:name=".MembersArea.SavePdf"></activity>
+        <activity android:name=".MembersArea.PDFViewActivity"/>
+
         <activity
             android:name=".MembersArea.MainActivity"
             android:label="@string/app_name"
@@ -78,6 +87,8 @@
             </intent-filter>
 
         </activity>
+
+
 
         <receiver
             android:name="com.gipra.vicibshoppy.application.ConnectivityReceiver"

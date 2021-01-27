@@ -1,6 +1,7 @@
 package com.gipra.vicibcomplete.MembersArea.Gene;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -51,6 +52,15 @@ public class StandardPlanGene extends AppCompatActivity {
         setContentView(R.layout.activity_standard_plan_gene);
         st_layout=findViewById(R.id.st_layout);
 
+        Toolbar toolbar=findViewById(R.id.standard_geneToolBar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
               st_info = findViewById(R.id.st_info);
           st_info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,13 +75,71 @@ public class StandardPlanGene extends AppCompatActivity {
             }
         });
         st_imgone=findViewById(R.id.st_imgone);
+        st_imgone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid0);
+                BottomSheet();
+//
+//                GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
+//                bottomSheet.show(getSupportFragmentManager(),
+//                        "ModalBottomSheet");
+            }
+        });
         st_imgtwo=findViewById(R.id.st_imgtwo);
+        st_imgtwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid1);
+                BottomSheet();
+//
+            }
+        });
         st_imgthree=findViewById(R.id.st_imgthree);
-        st_imgfour=findViewById(R.id.st_imgfour);
-        st_imgfive=findViewById(R.id.st_imgfive);
-        st_imgsix=findViewById(R.id.st_imgsix);
-        st_imgseven=findViewById(R.id.st_imgseven);
+        st_imgthree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid2);
+                BottomSheet();
 
+            }
+        });
+        st_imgfour=findViewById(R.id.st_imgfour);
+        st_imgfour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid3);
+                BottomSheet();
+
+            }
+        });
+        st_imgfive=findViewById(R.id.st_imgfive);
+        st_imgfive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid4);
+                BottomSheet();
+
+            }
+        });
+        st_imgsix=findViewById(R.id.st_imgsix);
+        st_imgsix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid5);
+                BottomSheet();
+
+            }
+        });
+        st_imgseven=findViewById(R.id.st_imgseven);
+        st_imgseven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gene(uid6);
+                BottomSheet();
+
+            }
+        });
         st_txtone=findViewById(R.id.st_txtone);
         st_txttwo=findViewById(R.id.st_txttwo);
         st_txtthree=findViewById(R.id.st_txtthree);
@@ -160,7 +228,7 @@ public class StandardPlanGene extends AppCompatActivity {
             public void onClick(View v) {
                 if (uid1.equals("0")){
 
-                    // Toast.makeText(getActivity(), "nulllllllllllll", Toast.LENGTH_SHORT).show();
+
                     Intent i=new Intent(getApplicationContext(), Registration.class);
                     startActivity(i);
 
@@ -249,7 +317,7 @@ public class StandardPlanGene extends AppCompatActivity {
         });
 
     }
-    private  void gene(String id){
+    private  void gene(final String id){
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseStandardGenealogy>call=api.StandardGene(Integer.parseInt(id));
         call.enqueue(new Callback<ResponseStandardGenealogy>() {
@@ -258,6 +326,13 @@ public class StandardPlanGene extends AppCompatActivity {
                 if (response.body().getStatus().equals("1")){
                     final ResponseStandardGenealogy responseStandardGenealogy = response.body();
                     listStandardPlanGenealogy = (ArrayList<ListStandardPlanGenealogy>)responseStandardGenealogy.getData();
+                    String userid=listStandardPlanGenealogy.get(0).getUserid();
+                    String uname=listStandardPlanGenealogy.get(0).getName();
+                    SharedPreferences sharedPreferences;
+                    sharedPreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putString("USERNAME",uname);
+                    editor.putString("UID",userid);
 
 //                   postion 0
 
@@ -519,15 +594,6 @@ public class StandardPlanGene extends AppCompatActivity {
                                 .into(st_imgseven);
                     }
 
-
-
-
-
-
-
-
-
-
                 }
             }
 
@@ -538,5 +604,12 @@ public class StandardPlanGene extends AppCompatActivity {
         });
 
     }
+    private void BottomSheet(){
+
+        GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
+        bottomSheet.show(getSupportFragmentManager(),
+                "ModalBottomSheet");
+    }
+
 
 }

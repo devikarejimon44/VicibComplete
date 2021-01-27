@@ -50,7 +50,6 @@ class OrderHistoryActivity : AppCompatActivity() ,OrderRecyclerAdaptor.OrderItem
 
     }
     
-
     private fun getOrderHistory() {
         shimmerOrderHistory.startShimmerAnimation()
         val stringRequest =
@@ -84,7 +83,6 @@ class OrderHistoryActivity : AppCompatActivity() ,OrderRecyclerAdaptor.OrderItem
             }
         VolleySingleton.getInstance(applicationContext).addToRequestQueue(stringRequest)
     }
-
     private fun generateRecyclerView(array: JSONArray) {
         shimmerOrderHistory.stopShimmerAnimation()
         shimmerOrderHistory.visibility = View.GONE

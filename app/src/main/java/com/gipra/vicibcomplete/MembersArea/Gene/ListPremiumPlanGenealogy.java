@@ -180,5 +180,4 @@ public class ListPremiumPlanGenealogy {
     public void setGold1(String gold1) {
         this.gold1 = gold1;
     }
-
 }

@@ -36,6 +36,24 @@
             android:textAllCaps="false"
             android:visibility="gone"
             app:backgroundTint="@color/colorAccentShoppy" />
+            android:drawableRight="@drawable/ic_next_shoppy"
+            app:backgroundTint="@color/colorAccentShoppy">
+
+        </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/viewMore"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:text="View More"-->
+        <!--        android:textAllCaps="true"-->
+        <!--        android:layout_gravity="center"-->
+        <!--        android:layout_margin="4dp"-->
+        <!--        android:visibility="gone"-->
+        <!--        android:layout_marginTop="5dp"-->
+        <!--        android:clickable="true"-->
+        <!--        android:background="?selectableItemBackgroundBorderless"-->
+        <!--        android:textColor="@color/colorDarkPrimary"></TextView>-->
 
     </LinearLayout>
 

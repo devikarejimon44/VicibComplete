@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_centerInParent="true"
-        android:padding="20dp"
+        android:padding="60dp"
         android:background="@drawable/whitebg"
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -16,8 +16,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/vacant"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
             <TextView
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
@@ -34,8 +34,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/notactive"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
             <TextView
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
@@ -53,8 +53,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/active"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
             <TextView
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"

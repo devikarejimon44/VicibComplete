@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Complaints.ComplaintsRegistration">
+    tools:context=".MembersArea.Complaints.ComplaintsRegistration">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:background="@color/colorPrimaryDark"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:id="@+id/back_complaintregistration"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrowback"
-                android:layout_marginLeft="5dp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
-            <TextView
-                android:text="Complaint Registration"
-                android:textColor="@android:color/white"
-                android:textSize="18dp"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/compliant_reg_ToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="Complaint Registration"
+                app:titleTextColor="@color/colorWhiteShoppy">
+
+
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
        <ScrollView
            android:layout_width="match_parent"
            android:layout_height="match_parent">
@@ -49,48 +54,63 @@
                    android:layout_marginTop="10dp"
                    android:text="Complaint In"
                    android:textSize="15dp"
+                   android:textColor="@color/colorBlackShoppy"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
+
                <Spinner
-                   android:layout_marginTop="5dp"
-                   android:background="@drawable/linebg"
+                   android:id="@+id/comp_complaints_in"
                    android:layout_width="match_parent"
-                   android:layout_height="40dp"/>
+                   android:layout_height="40dp"
+                   android:layout_marginTop="5dp"
+                   android:background="@drawable/linebg" />
+
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Priority"
+                   android:textColor="@color/colorBlackShoppy"
                    android:textSize="15dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
                <Spinner
+                   android:id="@+id/comp_priority"
                    android:layout_marginTop="5dp"
                    android:background="@drawable/linebg"
                    android:layout_width="match_parent"
+
                    android:layout_height="40dp"/>
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Subject"
                    android:textSize="15dp"
+                   android:textColor="@color/colorBlackShoppy"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
-               <TextView
+               <EditText
+                   android:id="@+id/comp_subject"
+                   android:textColor="@color/colorBlackShoppy"
                    android:layout_marginTop="5dp"
+                   android:textSize="15dp"
+
                    android:background="@drawable/linebg"
                    android:layout_width="match_parent"
                    android:layout_height="40dp"/>
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Description"
+                   android:textColor="@color/colorBlackShoppy"
                    android:textSize="15dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
-               <TextView
+               <EditText
+                   android:id="@+id/comp_description"
                    android:layout_marginTop="5dp"
+                   android:textSize="15dp"
                    android:background="@drawable/linebg"
                    android:layout_width="match_parent"
                    android:layout_height="80dp"/>
                <com.google.android.material.button.MaterialButton
-                   android:layout_gravity="center"
+                   android:id="@+id/comp_image_upload"
                    android:layout_marginTop="10dp"
                    android:text="Upload File"
                    android:textSize="15dp"
@@ -100,9 +120,9 @@
                    android:layout_width="wrap_content"
                    android:layout_height="40dp"/>
                <ImageView
-                   android:layout_gravity="center"
+                   android:id="@+id/c_image"
                    android:layout_marginTop="10dp"
-                   android:src="@drawable/ic_image_gallery"
+                   android:src="@drawable/imagedemo"
                    android:layout_width="200dp"
                    android:layout_height="150dp"/>
                <LinearLayout
@@ -112,8 +132,8 @@
                    android:layout_width="match_parent"
                    android:layout_height="60dp">
                    <com.google.android.material.button.MaterialButton
+                       android:id="@+id/comp_submit"
                        android:layout_gravity="center"
-
                        android:text="Submit"
                        android:textSize="15dp"
                        android:textColor="#FFFFFF"
@@ -122,6 +142,7 @@
                        android:layout_width="100dp"
                        android:layout_height="40dp"/>
                    <com.google.android.material.button.MaterialButton
+                       android:id="@+id/comp_reset"
                        android:layout_marginLeft="15dp"
                        android:layout_gravity="center"
                        android:text="Reset"
