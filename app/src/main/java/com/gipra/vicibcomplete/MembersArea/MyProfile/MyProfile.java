@@ -80,8 +80,8 @@ public class MyProfile extends AppCompatActivity {
  RadioGroup edit_gender;
  RadioButton radioButton;
  ImageView order_history_myprof;
- ImageView bank_upload;
- Button btn_back_upload;
+ ImageView bank_upload,pan_upload;
+ Button btn_bank_upload,btn_pan_upload;
 
     DatePickerDialog from;
     SimpleDateFormat dateFormatter;
@@ -92,6 +92,7 @@ public class MyProfile extends AppCompatActivity {
     AVLoadingIndicatorView photo_loader;
     private static final int SELECT_PIC = 100;
     private static final int SELECT_BANK = 200;
+    private static final int SELECT_PAN = 300;
     private static final String TAG = "MyProfile";
 
 
@@ -120,13 +121,23 @@ public class MyProfile extends AppCompatActivity {
 
         photo_loader=findViewById(R.id.photo_loader);
         bank_upload=findViewById(R.id.bank_upload);
-        btn_back_upload=findViewById(R.id.btn_back_upload);
-        btn_back_upload.setOnClickListener(new View.OnClickListener() {
+        btn_bank_upload=findViewById(R.id.btn_bank_upload);
+        btn_bank_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 handlePermission();
                 Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, 200);
+            }
+        });
+        pan_upload=findViewById(R.id.pan_upload);
+        btn_pan_upload=findViewById(R.id.btn_pan_upload);
+        btn_pan_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handlePermission();
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, 300);
             }
         });
         myprofile_name=findViewById(R.id.myprofile_name);
@@ -416,6 +427,19 @@ public class MyProfile extends AppCompatActivity {
                         }
                     }
                 }
+            case SELECT_PAN:
+                for (int i = 0; i < permissions.length; i++) {
+                    String permission = permissions[i];
+                    if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                        boolean showRationale = ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
+                        if (showRationale) {
+                            //  Show your own message here
+                        } else {
+                            showSettingsAlert();
+                        }
+                    }
+                }
+
 
 
 
@@ -486,10 +510,28 @@ public class MyProfile extends AppCompatActivity {
 
 
                 Log.i(TAG, "Image Path : " + path);
-                btn_back_upload.post(new Runnable() {
+                btn_bank_upload.post(new Runnable() {
                     @Override
                     public void run() {
                         bank_upload.setImageURI(selectedImage);
+                        uploadbankfile(selectedImage);
+                    }
+                });
+            }
+        }
+        if (requestCode == 300 && resultCode == RESULT_OK && data != null) {
+            //the image URI
+
+            final Uri selectedImage = data.getData();
+            if (null !=selectedImage){
+                String path=getRealPathFromURI(selectedImage);
+
+
+                Log.i(TAG, "Image Path : " + path);
+                btn_pan_upload.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        pan_upload.setImageURI(selectedImage);
                         uploadbankfile(selectedImage);
                     }
                 });
@@ -504,7 +546,6 @@ public class MyProfile extends AppCompatActivity {
         cursor.moveToFirst();
         String result = cursor.getString(column_index);
         cursor.close();
-
 
         return result;
     }

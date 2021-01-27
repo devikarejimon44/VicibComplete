@@ -113,7 +113,6 @@
             android:scaleType="centerInside"
             android:background="@drawable/circleround"
             android:src="@drawable/ic_addphoto" />
-
         <TextView
             android:id="@+id/myprofile_name"
             android:layout_width="wrap_content"
@@ -529,6 +528,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <CheckBox
+                        android:id="@+id/pan_check"
+                        android:checked="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
@@ -543,6 +544,20 @@
                         android:background="@drawable/linebg"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"/>
+
+                   <Button
+                        android:id="@+id/btn_pan_upload"
+                        android:text="Upload Pancard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:id="@+id/pan_upload"
+                        android:layout_width="200dp"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/imagedemo" />
+
                     <TextView
                         android:layout_marginTop="10dp"
                         android:text="Nominee Name"
@@ -635,12 +650,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"/>
                     <Button
-                        android:id="@+id/btn_back_upload"
+                        android:id="@+id/btn_bank_upload"
                         android:layout_marginTop="10dp"
                         android:text="Upload Bank Proof"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
-
 
                     <ImageView
                         android:id="@+id/bank_upload"

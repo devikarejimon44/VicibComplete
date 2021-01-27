@@ -11,6 +11,7 @@ import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseBankProofUpload;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseEditProfile;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageUpload;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
+import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponsePanUpload;
 import com.gipra.vicibcomplete.MembersArea.Payout.ResponsePayoutLedger;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumListLeftSideSales;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumTeamSalesBVMatching;
@@ -261,6 +262,11 @@ public interface ApiInterface {
     @POST("Bankproof_uploading")
     Call<ResponseBankProofUpload>BankProof(@Part("C_ACCOUNT_PROOF\";filename=\"myfile.jpg\"") RequestBody file,
                                                  @Part("member_id") int member_id);
+
+    @Multipart
+    @POST("PAN_uploading")
+    Call<ResponsePanUpload>PanUpload(@Part("C_PANCARD_FILE\";filename=\"myfile.jpg\"") RequestBody file,
+                                     @Part("member_id") int member_id);
 
 
 
