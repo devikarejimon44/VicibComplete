@@ -91,7 +91,7 @@ public class MyProfile extends AppCompatActivity {
     CircleImageView changephoto;
     AVLoadingIndicatorView photo_loader;
     private static final int SELECT_PIC = 100;
-    private static final int SELECT_BANK = 100;
+    private static final int SELECT_BANK = 200;
     private static final String TAG = "MyProfile";
 
 
@@ -126,7 +126,7 @@ public class MyProfile extends AppCompatActivity {
             public void onClick(View view) {
                 handlePermission();
                 Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(i, 100);
+                startActivityForResult(i, 200);
             }
         });
         myprofile_name=findViewById(R.id.myprofile_name);
@@ -404,6 +404,19 @@ public class MyProfile extends AppCompatActivity {
                         }
                     }
                 }
+            case SELECT_BANK:
+                for (int i = 0; i < permissions.length; i++) {
+                    String permission = permissions[i];
+                    if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                        boolean showRationale = ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
+                        if (showRationale) {
+                            //  Show your own message here
+                        } else {
+                            showSettingsAlert();
+                        }
+                    }
+                }
+
 
 
         }
@@ -460,6 +473,24 @@ public class MyProfile extends AppCompatActivity {
                     public void run() {
                         changephoto.setImageURI(selectedImage);
                         uploadFile(selectedImage);
+                    }
+                });
+            }
+        }
+        if (requestCode == 200 && resultCode == RESULT_OK && data != null) {
+            //the image URI
+
+            final Uri selectedImage = data.getData();
+            if (null !=selectedImage){
+                String path=getRealPathFromURI(selectedImage);
+
+
+                Log.i(TAG, "Image Path : " + path);
+                btn_back_upload.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        bank_upload.setImageURI(selectedImage);
+                        uploadbankfile(selectedImage);
                     }
                 });
             }
@@ -524,6 +555,58 @@ public class MyProfile extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Some error occurred..", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void uploadbankfile(Uri fileUri) {
+
+
+        SharedPreferences shpref;
+        shpref = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+        String u = shpref.getString("ID", "");
+        //creating a file
+        final File file = new File(getRealPathFromURI(fileUri));
+
+//        int compressionRatio = 2;
+//        try {
+//            Bitmap bitmap = BitmapFactory.decodeFile (file.getPath ());
+//            bitmap.compress (Bitmap.CompressFormat.JPEG, compressionRatio, new FileOutputStream(file));
+//        }
+//        catch (Throwable t) {
+//            Log.e("ERROR", "Error compressing file." + t.toString ());
+//            t.printStackTrace ();
+//        }
+
+
+        //creating request body for file
+        final RequestBody requestFile = RequestBody.create(MediaType.parse(getContentResolver().getType(fileUri)),file);
+
+
+        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
+        Call<ResponseBankProofUpload> call = api.BankProof(requestFile, Integer.parseInt(u));
+        call.enqueue(new Callback<ResponseBankProofUpload>() {
+            @Override
+            public void onResponse(Call<ResponseBankProofUpload> call, Response<ResponseBankProofUpload> response) {
+                Log.i("onResponse", new Gson().toJson(response.body()));
+                if (response.body().getStatus().equals("1")) {
+                    Log.d("onResponse", "" + response.body().getMessage());
+                    photo_loader.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "updated successfully", Toast.LENGTH_LONG).show();
+
+                } else {
+                    photo_loader.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Some error occurred..Please try again", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBankProofUpload> call, Throwable t) {
+                photo_loader.setVisibility(View.INVISIBLE);
+                Toast.makeText(getApplicationContext(), "Some error occurred..", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
     }
 
 

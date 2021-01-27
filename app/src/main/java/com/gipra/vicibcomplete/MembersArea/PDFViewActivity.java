@@ -44,11 +44,16 @@ public class PDFViewActivity extends AppCompatActivity implements OnPageChangeLi
     private void displayFromSdcard() {
      //   String pdfFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-        pdfFileName ="/sdcard/vicibtest.pdf";
-        File file = new File(pdfFileName);
+//        pdfFileName ="/sdcard/vicibtest.pdf";
+//        File file = new File(pdfFileName);
 
-        Log.e("File path",file.getAbsolutePath());
-        pdfView.fromFile(file)
+
+        java.io.File xmlFile = new java.io.File((getApplicationContext()
+                .getApplicationContext().getFileStreamPath("FileName.xml")
+                .getPath()));
+
+        Log.e("File path",xmlFile.getAbsolutePath());
+        pdfView.fromFile(xmlFile)
                 .defaultPage(pageNumber)
                 .enableSwipe(true)
 

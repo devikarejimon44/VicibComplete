@@ -8,7 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -172,8 +174,8 @@ public class IDCard extends AppCompatActivity {
 
         int convertHighet = (int) hight, convertWidth = (int) width;
 
-//        Resources mResources = getResources();
-//        Bitmap bitmap = BitmapFactory.decodeResource(mResources, R.drawable.screenshot);
+        Resources mResources = getResources();
+        Bitmap bitmap = BitmapFactory.decodeResource(mResources, R.drawable.imagedemo);
 
         PdfDocument document = new PdfDocument();
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(convertWidth, convertHighet, 1).create();
@@ -195,12 +197,25 @@ public class IDCard extends AppCompatActivity {
 
         // write the document content
 
+
        // Do not hardcode "/sdcard/"; use Environment.getExternalStorageDirectory().getPath() instead
         //        String targetPdf= Environment.getExternalStorageDirectory().getPath();
-       String targetPdf = "/sdcard/test.pdf";
-       File filePath = new File(targetPdf);
+
+
+//        java.io.File xmlFile = new java.io.File((getApplicationContext()
+//                .getApplicationContext().getFileStreamPath("FileName.xml")
+//                .getPath()));
+
+
+        java.io.File xmlFile = new java.io.File(Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                + "/Filename.xml");
+
+
+//       String targetPdf = "/sdcard/Test.pdf";
+//       File filePath = new File(targetPdf);
         try {
-            document.writeTo(new FileOutputStream(filePath));
+            document.writeTo(new FileOutputStream(xmlFile));
             btn_save_idcard.setText("Check PDF");
             boolean_save=true;
         } catch (IOException e) {

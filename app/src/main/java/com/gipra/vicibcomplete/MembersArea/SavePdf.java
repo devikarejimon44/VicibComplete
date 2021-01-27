@@ -112,8 +112,39 @@ public class SavePdf extends AppCompatActivity implements View.OnClickListener{
 
         int convertHighet = (int) hight, convertWidth = (int) width;
 
-        Resources mResources = getResources();
-        Bitmap bitmap = BitmapFactory.decodeResource(mResources, R.drawable.imagedemo);
+//        Resources mResources = getResources();
+//        Bitmap bitmap = BitmapFactory.decodeResource(mResources, R.drawable.imagedemo);
+
+
+//        public class BitmapScalingHelper
+//{
+//    public static Bitmap decodeResource(Resources res, int resId, int dstWidth, int dstHeight)
+//    {
+//        Options options = new Options();
+//        options.inJustDecodeBounds = true;
+//        BitmapFactory.decodeResource(res, resId, options);
+//        options.inJustDecodeBounds = false;
+//
+//        options.inSampleSize = calculateSampleSize(options.outWidth, options.outHeight, dstWidth,
+//                dstHeight);
+//
+//        options = new Options();
+//        //May use null here as well. The funciton may interpret the pre-used options variable in ways hard to tell.
+//        Bitmap unscaledBitmap = BitmapFactory.decodeResource(res, resId, options);
+//
+//        if(unscaledBitmap == null)
+//        {
+//            Log.e("ERR","Failed to decode resource - " + resId + " " + res.toString());
+//            return null;
+//        }
+//
+//        return unscaledBitmap;
+
+
+//    }
+//}
+
+
 
         PdfDocument document = new PdfDocument();
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(convertWidth, convertHighet, 1).create();
@@ -137,10 +168,16 @@ public class SavePdf extends AppCompatActivity implements View.OnClickListener{
 
 //        String targetPdf = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-        String targetPdf = "/sdcard/vicibtest.pdf";
-        File filePath = new File(targetPdf);
+       // String targetPdf = "/sdcard/vicibtest.pdf";
+//        File filePath = new File(targetPdf);
+
+
+        java.io.File xmlFile = new java.io.File((getApplicationContext()
+                .getApplicationContext().getFileStreamPath("FileName.xml")
+                .getPath()));
+
         try {
-            document.writeTo(new FileOutputStream(filePath));
+            document.writeTo(new FileOutputStream(xmlFile));
             btn_generate.setText("Check PDF");
             boolean_save=true;
         } catch (IOException e) {
@@ -151,7 +188,6 @@ public class SavePdf extends AppCompatActivity implements View.OnClickListener{
         // close the document
         document.close();
     }
-
 
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {

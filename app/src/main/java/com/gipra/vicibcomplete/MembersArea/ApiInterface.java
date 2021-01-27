@@ -7,6 +7,7 @@ import com.gipra.vicibcomplete.MembersArea.Complaints.ResponseComplaintsList;
 import com.gipra.vicibcomplete.MembersArea.District.ResponseDistrict;
 import com.gipra.vicibcomplete.MembersArea.Gene.ResponsePremiumGenealogy;
 import com.gipra.vicibcomplete.MembersArea.Gene.ResponseStandardGenealogy;
+import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseBankProofUpload;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseEditProfile;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageUpload;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
@@ -255,6 +256,13 @@ public interface ApiInterface {
                                         @Field("C_IFC_CODE") String C_IFC_CODE,
                                         @Field("c_nominee_name") String c_nominee_name,
                                         @Field("c_relation") String c_relation);
+
+    @Multipart
+    @POST("Bankproof_uploading")
+    Call<ResponseBankProofUpload>BankProof(@Part("C_ACCOUNT_PROOF\";filename=\"myfile.jpg\"") RequestBody file,
+                                                 @Part("member_id") int member_id);
+
+
 
     @FormUrlEncoded
     @POST("Complaint_list")

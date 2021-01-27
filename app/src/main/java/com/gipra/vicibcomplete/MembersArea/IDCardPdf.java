@@ -37,12 +37,18 @@ public class IDCardPdf extends AppCompatActivity implements OnPageChangeListener
     private void displayFromSdcard() {
         //Do not hardcode "/sdcard/"; use Environment.getExternalStorageDirectory().getPath() insteadpdfFileName==
 //         pdfFileName= Environment.getExternalStorageDirectory().getPath();
-        pdfFileName ="/sdcard/test.pdf";
-        File file = new File(pdfFileName);
+//        pdfFileName ="/sdcard/Test.pdf";
+//        File file = new File(pdfFileName);
+//        java.io.File xmlFile = new java.io.File((getApplicationContext()
+//                .getApplicationContext().getFileStreamPath("FileName.xml")
+//                .getPath()));
 
+        java.io.File xmlFile = new java.io.File(Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                + "/Filename.xml");
 
-        Log.e("File path",file.getAbsolutePath());
-        pdfView.fromFile(file)
+        Log.e("File path",xmlFile.getAbsolutePath());
+        pdfView.fromFile(xmlFile)
                 .defaultPage(pageNumber)
                 .enableSwipe(true)
 
