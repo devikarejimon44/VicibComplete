@@ -189,7 +189,7 @@ public class DashBoardFragment extends Fragment {
         dash_compliants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SavePdf.class);
+                Intent intent = new Intent(getActivity(), ComplaintsRegistration.class);
                 startActivity(intent);
             }
         });

@@ -651,7 +651,7 @@ public class MyProfile extends AppCompatActivity {
     }
 
 
-        public void onBackPressed(){
+    public void onBackPressed(){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
