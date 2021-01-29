@@ -53,6 +53,12 @@
         <activity android:name=".MembersArea.Gene.PremiumPlanGenealogy" />
         <activity android:name=".MembersArea.Registration" /> <!-- <activity android:name="com.Vicib.vicibapp.ui.Report.My_Product.MyProduct"></activity> -->
         <activity android:name=".MembersArea.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity android:name=".MembersArea.District.Dist_list_item" />
         <activity android:name=".MembersArea.District.district_list_item" />
@@ -80,11 +86,7 @@
         <activity android:name="com.gipra.vicibshoppy.activity.CategoryProducts" />
         <activity android:name="com.gipra.vicibshoppy.activity.ProductActivity" />
         <activity android:name="com.gipra.vicibshoppy.activity.ShoppyHome" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 

@@ -19,6 +19,18 @@ public class ResponseMyProductsBill {
     @SerializedName("date")
     @Expose
     private String date;
+    @SerializedName("address")
+    @Expose
+    private String address;
+    @SerializedName("pincode")
+    @Expose
+    private String pincode;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("mobile")
+    @Expose
+    private String mobile;
 
     public List<ListMyproductsbill> getData() {
         return data;
@@ -50,5 +62,37 @@ public class ResponseMyProductsBill {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

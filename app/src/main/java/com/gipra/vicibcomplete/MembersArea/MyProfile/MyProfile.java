@@ -258,13 +258,6 @@ public class MyProfile extends AppCompatActivity {
              startActivity(new Intent(getApplicationContext(), ShoppyHome.class));
          }
      });
-     prof_compliants=findViewById(R.id.prof_compliants);
-     prof_compliants.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-             startActivity(new Intent(getApplicationContext(), ComplaintsRegistration.class));
-         }
-     });
 
      prof_idcard=findViewById(R.id.prof_idcard);
      prof_idcard.setOnClickListener(new View.OnClickListener() {

@@ -32,7 +32,7 @@ import retrofit2.Response;
  */
 public class MyproductDate extends Fragment {
     RecyclerView recycler_myproduct_more;
-    private List<ListMyProducts> listMyProducts;
+    private List<ListMyProductsDateOnly> listMyProducts;
     private MyProductsAdapter myProductsAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -81,53 +81,53 @@ public class MyproductDate extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_myproduct_date, container, false);
         recycler_myproduct_more=view.findViewById(R.id.recycler_myproduct_more);
-        showproducts();
+       // showproducts();
         return  view;
     }
-    private void showproducts() {
-        SharedPreferences shpref;
-        shpref=getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-        String id=shpref.getString("ID","");
-        Log.e("id",id);
-
-        ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseMyProducts> usercall=api.searchmyproducts(1,"06-01-2020","08-09-2020");
-        //  Call<ResponseMyProducts> usercall=api.searchmyproducts(1,fdate,tdate);
-        usercall.enqueue(new Callback<ResponseMyProducts>() {
-            @Override
-            public void onResponse(Call<ResponseMyProducts> call, Response<ResponseMyProducts> response) {
-                Log.i("onResponse", new Gson().toJson(response.body()));
-                if (response.body().getStatus().equals("1")){
-
-                    Log.i("onResponse", new Gson().toJson(response.body()));
-                    ResponseMyProducts responseMyProducts=response.body();
-
-                    final LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
-                    layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                    recycler_myproduct_more.setLayoutManager(layoutManager);
-                    recycler_myproduct_more.setHasFixedSize(true);
-                    listMyProducts=responseMyProducts.getData();
-                    myProductsAdapter=new MyProductsAdapter(listMyProducts,getActivity());
-                    recycler_myproduct_more.setAdapter(myProductsAdapter);
-
-//                    for (int i = 0; i < listMyProducts.size(); i++) {
-//                        String orderid = listMyProducts.get(i).getOrderid();
-//                        SharedPreferences sharedPreferences;
-//                        sharedPreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-//                        SharedPreferences.Editor editor = sharedPreferences.edit();
-//                        editor.putString("ORDERID", orderid);
-//                        editor.commit();
-//                    }
-                }
-                else {
-                    Toast.makeText(getContext(), "fswfsfs", Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onFailure(Call<ResponseMyProducts> call, Throwable t) {
-
-            }
-        });
-
-    }
+//    private void showproducts() {
+//        SharedPreferences shpref;
+//        shpref=getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+//        String id=shpref.getString("ID","");
+//        Log.e("id",id);
+//
+//        ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
+//        Call<ResponseMyProducts> usercall=api.searchmyproducts(1,"06-01-2020","08-09-2020");
+//        //  Call<ResponseMyProducts> usercall=api.searchmyproducts(1,fdate,tdate);
+//        usercall.enqueue(new Callback<ResponseMyProducts>() {
+//            @Override
+//            public void onResponse(Call<ResponseMyProducts> call, Response<ResponseMyProducts> response) {
+//                Log.i("onResponse", new Gson().toJson(response.body()));
+//                if (response.body().getStatus().equals("1")){
+//
+//                    Log.i("onResponse", new Gson().toJson(response.body()));
+//                    ResponseMyProducts responseMyProducts=response.body();
+//
+//                    final LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+//                    layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//                    recycler_myproduct_more.setLayoutManager(layoutManager);
+//                    recycler_myproduct_more.setHasFixedSize(true);
+//                    listMyProducts=responseMyProducts.getData();
+//                    myProductsAdapter=new MyProductsAdapter(listMyProducts,getActivity());
+//                    recycler_myproduct_more.setAdapter(myProductsAdapter);
+//
+////                    for (int i = 0; i < listMyProducts.size(); i++) {
+////                        String orderid = listMyProducts.get(i).getOrderid();
+////                        SharedPreferences sharedPreferences;
+////                        sharedPreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+////                        SharedPreferences.Editor editor = sharedPreferences.edit();
+////                        editor.putString("ORDERID", orderid);
+////                        editor.commit();
+////                    }
+//                }
+//                else {
+//                    Toast.makeText(getContext(), "fswfsfs", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<ResponseMyProducts> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 }

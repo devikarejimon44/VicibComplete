@@ -17,7 +17,10 @@ import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumLis
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumTeamSalesBVMatching;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.ResponsePremiumTeamSalesBonusDetails;
 import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.MyproductDate;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ResponseMyProductsBill;
 import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ResponseMyProductsDate;
+import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ResponseMyproductsDateOnly;
+import com.gipra.vicibcomplete.MembersArea.Reports.ResponseBasicActiveMemebers;
 import com.gipra.vicibcomplete.MembersArea.Reports.ResponseFirstPurchaseBVReport;
 import com.gipra.vicibcomplete.MembersArea.Reports.ResponseLeftSideMembers;
 import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.ResponseMyProducts;
@@ -75,6 +78,19 @@ public interface ApiInterface {
     @POST("Myproduct_date")
     Call<ResponseMyProductsDate>searchmyproductsdate(@Field("userid") int userid,
                                                  @Field("fromdate") String fromdate);
+
+    @FormUrlEncoded
+    @POST("Myproduct_date_only")
+    Call<ResponseMyproductsDateOnly>SearchMyproductsDateonly(@Field("userid") int userid,
+                                                             @Field("fromdate") String fromdate,
+                                                             @Field("todate") String todate);
+
+    @FormUrlEncoded
+    @POST("Myproducts_bill")
+    Call<ResponseMyProductsBill>MyproductsBill(@Field("userid") int userid,
+                                                     @Field("orderid") int fromdate);
+
+
 
 
     @FormUrlEncoded
@@ -188,6 +204,13 @@ public interface ApiInterface {
     Call<ResponsePayoutLedger>SearchPayoutLedger(@Field("id") int id,
                                                  @Field("from_date") String fromdate,
                                                  @Field("to_date") String todate);
+
+    @FormUrlEncoded
+    @POST("Basic_active_members_list")
+    Call<ResponseBasicActiveMemebers>SearchBasicActive(@Field("id") int id,
+                                                        @Field("from_date") String fromdate,
+                                                        @Field("to_date") String todate);
+
 
     @FormUrlEncoded
     @POST("Complaint_list")

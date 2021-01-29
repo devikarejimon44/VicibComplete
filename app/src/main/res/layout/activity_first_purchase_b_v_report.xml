@@ -102,7 +102,27 @@
                         android:layout_width="100dp"
                         android:layout_height="40dp"/>
                 </LinearLayout>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/m_shimmer_first_purchase_bvreport"
+                  android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <include layout="@layout/member_shimmer_first_purchase_bvreport"/>
+                        <include layout="@layout/member_shimmer_first_purchase_bvreport"/>
+                        <include layout="@layout/member_shimmer_first_purchase_bvreport"/>
+                        <include layout="@layout/member_shimmer_first_purchase_bvreport"/>
+                        <include layout="@layout/member_shimmer_first_purchase_bvreport"/>
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
                     android:padding="10dp"
                     android:id="@+id/recyler_first_purchase_bv_report"
                     android:layout_width="match_parent"

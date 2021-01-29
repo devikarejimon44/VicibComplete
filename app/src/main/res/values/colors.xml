@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#70bde7</color>
     <color name="colorAccent">#70bde7</color>
     <color name="colorText">#3F51B5</color>
+    <color name="colorGray">#7E7979</color>
 
 <!--    shopping cart-->
     <color name="colorPrimaryShoppy">#DFED1C24</color>

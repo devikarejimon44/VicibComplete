@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -39,6 +40,8 @@ public class SponsorsList extends AppCompatActivity {
     private SponsorListAdapter sponsorListAdapter;
     AVLoadingIndicatorView report_sponsorloader;
 
+    ShimmerFrameLayout m_shimmer_sponsorlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +56,13 @@ public class SponsorsList extends AppCompatActivity {
         });
         report_sponsorloader=findViewById(R.id.report_sponsorloader);
         recycler_sponsorlist=findViewById(R.id.recycler_sponsorlist);
+        m_shimmer_sponsorlist=findViewById(R.id.m_shimmer_sponsorlist);
         SearchSponsorList();
-
-
 
     }
     private void SearchSponsorList() {
-        report_sponsorloader.setVisibility(View.VISIBLE);
+        m_shimmer_sponsorlist.startShimmerAnimation();
+        m_shimmer_sponsorlist.setVisibility(View.VISIBLE);
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -73,7 +76,10 @@ public class SponsorsList extends AppCompatActivity {
             public void onResponse(Call<ResponseSponsorsList> call, Response<ResponseSponsorsList> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    report_sponsorloader.setVisibility(View.GONE);
+                    m_shimmer_sponsorlist.stopShimmerAnimation();
+                    m_shimmer_sponsorlist.setVisibility(View.GONE);
+                 recycler_sponsorlist.setVisibility(View.VISIBLE);
+
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseSponsorsList responseSponsorsList=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -85,13 +91,14 @@ public class SponsorsList extends AppCompatActivity {
                     recycler_sponsorlist.setAdapter(sponsorListAdapter);
                 }
                 else {
-                    report_sponsorloader.setVisibility(View.GONE);
+                    m_shimmer_sponsorlist.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseSponsorsList> call, Throwable t) {
-                report_sponsorloader.setVisibility(View.GONE);
+                m_shimmer_sponsorlist.stopShimmerAnimation();
+
             }
         });
 

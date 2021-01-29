@@ -732,27 +732,7 @@
                 android:textSize="10dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/prof_compliants"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@drawable/ic_complaint_bottom"
-                tools:ignore="VectorDrawableCompat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Complaints"
-                android:textSize="10dp" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/prof_idcard"

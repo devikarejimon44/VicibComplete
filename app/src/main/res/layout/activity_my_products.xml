@@ -96,8 +96,35 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"/>
             </LinearLayout>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:visibility="gone"
+                    android:id="@+id/m_shimmer_myproducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+                        <include layout="@layout/member_shimmer_myproducts"/>
+
+
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
                 <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
                     android:layout_margin="10dp"
                     android:id="@+id/recycler_myproducts"
                     android:layout_width="match_parent"

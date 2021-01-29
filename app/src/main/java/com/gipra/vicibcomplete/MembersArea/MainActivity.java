@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepareMenuData() {
-        MenuModel menuModel = new MenuModel("Dashboard", true,true,R.drawable.dashboard); //Menu of Android Tutorial. No sub menus
+        MenuModel menuModel = new MenuModel("Dashboard", true,true,R.drawable.ic_home); //Menu of Android Tutorial. No sub menus
         headerList.add(menuModel);
         if (!menuModel.hasChildren) {
             childList.put(menuModel, null);
@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
             childList.put(menuModel, null);
         }
 
-        menuModel = new MenuModel("Genealogy", true, true,R.drawable.genealogy); //Menu of Java Tutorials
+        menuModel = new MenuModel("Genealogy", true, true,R.drawable.ic_genealogy); //Menu of Java Tutorials
         headerList.add(menuModel);
         List<MenuModel> childModelsList = new ArrayList<>();
         MenuModel childModel = new MenuModel(" Premium Plan Genealogy ", false, false,R.drawable.ic_arrow);
@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
             childList.put(menuModel, childModelsList);
         }
 
-        menuModel = new MenuModel("Registration Form", true,true,R.drawable.ic_regform); //Menu of Android Tutorial. No sub menus
+        menuModel = new MenuModel("Registration Form", true,true,R.drawable.ic_form); //Menu of Android Tutorial. No sub menus
         headerList.add(menuModel);
 
         if (!menuModel.hasChildren) {
@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
             childList.put(menuModel, childModelsList);
         }
         childModelsList = new ArrayList<>();
-        menuModel = new MenuModel("Premium Plan Reports", true, true,R.drawable.ic_hand); //Menu of Python Tutorials
+        menuModel = new MenuModel("Premium Plan Reports", true, true,R.drawable.ic_reports); //Menu of Python Tutorials
         headerList.add(menuModel);
 
         childModel = new MenuModel(" Left Side Sales", false, false,R.drawable.ic_arrow);
@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
             childList.put(menuModel, childModelsList);
         }
         childModelsList = new ArrayList<>();
-        menuModel = new MenuModel("Repurchase Plan Reports", true, true,R.drawable.ic_hand); //Menu of Python Tutorials
+        menuModel = new MenuModel("Repurchase Plan Reports", true, true,R.drawable.ic_reports); //Menu of Python Tutorials
         headerList.add(menuModel);
 
         childModel = new MenuModel(" Repurchase BV Report", false, false,R.drawable.ic_arrow);

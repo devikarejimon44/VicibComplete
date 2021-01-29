@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -47,6 +48,8 @@ public class RightSideMembers extends AppCompatActivity {
     private List<ListLeftSideMembers> listLeftSideMembers;
     private LeftSideMemberAdapter leftSideMemberAdapter;
     AVLoadingIndicatorView report_rightloader;
+
+    ShimmerFrameLayout m_shimmer_right_side_member;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,10 +115,12 @@ public class RightSideMembers extends AppCompatActivity {
 
             }
         });
+        m_shimmer_right_side_member=findViewById(R.id.m_shimmer_right_side_member);
     }
 
     private void SearchLeftSideMember() {
-        report_rightloader.setVisibility(View.VISIBLE);
+        m_shimmer_right_side_member.setVisibility(View.VISIBLE);
+        m_shimmer_right_side_member.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -130,7 +135,10 @@ public class RightSideMembers extends AppCompatActivity {
             public void onResponse(Call<ResponseLeftSideMembers> call, Response<ResponseLeftSideMembers> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    report_rightloader.setVisibility(View.GONE);
+                    m_shimmer_right_side_member.stopShimmerAnimation();
+                    m_shimmer_right_side_member.setVisibility(View.GONE);
+                    recycler_right_side_members.setVisibility(View.VISIBLE);
+
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseLeftSideMembers responseFirstPurchaseBVReport=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -142,13 +150,13 @@ public class RightSideMembers extends AppCompatActivity {
                     recycler_right_side_members.setAdapter(leftSideMemberAdapter);
                 }
                 else {
-                    report_rightloader.setVisibility(View.GONE);
+                    m_shimmer_right_side_member.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseLeftSideMembers> call, Throwable t) {
-                report_rightloader.setVisibility(View.GONE);
+                m_shimmer_right_side_member.stopShimmerAnimation();
             }
         });
 

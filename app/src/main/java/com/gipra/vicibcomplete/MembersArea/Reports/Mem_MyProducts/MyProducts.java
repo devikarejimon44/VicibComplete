@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -48,12 +49,13 @@ public class MyProducts extends AppCompatActivity {
     EditText fromdate,todate;
     Button myproduct_search;
     RecyclerView recycler_myproducts;
-    private List<ListMyProducts> listMyProducts;
+    private List<ListMyProductsDateOnly> listMyProducts;
     private MyProductsAdapter myProductsAdapter;
     AVLoadingIndicatorView mypdoducts_loader;
     ImageView bill;
     PopupWindow popupWindow;
     RelativeLayout rlmyproducts;
+    ShimmerFrameLayout m_shimmer_myproducts;
 
 
     @Override
@@ -66,6 +68,7 @@ public class MyProducts extends AppCompatActivity {
 
         mypdoducts_loader=findViewById(R.id.mypdoducts_loader);
         rlmyproducts=findViewById(R.id.rlmyproducts);
+        m_shimmer_myproducts=findViewById(R.id.m_shimmer_myproducts);
 
 
         Toolbar toolbar=findViewById(R.id.myproducts_ToolBar);
@@ -120,31 +123,13 @@ public class MyProducts extends AppCompatActivity {
                 searchmyproducts();
             }
         });
-//        bill=findViewById(R.id.bill);
-//        bill.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                LayoutInflater layoutInflater = (LayoutInflater) MyProducts.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                View customview = layoutInflater.inflate(R.layout.myproduct_bill, null);
-////                Button yes = customview.findViewById(R.id.yes);
-////                yes.setOnClickListener(new View.OnClickListener() {
-////                    @Override
-////                    public void onClick(View v) {
-////                        Logout();
-////                        popupWindow.dismiss();
-////                    }
-////                });
-//
-//                popupWindow = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                popupWindow.showAtLocation(rlmyproducts, Gravity.CENTER, 0, 0);
-//                popupWindow.setFocusable(true);
-//                popupWindow.update();
-//            }
-//        });
+
 
     }
     private void searchmyproducts() {
-        mypdoducts_loader.setVisibility(View.VISIBLE);
+//        mypdoducts_loader.setVisibility(View.VISIBLE);
+        m_shimmer_myproducts.startShimmerAnimation();
+        m_shimmer_myproducts.setVisibility(View.VISIBLE);
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -152,16 +137,20 @@ public class MyProducts extends AppCompatActivity {
         String fdate=fromdate.getText().toString();
         String tdate=todate.getText().toString();
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseMyProducts> usercall=api.searchmyproducts(1,"06-01-2020","08-09-2020");
+        Call<ResponseMyproductsDateOnly> usercall=api.SearchMyproductsDateonly(1,"06-01-2020","08-09-2020");
       //  Call<ResponseMyProducts> usercall=api.searchmyproducts(1,fdate,tdate);
-        usercall.enqueue(new Callback<ResponseMyProducts>() {
+        usercall.enqueue(new Callback<ResponseMyproductsDateOnly>() {
             @Override
-            public void onResponse(Call<ResponseMyProducts> call, Response<ResponseMyProducts> response) {
+            public void onResponse(Call<ResponseMyproductsDateOnly> call, Response<ResponseMyproductsDateOnly> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    mypdoducts_loader.setVisibility(View.GONE);
+                   // mypdoducts_loader.setVisibility(View.GONE);
+                    m_shimmer_myproducts.stopShimmerAnimation();
+                    m_shimmer_myproducts.setVisibility(View.GONE);
+                    recycler_myproducts.setVisibility(View.VISIBLE);
+
                     Log.i("onResponse", new Gson().toJson(response.body()));
-                    ResponseMyProducts responseMyProducts=response.body();
+                    ResponseMyproductsDateOnly responseMyProducts=response.body();
 
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
                     layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -171,22 +160,24 @@ public class MyProducts extends AppCompatActivity {
                     myProductsAdapter=new MyProductsAdapter(listMyProducts,getApplicationContext());
                     recycler_myproducts.setAdapter(myProductsAdapter);
 
-                    for (int i = 0; i < listMyProducts.size(); i++) {
-                        String orderid = listMyProducts.get(i).getOrderid();
-                        SharedPreferences sharedPreferences;
-                        sharedPreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("ORDERID", orderid);
-                        editor.commit();
-                    }
+//                    for (int i = 0; i < listMyProducts.size(); i++) {
+//                      //  String orderid = listMyProducts.get(i).getOrderid();
+//                        SharedPreferences sharedPreferences;
+//                        sharedPreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferences.edit();
+//                        editor.putString("ORDERID", orderid);
+//                        editor.commit();
+//                    }
                 }
                 else {
-                    mypdoducts_loader.setVisibility(View.GONE);
+                    m_shimmer_myproducts.setVisibility(View.GONE);
+                    m_shimmer_myproducts.stopShimmerAnimation();
+                  //  mypdoducts_loader.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
-            public void onFailure(Call<ResponseMyProducts> call, Throwable t) {
+            public void onFailure(Call<ResponseMyproductsDateOnly> call, Throwable t) {
                 mypdoducts_loader.setVisibility(View.GONE);
 
             }

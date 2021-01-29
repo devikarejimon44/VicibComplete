@@ -27,27 +27,38 @@
                 app:titleTextColor="@color/colorWhiteShoppy">
 
 
-
             </com.google.android.material.appbar.MaterialToolbar>
-
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+
+                android:id="@+id/m_shimmer_sponsorlist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
                     android:padding="10dp"
                     android:id="@+id/recycler_sponsorlist"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-            </LinearLayout>
-        </ScrollView>
+
+
     </LinearLayout>
     <com.wang.avi.AVLoadingIndicatorView
         android:visibility="gone"

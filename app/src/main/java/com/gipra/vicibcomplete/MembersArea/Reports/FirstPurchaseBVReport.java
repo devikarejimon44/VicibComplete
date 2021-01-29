@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -45,6 +46,8 @@ public class FirstPurchaseBVReport extends AppCompatActivity {
     private List<ListFirstPurchaseBVReport> listFirstPurchaseBVReport;
     private FirstPurchaseBVReportAdapter firstPurchaseBVReportAdapter;
 
+    ShimmerFrameLayout m_shimmer_first_purchase_bvreport;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,8 @@ public class FirstPurchaseBVReport extends AppCompatActivity {
         recyler_first_purchase_bv_report=findViewById(R.id.recyler_first_purchase_bv_report);
         first_purchase_fromdate=findViewById(R.id.first_purchase_fromdate);
         first_purchase_todate=findViewById(R.id.first_purchase_todate);
+
+        m_shimmer_first_purchase_bvreport=findViewById(R.id.m_shimmer_first_purchase_bvreport);
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         first_purchase_fromdate.setInputType(InputType.TYPE_NULL);
@@ -108,6 +113,8 @@ public void onClick(View view) {
 
         }
 private void searchFirstPurchaseReport() {
+    m_shimmer_first_purchase_bvreport.setVisibility(View.VISIBLE);
+    m_shimmer_first_purchase_bvreport.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -122,6 +129,9 @@ private void searchFirstPurchaseReport() {
 public void onResponse(Call<ResponseFirstPurchaseBVReport> call, Response<ResponseFirstPurchaseBVReport> response) {
         Log.i("onResponse", new Gson().toJson(response.body()));
         if (response.body().getStatus().equals("1")){
+            recyler_first_purchase_bv_report.setVisibility(View.VISIBLE);
+            m_shimmer_first_purchase_bvreport.setVisibility(View.GONE);
+            m_shimmer_first_purchase_bvreport.stopShimmerAnimation();
         Log.i("onResponse", new Gson().toJson(response.body()));
         ResponseFirstPurchaseBVReport responseFirstPurchaseBVReport=response.body();
 final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -134,11 +144,14 @@ final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationCo
         }
         else {
         Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+            m_shimmer_first_purchase_bvreport.setVisibility(View.GONE);
+            m_shimmer_first_purchase_bvreport.stopShimmerAnimation();
         }
         }
 @Override
 public void onFailure(Call<ResponseFirstPurchaseBVReport> call, Throwable t) {
-
+    m_shimmer_first_purchase_bvreport.setVisibility(View.GONE);
+    m_shimmer_first_purchase_bvreport.stopShimmerAnimation();
         }
         });
 

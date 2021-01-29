@@ -185,14 +185,14 @@ public class DashBoardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        dash_compliants=view.findViewById(R.id.dash_compliants);
-        dash_compliants.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ComplaintsRegistration.class);
-                startActivity(intent);
-            }
-        });
+//        dash_compliants=view.findViewById(R.id.dash_compliants);
+//        dash_compliants.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), ComplaintsRegistration.class);
+//                startActivity(intent);
+//            }
+//        });
         dash_idcard=view.findViewById(R.id.dash_idcard);
         dash_idcard.setOnClickListener(new View.OnClickListener() {
             @Override

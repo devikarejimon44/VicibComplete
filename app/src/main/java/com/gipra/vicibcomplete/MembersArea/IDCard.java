@@ -120,13 +120,7 @@ public class IDCard extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
-        id_compliants=findViewById(R.id.id_compliants);
-        id_compliants.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ComplaintsRegistration.class));
-            }
-        });
+
         id_profile=findViewById(R.id.id_profile);
         id_profile.setOnClickListener(new View.OnClickListener() {
             @Override

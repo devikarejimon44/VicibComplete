@@ -4,13 +4,13 @@
     android:layout_gravity="center"
     android:layout_width="match_parent"
     android:background="@drawable/whitebg"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
        <LinearLayout
-           android:layout_margin="20dp"
            android:orientation="vertical"
+           android:padding="20dp"
            android:layout_width="match_parent"
            android:layout_height="match_parent">
            <ImageView
@@ -18,12 +18,15 @@
                android:layout_width="match_parent"
                android:layout_height="50dp"/>
            <TextView
+               android:layout_marginTop="10dp"
                android:text="@string/vicibaddress"
                android:textColor="@android:color/black"
                android:textSize="10dp"
+
                android:layout_width="match_parent"
                android:layout_height="wrap_content"/>
            <LinearLayout
+               android:layout_marginTop="30dp"
                android:layout_gravity="center"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content">
@@ -53,30 +56,28 @@
                        android:layout_height="wrap_content"/>
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginLeft="20dp"
+                   android:layout_marginLeft="40dp"
                    android:orientation="vertical"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content">
                    <TextView
-                       android:text="GSTIN"
+                       android:text="32AABAS6678N1ZX"
                        android:textColor="@android:color/black"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"/>
                    <TextView
+                       android:id="@+id/bill_invoice"
                        android:text="Invoice No"
                        android:textColor="@android:color/black"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"/>
                    <TextView
+                       android:id="@+id/bill_date"
                        android:text="Date"
                        android:textColor="@android:color/black"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"/>
-                   <TextView
-                       android:text="Franchisee"
-                       android:textColor="@android:color/black"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"/>
+
                </LinearLayout>
            </LinearLayout>
            <TextView
@@ -87,32 +88,115 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"/>
            <LinearLayout
+               android:layout_marginTop="5dp"
                android:background="@drawable/dottedline"
                android:layerType="software"
                android:layout_width="match_parent"
                android:layout_height="5dp"/>
            <TextView
+               android:id="@+id/bill_name"
                android:layout_marginTop="10dp"
                android:text="MANU CM"
+               android:textSize="12dp"
                android:textColor="@android:color/black"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"/>
            <TextView
+               android:id="@+id/bill_address"
                android:text="CHIRAYIL HOUSE NADUBHAGOM CHAMPAKULAM PO ALAPPUZHA"
                android:textColor="@android:color/black"
                android:layout_width="wrap_content"
+               android:textSize="12dp"
                android:layout_height="wrap_content"/>
            <TextView
+               android:id="@+id/bill_mobile"
                android:text="8592055442"
+               android:textSize="12dp"
                android:textColor="@android:color/black"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"/>
 
-           <TextView
-               android:text="Item Name"
-               android:textColor="@android:color/black"
-               android:layout_width="wrap_content"
+
+           
+          <LinearLayout
+              android:layout_marginTop="20dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:text="Item Name\nHSN"
+                  android:textSize="12dp"
+                  android:gravity="center"
+                  android:textColor="@android:color/black"
+                  android:layout_width="0dp"
+                  android:layout_weight="1.5"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:text="DP"
+                  android:gravity="center"
+                  android:textSize="12dp"
+                  android:textColor="@android:color/black"
+                  android:layout_width="0dp"
+                  android:layout_weight="0.5"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:text="BV"
+                  android:gravity="center"
+                  android:textColor="@android:color/black"
+                  android:layout_width="0dp"
+                  android:textSize="12dp"
+                  android:layout_weight="0.5"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:text="Qty"
+                  android:gravity="center"
+                  android:textColor="@android:color/black"
+                  android:layout_width="0dp"
+                  android:textSize="12dp"
+                  android:layout_weight="0.5"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:text="Amt\nRs."
+                  android:gravity="center"
+                  android:textSize="12dp"
+                  android:textColor="@android:color/black"
+                  android:layout_width="0dp"
+                  android:layout_weight="0.5"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+           <LinearLayout
+
+               android:background="@drawable/dottedline"
+               android:layerType="software"
+               android:layout_width="match_parent"
+               android:layout_height="5dp"/>
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/recycler_bill"
+               android:layout_width="match_parent"
                android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@android:color/black"
+                android:text="Total:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginRight="60dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@android:color/black"
+                android:text="Total:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_alignParentRight="true"
+                android:textColor="@android:color/black"
+                android:text="Total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+           
 
            <LinearLayout
                android:layout_marginTop="10dp"
@@ -122,6 +206,8 @@
                android:layout_height="5dp"/>
            <TextView
                android:text="GST SUMMARY"
+               android:textSize="12dp"
+               android:textColor="@android:color/black"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"/>
 
@@ -130,6 +216,59 @@
                android:layerType="software"
                android:layout_width="match_parent"
                android:layout_height="5dp"/>
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:text="CGST"
+                   android:gravity="center"
+                   android:textColor="@android:color/black"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:text="CGST"
+                   android:gravity="center"
+                   android:textColor="@android:color/black"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"/>
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:text="Rate"
+                   android:gravity="center"
+                   android:textColor="@android:color/black"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:text="Amount"
+                   android:gravity="center"
+                   android:textColor="@android:color/black"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:text="Rate"
+                   android:gravity="center"
+                   android:textColor="@android:color/black"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:text="Amount"
+                   android:gravity="center"
+                   android:textColor="@android:color/black"
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="wrap_content"/>
+           </LinearLayout>
        </LinearLayout>
 
 

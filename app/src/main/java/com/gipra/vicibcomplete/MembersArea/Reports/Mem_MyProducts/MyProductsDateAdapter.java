@@ -1,6 +1,7 @@
 package com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +41,13 @@ public class MyProductsDateAdapter extends RecyclerView.Adapter<MyProductsDateAd
         }catch (Exception e){
             Log.e(TAG, "error" + e);
         }
-      
+       String oid=listMyProductsDate.get(i).getOrderid();
+        SharedPreferences sharedPreferences;
+        sharedPreferences =context.getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("ORDER_ID",oid);
+
+        editor.commit();
 
 
 
