@@ -38,7 +38,7 @@ public class SponsorsList extends AppCompatActivity {
     SimpleDateFormat dateFormatter;
     private List<ListSponsorsList> listSponsorsList;
     private SponsorListAdapter sponsorListAdapter;
-    AVLoadingIndicatorView report_sponsorloader;
+
 
     ShimmerFrameLayout m_shimmer_sponsorlist;
 
@@ -54,7 +54,7 @@ public class SponsorsList extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        report_sponsorloader=findViewById(R.id.report_sponsorloader);
+
         recycler_sponsorlist=findViewById(R.id.recycler_sponsorlist);
         m_shimmer_sponsorlist=findViewById(R.id.m_shimmer_sponsorlist);
         SearchSponsorList();
@@ -92,12 +92,14 @@ public class SponsorsList extends AppCompatActivity {
                 }
                 else {
                     m_shimmer_sponsorlist.stopShimmerAnimation();
+                    m_shimmer_sponsorlist.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseSponsorsList> call, Throwable t) {
                 m_shimmer_sponsorlist.stopShimmerAnimation();
+                m_shimmer_sponsorlist.setVisibility(View.GONE);
 
             }
         });

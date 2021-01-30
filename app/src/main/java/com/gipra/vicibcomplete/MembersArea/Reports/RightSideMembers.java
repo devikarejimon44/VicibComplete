@@ -47,7 +47,7 @@ public class RightSideMembers extends AppCompatActivity {
 
     private List<ListLeftSideMembers> listLeftSideMembers;
     private LeftSideMemberAdapter leftSideMemberAdapter;
-    AVLoadingIndicatorView report_rightloader;
+
 
     ShimmerFrameLayout m_shimmer_right_side_member;
 
@@ -63,7 +63,7 @@ public class RightSideMembers extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        report_rightloader=findViewById(R.id.report_rightloader);
+
         right_side_members_fromdate=findViewById(R.id.right_side_members_fromdate);
         right_side_members_todate=findViewById(R.id.right_side_members_todate);
         right_side_members_search=findViewById(R.id.right_side_members_search);
@@ -151,12 +151,14 @@ public class RightSideMembers extends AppCompatActivity {
                 }
                 else {
                     m_shimmer_right_side_member.stopShimmerAnimation();
+                    m_shimmer_right_side_member.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseLeftSideMembers> call, Throwable t) {
                 m_shimmer_right_side_member.stopShimmerAnimation();
+                m_shimmer_right_side_member.setVisibility(View.GONE);
             }
         });
 

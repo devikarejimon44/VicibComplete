@@ -32,7 +32,7 @@
             </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -101,23 +101,44 @@
                         android:layout_width="100dp"
                         android:layout_height="40dp"/>
                 </LinearLayout>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/m_shimmer_complaints_status"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+                        <include layout="@layout/member_shimmer_complaint_status"/>
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
                 <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
                     android:padding="10dp"
                     android:id="@+id/Recycler_complaints_status"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:visibility="gone"
-        android:layout_centerInParent="true"
-        android:id="@+id/comp_status_loader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:indicatorName="LineSpinFadeLoaderIndicator"
-        app:indicatorColor="#FFC107"
-        />
+
 </RelativeLayout>

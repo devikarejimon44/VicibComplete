@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -45,7 +46,7 @@ public class RepurchaseIncome extends AppCompatActivity {
     Button repurchase_income_search;
     private List<ListRepurchaseIncome> listRepurchaseIncome;
     private RepurchaseIncomeAdapter repurchaseIncomeAdapter;
-    AVLoadingIndicatorView re_incomeloader;
+    ShimmerFrameLayout m_shimmer_repurchase_income;
 
 
     @Override
@@ -60,7 +61,7 @@ public class RepurchaseIncome extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        re_incomeloader=findViewById(R.id.re_incomeloader);
+        m_shimmer_repurchase_income=findViewById(R.id.m_shimmer_repurchase_income);
         Recycler_repurchase_income=findViewById(R.id.Recycler_repurchase_income);
         repurchase_income_fromdate=findViewById(R.id.repurchase_income_fromdate);
         repurchase_income_todate=findViewById(R.id.repurchase_income_todate);
@@ -112,7 +113,8 @@ public class RepurchaseIncome extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
-        re_incomeloader.setVisibility(View.VISIBLE);
+        m_shimmer_repurchase_income.setVisibility(View.VISIBLE);
+        m_shimmer_repurchase_income.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -127,7 +129,9 @@ public class RepurchaseIncome extends AppCompatActivity {
             public void onResponse(Call<ResponseRepurchaseIncome> call, Response<ResponseRepurchaseIncome> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    re_incomeloader.setVisibility(View.GONE);
+                    Recycler_repurchase_income.setVisibility(View.VISIBLE);
+                    m_shimmer_repurchase_income.setVisibility(View.GONE);
+                    m_shimmer_repurchase_income.stopShimmerAnimation();
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseRepurchaseIncome responseStandardLeftSideSales=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -138,13 +142,15 @@ public class RepurchaseIncome extends AppCompatActivity {
                     Recycler_repurchase_income.setAdapter(repurchaseIncomeAdapter);
                 }
                 else {
-                    re_incomeloader.setVisibility(View.GONE);
+                    m_shimmer_repurchase_income.setVisibility(View.GONE);
+                    m_shimmer_repurchase_income.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseRepurchaseIncome> call, Throwable t) {
-                re_incomeloader.setVisibility(View.GONE);
+                m_shimmer_repurchase_income.setVisibility(View.GONE);
+                m_shimmer_repurchase_income.stopShimmerAnimation();
             }
         });
 

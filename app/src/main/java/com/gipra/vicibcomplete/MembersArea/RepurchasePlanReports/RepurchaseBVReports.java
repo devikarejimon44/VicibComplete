@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -46,7 +47,7 @@ public class RepurchaseBVReports extends AppCompatActivity {
     Button repurchase_bv_reports_search;
     private List<ListRepurchaseBVReport> listRepurchaseBVReport;
     private RepurchaseBVReportAdapter repurchaseBVReportAdapter;
-    AVLoadingIndicatorView re_bvloader;
+    ShimmerFrameLayout m_shimmer_repurchase_bvreport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class RepurchaseBVReports extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        re_bvloader=findViewById(R.id.re_bvloader);
+        m_shimmer_repurchase_bvreport=findViewById(R.id.m_shimmer_repurchase_bvreport);
         Recycler_repurchase_bv_reports=findViewById(R.id.Recycler_repurchase_bv_reports);
         repurchase_bv_reports_fromdate=findViewById(R.id.repurchase_bv_reports_fromdate);
         repurchase_bv_reports_todate=findViewById(R.id.repurchase_bv_reports_todate);
@@ -112,7 +113,8 @@ public class RepurchaseBVReports extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
-        re_bvloader.setVisibility(View.VISIBLE);
+        m_shimmer_repurchase_bvreport.setVisibility(View.VISIBLE);
+        m_shimmer_repurchase_bvreport.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -127,7 +129,9 @@ public class RepurchaseBVReports extends AppCompatActivity {
             public void onResponse(Call<ResponseRepurchaseBvReport> call, Response<ResponseRepurchaseBvReport> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    re_bvloader.setVisibility(View.GONE);
+                    m_shimmer_repurchase_bvreport.setVisibility(View.GONE);
+                    m_shimmer_repurchase_bvreport.stopShimmerAnimation();
+                    Recycler_repurchase_bv_reports.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseRepurchaseBvReport responseStandardLeftSideSales=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -138,13 +142,15 @@ public class RepurchaseBVReports extends AppCompatActivity {
                     Recycler_repurchase_bv_reports.setAdapter(repurchaseBVReportAdapter);
                 }
                 else {
-                    re_bvloader.setVisibility(View.GONE);
+                    m_shimmer_repurchase_bvreport.setVisibility(View.GONE);
+                    m_shimmer_repurchase_bvreport.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseRepurchaseBvReport> call, Throwable t) {
-                re_bvloader.setVisibility(View.GONE);
+                m_shimmer_repurchase_bvreport.setVisibility(View.GONE);
+                m_shimmer_repurchase_bvreport.stopShimmerAnimation();
             }
         });
 

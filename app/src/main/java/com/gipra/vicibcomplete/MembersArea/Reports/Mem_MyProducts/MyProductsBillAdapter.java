@@ -30,10 +30,10 @@ public class MyProductsBillAdapter extends RecyclerView.Adapter<MyProductsBillAd
         try {
             viewHolder.bill_item_name.setText(listMyproductsbill.get(i).getProductname());
             viewHolder.bill_dp.setText(listMyproductsbill.get(i).getDp());
-            viewHolder.bill_bv.setText(listMyproductsbill.get(i).getTotalBv());
+            viewHolder.bill_bv.setText(String.valueOf(listMyproductsbill.get(i).getTotalBv()));
            // viewHolder.bill_qty.setText(String.valueOf(listMyproductsbill.get(i).getTotalAmount()));
            viewHolder.bill_qty.setText(listMyproductsbill.get(i).getBquantity());
-            viewHolder.bill_amt.setText(listMyproductsbill.get(i).getTotalAmount());
+            viewHolder.bill_amt.setText(String.valueOf(listMyproductsbill.get(i).getTotalAmount()));
         }catch (Exception e){
             Log.e(TAG, "error" + e);
         }

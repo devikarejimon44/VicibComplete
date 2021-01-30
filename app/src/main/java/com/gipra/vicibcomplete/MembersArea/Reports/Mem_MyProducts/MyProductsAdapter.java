@@ -38,10 +38,12 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
     private List<ListMyproductsbill>listMyproductsbill;
     private MyProductsDateAdapter myProductsDateAdapter;
     private  MyProductsBillAdapter myProductsBillAdapter;
+    private MyProductsgstAdapter myProductsgstAdapter;
     private Context context;
     private Dialog dialog;
     private static final String TAG = "MyProductsAdapter";
     PopupWindow popupWindow;
+    SharedPreferences shpref;
 
     public  MyProductsAdapter(List<ListMyProductsDateOnly>listMyProducts,Context context){
         this.listMyProducts=listMyProducts;
@@ -52,25 +54,26 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
         return new MyProductsAdapter.ViewHolder(view);
     }
     public  void onBindViewHolder(final MyProductsAdapter.ViewHolder viewHolder, final int i){
-//        viewHolder.myproduct_product.setText(listMyProducts.get(i).getProductname());
-//        viewHolder.myproduct_quantity.setText(listMyProducts.get(i).getBquantity());
-//        viewHolder.myproduct_amount.setText(listMyProducts.get(i).getDp());
-//        viewHolder.myproduct_totalamount.setText(String.valueOf(listMyProducts.get(i).getTotalAmount()));
-//        viewHolder.myproduct_BV.setText(String.valueOf(listMyProducts.get(i).getTotalBv()));
-//        viewHolder.myproduct_totalBV.setText(String.valueOf(listMyProducts.get(i).getTotalBv()));
+
+        viewHolder.oderddate.setText(String.valueOf(listMyProducts.get(i).getBdatetime()));
+
         try{
 
-            SharedPreferences shpref;
             shpref=context.getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-            final String o_id=shpref.getString("ORDER_ID","");
-            Log.e("order_id",o_id);
-        // String oid=listMyProducts.get(i).getOrderid();
+            final String id=shpref.getString("ID","");
+
+
+            Toast.makeText(context, ""+id, Toast.LENGTH_SHORT).show();
+
+
+         final String oid=listMyProducts.get(i).getOrderid();
          viewHolder.btn_purchase_bill.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View customview = layoutInflater.inflate(R.layout.myproduct_bill, null);
                 final RecyclerView recycler_bill=customview.findViewById(R.id.recycler_bill);
+                final  RecyclerView recycler_bill_gst=customview.findViewById(R.id.recycler_bill_gst);
                 final TextView bill_invoice=customview.findViewById(R.id.bill_invoice);
                 final  TextView bill_date=customview.findViewById(R.id.bill_date);
                 final  TextView bill_name=customview.findViewById(R.id.bill_name);
@@ -78,10 +81,9 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
                  final  TextView bill_mobile=customview.findViewById(R.id.bill_mobile);
 
 
-
-
                  ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-                 Call<ResponseMyProductsBill> usercall = api.MyproductsBill(17426, 8655);
+              Call<ResponseMyProductsBill> usercall = api.MyproductsBill(17426, String.valueOf(8655));
+              //   Call<ResponseMyProductsBill> usercall = api.MyproductsBill(1, oid);
                  usercall.enqueue(new Callback<ResponseMyProductsBill>() {
                      @Override
                      public void onResponse(Call<ResponseMyProductsBill> call, Response<ResponseMyProductsBill> response) {
@@ -102,7 +104,6 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
                              bill_mobile.setText(mob);
                            //  String pin=responseMyProductsBill.getPincode();
 
-
                              final LinearLayoutManager layoutManager = new LinearLayoutManager(context);
                              layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                              recycler_bill.setLayoutManager(layoutManager);
@@ -110,6 +111,15 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
                              listMyproductsbill = responseMyProductsBill.getData();
                              myProductsBillAdapter = new MyProductsBillAdapter(listMyproductsbill, context);
                              recycler_bill.setAdapter(myProductsBillAdapter);
+
+
+                             final LinearLayoutManager layoutManager1 = new LinearLayoutManager(context);
+                             layoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
+                             recycler_bill_gst.setLayoutManager(layoutManager1);
+                             recycler_bill_gst.setHasFixedSize(true);
+                             listMyproductsbill = responseMyProductsBill.getData();
+                             myProductsgstAdapter = new MyProductsgstAdapter(listMyproductsbill, context);
+                             recycler_bill_gst.setAdapter(myProductsgstAdapter);
 
 
                          }
@@ -122,23 +132,13 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
                  });
 
 
-
-
-//                Button yes = customview.findViewById(R.id.yes);
-//                yes.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                        popupWindow.dismiss();
-//                    }
-//                });
-                popupWindow = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                 popupWindow = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 popupWindow.showAtLocation(viewHolder.cardview_oderdate, Gravity.CENTER, 0, 0);
                 popupWindow.setFocusable(true);
                 popupWindow.update();
              }
          });
-        viewHolder.oderddate.setText(String.valueOf(listMyProducts.get(i).getBdatetime()));
+
 
 
         String date=listMyProducts.get(i).getBdatetime();

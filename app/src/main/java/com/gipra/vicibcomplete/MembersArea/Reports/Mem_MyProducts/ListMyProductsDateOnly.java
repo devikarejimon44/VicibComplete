@@ -10,6 +10,9 @@ public class ListMyProductsDateOnly {
     @SerializedName("bdatetime")
     @Expose
     private String bdatetime;
+    @SerializedName("orderid")
+    @Expose
+    private String orderid;
 
     public Integer getCount() {
         return count;
@@ -25,6 +28,14 @@ public class ListMyProductsDateOnly {
 
     public void setBdatetime(String bdatetime) {
         this.bdatetime = bdatetime;
+    }
+
+    public String getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(String orderid) {
+        this.orderid = orderid;
     }
 
 }

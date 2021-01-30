@@ -51,9 +51,7 @@ public class MyProducts extends AppCompatActivity {
     RecyclerView recycler_myproducts;
     private List<ListMyProductsDateOnly> listMyProducts;
     private MyProductsAdapter myProductsAdapter;
-    AVLoadingIndicatorView mypdoducts_loader;
-    ImageView bill;
-    PopupWindow popupWindow;
+
     RelativeLayout rlmyproducts;
     ShimmerFrameLayout m_shimmer_myproducts;
 
@@ -66,7 +64,9 @@ public class MyProducts extends AppCompatActivity {
         todate=findViewById(R.id.todate);
         recycler_myproducts=findViewById(R.id.recycler_myproducts);
 
-        mypdoducts_loader=findViewById(R.id.mypdoducts_loader);
+
+
+
         rlmyproducts=findViewById(R.id.rlmyproducts);
         m_shimmer_myproducts=findViewById(R.id.m_shimmer_myproducts);
 
@@ -172,13 +172,13 @@ public class MyProducts extends AppCompatActivity {
                 else {
                     m_shimmer_myproducts.setVisibility(View.GONE);
                     m_shimmer_myproducts.stopShimmerAnimation();
-                  //  mypdoducts_loader.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseMyproductsDateOnly> call, Throwable t) {
-                mypdoducts_loader.setVisibility(View.GONE);
+                m_shimmer_myproducts.setVisibility(View.GONE);
+                m_shimmer_myproducts.stopShimmerAnimation();
 
             }
         });

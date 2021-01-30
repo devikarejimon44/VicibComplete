@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -48,7 +49,7 @@ public class ComplaintStatus extends AppCompatActivity {
     SimpleDateFormat dateFormatter;
     private List<ListComplaintList> listComplaintList;
     private ComplaintsStatusAdapter complaintsStatusAdapter;
-    AVLoadingIndicatorView comp_status_loader;
+    ShimmerFrameLayout m_shimmer_complaints_status;
 
 
 
@@ -64,7 +65,7 @@ public class ComplaintStatus extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        comp_status_loader=findViewById(R.id.comp_status_loader);
+        m_shimmer_complaints_status=findViewById(R.id.m_shimmer_complaints_status);
         comp_fromdate=findViewById(R.id.comp_fromdate);
         comp_todate=findViewById(R.id.comp_todate);
 
@@ -117,7 +118,8 @@ public class ComplaintStatus extends AppCompatActivity {
         });
     }
     private void ComplaintsList() {
-        comp_status_loader.setVisibility(View.VISIBLE);
+        m_shimmer_complaints_status.setVisibility(View.VISIBLE);
+        m_shimmer_complaints_status.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -132,7 +134,9 @@ public class ComplaintStatus extends AppCompatActivity {
             public void onResponse(Call<ResponseComplaintsList> call, Response<ResponseComplaintsList> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    comp_status_loader.setVisibility(View.GONE);
+                    m_shimmer_complaints_status.setVisibility(View.GONE);
+                    m_shimmer_complaints_status.stopShimmerAnimation();
+                    Recycler_complaints_status.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseComplaintsList responseComplaintsList=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -143,13 +147,15 @@ public class ComplaintStatus extends AppCompatActivity {
                     Recycler_complaints_status.setAdapter(complaintsStatusAdapter);
                 }
                 else {
-                    comp_status_loader.setVisibility(View.GONE);
+                    m_shimmer_complaints_status.setVisibility(View.GONE);
+                    m_shimmer_complaints_status.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseComplaintsList> call, Throwable t) {
-                comp_status_loader.setVisibility(View.GONE);
+                m_shimmer_complaints_status.setVisibility(View.GONE);
+                m_shimmer_complaints_status.stopShimmerAnimation();
             }
         });
     }

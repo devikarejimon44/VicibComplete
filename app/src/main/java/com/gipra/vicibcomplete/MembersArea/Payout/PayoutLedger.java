@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -45,7 +46,7 @@ public class PayoutLedger extends AppCompatActivity {
     Button payoutledger_search;
     private List<ListPayoutLedger> listPayoutLedger;
     private PayoutLedgerAdapter payoutLedgerAdapter;
-    AVLoadingIndicatorView payout_loader;
+    ShimmerFrameLayout m_shimmer_payout_ledger;
 
 
     @Override
@@ -60,7 +61,7 @@ public class PayoutLedger extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        payout_loader=findViewById(R.id.payout_loader);
+        m_shimmer_payout_ledger=findViewById(R.id.m_shimmer_payout_ledger);
         Recycler_payoutledger=findViewById(R.id.Recycler_payoutledger);
         payoutledger_fromdate=findViewById(R.id.payoutledger_fromdate);
         payoutledger_todate=findViewById(R.id.payoutledger_todate);
@@ -112,7 +113,8 @@ public class PayoutLedger extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
-        payout_loader.setVisibility(View.VISIBLE);
+        m_shimmer_payout_ledger.setVisibility(View.VISIBLE);
+        m_shimmer_payout_ledger.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -127,7 +129,9 @@ public class PayoutLedger extends AppCompatActivity {
             public void onResponse(Call<ResponsePayoutLedger> call, Response<ResponsePayoutLedger> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    payout_loader.setVisibility(View.GONE);
+                    m_shimmer_payout_ledger.setVisibility(View.GONE);
+                    m_shimmer_payout_ledger.stopShimmerAnimation();
+                    Recycler_payoutledger.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponsePayoutLedger responsePayoutLedger=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -138,13 +142,15 @@ public class PayoutLedger extends AppCompatActivity {
                     Recycler_payoutledger.setAdapter(payoutLedgerAdapter);
                 }
                 else {
-                    payout_loader.setVisibility(View.GONE);
+                    m_shimmer_payout_ledger.setVisibility(View.GONE);
+                    m_shimmer_payout_ledger.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponsePayoutLedger> call, Throwable t) {
-                payout_loader.setVisibility(View.GONE);
+                m_shimmer_payout_ledger.setVisibility(View.GONE);
+                m_shimmer_payout_ledger.stopShimmerAnimation();
             }
         });
 

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -45,7 +46,7 @@ public class PremiumLeftSideSales extends AppCompatActivity {
     Button premium_left_side_sales_search;
     private List<PremiumListLeftSideSales> premiumListLeftSideSales;
     private PremiumLeftSideSalesAdapter premiumLeftSideSalesAdapter;
-    AVLoadingIndicatorView premium_leftloader;
+    ShimmerFrameLayout m_shimmer_pr_leftside_sales;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class PremiumLeftSideSales extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        premium_leftloader=findViewById(R.id.premium_leftloader);
+        m_shimmer_pr_leftside_sales=findViewById(R.id.m_shimmer_pr_leftside_sales);
 
         Recycler_premium_left_side_sales=findViewById(R.id.Recycler_premium_left_side_sales);
         premium_left_side_sales_fromdate=findViewById(R.id.premium_left_side_sales_fromdate);
@@ -112,7 +113,8 @@ public class PremiumLeftSideSales extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
-        premium_leftloader.setVisibility(View.VISIBLE);
+        m_shimmer_pr_leftside_sales.setVisibility(View.VISIBLE);
+        m_shimmer_pr_leftside_sales.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -127,7 +129,9 @@ public class PremiumLeftSideSales extends AppCompatActivity {
             public void onResponse(Call<ResponsePremiumListLeftSideSales> call, Response<ResponsePremiumListLeftSideSales> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    premium_leftloader.setVisibility(View.GONE);
+                    m_shimmer_pr_leftside_sales.setVisibility(View.GONE);
+                    m_shimmer_pr_leftside_sales.stopShimmerAnimation();
+                    Recycler_premium_left_side_sales.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponsePremiumListLeftSideSales responsePremiumListLeftSideSales=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -138,13 +142,15 @@ public class PremiumLeftSideSales extends AppCompatActivity {
                     Recycler_premium_left_side_sales.setAdapter(premiumLeftSideSalesAdapter);
                 }
                 else {
-                    premium_leftloader.setVisibility(View.GONE);
+                    m_shimmer_pr_leftside_sales.setVisibility(View.GONE);
+                    m_shimmer_pr_leftside_sales.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponsePremiumListLeftSideSales> call, Throwable t) {
-                premium_leftloader.setVisibility(View.GONE);
+                m_shimmer_pr_leftside_sales.setVisibility(View.GONE);
+                m_shimmer_pr_leftside_sales.stopShimmerAnimation();
             }
         });
 

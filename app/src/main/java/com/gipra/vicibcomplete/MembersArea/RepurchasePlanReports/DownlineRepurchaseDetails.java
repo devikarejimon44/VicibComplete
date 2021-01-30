@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -45,7 +46,8 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
     Button downline_repurchase_search;
     private List<ListDownlineRepurchaseDetails> listDownlineRepurchaseDetails;
     private DownlineRepurchaseDetailsAdapter downlineRepurchaseDetailsAdapter;
-    AVLoadingIndicatorView re_downlineloader;
+
+    ShimmerFrameLayout m_shimmer_downline_purchase_details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,9 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        re_downlineloader=findViewById(R.id.re_downlineloader);
+
         recycler_downline_repurchase=findViewById(R.id.recycler_downline_repurchase);
+        m_shimmer_downline_purchase_details=findViewById(R.id.m_shimmer_downline_purchase_details);
 
         downline_repurtchase_fromdate=findViewById(R.id.downline_repurtchase_fromdate);
         downline_repurchase_todate=findViewById(R.id.downline_repurchase_todate);
@@ -112,7 +115,9 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
-        re_downlineloader.setVisibility(View.VISIBLE);
+        m_shimmer_downline_purchase_details.startShimmerAnimation();
+        recycler_downline_repurchase.setVisibility(View.VISIBLE);
+
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -127,7 +132,9 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
             public void onResponse(Call<ResponseDownlineRepurchaseDetails> call, Response<ResponseDownlineRepurchaseDetails> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    re_downlineloader.setVisibility(View.GONE);
+                    m_shimmer_downline_purchase_details.stopShimmerAnimation();
+                    m_shimmer_downline_purchase_details.setVisibility(View.GONE);
+
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseDownlineRepurchaseDetails responseDownlineRepurchaseDetails=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -139,13 +146,16 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
                     recycler_downline_repurchase.setAdapter(downlineRepurchaseDetailsAdapter);
                 }
                 else {
-                    re_downlineloader.setVisibility(View.GONE);
+                    m_shimmer_downline_purchase_details.setVisibility(View.GONE);
+                    m_shimmer_downline_purchase_details.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseDownlineRepurchaseDetails> call, Throwable t) {
-                re_downlineloader.setVisibility(View.GONE);
+                m_shimmer_downline_purchase_details.setVisibility(View.GONE);
+                m_shimmer_downline_purchase_details.stopShimmerAnimation();
+
             }
         });
 

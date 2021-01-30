@@ -88,7 +88,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("Myproducts_bill")
     Call<ResponseMyProductsBill>MyproductsBill(@Field("userid") int userid,
-                                                     @Field("orderid") int fromdate);
+                                                     @Field("orderid") String orderid);
 
 
 

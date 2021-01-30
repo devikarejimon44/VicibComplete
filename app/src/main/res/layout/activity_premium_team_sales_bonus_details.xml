@@ -31,7 +31,7 @@
 
 
         </com.google.android.material.appbar.AppBarLayout>
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -92,22 +92,36 @@
                         android:layout_width="100dp"
                         android:layout_height="40dp"/>
                 </LinearLayout>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:visibility="gone"
+                    android:id="@+id/m_shimmer_pr_team_sales_binus_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+                        <include layout="@layout/member_shimmer_pr_team_sales_bonusdetails"/>
+
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
                 <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
                     android:id="@+id/Recycler_premium_team_sales_bonus_details"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-    <com.wang.avi.AVLoadingIndicatorView
-        android:visibility="gone"
-        android:layout_centerInParent="true"
-        android:id="@+id/premium_teambonusloader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:indicatorName="LineSpinFadeLoaderIndicator"
-        app:indicatorColor="#FFC107"
-        />
+
 
 
 

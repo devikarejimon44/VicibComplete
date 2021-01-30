@@ -126,14 +126,6 @@
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-    <com.wang.avi.AVLoadingIndicatorView
-        android:visibility="gone"
-        android:layout_centerInParent="true"
-        android:id="@+id/report_rightloader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:indicatorName="LineSpinFadeLoaderIndicator"
-        app:indicatorColor="#FFC107"
-        />
+
 
 </RelativeLayout>

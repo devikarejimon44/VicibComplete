@@ -49,7 +49,7 @@ public class LeftSideMembers extends AppCompatActivity {
 
     private List<ListLeftSideMembers> listLeftSideMembers;
     private LeftSideMemberAdapter leftSideMemberAdapter;
-    AVLoadingIndicatorView report_leftloader;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class LeftSideMembers extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        report_leftloader=findViewById(R.id.report_leftloader);
+
         left_side_member_fromdate=findViewById(R.id.left_side_member_fromdate);
         left_side_member_todate=findViewById(R.id.left_side_member_todate);
         left_side_member_search=findViewById(R.id.left_side_member_search);
@@ -150,12 +150,14 @@ public class LeftSideMembers extends AppCompatActivity {
                 }
                 else {
                     m_shimmer_left_side_member.stopShimmerAnimation();
+                    m_shimmer_left_side_member.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseLeftSideMembers> call, Throwable t) {
                 m_shimmer_left_side_member.stopShimmerAnimation();
+                m_shimmer_left_side_member.setVisibility(View.GONE);
             }
         });
 

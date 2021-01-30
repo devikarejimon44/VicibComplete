@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -45,7 +46,7 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
     Button standard_team_sales_bonus_search;
     private List<Standard_ListTeamSalesBonusDetails> standard_list_teamSalesBvMatching;
     private StandardTeamSalesBonusAdapter standardTeamSalesBVAdapter;
-    AVLoadingIndicatorView st_salesloader;
+    ShimmerFrameLayout m_shimmer_st_team_sales_bonus_details;
 
 
     @Override
@@ -60,7 +61,7 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        st_salesloader=findViewById(R.id.st_salesloader);
+        m_shimmer_st_team_sales_bonus_details=findViewById(R.id.m_shimmer_st_team_sales_bonus_details);
         Recycler_standard_team_sales_bonus=findViewById(R.id.Recycler_standard_team_sales_bonus);
         standard_team_sales_bonus_fromdate=findViewById(R.id.standard_team_sales_bonus_fromdate);
         standard_team_sales_bonus_todate=findViewById(R.id.standard_team_sales_bonus_todate);
@@ -112,7 +113,8 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
-        st_salesloader.setVisibility(View.VISIBLE);
+        m_shimmer_st_team_sales_bonus_details.setVisibility(View.VISIBLE);
+        m_shimmer_st_team_sales_bonus_details.startShimmerAnimation();
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -127,7 +129,9 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
             public void onResponse(Call<ResponseStandardTeamSalesBonusDetails> call, Response<ResponseStandardTeamSalesBonusDetails> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-                    st_salesloader.setVisibility(View.GONE);
+                    m_shimmer_st_team_sales_bonus_details.setVisibility(View.GONE);
+                    m_shimmer_st_team_sales_bonus_details.stopShimmerAnimation();
+                    Recycler_standard_team_sales_bonus.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseStandardTeamSalesBonusDetails responseStandardTeamSalesBonusDetails=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -138,13 +142,15 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
                     Recycler_standard_team_sales_bonus.setAdapter(standardTeamSalesBVAdapter);
                 }
                 else {
-                    st_salesloader.setVisibility(View.GONE);
+                    m_shimmer_st_team_sales_bonus_details.setVisibility(View.GONE);
+                    m_shimmer_st_team_sales_bonus_details.stopShimmerAnimation();
                     Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<ResponseStandardTeamSalesBonusDetails> call, Throwable t) {
-                st_salesloader.setVisibility(View.GONE);
+                m_shimmer_st_team_sales_bonus_details.setVisibility(View.GONE);
+                m_shimmer_st_team_sales_bonus_details.stopShimmerAnimation();
             }
         });
 

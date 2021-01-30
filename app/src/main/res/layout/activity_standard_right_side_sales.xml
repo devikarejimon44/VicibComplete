@@ -33,7 +33,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -102,21 +102,34 @@
                         android:layout_width="100dp"
                         android:layout_height="40dp"/>
                 </LinearLayout>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/m_shimmer_st_rightside_sales"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <include layout="@layout/member_shimmer_st_leftside_sales"/>
+                        <include layout="@layout/member_shimmer_st_leftside_sales"/>
+                        <include layout="@layout/member_shimmer_st_leftside_sales"/>
+                        <include layout="@layout/member_shimmer_st_leftside_sales"/>
+                        <include layout="@layout/member_shimmer_st_leftside_sales"/>
+                        <include layout="@layout/member_shimmer_st_leftside_sales"/>
+
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
                     android:padding="10dp"
                     android:id="@+id/recycler_standard_right_side_sales"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-    <com.wang.avi.AVLoadingIndicatorView
-        android:visibility="gone"
-        android:layout_centerInParent="true"
-        android:id="@+id/st_rightloader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:indicatorName="LineSpinFadeLoaderIndicator"
-        app:indicatorColor="#FFC107"
-        />
+
+
 </RelativeLayout>
