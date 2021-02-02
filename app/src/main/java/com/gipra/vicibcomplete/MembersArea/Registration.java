@@ -106,19 +106,20 @@ public class Registration extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 check_msg.setText("");
-                ll_sponsor_check.setVisibility(View.GONE);
 
             }
+
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                sponsornamecheck();
+                sponsorname_check();
+
 
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 check_msg.setText("");
-                ll_sponsor_check.setVisibility(View.GONE);
             }
         });
 
@@ -133,9 +134,7 @@ public class Registration extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 uplinecheck();
 
-
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
                 check_upline.setText("");
@@ -310,13 +309,16 @@ public class Registration extends AppCompatActivity {
         }
 
     }
-    private void sponsornamecheck() {
+
+
+
+    private void sponsorname_check() {
         final String u = reg_sponsorusername.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/sponsor_check",
                 new com.android.volley.Response.Listener<String>() {
                     @Override
-                    public void onResponse(String resp) {
-                        parseData(resp);
+                    public void onResponse(String response) {
+                        parseData(response);
 
                     }
                 },
@@ -339,29 +341,27 @@ public class Registration extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-    private void parseData(String resp) {
+    private void parseData(String response){
         try {
-            JSONObject jsonObject = new JSONObject(resp);
-            String msg=jsonObject.getString("message");
-            String sponsor_name=jsonObject.getString("sponsor_name");
-            if (jsonObject.getString("status").equals("0")) {
+            JSONObject jsonObject = new JSONObject(response);
 
-                check_msg.setText(msg);
+            String sp=jsonObject.getString("sponsor_name");
+            String sp_msg=jsonObject.getString("message");
+
+            if (jsonObject.getString("status").equals("1")) {
+                TextView sp_name=findViewById(R.id.sp_name);
+                sp_name.setText(sp);
+
             }
             else
             {
 
-                ll_sponsor_check.setVisibility(View.VISIBLE);
-                TextView sp_name=findViewById(R.id.sp_name);
-                sp_name.setText(sponsor_name);
-            }
+                check_msg.setText(sp_msg);
 
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-
 
     }
     private void loadState(){

@@ -7,9 +7,9 @@ public class Standard_List_TeamSalesBvMatching {
     @SerializedName("count")
     @Expose
     private Integer count;
-    @SerializedName("d_to_date")
+    @SerializedName("d_from_date")
     @Expose
-    private String dToDate;
+    private String dFromDate;
     @SerializedName("n_left_pv")
     @Expose
     private String nLeftPv;
@@ -37,12 +37,12 @@ public class Standard_List_TeamSalesBvMatching {
         this.count = count;
     }
 
-    public String getDToDate() {
-        return dToDate;
+    public String getDFromDate() {
+        return dFromDate;
     }
 
-    public void setDToDate(String dToDate) {
-        this.dToDate = dToDate;
+    public void setDFromDate(String dFromDate) {
+        this.dFromDate = dFromDate;
     }
 
     public String getNLeftPv() {
@@ -92,5 +92,4 @@ public class Standard_List_TeamSalesBvMatching {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
-
 }

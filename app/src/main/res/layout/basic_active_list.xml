@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="10dp"
+   app:cardUseCompatPadding="true"
+    app:cardCornerRadius="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -11,9 +11,9 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="1"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorWhiteShoppy"
+            android:fontFamily="@font/open_sans_semibold"
             android:gravity="center"
-            android:textStyle="bold"
             android:background="@drawable/ic_round"
             android:id="@+id/basic_active_count"
             android:layout_width="30dp"

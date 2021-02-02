@@ -83,6 +83,9 @@ public class MyProfile extends AppCompatActivity {
  ImageView bank_upload,pan_upload;
  Button btn_bank_upload,btn_pan_upload;
 
+ CircleImageView acc_account_profile_pic;
+
+
     DatePickerDialog from;
     SimpleDateFormat dateFormatter;
 
@@ -190,8 +193,20 @@ public class MyProfile extends AppCompatActivity {
         edit_accountnum=findViewById(R.id.edit_accountnum);
         edit_ifsc=findViewById(R.id.edit_ifsc);
         edit_gender=findViewById(R.id.edit_gender);
-        int selectedid=edit_gender.getCheckedRadioButtonId();
-        radioButton=findViewById(selectedid);
+
+        edit_gender = (RadioGroup) findViewById(R.id.edit_gender);
+        edit_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton rb=(RadioButton)radioGroup.findViewById(i);
+
+            }
+        });
+        acc_account_profile_pic=findViewById(R.id.acc_account_profile_pic);
+        ViewProfilePicture();
+
+
+
 
 
         edit_update=findViewById(R.id.edit_update);
@@ -287,8 +302,36 @@ public class MyProfile extends AppCompatActivity {
          }
      });
     }
+
+
+    private void ViewProfilePicture() {
+
+
+        SharedPreferences shpref;
+        shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+        String u=shpref.getString("ID","");
+        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
+        Call<ResponseImageView> call = api.ViewPhoto(Integer.parseInt(u));
+        call.enqueue(new Callback<ResponseImageView>() {
+            @Override
+            public void onResponse(Call<ResponseImageView> call, Response<ResponseImageView> response) {
+                String img=response.body().getPath();
+                if (response.body().getStatus().equals("1")) {
+                    Log.e("pathh",img);
+                    Glide.with(getApplicationContext())
+                            .load(img)
+                            .into(acc_account_profile_pic);
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseImageView> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
     private void Upadte() {
-        Toast.makeText(this, "sfsdgsdgds", Toast.LENGTH_SHORT).show();
+
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String id=shpref.getString("ID","");
@@ -316,7 +359,11 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseEditProfile> call, Response<ResponseEditProfile> response) {
                 if (response.body().getStatus().equals("1")){
-                    Toast.makeText(MyProfile.this, "dsadada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyProfile.this,""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(MyProfile.this,""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -638,7 +685,6 @@ public class MyProfile extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Some error occurred..", Toast.LENGTH_LONG).show();
             }
         });
-
 
 
     }

@@ -111,7 +111,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         lblListHeader.setText(headerTitle);
 
 
-
         return convertView;
     }
 

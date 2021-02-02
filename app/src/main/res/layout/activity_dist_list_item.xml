@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".District.Dist_list_item">
     <TextView
-        android:text="sdbfgdsjfsjhfgjhfgjh"
+
+        android:fontFamily="@font/open_sans_semibold"
         android:textColor="#000000"
         android:background="@drawable/blackbuttonbg"
         android:gravity="center_vertical"

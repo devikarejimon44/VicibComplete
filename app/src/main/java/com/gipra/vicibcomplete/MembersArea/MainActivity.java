@@ -234,19 +234,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepareMenuData() {
-        MenuModel menuModel = new MenuModel("Dashboard", true,true,R.drawable.ic_home); //Menu of Android Tutorial. No sub menus
-        headerList.add(menuModel);
-        if (!menuModel.hasChildren) {
-            childList.put(menuModel, null);
-        }
+//        MenuModel menuModel = new MenuModel("Dashboard", true,true,R.drawable.ic_home); //Menu of Android Tutorial. No sub menus
+//        headerList.add(menuModel);
+//        if (!menuModel.hasChildren) {
+//            childList.put(menuModel, null);
+//        }
+//
+//        menuModel=new MenuModel("Product Store",true,true,R.drawable.ic_shopping_cart);
+//        headerList.add(menuModel);
+//        if (!menuModel.hasChildren) {
+//            childList.put(menuModel, null);
+//        }
 
-        menuModel=new MenuModel("Product Store",true,true,R.drawable.ic_shopping_cart);
-        headerList.add(menuModel);
-        if (!menuModel.hasChildren) {
-            childList.put(menuModel, null);
-        }
-
-        menuModel = new MenuModel("Genealogy", true, true,R.drawable.ic_genealogy); //Menu of Java Tutorials
+        MenuModel menuModel = new MenuModel("Genealogy", true, true,R.drawable.ic_genealogy); //Menu of Java Tutorials
         headerList.add(menuModel);
         List<MenuModel> childModelsList = new ArrayList<>();
         MenuModel childModel = new MenuModel(" Premium Plan Genealogy ", false, false,R.drawable.ic_arrow);
@@ -346,12 +346,12 @@ public class MainActivity extends AppCompatActivity {
         if (!menuModel.hasChildren) {
             childList.put(menuModel, null);
         }
-        menuModel = new MenuModel("ID Card", true,true,R.drawable.ic_idcard); //Menu of Android Tutorial. No sub menus
-        headerList.add(menuModel);
-
-        if (!menuModel.hasChildren) {
-            childList.put(menuModel, null);
-        }
+//        menuModel = new MenuModel("ID Card", true,true,R.drawable.ic_idcard); //Menu of Android Tutorial. No sub menus
+//        headerList.add(menuModel);
+//
+//        if (!menuModel.hasChildren) {
+//            childList.put(menuModel, null);
+//        }
         childModelsList = new ArrayList<>();
         menuModel = new MenuModel("Complaints", true, true,R.drawable.ic_complaints); //Menu of Python Tutorials
         headerList.add(menuModel);
@@ -377,40 +377,40 @@ public class MainActivity extends AppCompatActivity {
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                if(groupPosition==0) {
-                    Intent Intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(Intent);
+//                if(groupPosition==0) {
+//                    Intent Intent = new Intent(getApplicationContext(), MainActivity.class);
+//                    startActivity(Intent);
+//
+//
+//
+//                }
 
-
-
-                }
-
+//                if(groupPosition==1) {
+//
+//                    Intent Intent = new Intent(getApplicationContext(), ShoppyHome.class);
+//                       startActivity(Intent);
+//                       // DashBoardFragment fragment = new DashBoardFragment();
+//                    //                    getSupportFragmentManager().beginTransaction()
+//                    //                            .replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+//                    //                    //toolbar.setTitle("Dashboard");
+//                    //                    onBackPressed();
+//
+//
+//                }
                 if(groupPosition==1) {
-
-                    Intent Intent = new Intent(getApplicationContext(), ShoppyHome.class);
-                       startActivity(Intent);
-                       // DashBoardFragment fragment = new DashBoardFragment();
-                    //                    getSupportFragmentManager().beginTransaction()
-                    //                            .replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
-                    //                    //toolbar.setTitle("Dashboard");
-                    //                    onBackPressed();
-
-
-                }
-                if(groupPosition==3) {
                     startActivity(new Intent(getApplicationContext(), Registration.class));
 
 
                 }
-                if (groupPosition==8){
+                if (groupPosition==6){
                     startActivity(new Intent(getApplicationContext(), PayoutLedger.class));
 
 
                 }
-                if (groupPosition==9){
-                    startActivity(new Intent(getApplicationContext(), IDCard.class));
-
-                }
+//                if (groupPosition==9){
+//                    startActivity(new Intent(getApplicationContext(), IDCard.class));
+//
+//                }
 
                 return false;
             }
@@ -420,7 +420,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
-                if(groupPosition==2) {
+                if(groupPosition==0) {
 
                     if (childPosition == 0) {
 
@@ -440,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                if (groupPosition==4){
+                if (groupPosition==2){
                         if(childPosition == 0){
                             Intent Intent = new Intent(getApplicationContext(), MyProducts.class);
                             startActivity(Intent);
@@ -478,7 +478,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }
-                    if (groupPosition==5) {
+                    if (groupPosition==3) {
 
                         if(childPosition == 0){
                             Intent Intent = new Intent(getApplicationContext(), StandardLeftSideSales.class);
@@ -511,7 +511,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     }
-                    if (groupPosition==6) {
+                    if (groupPosition==4) {
                         if(childPosition == 0){
                             Intent Intent = new Intent(getApplicationContext(), PremiumLeftSideSales.class);
                             startActivity(Intent);
@@ -540,7 +540,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-                   if (groupPosition==7) {
+                   if (groupPosition==5) {
                        if(childPosition == 0){
                            Intent Intent = new Intent(getApplicationContext(), RepurchaseBVReports.class);
                            startActivity(Intent);
@@ -569,7 +569,7 @@ public class MainActivity extends AppCompatActivity {
                        }
 
                    }
-                   if (groupPosition==10){
+                   if (groupPosition==7){
                        if (childPosition==0){
                            Intent Intent = new Intent(getApplicationContext(), ComplaintsRegistration.class);
                            startActivity(Intent);

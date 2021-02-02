@@ -59,14 +59,10 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
 
         try{
 
-            shpref=context.getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-            final String id=shpref.getString("ID","");
-
-
-            Toast.makeText(context, ""+id, Toast.LENGTH_SHORT).show();
 
 
          final String oid=listMyProducts.get(i).getOrderid();
+         final String uid=listMyProducts.get(i).getCustomerid();
          viewHolder.btn_purchase_bill.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -82,7 +78,7 @@ public class MyProductsAdapter extends RecyclerView.Adapter<MyProductsAdapter.Vi
 
 
                  ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-              Call<ResponseMyProductsBill> usercall = api.MyproductsBill(17426, String.valueOf(8655));
+              Call<ResponseMyProductsBill> usercall = api.MyproductsBill(Integer.parseInt(uid), oid);
               //   Call<ResponseMyProductsBill> usercall = api.MyproductsBill(1, oid);
                  usercall.enqueue(new Callback<ResponseMyProductsBill>() {
                      @Override

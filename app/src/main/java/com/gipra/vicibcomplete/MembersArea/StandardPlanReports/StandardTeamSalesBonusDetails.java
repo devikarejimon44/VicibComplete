@@ -151,6 +151,7 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
             public void onFailure(Call<ResponseStandardTeamSalesBonusDetails> call, Throwable t) {
                 m_shimmer_st_team_sales_bonus_details.setVisibility(View.GONE);
                 m_shimmer_st_team_sales_bonus_details.stopShimmerAnimation();
+                Toast.makeText(getApplicationContext(), "No Response", Toast.LENGTH_SHORT).show();
             }
         });
 

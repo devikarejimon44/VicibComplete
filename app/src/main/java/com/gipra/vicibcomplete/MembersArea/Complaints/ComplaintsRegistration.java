@@ -88,35 +88,7 @@ public class ComplaintsRegistration extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        complaints_dash=findViewById(R.id.complaints_dash);
-        complaints_dash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
-        complaints_productstore=findViewById(R.id.complaints_productstore);
-        complaints_productstore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ShoppyHome.class));
-            }
-        });
-        complaints_compliants=findViewById(R.id.complaints_compliants);
-        complaints_idcard=findViewById(R.id.complaints_idcard);
-        complaints_idcard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), IDCard.class));
-            }
-        });
-        compliants_profile=findViewById(R.id.compliants_profile);
-        compliants_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MyProfile.class));
-            }
-        });
+
 
         comp_complaints_in=findViewById(R.id.comp_complaints_in);
         List<String> comp=new ArrayList<>();

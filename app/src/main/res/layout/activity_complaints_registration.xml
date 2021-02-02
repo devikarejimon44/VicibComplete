@@ -23,6 +23,7 @@
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:title="Complaint Registration"
+                android:fontFamily="@font/open_sans_semibold"
                 app:titleTextColor="@color/colorWhiteShoppy">
 
 
@@ -46,13 +47,15 @@
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="WRITE WITH US!"
-                   android:textColor="@color/colorPrimaryDark"
+                   android:fontFamily="@font/open_sans_semibold"
+                   android:textColor="@color/colorText"
                    android:textSize="15dp"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"/>
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Complaint In"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:textSize="15dp"
                    android:textColor="@color/colorBlackShoppy"
                    android:layout_width="wrap_content"
@@ -68,6 +71,7 @@
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Priority"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:textColor="@color/colorBlackShoppy"
                    android:textSize="15dp"
                    android:layout_width="wrap_content"
@@ -82,12 +86,14 @@
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Subject"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:textSize="15dp"
                    android:textColor="@color/colorBlackShoppy"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
                <EditText
                    android:id="@+id/comp_subject"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:textColor="@color/colorBlackShoppy"
                    android:layout_marginTop="5dp"
                    android:textSize="15dp"
@@ -98,12 +104,14 @@
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Description"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:textColor="@color/colorBlackShoppy"
                    android:textSize="15dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
                <EditText
                    android:id="@+id/comp_description"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:layout_marginTop="5dp"
                    android:textSize="15dp"
                    android:background="@drawable/linebg"
@@ -113,6 +121,7 @@
                    android:id="@+id/comp_image_upload"
                    android:layout_marginTop="10dp"
                    android:text="Upload File"
+                   android:fontFamily="@font/open_sans_semibold"
                    android:textSize="15dp"
                    android:textColor="#FFFFFF"
                    android:textAllCaps="false"
@@ -126,7 +135,6 @@
                    android:layout_width="200dp"
                    android:layout_height="150dp"/>
                <LinearLayout
-
                    android:layout_gravity="center"
                    android:gravity="center"
                    android:layout_width="match_parent"
@@ -135,6 +143,7 @@
                        android:id="@+id/comp_submit"
                        android:layout_gravity="center"
                        android:text="Submit"
+                       android:fontFamily="@font/open_sans_semibold"
                        android:textSize="15dp"
                        android:textColor="#FFFFFF"
                        android:textAllCaps="false"
@@ -146,6 +155,7 @@
                        android:layout_marginLeft="15dp"
                        android:layout_gravity="center"
                        android:text="Reset"
+                       android:fontFamily="@font/open_sans_semibold"
                        android:textSize="15dp"
                        android:textColor="#FFFFFF"
                        android:textAllCaps="false"
@@ -157,124 +167,7 @@
            </LinearLayout>
        </ScrollView>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/border">
 
-        <LinearLayout
-            android:id="@+id/complaints_dash"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@drawable/ic_dashboard"
-                tools:ignore="VectorDrawableCompat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dashboard"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/complaints_productstore"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@drawable/ic_cart_bottom"
-                tools:ignore="VectorDrawableCompat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product Store"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/complaints_compliants"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@drawable/ic_complaint_bottom"
-                tools:ignore="VectorDrawableCompat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Complaints"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/complaints_idcard"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@drawable/ic_idcard"
-                tools:ignore="VectorDrawableCompat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID Card"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/compliants_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/account_profile_pic"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                app:srcCompat="@drawable/ic_perosn_bottom"
-                tools:ignore="VectorDrawableCompat" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Account"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-    </LinearLayout>
 
 
 </RelativeLayout>

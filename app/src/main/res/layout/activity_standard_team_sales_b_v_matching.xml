@@ -23,6 +23,7 @@
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:title="Team Sales BV Matching"
+                android:fontFamily="@font/open_sans_semibold"
                 app:titleTextColor="@color/colorWhiteShoppy">
 
 
@@ -50,6 +51,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:text="From"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:textColor="#000000"
                             android:textSize="15sp"
                             android:layout_gravity="center"
@@ -58,6 +60,7 @@
                             android:layout_height="wrap_content"/>
                         <EditText
                             android:hint="DD/MM/YYYY"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:id="@+id/standard_teamsales_bv_matching_fromdate"
@@ -72,12 +75,14 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="15dp"
                             android:text="To"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <EditText
                             android:hint="DD/MM/YYYY"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:id="@+id/standard_teamsales_bv_matching_todate"
                             android:textColor="#000000"
                             android:textSize="14sp"
@@ -92,6 +97,7 @@
                         android:layout_marginRight="15dp"
                         android:id="@+id/standard_teamsales_bv_matching_search"
                         android:text="Search"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textAllCaps="false"
                         android:textColor="#FFFFFF"
                         android:background="@drawable/bluebg"
@@ -114,10 +120,6 @@
                         <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
                         <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
                         <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
-
-
-
-
 
 
 

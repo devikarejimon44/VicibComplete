@@ -56,7 +56,7 @@ import retrofit2.Response;
 
 public class IDCard extends AppCompatActivity {
     LinearLayout id_dash,id_productstore,id_compliants,id_profile;
-    CircleImageView id_image;
+    CircleImageView id_image,id_account_profile_pic;
     Button btn_save_idcard;
     private static final int SELECT_PIC = 100;
     public static int REQUEST_PERMISSIONS = 1;
@@ -129,6 +129,8 @@ public class IDCard extends AppCompatActivity {
             }
         });
         id_image=findViewById(R.id.id_image);
+        id_account_profile_pic=findViewById(R.id.id_account_profile_pic);
+
         ViewPhoto();
 
     }
@@ -147,6 +149,12 @@ public class IDCard extends AppCompatActivity {
                     Glide.with(getApplicationContext())
                             .load(img)
                             .into(id_image);
+
+                    Glide.with(getApplicationContext())
+                            .load(img)
+                            .into(id_account_profile_pic);
+
+
                 }
             }
             @Override
@@ -155,7 +163,6 @@ public class IDCard extends AppCompatActivity {
             }
         });
     }
-
 
 
     private void createPdf(){

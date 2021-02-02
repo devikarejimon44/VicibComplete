@@ -45,19 +45,21 @@
                                  android:layout_height="30dp"/>
 
                              <TextView
+                                 android:fontFamily="@font/open_sans_semibold"
                                  android:id="@+id/d_totalearnings"
                                  android:layout_width="wrap_content"
                                  android:layout_height="match_parent"
                                  android:text="0.00"
                                  android:textColor="#FFFFFF"
-                                 android:textSize="20dp"
+                                 android:textSize="23dp"
                                  android:textStyle="bold" />
                          </LinearLayout>
                          <TextView
-                             android:textSize="15dp"
+                             android:textSize="18dp"
                              android:textColor="#FFFFFF"
                              android:textStyle="bold"
                              android:text="Total Earnings"
+                             android:fontFamily="@font/open_sans_semibold"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"/>
                      </LinearLayout>
@@ -87,6 +89,7 @@
                                 android:background="@drawable/ic_roundyellow"
                                 android:padding="10dp"
                                 android:text="10"
+                                android:fontFamily="@font/bungee"
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textStyle="bold"
@@ -95,11 +98,12 @@
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"/>
                             <TextView
+                                android:fontFamily="@font/open_sans_semibold"
                                 android:layout_marginTop="10dp"
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textColor="@android:color/black"
-                                android:text="Gold Earnings"
+                                android:text="Gold\nEarnings"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -119,6 +123,7 @@
                                 android:background="@drawable/ic_roundpink"
                                 android:padding="10dp"
                                 android:text="10"
+                                android:fontFamily="@font/bungee"
                                 android:textStyle="bold"
                                 android:textColor="@android:color/white"
                                 android:layout_gravity="center"
@@ -129,8 +134,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:fontFamily="@font/open_sans_semibold"
                                 android:textColor="@android:color/black"
-                                android:text="Silver Earnings"
+                                android:text="Silver\nEarnings"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -151,6 +157,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content">
                              <TextView
+                                 android:fontFamily="@font/bungee"
                                  android:id="@+id/d_repurchaseearnings"
                                  android:background="@drawable/ic_roundblue"
                                  android:padding="10dp"
@@ -163,11 +170,12 @@
                                  android:layout_height="60dp"
                                  />
                              <TextView
+                                 android:fontFamily="@font/open_sans_semibold"
                                  android:layout_marginTop="10dp"
                                  android:layout_gravity="center"
                                  android:gravity="center"
                                  android:textColor="@android:color/black"
-                                 android:text="Repurchase Earnings"
+                                 android:text="Repurchase\nEarnings"
                                  android:layout_width="wrap_content"
                                  android:layout_height="wrap_content"/>
                          </LinearLayout>
@@ -183,6 +191,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content">
                              <TextView
+                                 android:fontFamily="@font/bungee"
                                  android:id="@+id/d_lastmonthearnings"
                                  android:background="@drawable/ic_roundgreen"
                                  android:padding="10dp"
@@ -194,11 +203,12 @@
                                  android:layout_width="60dp"
                                  android:layout_height="60dp"/>
                              <TextView
+                                 android:fontFamily="@font/open_sans_semibold"
                                  android:layout_marginTop="10dp"
                                  android:layout_gravity="center"
                                  android:gravity="center"
                                  android:textColor="@android:color/black"
-                                 android:text="Last Month Repurchase Income"
+                                 android:text="Last Month\nRepurchase Income"
                                  android:layout_width="wrap_content"
                                  android:layout_height="wrap_content"/>
                          </LinearLayout>
@@ -210,6 +220,7 @@
                      android:layout_width="match_parent"
                      android:layout_height="match_parent">
                      <Button
+                         android:fontFamily="@font/open_sans_semibold"
                          android:id="@+id/d_btnprofile"
                          android:textSize="10dp"
                          android:text="Profile"
@@ -220,6 +231,7 @@
                          android:layout_width="0dp"
                          android:layout_height="50dp"/>
                      <Button
+                         android:fontFamily="@font/open_sans_semibold"
                          android:id="@+id/d_btnpremium"
                          android:textSize="10dp"
                          android:text="Premium Plan Team"
@@ -230,6 +242,7 @@
                          android:layout_weight="1"
                          android:layout_height="50dp"/>
                      <Button
+                         android:fontFamily="@font/open_sans_semibold"
                          android:id="@+id/d_btnstandard"
                          android:textSize="10dp"
                          android:text="Standard Plan Team"
@@ -254,6 +267,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -263,6 +277,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="User ID"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -272,6 +287,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Sponsor ID"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -281,6 +297,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Date Of Join"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -290,14 +307,17 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Days Completed"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
                         android:textSize="15dp"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/> <TextView
+                        android:layout_height="wrap_content"/>
+                    <TextView
                     android:text="Premium Direct Referals"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:padding="8dp"
                     android:layout_margin="5dp"
                     android:textColor="@android:color/black"
@@ -307,6 +327,7 @@
                     android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Standard Direct Referals"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -316,6 +337,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Left Team"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -325,6 +347,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Right Team"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -335,6 +358,7 @@
 
                     <TextView
                         android:text="Current Standard BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -344,6 +368,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Current Premium BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -353,6 +378,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Current Month Repurchase BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -370,7 +396,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/d_prof_name"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -380,7 +406,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_userid"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -390,7 +416,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_sponsorid"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -400,7 +426,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_dateofjoin"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -410,7 +436,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_dayscompleted"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -420,7 +446,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_premiumdirectreferals"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -430,7 +456,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_standarddirectreferals"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -440,7 +466,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_leftteam"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -450,7 +476,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_rightteam"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -460,7 +486,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_currentstdbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -470,7 +496,7 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_prof_currentpremiumbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -479,7 +505,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
-                        android:text="Name"
+                        android:id="@+id/d_prof_current_repurchase_bv"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -492,7 +519,7 @@
             </LinearLayout>
 
             <LinearLayout
-android:visibility="gone"
+                android:visibility="gone"
                 android:id="@+id/d_premium_layout"
                 android:background="@drawable/whitebg"
                 android:padding="15dp"
@@ -505,6 +532,7 @@ android:visibility="gone"
                     android:layout_height="wrap_content">
                     <TextView
                         android:text="Activated Date"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -514,6 +542,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total Left BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -523,6 +552,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total Right BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -532,6 +562,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -541,6 +572,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total Pair BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -549,6 +581,7 @@ android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/> <TextView
                     android:text="Current Left BV"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:padding="8dp"
                     android:layout_margin="5dp"
                     android:textColor="@android:color/black"
@@ -558,6 +591,7 @@ android:visibility="gone"
                     android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Current Right BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -567,6 +601,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Today's Business Left BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -576,6 +611,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Today's Business Right BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -592,7 +628,7 @@ android:visibility="gone"
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/d_pre_activateddate"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -602,7 +638,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_totalleftbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -612,7 +648,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_totalrightbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -624,7 +660,7 @@ android:visibility="gone"
 
                     <TextView
                         android:id="@+id/d_pre_totalbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -634,7 +670,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_totalpairbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -644,7 +680,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_currentleftbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -654,7 +690,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_currentrightbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -664,6 +700,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_todaysbusinessleftbv"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -673,6 +710,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_pre_bussinessrightbv"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -696,6 +734,7 @@ android:visibility="gone"
                     android:layout_height="wrap_content">
                     <TextView
                         android:text="Activated Date"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -705,6 +744,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total Left BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -714,6 +754,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total Right BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -723,6 +764,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -732,6 +774,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Total Pair BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -740,6 +783,7 @@ android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/> <TextView
                     android:text="Current Left BV"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:padding="8dp"
                     android:layout_margin="5dp"
                     android:textColor="@android:color/black"
@@ -749,6 +793,7 @@ android:visibility="gone"
                     android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Current Right BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -758,6 +803,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Today's Business Left BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -767,6 +813,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Today's Business Right BV"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
@@ -783,7 +830,7 @@ android:visibility="gone"
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/d_std_activateddate"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -793,7 +840,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_totalleftbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -803,7 +850,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_totalrighttbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -815,7 +862,7 @@ android:visibility="gone"
 
                     <TextView
                         android:id="@+id/d_std_totaltbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -825,7 +872,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_totalpairbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -835,7 +882,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_currentleftbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -845,7 +892,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_currenrightbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -855,7 +902,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_todaysbusinessleftbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -865,7 +912,7 @@ android:visibility="gone"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/d_std_todaysbusinessrightbv"
-                        android:text="Name"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:padding="8dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
@@ -962,7 +1009,7 @@ android:visibility="gone"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/account_profile_pic"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -972,7 +1019,7 @@ android:visibility="gone"
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Account"
+                    android:text="Profile"
                     android:textSize="10dp" />
             </LinearLayout>
 

@@ -23,17 +23,20 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 
+import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 import com.gipra.vicibcomplete.MembersArea.IDCard;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.MyProfile;
+import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
 import com.gipra.vicibcomplete.MembersArea.ProductStore;
 import com.gipra.vicibcomplete.MembersArea.SavePdf;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
 import com.google.android.material.tabs.TabLayout;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,11 +54,13 @@ public class DashBoardFragment extends Fragment {
     LinearLayout dash_dash,dash_productstore,dash_compliants,dash_idcard,dash_profile;
     TextView d_totalearnings,d_premiumearnings,d_standardearnings,d_repurchaseearnings,d_lastmonthearnings;
     TextView d_prof_name,d_prof_userid,d_prof_sponsorid,d_prof_dateofjoin,d_prof_dayscompleted,d_prof_premiumdirectreferals;
-    TextView d_prof_standarddirectreferals,d_prof_leftteam,d_prof_rightteam,d_prof_currentstdbv,d_prof_currentpremiumbv;
+    TextView d_prof_standarddirectreferals,d_prof_leftteam,d_prof_rightteam,d_prof_currentstdbv,d_prof_currentpremiumbv,d_prof_current_repurchase_bv;
     TextView d_pre_activateddate,d_pre_totalleftbv,d_pre_totalrightbv,d_pre_totalbv,d_pre_totalpairbv,d_pre_currentleftbv;
     TextView d_pre_currentrightbv,d_pre_todaysbusinessleftbv,d_pre_bussinessrightbv;
     TextView d_std_activateddate,d_std_totalleftbv,d_std_totalrighttbv,d_std_totaltbv,d_std_totalpairbv;
     TextView d_std_currentleftbv,d_std_currenrightbv,d_std_todaysbusinessleftbv,d_std_todaysbusinessrightbv;
+
+    CircleImageView account_profile_pic;
 
 
 
@@ -91,6 +96,7 @@ public class DashBoardFragment extends Fragment {
         d_prof_rightteam=view.findViewById(R.id.d_prof_rightteam);
         d_prof_currentstdbv=view.findViewById(R.id.d_prof_currentstdbv);
         d_prof_currentpremiumbv=view.findViewById(R.id.d_prof_currentpremiumbv);
+        d_prof_current_repurchase_bv=view.findViewById(R.id.d_prof_current_repurchase_bv);
 
         d_pre_activateddate=view.findViewById(R.id.d_pre_activateddate);
         d_pre_totalleftbv=view.findViewById(R.id.d_pre_totalleftbv);
@@ -116,6 +122,8 @@ public class DashBoardFragment extends Fragment {
 
         ///layouts
         drawer = view.findViewById(R.id.drawer_layout);
+        account_profile_pic=view.findViewById(R.id.account_profile_pic);
+        ViewProfilePicture();
         viewDashboard();
         d_standard_layout=view.findViewById(R.id.d_standard_layout);
         d_premium_layout=view.findViewById(R.id.d_premium_layout);
@@ -210,9 +218,39 @@ public class DashBoardFragment extends Fragment {
             }
         });
 
+
         return view;
     }
-    private void viewDashboard() {
+
+    private void ViewProfilePicture() {
+
+
+            SharedPreferences shpref;
+            shpref=getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+            String u=shpref.getString("ID","");
+            ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
+            Call<ResponseImageView> call = api.ViewPhoto(Integer.parseInt(u));
+            call.enqueue(new Callback<ResponseImageView>() {
+                @Override
+                public void onResponse(Call<ResponseImageView> call, Response<ResponseImageView> response) {
+                    String img=response.body().getPath();
+                    if (response.body().getStatus().equals("1")) {
+                        Log.e("pathh",img);
+                        Glide.with(getContext())
+                                .load(img)
+                                .into(account_profile_pic);
+                    }
+                }
+                @Override
+                public void onFailure(Call<ResponseImageView> call, Throwable t) {
+                    Toast.makeText(getContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+
+        private void viewDashboard() {
         SharedPreferences shpref;
         shpref=getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         final String id=shpref.getString("ID","");
@@ -272,6 +310,10 @@ public class DashBoardFragment extends Fragment {
 
                     String prof_currentpremiumbv= String.valueOf(responsedashboard.getCurrentPremiumBv());
                     d_prof_currentpremiumbv.setText(prof_currentpremiumbv);
+
+                    String prof_currentmonthrepurchasebv=String.valueOf(responsedashboard.getRepurchaseCurrentMnth());
+                    d_prof_current_repurchase_bv.setText(prof_currentmonthrepurchasebv);
+
 
                     String pre_activateddate=responsedashboard.getActivatedDate();
                     d_pre_activateddate.setText(pre_activateddate);
@@ -341,6 +383,7 @@ public class DashBoardFragment extends Fragment {
 
 
     }
+
 
 
 }

@@ -22,6 +22,8 @@
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:title="ID Card"
+                android:fontFamily="@font/open_sans_semibold"
+
                 app:titleTextColor="@color/colorWhiteShoppy">
             </com.google.android.material.appbar.MaterialToolbar>
         </com.google.android.material.appbar.AppBarLayout>
@@ -219,6 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dashboard"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="10dp" />
         </LinearLayout>
 
@@ -241,6 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product Store"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="10dp" />
         </LinearLayout>
 
@@ -265,6 +269,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ID Card"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="10dp" />
         </LinearLayout>
 
@@ -277,8 +282,8 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/account_profile_pic"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/id_account_profile_pic"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 app:srcCompat="@drawable/ic_perosn_bottom"
@@ -288,6 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Account"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="10dp" />
         </LinearLayout>
 

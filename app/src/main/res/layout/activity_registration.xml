@@ -23,6 +23,7 @@
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:title="Registration"
+                android:fontFamily="@font/open_sans_semibold"
                 app:titleTextColor="@color/colorWhiteShoppy">
 
 
@@ -48,6 +49,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="PERSONAL INFO"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:gravity="center_vertical"
                         android:drawableLeft="@drawable/ic_personal_info"
                         android:textColor="@color/colorPrimary"
@@ -64,12 +66,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_name"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:singleLine="true"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:textColor="@color/colorBlackShoppy"
@@ -82,12 +86,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Date Of Birth *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_regdob"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:singleLine="true"
                             android:textColor="@color/colorBlackShoppy"
@@ -104,12 +110,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Email Id *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_emailid"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
@@ -122,12 +130,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Mobile Number *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_mobilenum"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:singleLine="true"
                             android:inputType="number"
@@ -149,6 +159,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="ADDRESS"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold"
                         android:layout_gravity="center_vertical"
@@ -160,12 +171,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Address *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="90dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_address"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -177,12 +190,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Pincode *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_pincode"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:singleLine="true"
                             android:inputType="number"
@@ -197,6 +212,7 @@
                   <TextView
                       android:layout_marginTop="5dp"
                       android:text="Country"
+                      android:fontFamily="@font/open_sans_semibold"
                       android:layout_marginLeft="10dp"
                       android:textColor="@android:color/black"
                       android:layout_width="wrap_content"
@@ -212,6 +228,7 @@
 
                     <TextView
                         android:text="State"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@android:color/black"
@@ -227,6 +244,7 @@
                             android:layout_height="43dp"/>
                     <TextView
                         android:text="District"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@android:color/black"
@@ -244,12 +262,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Panchayat *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_panchayath"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
@@ -270,6 +290,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="PLACEMENT DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:drawableLeft="@drawable/ic_placement"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/colorPrimary"
@@ -280,12 +301,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Sponsor Username *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="@color/colorBlackShoppy"
                         android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_sponsorusername"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
@@ -295,26 +318,27 @@
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
                     <TextView
-                        android:text="vxhjafhjafjadsgha"
                         android:id="@+id/check_msg"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColor="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
                     <LinearLayout
-                        android:visibility="gone"
+
                         android:id="@+id/ll_sponsor_check"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
                             android:text="Sponsor Name : "
+                            android:fontFamily="@font/open_sans_semibold"
                             android:textColor="@color/colorBlackShoppy"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             />
                         <TextView
                             android:id="@+id/sp_name"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:textColor="@color/colorBlackShoppy"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -326,12 +350,14 @@
 
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Upline Usename *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_uplineusername"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -341,6 +367,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/check_upline"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -363,6 +390,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="KYC DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:drawableLeft="@drawable/ic_kyc"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/colorPrimary"
@@ -373,6 +401,7 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="PAN Card Number *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:singleLine="true"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
@@ -380,6 +409,7 @@
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_pancardnumber"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -391,6 +421,7 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Bank Name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:singleLine="true"
@@ -398,6 +429,7 @@
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_bankname"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -409,12 +441,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Branch Name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_branchname"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:singleLine="true"
@@ -427,12 +461,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Account Number *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_accnum"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -446,12 +482,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="IFSC code *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_ifsc"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:singleLine="true"
@@ -472,6 +510,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="NOMINEE DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:drawableLeft="@drawable/ic_nominee"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/colorPrimary"
@@ -482,12 +521,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Nominee name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_nomname"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -500,12 +541,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Nominee relation *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_nomrelation"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -527,6 +570,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:text="LOGIN DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:drawableLeft="@drawable/ic_login_details"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/colorPrimary"
@@ -538,12 +582,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Password *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_psd"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:singleLine="true"
@@ -557,12 +603,14 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Confirm Password *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/reg_confirmpsd"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:singleLine="true"
@@ -580,6 +628,7 @@
                     android:layout_height="50dp">
                     <Button
                         android:id="@+id/reg_register"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:layout_gravity="center"
                         android:text="Register"
                         android:textSize="15dp"
@@ -590,6 +639,7 @@
                         android:layout_height="45dp"/>
                     <Button
                         android:id="@+id/reg_reset"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:layout_marginLeft="15dp"
                         android:layout_gravity="center"
                         android:text="Reset"

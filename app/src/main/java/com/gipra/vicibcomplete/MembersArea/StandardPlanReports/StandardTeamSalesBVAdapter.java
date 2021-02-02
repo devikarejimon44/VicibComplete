@@ -36,7 +36,6 @@ public class StandardTeamSalesBVAdapter extends RecyclerView.Adapter<StandardTea
         viewHolder.standard_team_salesbv_matching_rightcarryBV.setText(standard_list_teamSalesBvMatchings.get(i).getNRightCarryPv());
         viewHolder.standard_team_salesbv_matching_amount.setText(String.valueOf(standard_list_teamSalesBvMatchings.get(i).getAmount()));
 
-
     }
     @Override
     public int getItemCount() {

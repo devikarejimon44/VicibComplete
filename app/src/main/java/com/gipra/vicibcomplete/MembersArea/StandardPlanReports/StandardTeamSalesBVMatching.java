@@ -139,6 +139,7 @@ public class StandardTeamSalesBVMatching extends AppCompatActivity {
                     standard_list_teamSalesBvMatching=responseStandardTeamSalesBVMatching.getData();
                     standardTeamSalesBVAdapter=new StandardTeamSalesBVAdapter(standard_list_teamSalesBvMatching,getApplicationContext());
                     Recycler_standard_teamsales_bv_matching.setAdapter(standardTeamSalesBVAdapter);
+
                 }
                 else {
                     m_shimmer_st_team_sales_bvmatching.setVisibility(View.GONE);
@@ -150,6 +151,7 @@ public class StandardTeamSalesBVMatching extends AppCompatActivity {
             public void onFailure(Call<ResponseStandardTeamSalesBVMatching> call, Throwable t) {
                 m_shimmer_st_team_sales_bvmatching.setVisibility(View.GONE);
                 m_shimmer_st_team_sales_bvmatching.stopShimmerAnimation();
+                Toast.makeText(StandardTeamSalesBVMatching.this, "aaaaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
             }
         });
 

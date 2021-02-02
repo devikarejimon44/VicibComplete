@@ -29,6 +29,7 @@
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:title="Premium Plan Genealogy"
+                android:fontFamily="@font/open_sans_semibold"
                 app:titleTextColor="@color/colorWhiteShoppy">
 
                 <ImageView

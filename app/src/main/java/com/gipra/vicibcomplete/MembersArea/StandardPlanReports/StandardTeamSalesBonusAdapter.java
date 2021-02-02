@@ -27,34 +27,33 @@ public StandardTeamSalesBonusAdapter.ViewHolder onCreateViewHolder(ViewGroup vie
         return new StandardTeamSalesBonusAdapter.ViewHolder(view);
         }
 public  void onBindViewHolder(StandardTeamSalesBonusAdapter.ViewHolder viewHolder,final int i){
+     viewHolder.standard_team_sales_bonus_count.setText(String.valueOf(standard_list_teamSalesBvMatching.get(i).getCount()));
+     viewHolder.standard_team_sales_bonus_date.setText(standard_list_teamSalesBvMatching.get(i).getTodate());
+        viewHolder.standard_team_sales_bonus_teambonus.setText(standard_list_teamSalesBvMatching.get(i).getNBinaryAmt());
+        viewHolder.standard_team_sales_bonus_grossamount.setText(standard_list_teamSalesBvMatching.get(i).getGrossAmount());
+        viewHolder.standard_team_sales_bonus_deduction.setText(standard_list_teamSalesBvMatching.get(i).getDeductionAmount());
+        viewHolder.standard_team_sales_bonus_netamount.setText(standard_list_teamSalesBvMatching.get(i).getNetAmount());
 
-        viewHolder.premium_team_sales_bonus_count.setText(String.valueOf(standard_list_teamSalesBvMatching.get(i).getCount()));
-        viewHolder.premium_team_sales_bonus_date.setText(standard_list_teamSalesBvMatching.get(i).getTodate());
-        viewHolder.premium_team_sales_bonus_teambonus.setText(standard_list_teamSalesBvMatching.get(i).getNBinaryAmt());
-        viewHolder.premium_team_sales_bonus_netamount.setText(standard_list_teamSalesBvMatching.get(i).getNetAmount());
-        viewHolder.premium_team_sales_bonus_grossamount.setText(standard_list_teamSalesBvMatching.get(i).getGrossAmount());
-        viewHolder.premium_team_sales_bonus_deduction.setText(standard_list_teamSalesBvMatching.get(i).getDeductionAmount());
 
-
-        }
+}
 @Override
 public int getItemCount() {
         return standard_list_teamSalesBvMatching.size();
         }
 public  class ViewHolder extends RecyclerView.ViewHolder{
 
-    TextView premium_team_sales_bonus_count,premium_team_sales_bonus_date,premium_team_sales_bonus_teambonus,premium_team_sales_bonus_deduction;
-    TextView premium_team_sales_bonus_netamount,premium_team_sales_bonus_grossamount;
+    TextView standard_team_sales_bonus_count,standard_team_sales_bonus_date,standard_team_sales_bonus_teambonus,standard_team_sales_bonus_grossamount;
+    TextView standard_team_sales_bonus_deduction,standard_team_sales_bonus_netamount;
 
 
     public ViewHolder(View view) {
         super(view);
-        premium_team_sales_bonus_count=view.findViewById(R.id.premium_team_sales_bonus_count);
-        premium_team_sales_bonus_date=view.findViewById(R.id.premium_team_sales_bonus_date);
-        premium_team_sales_bonus_teambonus=view.findViewById(R.id.premium_team_sales_bonus_teambonus);
-        premium_team_sales_bonus_deduction=view.findViewById(R.id.premium_team_sales_bonus_deduction);
-        premium_team_sales_bonus_netamount=view.findViewById(R.id.premium_team_sales_bonus_netamount);
-        premium_team_sales_bonus_grossamount=view.findViewById(R.id.premium_team_sales_bonus_grossamount);
+        standard_team_sales_bonus_count=view.findViewById(R.id.standard_team_sales_bonus_count);
+        standard_team_sales_bonus_date=view.findViewById(R.id.standard_team_sales_bonus_date);
+        standard_team_sales_bonus_teambonus=view.findViewById(R.id.standard_team_sales_bonus_teambonus);
+        standard_team_sales_bonus_grossamount=view.findViewById(R.id.standard_team_sales_bonus_grossamount);
+        standard_team_sales_bonus_deduction=view.findViewById(R.id.standard_team_sales_bonus_deduction);
+        standard_team_sales_bonus_netamount=view.findViewById(R.id.standard_team_sales_bonus_netamount);
 
 
     }

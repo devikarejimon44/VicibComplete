@@ -13,6 +13,9 @@ public class ListMyProductsDateOnly {
     @SerializedName("orderid")
     @Expose
     private String orderid;
+    @SerializedName("customerid")
+    @Expose
+    private String customerid;
 
     public Integer getCount() {
         return count;
@@ -38,4 +41,11 @@ public class ListMyProductsDateOnly {
         this.orderid = orderid;
     }
 
+    public String getCustomerid() {
+        return customerid;
+    }
+
+    public void setCustomerid(String customerid) {
+        this.customerid = customerid;
+    }
 }
