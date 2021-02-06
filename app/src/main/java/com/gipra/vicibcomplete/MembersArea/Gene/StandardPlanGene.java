@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
@@ -79,7 +81,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid0);
-                BottomSheet();
+              //  BottomSheet();
 //
 //                GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
 //                bottomSheet.show(getSupportFragmentManager(),
@@ -91,7 +93,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid1);
-                BottomSheet();
+            //    BottomSheet();
 //
             }
         });
@@ -100,7 +102,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid2);
-                BottomSheet();
+              //  BottomSheet();
 
             }
         });
@@ -109,7 +111,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid3);
-                BottomSheet();
+                //BottomSheet();
 
             }
         });
@@ -118,7 +120,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid4);
-                BottomSheet();
+              //  BottomSheet();
 
             }
         });
@@ -127,7 +129,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid5);
-                BottomSheet();
+              //  BottomSheet();
 
             }
         });
@@ -136,7 +138,7 @@ public class StandardPlanGene extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 gene(uid6);
-                BottomSheet();
+               // BottomSheet();
 
             }
         });
@@ -382,6 +384,7 @@ public class StandardPlanGene extends AppCompatActivity {
                     t1=listStandardPlanGenealogy.get(1).getName();
 
 
+
                     st_txttwo.setText(t1);
                     if (uid1.equals("0")){
                         Glide.with(getApplicationContext())
@@ -418,31 +421,32 @@ public class StandardPlanGene extends AppCompatActivity {
                     String bactive2=listStandardPlanGenealogy.get(2).getBasicActive();
                     t2=listStandardPlanGenealogy.get(2).getName();
 
+
                     st_txtthree.setText(t2);
                     if (uid2.equals("0")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.vacant)
-                                .into(st_imgtwo);
+                                .into(st_imgthree);
                     }
                     else if (mactive2.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.active)
-                                .into(st_imgtwo);
+                                .into(st_imgthree);
                     }
                     else if (mbactive2.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.bronzeactive)
-                                .into(st_imgtwo);
+                                .into(st_imgthree);
                     }
                     else if (bactive2.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.basicplan)
-                                .into(st_imgtwo);
+                                .into(st_imgthree);
                     }
                     else {
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.notactive)
-                                .into(st_imgtwo);
+                                .into(st_imgthree);
                     }
 
 
@@ -458,27 +462,27 @@ public class StandardPlanGene extends AppCompatActivity {
                     if (uid3.equals("0")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.vacant)
-                                .into(st_imgthree);
+                                .into(st_imgfour);
                     }
                     else if (mactive3.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.active)
-                                .into(st_imgthree);
+                                .into(st_imgfour);
                     }
                     else if (mbactive3.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.bronzeactive)
-                                .into(st_imgthree);
+                                .into(st_imgfour);
                     }
                     else if (bactive3.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.basicplan)
-                                .into(st_imgthree);
+                                .into(st_imgfour);
                     }
                     else {
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.notactive)
-                                .into(st_imgthree);
+                                .into(st_imgfour);
                     }
 
 //                   postion 4
@@ -489,7 +493,6 @@ public class StandardPlanGene extends AppCompatActivity {
                     String bactive4=listStandardPlanGenealogy.get(4).getBasicActive();
                     t4=listStandardPlanGenealogy.get(4).getName();
                     st_txtfive.setText(t4);
-
 
 
                     if (uid4.equals("0")){
@@ -604,12 +607,12 @@ public class StandardPlanGene extends AppCompatActivity {
         });
 
     }
-    private void BottomSheet(){
-
-        GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
-        bottomSheet.show(getSupportFragmentManager(),
-                "ModalBottomSheet");
-    }
+//    private void BottomSheet(){
+//
+//        GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
+//        bottomSheet.show(getSupportFragmentManager(),
+//                "ModalBottomSheet");
+//    }
 
 
 }

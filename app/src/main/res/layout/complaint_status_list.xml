@@ -11,7 +11,8 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="1"
-            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/colorWhiteShoppy"
             android:gravity="center"
             android:textStyle="bold"
             android:background="@drawable/ic_round"
@@ -24,21 +25,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
-                android:text="Complainted Date"
+                android:text="complained Date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginTop="8dp"
-                android:text="complained In"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Priority"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -46,6 +43,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Subject"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -53,6 +51,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Description"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -67,6 +66,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -75,6 +75,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -82,6 +83,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -90,6 +92,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -97,6 +100,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -111,6 +115,7 @@
             <TextView
                 android:id="@+id/comp_status_comp_date"
                 android:text="154645"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -120,6 +125,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/comp_status_comp_in"
                 android:text="154645"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -128,6 +134,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/comp_status_priority"
                 android:text="3000"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -136,6 +143,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/comp_status_subject"
                 android:text="3000"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -144,11 +152,11 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/comp_status_description"
                 android:text="3000"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
     </LinearLayout>
 

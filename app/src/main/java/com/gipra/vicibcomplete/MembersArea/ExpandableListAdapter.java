@@ -98,7 +98,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         ImageView indicator = (ImageView) convertView.findViewById(R.id.indicator);
         if (getChildrenCount(groupPosition) > 0) {
             indicator.setVisibility(View.VISIBLE);
-            indicator.setImageResource(isExpanded ? R.drawable.ic_downarrow : R.drawable.ic_right_arrow);
+            indicator.setImageResource(isExpanded ? R.drawable.ic_exp_down_arrow : R.drawable.ic_right_arrow);
         } else {
             indicator.setVisibility(View.GONE);
         }

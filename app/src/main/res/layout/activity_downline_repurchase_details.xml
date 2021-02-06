@@ -66,7 +66,7 @@
                             android:textColor="#000000"
                             android:textSize="14sp"
                             android:background="@drawable/boxbg"
-                            android:layout_width="100dp"
+                            android:layout_width="130dp"
                             android:layout_height="45dp"/>
                         <TextView
                             android:textColor="#000000"
@@ -84,7 +84,7 @@
                             android:textSize="14sp"
                             android:layout_marginLeft="5dp"
                             android:background="@drawable/boxbg"
-                            android:layout_width="100dp"
+                            android:layout_width="130dp"
                             android:layout_height="45dp"/>
                     </LinearLayout>
                     <Button
@@ -101,6 +101,7 @@
                         android:layout_height="40dp"/>
                 </LinearLayout>
                 <com.facebook.shimmer.ShimmerFrameLayout
+                    android:visibility="gone"
                     android:id="@+id/m_shimmer_downline_purchase_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">

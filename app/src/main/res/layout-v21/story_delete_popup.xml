@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="Are you sure want to logout? "
-            android:fontFamily="sans-serif-condensed-light"
+            android:fontFamily="@font/open_sans_semibold"
             android:textSize="18dp"
             android:textColor="#000000"
             android:gravity="center"
@@ -44,7 +44,7 @@
                 android:layout_gravity="center"
                 android:text="No"
                 android:textSize="12dp"
-                android:fontFamily="sans-serif-condensed-light"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textColor="#FFFFFF"
                 android:layout_width="90dp"
                 android:layout_height="35dp"/>

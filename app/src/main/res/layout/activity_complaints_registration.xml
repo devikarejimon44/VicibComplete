@@ -33,8 +33,7 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-       <ScrollView
+        <ScrollView
            android:layout_width="match_parent"
            android:layout_height="match_parent">
            <LinearLayout
@@ -66,8 +65,8 @@
                    android:layout_width="match_parent"
                    android:layout_height="40dp"
                    android:layout_marginTop="5dp"
+                   android:padding="5dp"
                    android:background="@drawable/linebg" />
-
                <TextView
                    android:layout_marginTop="10dp"
                    android:text="Priority"
@@ -79,9 +78,9 @@
                <Spinner
                    android:id="@+id/comp_priority"
                    android:layout_marginTop="5dp"
+                   android:padding="5dp"
                    android:background="@drawable/linebg"
                    android:layout_width="match_parent"
-
                    android:layout_height="40dp"/>
                <TextView
                    android:layout_marginTop="10dp"
@@ -93,6 +92,7 @@
                    android:layout_height="wrap_content"/>
                <EditText
                    android:id="@+id/comp_subject"
+                   android:padding="5dp"
                    android:fontFamily="@font/open_sans_semibold"
                    android:textColor="@color/colorBlackShoppy"
                    android:layout_marginTop="5dp"
@@ -113,11 +113,13 @@
                    android:id="@+id/comp_description"
                    android:fontFamily="@font/open_sans_semibold"
                    android:layout_marginTop="5dp"
+                   android:padding="5dp"
                    android:textSize="15dp"
                    android:background="@drawable/linebg"
                    android:layout_width="match_parent"
                    android:layout_height="80dp"/>
                <com.google.android.material.button.MaterialButton
+                  android:layout_gravity="center"
                    android:id="@+id/comp_image_upload"
                    android:layout_marginTop="10dp"
                    android:text="Upload File"
@@ -129,6 +131,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="40dp"/>
                <ImageView
+                   android:layout_gravity="center"
                    android:id="@+id/c_image"
                    android:layout_marginTop="10dp"
                    android:src="@drawable/imagedemo"

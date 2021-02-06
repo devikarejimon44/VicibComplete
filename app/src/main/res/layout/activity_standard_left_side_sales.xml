@@ -89,6 +89,7 @@
                             android:id="@+id/standard_left_side_sales_todate"
                             android:textColor="#000000"
                             android:textSize="14sp"
+                            android:gravity="center"
                             android:layout_marginLeft="8dp"
                             android:background="@drawable/boxbg"
                             android:layout_width="130dp"
@@ -110,6 +111,7 @@
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/m_shimmer_st_leftside_sales"
                     android:visibility="gone"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -124,9 +126,6 @@
                         <include layout="@layout/member_shimmer_st_leftside_sales"/>
                         <include layout="@layout/member_shimmer_st_leftside_sales"/>
                         <include layout="@layout/member_shimmer_st_leftside_sales"/>
-
-
-
 
 
 

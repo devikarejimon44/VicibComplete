@@ -49,6 +49,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username"
                 android:backgroundTint="#000000"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textColor="#000000"
                 android:textSize="15dp"
                 android:layout_width="match_parent"

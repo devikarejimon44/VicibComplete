@@ -11,7 +11,8 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="1"
-            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/colorWhiteShoppy"
             android:gravity="center"
             android:textStyle="bold"
             android:background="@drawable/ic_round"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="Name"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -33,6 +35,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Username"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -40,6 +43,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Date OF Purchase"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -47,6 +51,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="BV"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -60,6 +65,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -67,6 +73,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -74,6 +81,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -81,6 +89,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -94,6 +103,7 @@
             <TextView
                 android:id="@+id/premium_left_side_sales_name"
                 android:text="10/02/2020"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -102,6 +112,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_left_side_sales_username"
                 android:text="154645"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -110,6 +121,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_left_side_sales_date"
                 android:text="3000"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -118,6 +130,7 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_left_side_sales_bv"
                 android:text="3000"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"

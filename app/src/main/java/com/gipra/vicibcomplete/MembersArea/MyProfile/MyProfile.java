@@ -18,7 +18,10 @@ import android.provider.Settings;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,6 +42,12 @@ import androidx.core.content.ContextCompat;
 import androidx.loader.content.CursorLoader;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.IDCard;
@@ -51,13 +60,22 @@ import com.gipra.vicibcomplete.MembersArea.Reports.Mem_MyProducts.MyProducts;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.OrderHistoryActivity;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
@@ -77,17 +95,25 @@ public class MyProfile extends AppCompatActivity {
  EditText edit_bankname,edit_branch,edit_accountnum,edit_ifsc;
  Spinner edit_country,edit_state,edit_district;
  Button edit_update;
- RadioGroup edit_gender;
- RadioButton radioButton;
+ Spinner edit_gender;
+    String g;
+
+    LinearLayout ll_edit_pancard;
+    CheckBox pan_check;
+
  ImageView order_history_myprof;
  ImageView bank_upload,pan_upload;
- Button btn_bank_upload,btn_pan_upload;
+ MaterialButton btn_bank_upload,btn_pan_upload;
 
  CircleImageView acc_account_profile_pic;
+ ImageView edit_next;
 
 
     DatePickerDialog from;
     SimpleDateFormat dateFormatter;
+
+    JSONObject jsonObject,cjsonObject;
+    String st_id,d_id;
 
 
     ImageView picphoto;
@@ -97,6 +123,7 @@ public class MyProfile extends AppCompatActivity {
     private static final int SELECT_BANK = 200;
     private static final int SELECT_PAN = 300;
     private static final String TAG = "MyProfile";
+    String imgurl ="https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/profile_image_view";
 
 
     @Override
@@ -119,8 +146,6 @@ public class MyProfile extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), OrderHistoryActivity.class));
             }
         });
-
-
 
         photo_loader=findViewById(R.id.photo_loader);
         bank_upload=findViewById(R.id.bank_upload);
@@ -152,7 +177,6 @@ public class MyProfile extends AppCompatActivity {
         prof_activateddate=findViewById(R.id.prof_activateddate);
 
         edit_name=findViewById(R.id.edit_name);
-        edit_gender=findViewById(R.id.edit_gender);
         edit_mobile=findViewById(R.id.edit_mobile);
         edit_dob=findViewById(R.id.edit_dob);
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
@@ -194,18 +218,72 @@ public class MyProfile extends AppCompatActivity {
         edit_ifsc=findViewById(R.id.edit_ifsc);
         edit_gender=findViewById(R.id.edit_gender);
 
-        edit_gender = (RadioGroup) findViewById(R.id.edit_gender);
-        edit_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+        ll_edit_pancard=findViewById(R.id.ll_edit_pancard);
+        pan_check=findViewById(R.id.pan_check);
+
+
+
+
+
+
+        List<String> gen=new ArrayList<>();
+        gen.add(0,"Select Position");
+        gen.add("Female");
+        gen.add("Male");
+
+
+
+
+
+        ArrayAdapter padapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,gen);
+        padapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        edit_gender.setAdapter(padapter);
+        edit_gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton rb=(RadioButton)radioGroup.findViewById(i);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(adapterView.getItemAtPosition(i).equals("Select Position")){
+                    //Toast.makeText(getBaseContext(), list.get(arg2).toString(),
+                    //				Toast.LENGTH_SHORT).show();
+                    g=adapterView.getSelectedItem().toString();
+
+
+
+                }else {
+                    final String item=adapterView.getItemAtPosition(i).toString();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+
+
+        List<String> co=new ArrayList<>();
+        co.add(0,"Select Country");
+        co.add("India");
+
+
+        ArrayAdapter cadapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,co);
+        cadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        edit_country.setAdapter(cadapter);
+        edit_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(adapterView.getItemAtPosition(i).equals("Select Country")){
+
+                }else {
+                    final String item=adapterView.getItemAtPosition(i).toString();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         acc_account_profile_pic=findViewById(R.id.acc_account_profile_pic);
-        ViewProfilePicture();
-
-
 
 
 
@@ -230,6 +308,17 @@ public class MyProfile extends AppCompatActivity {
         prof_userid.setText(id);
         prof_sponsorid.setText(uname);
         prof_mobile.setText(mob);
+
+        edit_next=findViewById(R.id.edit_next);
+        edit_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout_bankinfo.setVisibility(View.VISIBLE);
+                layout_personalinfo.setVisibility(View.GONE);
+                cardview_bankinfo.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                cardview_personalinfo.setCardBackgroundColor(Color.parseColor("#AFABAB"));
+            }
+        });
 
         cardview_personalinfo=findViewById(R.id.cardview_personalinfo);
         layout_bankinfo=findViewById(R.id.layout_bankinfo);
@@ -281,6 +370,7 @@ public class MyProfile extends AppCompatActivity {
              startActivity(new Intent(getApplicationContext(), IDCard.class));
          }
      });
+     loadState();
      ViewPhoto();
      changephoto=findViewById(R.id.changephoto);
      picphoto=findViewById(R.id.picphoto);
@@ -302,34 +392,152 @@ public class MyProfile extends AppCompatActivity {
          }
      });
     }
+    public void itemClicked(View v) {
+        //code to check if this checkbox is checked!
+        CheckBox checkBox = (CheckBox)v;
+        if (!checkBox.isChecked()) {
+            ll_edit_pancard.setVisibility(View.VISIBLE);
+        } else {
+            ll_edit_pancard.setVisibility(View.GONE);
+
+        }
+    }
 
 
-    private void ViewProfilePicture() {
+    private void loadState(){
+        RequestQueue requestQueue=new Volley().newRequestQueue(this);
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, "https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/State_list",
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG, response);
+                        try {
+                            cjsonObject = new JSONObject(response);
+                            if (cjsonObject.getString("status").equals("1")) {
+                                final JSONArray jsonArray = cjsonObject.getJSONArray("data");
+                                Log.e(TAG, cjsonObject.length() + "");
+                                List<String> statearray = new ArrayList<String>();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    String state_name = jsonArray.getJSONObject(i).getString("state_name");
 
+                                    // con_id=jsonArray.getJSONObject(i).getString("country_id");
+                                    Log.e(TAG, state_name + "");
+                                    Log.e(TAG, st_id + "");
+                                    statearray.add(state_name);
 
-        SharedPreferences shpref;
-        shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-        String u=shpref.getString("ID","");
-        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseImageView> call = api.ViewPhoto(Integer.parseInt(u));
-        call.enqueue(new Callback<ResponseImageView>() {
+                                }
+                                Log.e(TAG, statearray.toString());
+                                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.country_list, R.id.country_name, statearray);
+                                edit_state.setAdapter(arrayAdapter);
+                                edit_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                        try {
+                                            st_id=jsonArray.getJSONObject(i).getString("state_code");
+                                            loadDistrict();
+                                            Log.e(TAG,st_id);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                                    }
+                                });
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Log.e(TAG, e.toString());
+                        }
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
             @Override
-            public void onResponse(Call<ResponseImageView> call, Response<ResponseImageView> response) {
-                String img=response.body().getPath();
-                if (response.body().getStatus().equals("1")) {
-                    Log.e("pathh",img);
-                    Glide.with(getApplicationContext())
-                            .load(img)
-                            .into(acc_account_profile_pic);
-                }
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG,error+"");
             }
+        }) {
             @Override
-            public void onFailure(Call<ResponseImageView> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                return map;
             }
-        });
+        };
+        requestQueue.add(stringRequest);
 
     }
+
+
+    private void loadDistrict(){
+        RequestQueue requestQueue=new Volley().newRequestQueue(this);
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, "https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/District_list",
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG, response);
+                        try {
+                            cjsonObject = new JSONObject(response);
+                            if (cjsonObject.getString("status").equals("1")) {
+                                final JSONArray jsonArray = cjsonObject.getJSONArray("data");
+                                Log.e(TAG, cjsonObject.length() + "");
+                                List<String> distarray = new ArrayList<String>();
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    String dist_name = jsonArray.getJSONObject(i).getString("district_name");
+
+                                    // con_id=jsonArray.getJSONObject(i).getString("country_id");
+                                    Log.e(TAG, dist_name + "");
+                                    Log.e(TAG, d_id + "");
+                                    distarray.add(dist_name);
+                                }
+                                Log.e(TAG, distarray.toString());
+                                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.country_list, R.id.country_name, distarray);
+                                edit_district.setAdapter(arrayAdapter);
+
+                                edit_district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                        try {
+                                            d_id=jsonArray.getJSONObject(i).getString("district_id");
+                                            Log.e(TAG,d_id);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Log.e(TAG, e.toString());
+                        }
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG,error+"");
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("state_code",st_id );
+                return map;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+
+
+
+
     private void Upadte() {
 
         SharedPreferences shpref;
@@ -344,17 +552,19 @@ public class MyProfile extends AppCompatActivity {
         String panchayth=edit_panchayath.getText().toString();
         String zipcode=edit_zipcode.getText().toString();
         String pannumber=edit_pannumber.getText().toString();
-        String noiminenname=edit_nomineename.getText().toString();
+        String nominenname=edit_nomineename.getText().toString();
         String nomineerelation=edit_nomineerelation.getText().toString();
         String bankname=edit_bankname.getText().toString();
         String branch=edit_branch.getText().toString();
         String accountnum=edit_accountnum.getText().toString();
         String ifsc=edit_ifsc.getText().toString();
-        String gen=radioButton.getText().toString();
+
         ApiInterface api=ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseEditProfile>call=api.UpdateProf(1,"keerthana","female","10/10/2000","9695695656",
-                "dsacasc","dasdc","99","KL","Kottayam","636363","636565","DVFgvhhgf",
-                "Fedral","Kottayam","2516436251","FDG52555","ghjhhd","ghgsdfgs");
+        Call<ResponseEditProfile>call=api.UpdateProf(Integer.parseInt(id),name,g,dob,mobile,email,address,"99",st_id,d_id,panchayth,zipcode,pannumber,
+                bankname,branch,accountnum,ifsc,nominenname,nomineerelation);
+//        Call<ResponseEditProfile>call=api.UpdateProf(1,"keerthana","female","10/10/2000","9695695656",
+//                "dsacasc","dasdc","99","KL","Kottayam","636363","636565","DVFgvhhgf",
+//                "Fedral","Kottayam","2516436251","FDG52555","ghjhhd","ghgsdfgs");
         call.enqueue(new Callback<ResponseEditProfile>() {
             @Override
             public void onResponse(Call<ResponseEditProfile> call, Response<ResponseEditProfile> response) {
@@ -373,53 +583,63 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
-//        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-//        Call<ResponseEditProfile> call = api.UpdateProf(1,"keerthana","female","10/10/2000","9695695656",
-//                "dsacasc","dasdc","99","KL","Kottayam","636363","636565","DVFgvhhgf",
-//                "Fedral","Kottayam","2516436251","FDG52555","ghjhhd","ghgsdfgs");
-//        call.enqueue(new Callback<ResponseEditProfile>() {
-//            @Override
-//            public void onResponse(Call<ResponseEditProfile> call, Response<ResponseEditProfile> response) {
-//                Log.i("onResponse", new Gson().toJson(response.body()));
-//                if (response.body().getStatus().equals("1")){
-//                    Toast.makeText(MyProfile.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//                else
-//                {
-//                    Toast.makeText(MyProfile.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseEditProfile> call, Throwable t) {
-//
-//            }
-//        });
+
     }
     private  void ViewPhoto(){
-     SharedPreferences shpref;
-     shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-     String u=shpref.getString("ID","");
-     ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-     Call<ResponseImageView> call = api.ViewPhoto(Integer.parseInt(u));
-     call.enqueue(new Callback<ResponseImageView>() {
-         @Override
-         public void onResponse(Call<ResponseImageView> call, Response<ResponseImageView> response) {
-             String img=response.body().getPath();
-             if (response.body().getStatus().equals("1")) {
-                 Log.e("pathh",img);
-                 Glide.with(getApplicationContext())
-                         .load(img)
-                         .into(changephoto);
-             }
-         }
-         @Override
-         public void onFailure(Call<ResponseImageView> call, Throwable t) {
-             Toast.makeText(MyProfile.this, "dhfbsdgfsh", Toast.LENGTH_SHORT).show();
 
-         }
-     });
+
+      SharedPreferences shpref;
+        shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+        final String u=shpref.getString("ID","");
+
+        RequestQueue requestQueue=new Volley().newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, imgurl,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG, response);
+                        try {
+                            JSONObject cjsonObject = new JSONObject(response);
+
+                            if (cjsonObject.getString("status").equals("1")) {
+
+                                String img=cjsonObject.getString("path");
+                                Log.e("pathh",img);
+
+                                Glide.with(getApplicationContext())
+                                        .load(img)
+                                        .into(changephoto);
+
+                                Glide.with(getApplicationContext())
+                                        .load(img)
+                                        .into(acc_account_profile_pic);
+
+
+
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Log.e(TAG, e.toString());
+                        }
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG,error+"");
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("user_id",u );
+                return map;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+
  }
     private void handlePermission(){
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {

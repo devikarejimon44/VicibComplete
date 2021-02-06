@@ -7,7 +7,9 @@
 
             android:icon="@drawable/dashboard"
             android:id="@+id/nav_dashboard"
-            android:title="Dashboard" />
+            android:title="Dashboard"
+
+            />
 
         <item
             android:icon="@drawable/strategy"

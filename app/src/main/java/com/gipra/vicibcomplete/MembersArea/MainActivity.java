@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -13,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -35,6 +38,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintStatus;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
@@ -67,9 +76,14 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -94,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
     ConstraintLayout mainlayout;
 
     PopupWindow popupWindow2;
-    ImageView logout;
+
     AVLoadingIndicatorView logout_loader;
     CoordinatorLayout layout_home;
+     String imgurl ="https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/profile_image_view";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,15 +121,15 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         logout_loader=findViewById(R.id.logout_loader);
         layout_home=findViewById(R.id.layout_home);
-        logout=findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                LogoutSheet logoutSheet = new LogoutSheet();
-                logoutSheet.show(getSupportFragmentManager(),
-                        "ModalBottomSheet");
+     //   logout=findViewById(R.id.logout);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//                LogoutSheet logoutSheet = new LogoutSheet();
+//                logoutSheet.show(getSupportFragmentManager(),
+//                        "ModalBottomSheet");
 
 
 //                LayoutInflater layoutInflater = (LayoutInflater) MainActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -140,8 +155,8 @@ public class MainActivity extends AppCompatActivity {
 //                popupWindow2.update();
 //
 
-            }
-        });
+//            }
+//        });
         setSupportActionBar(toolbar);
 
 
@@ -204,25 +219,48 @@ public class MainActivity extends AppCompatActivity {
     private void UserImage() {
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-        String u=shpref.getString("ID","");
-        ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseImageView> call = api.ViewPhoto(Integer.parseInt(u));
-        call.enqueue(new Callback<ResponseImageView>() {
+        final String u=shpref.getString("ID","");
+
+        RequestQueue requestQueue=new Volley().newRequestQueue(this);
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, imgurl,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG, response);
+                        try {
+                           JSONObject cjsonObject = new JSONObject(response);
+
+                            if (cjsonObject.getString("status").equals("1")) {
+
+                                String img=cjsonObject.getString("path");
+                                Log.e("pathh",img);
+                                Glide.with(getApplicationContext())
+                                        .load(img)
+                                        .into(userimg);
+
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Log.e(TAG, e.toString());
+                        }
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
             @Override
-            public void onResponse(Call<ResponseImageView> call, Response<ResponseImageView> response) {
-                String img=response.body().getPath();
-                if (response.body().getStatus().equals("1")) {
-                    Log.e("pathh",img);
-                    Glide.with(getApplicationContext())
-                            .load(img)
-                            .into(userimg);
-                }
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG,error+"");
             }
+        }) {
             @Override
-            public void onFailure(Call<ResponseImageView> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("user_id",u );
+                return map;
             }
-        });
+        };
+        requestQueue.add(stringRequest);
+
 
     }
 
@@ -600,16 +638,41 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.myprofile) {
-//            startActivity(new Intent(getApplicationContext(), MyProfile.class));
-//
-//            return true;
-//        }
+        if (id == R.id.logout) {
+
+            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View customview = layoutInflater.inflate(R.layout.logoutpopup, null);
+            Button yes = customview.findViewById(R.id.yes);
+            yes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    logout();
+                    popupWindow2.dismiss();
+                }
+            });
+            Button no = customview.findViewById(R.id.no);
+            no.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupWindow2.dismiss();
+                }
+            });
+            popupWindow2 = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            popupWindow2.showAtLocation(mainlayout, Gravity.CENTER, 0, 0);
+            popupWindow2.setFocusable(true);
+            popupWindow2.update();
+
+
+
+            logout();
+
+            return true;
+        }
 //        else  if (id==R.id.changepsd){
 //            startActivity(new Intent(getApplicationContext(),ChangePassword.class));
 //        }
 //        else if(id==R.id.logout) {
-//            logout();
+//
 //        }
 
 //            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -714,10 +777,14 @@ public class MainActivity extends AppCompatActivity {
             if (fm.getBackStackEntryCount() > 0 && fm.getBackStackEntryCount() != 1) {
                 fm.popBackStackImmediate();
             } else if (fm.getBackStackEntryCount() == 1) {
-                toolbar.setTitle("dashboard..");
+
+                toolbar.setTitle("DASHBOARD");
+
+
+
                 fm.popBackStackImmediate();
             } else {
-                toolbar.setTitle("Dashboard");
+                toolbar.setTitle("DASHBOARD");
                 super.onBackPressed();
 
             }

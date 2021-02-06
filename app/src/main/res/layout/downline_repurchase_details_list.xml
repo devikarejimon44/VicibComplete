@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
-    app:cardCornerRadius="4dp"
+    app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
     android:layout_height="wrap_content">
 <!--    <TextView-->
@@ -25,12 +25,14 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="Level"
+            android:fontFamily="@font/open_sans_semibold"
             android:textSize="15dp"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:text="No OF Members"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text="Date Of Purchase "
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -45,6 +48,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text="Username"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -52,6 +56,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text="Purchase Amount"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -59,6 +64,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text="Product BV"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -66,6 +72,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text="Repurchase Income"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -79,12 +86,14 @@
         android:layout_height="wrap_content">
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:textSize="15dp"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -92,6 +101,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -99,6 +109,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -106,20 +117,26 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:textSize="15dp"
+            android:layout_marginTop="8dp"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:text=":"
+            android:fontFamily="@font/open_sans_semibold"
             android:textSize="15dp"
+            android:layout_marginTop="8dp"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -132,6 +149,7 @@
         <TextView
             android:id="@+id/downline_repurchase_level"
             android:text="10/02/2020"
+            android:fontFamily="@font/open_sans_semibold"
             android:textSize="15dp"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
@@ -139,6 +157,7 @@
         <TextView
             android:id="@+id/downline_repurchase_no_members"
             android:text="154645"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -147,6 +166,7 @@
         <TextView
             android:id="@+id/downline_repurchase_dateofpurchase"
             android:text="3000"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -155,6 +175,7 @@
         <TextView
             android:id="@+id/downline_repurchase_username"
             android:text="2500"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -163,6 +184,7 @@
         <TextView
             android:id="@+id/downline_repurchase_purchase_amount"
             android:text="2500"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -171,6 +193,7 @@
         <TextView
             android:id="@+id/downline_repurchase_productbv"
             android:text="2500"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"
@@ -179,6 +202,7 @@
         <TextView
             android:id="@+id/downline_repurchase__repurchase_income"
             android:text="2500"
+            android:fontFamily="@font/open_sans_semibold"
             android:layout_marginTop="8dp"
             android:textSize="15dp"
             android:textColor="@android:color/black"

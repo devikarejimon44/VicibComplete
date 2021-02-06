@@ -18,19 +18,34 @@
             app:elevation="0dp">
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/idcard_ToolBar"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:title="ID Card"
                 android:fontFamily="@font/open_sans_semibold"
 
                 app:titleTextColor="@color/colorWhiteShoppy">
+
             </com.google.android.material.appbar.MaterialToolbar>
+
         </com.google.android.material.appbar.AppBarLayout>
        <LinearLayout
+           android:orientation="vertical"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
-           <ScrollView
+
+           <ImageView
+               android:id="@+id/btn_save_idcard"
+               android:layout_marginTop="5dp"
+               android:layout_gravity="right"
+               android:src="@drawable/ic_down_arrow"
+               android:layout_width="40dp"
+               android:layout_height="40dp"/>
+
+           <androidx.core.widget.NestedScrollView
+
+               android:id="@+id/scroll"
+               android:layout_marginTop="5dp"
                android:layout_width="match_parent"
                android:layout_height="match_parent">
                <LinearLayout
@@ -141,11 +156,18 @@
                              android:layout_width="wrap_content"
                              android:layout_height="70dp"/>
                          <ImageView
+                             android:id="@+id/qr_image"
                              android:layout_margin="10dp"
                              android:layout_gravity="center|center_horizontal"
                              android:src="@drawable/qrcode"
                              android:layout_width="50dp"
                              android:layout_height="50dp"/>
+<!--                         <ImageView-->
+<!--                             android:layout_width="wrap_content"-->
+<!--                             android:layout_height="wrap_content"-->
+<!--                             android:id="@+id/imageView"-->
+<!--                             android:layout_centerHorizontal="true"-->
+<!--                             android:layout_below="@+id/button"/>-->
 
                          <TextView
                              android:layout_width="wrap_content"
@@ -174,6 +196,7 @@
                              android:textStyle="bold" />
 
                          <ImageView
+                             android:id="@+id/bar_image"
                              android:layout_margin="10dp"
                              android:layout_gravity="center|center_horizontal"
                              android:src="@drawable/barcode"
@@ -182,14 +205,10 @@
                      </LinearLayout>
                  </LinearLayout>
 
-                   <Button
-                       android:id="@+id/btn_save_idcard"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:text="SAVE" />
+
                </LinearLayout>
 
-           </ScrollView>
+           </androidx.core.widget.NestedScrollView>
        </LinearLayout>
 
 

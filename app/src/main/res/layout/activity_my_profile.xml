@@ -343,7 +343,7 @@
                             android:layout_height="match_parent">
                             <TextView
                                 android:fontFamily="@font/open_sans_semibold"
-                                android:textSize="18dp"
+                               android:textSize="18dp"
                                 android:textColor="@android:color/white"
                                 android:text="Personal"
                                 android:textStyle="bold"
@@ -408,215 +408,391 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:text="Name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
 
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_name"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Name"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg" />
-                    <TextView
-                        android:text="Gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <RadioGroup
-                        android:id="@+id/edit_gender"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_name"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <RadioButton
-                            android:text="Male"
+
+                        <TextView
+                            android:text="Gender"
+                            android:textSize="15dp"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-                        <RadioButton
-                            android:text="Female"
+
+                        <Spinner
+                            android:id="@+id/edit_gender"
+                            android:layout_marginLeft="70dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_linebg"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"/>
+                    </RelativeLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Date Of Birth"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_dob"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:cursorVisible="false"
+                            android:clickable="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Mobile"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_mobile"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Email Id"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_email"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Address"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_address"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <RelativeLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="Country"
+                            android:textSize="15dp"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
-                    </RadioGroup>
-                    <TextView
-                        android:text="Date Of Birth"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
 
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg" />
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Mobile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:id="@+id/edit_mobile"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_email"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Address"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_address"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Country"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <Spinner
-                        android:id="@+id/edit_country"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
+                        <Spinner
+                            android:id="@+id/edit_country"
+                            android:layout_marginLeft="70dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/edit_linebg"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"/>
+                    </RelativeLayout>
 
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="State"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <Spinner
-                        android:id="@+id/edit_state"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="District"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <Spinner
-                        android:id="@+id/edit_district"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Panchayath"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_panchayath"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Zipcode"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_zipcode"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:text="Users those who don't have PAN card, please check this box"
-                        android:textColor="@color/colorText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:id="@+id/pan_check"
-                        android:checked="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Pancard Number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_pannumber"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
 
-                   <Button
-                        android:id="@+id/btn_pan_upload"
-                        android:text="Upload Pancard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                    <RelativeLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="State"
+                            android:textSize="15dp"
+                            android:textColor="@color/colorBlackShoppy"
+                          android:layout_centerVertical="true"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <Spinner
+                            android:id="@+id/edit_state"
+                            android:layout_marginLeft="70dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_linebg"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="District"
+                            android:textSize="15dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <Spinner
+                            android:id="@+id/edit_district"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="70dp"
+                            android:background="@drawable/edit_linebg"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"/>
+                    </RelativeLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Panchayath"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_panchayath"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Zipcode"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_zipcode"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                          android:layout_centerVertical="true"
+                            android:text="Users those who don't have PAN card,\nPlease check this box"
+                            android:textColor="@color/colorText"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <CheckBox
+                           android:layout_centerVertical="true"
+                            android:layout_marginLeft="30dp"
+                            android:id="@+id/pan_check"
+                            android:layout_alignParentRight="true"
+                            android:checked="true"
+                            android:scaleX="1.6"
+                            android:scaleY="1.6"
+                            android:onClick="itemClicked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                  <LinearLayout
+                      android:id="@+id/ll_edit_pancard"
+                      android:visibility="gone"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+                      <com.google.android.material.textfield.TextInputLayout
+                          android:layout_marginTop="10dp"
+                          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                          android:hint="Pan Card Number"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColorHint="@color/colorBlackShoppy"
+                          android:backgroundTint="@color/colorBlackShoppy"
+                          android:layout_width="match_parent"
+                          android:layout_height="50dp">
+                          <com.google.android.material.textfield.TextInputEditText
+                              android:id="@+id/edit_pannumber"
+                              android:fontFamily="@font/open_sans_semibold"
+                              android:singleLine="true"
+                              android:backgroundTint="@color/colorBlackShoppy"
+                              android:textColor="@color/colorBlackShoppy"
+                              android:textSize="15dp"
+                              android:layout_width="match_parent"
+                              android:layout_height="match_parent">
+                          </com.google.android.material.textfield.TextInputEditText>
+                      </com.google.android.material.textfield.TextInputLayout>
+
+
+                      <com.google.android.material.button.MaterialButton
+                          android:layout_marginTop="10dp"
+                          android:layout_marginLeft="10dp"
+                          android:padding="5dp"
+                          android:textSize="12dp"
+                          android:textColor="@color/colorWhiteShoppy"
+                          android:background="@color/colorPrimary"
+                          android:id="@+id/btn_pan_upload"
+                          android:text="Upload Pancard"
+                          android:layout_width="wrap_content"
+                          android:layout_height="35dp"/>
+
+                      <ImageView
+                          android:id="@+id/pan_upload"
+                          android:layout_width="200dp"
+                          android:layout_height="150dp"
+                          android:layout_marginTop="10dp"
+                          android:src="@drawable/imagedemo" />
+                  </LinearLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Nominee Name"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_nomineename"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Nominee Relation"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_nomineerelation"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                     <ImageView
-                        android:id="@+id/pan_upload"
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
+                        android:id="@+id/edit_next"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/imagedemo" />
-
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Nominee Name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_nomineename"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:text="Nominee Relation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_nomineerelation"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-<!--                    <Button-->
-<!--                        android:id="@+id/edit_update"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                       android:gravity="center"-->
-<!--                        android:layout_marginBottom="45dp"-->
-<!--                        android:background="@drawable/bluebg"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:text="Update"-->
-<!--                        android:textColor="@android:color/white"-->
-<!--                        android:layout_width="180dp"-->
-<!--                        android:layout_height="45dp"/>-->
-
+                        android:src="@drawable/ic_edit_next_arrow"
+                        android:layout_marginBottom="45dp"
+                        android:layout_gravity="right"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -625,59 +801,106 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:text="Bank Name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_bankname"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
+
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
-                        android:text="Branch"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Bank Name"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_branch"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_bankname"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
-                        android:text="Account Number"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Branch"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_accountnum"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <TextView
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_branch"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
-                        android:text="IFSC Code"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Account Number"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <EditText
-                        android:padding="5dp"
-                        android:id="@+id/edit_ifsc"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/linebg"
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_accountnum"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="10dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="IFSC "
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"/>
-                    <Button
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_ifsc"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="2dp"
+                        android:textColor="@color/colorWhiteShoppy"
+                        android:background="@color/colorPrimary"
                         android:id="@+id/btn_bank_upload"
-                        android:layout_marginTop="10dp"
                         android:text="Upload Bank Proof"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"/>
+
+
 
                     <ImageView
                         android:id="@+id/bank_upload"
@@ -695,7 +918,6 @@
                         android:text="Update"
                         android:layout_width="180dp"
                         android:layout_height="45dp"/>
-
 
                 </LinearLayout>
 

@@ -23,6 +23,8 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
+import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.ResponseStandardTeamSalesBonusDetails;
+import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardTeamSalesBonusAdapter;
 import com.gipra.vicibcomplete.R;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -111,6 +113,8 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
+
+
         m_shimmer_pr_team_sales_binus_details.setVisibility(View.VISIBLE);
         m_shimmer_pr_team_sales_binus_details.startShimmerAnimation();
         SharedPreferences shpref;
@@ -121,7 +125,7 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
         String tdate=premium_team_sales_bonus_details_todate.getText().toString();
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
         //   Call<ResponseFirstPurchaseBVReport> usercall=api.SearchFirstPurchase(Integer.parseInt(id),fdate,tdate);
-        Call<ResponsePremiumTeamSalesBonusDetails> usercall=api.SearchPremiumTeamSalesBonus(1,"20/08/2018","09/11/2020");
+        Call<ResponsePremiumTeamSalesBonusDetails> usercall=api.SearchPremiumTeamSalesBonus(1,"20/08/2018","19/11/2020");
         usercall.enqueue(new Callback<ResponsePremiumTeamSalesBonusDetails>() {
             @Override
             public void onResponse(Call<ResponsePremiumTeamSalesBonusDetails> call, Response<ResponsePremiumTeamSalesBonusDetails> response) {
@@ -131,11 +135,11 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
                     m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
                     Recycler_premium_team_sales_bonus_details.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
-                    ResponsePremiumTeamSalesBonusDetails responsePremiumListLeftSideSales=response.body();
+                    ResponsePremiumTeamSalesBonusDetails responsePremiumTeamSalesBonusDetails=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
                     layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                     Recycler_premium_team_sales_bonus_details.setLayoutManager(layoutManager);
-                    premiumListTeamSalesBonusDetails=responsePremiumListLeftSideSales.getData();
+                    premiumListTeamSalesBonusDetails=responsePremiumTeamSalesBonusDetails.getData();
                     premiumTeamSalesBonusAdapter=new PremiumTeamSalesBonusAdapter(premiumListTeamSalesBonusDetails,getApplicationContext());
                     Recycler_premium_team_sales_bonus_details.setAdapter(premiumTeamSalesBonusAdapter);
                 }
@@ -149,8 +153,54 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
             public void onFailure(Call<ResponsePremiumTeamSalesBonusDetails> call, Throwable t) {
                 m_shimmer_pr_team_sales_binus_details.setVisibility(View.GONE);
                 m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
+                Toast.makeText(getApplicationContext(), "No Response", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+//        m_shimmer_pr_team_sales_binus_details.setVisibility(View.VISIBLE);
+//        m_shimmer_pr_team_sales_binus_details.startShimmerAnimation();
+//        SharedPreferences shpref;
+//        shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+//        String id=shpref.getString("ID","");
+//        Log.e("id",id);
+//        String fdate=premium_team_sales_bonus_details_fromdate.getText().toString();
+//        String tdate=premium_team_sales_bonus_details_todate.getText().toString();
+//        ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
+//        //   Call<ResponseFirstPurchaseBVReport> usercall=api.SearchFirstPurchase(Integer.parseInt(id),fdate,tdate);
+//        Call<ResponsePremiumTeamSalesBonusDetails> usercall=api.SearchPremiumTeamSalesBonus(1,"20/08/2018","09/11/2020");
+//        usercall.enqueue(new Callback<ResponsePremiumTeamSalesBonusDetails>() {
+//            @Override
+//            public void onResponse(Call<ResponsePremiumTeamSalesBonusDetails> call, Response<ResponsePremiumTeamSalesBonusDetails> response) {
+//                Log.i("onResponse", new Gson().toJson(response.body()));
+//                if (response.body().getStatus().equals("1")){
+//
+//                    m_shimmer_pr_team_sales_binus_details.setVisibility(View.GONE);
+//                    m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
+//                    Recycler_premium_team_sales_bonus_details.setVisibility(View.VISIBLE);
+//                    Log.i("onResponse", new Gson().toJson(response.body()));
+//                    ResponsePremiumTeamSalesBonusDetails responsePremiumListLeftSideSales=response.body();
+//                    final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
+//                    layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//                    Recycler_premium_team_sales_bonus_details.setLayoutManager(layoutManager);
+//                    premiumListTeamSalesBonusDetails=responsePremiumListLeftSideSales.getData();
+//                    premiumTeamSalesBonusAdapter=new PremiumTeamSalesBonusAdapter(premiumListTeamSalesBonusDetails,getApplicationContext());
+//                    Recycler_premium_team_sales_bonus_details.setAdapter(premiumTeamSalesBonusAdapter);
+//                }
+//                else {
+//                    m_shimmer_pr_team_sales_binus_details.setVisibility(View.GONE);
+//                    m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
+//                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<ResponsePremiumTeamSalesBonusDetails> call, Throwable t) {
+//                m_shimmer_pr_team_sales_binus_details.setVisibility(View.GONE);
+//                m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
+//            }
+//        });
 
     }
 }

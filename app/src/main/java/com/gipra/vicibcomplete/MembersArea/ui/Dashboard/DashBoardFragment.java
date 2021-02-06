@@ -23,18 +23,28 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
-import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
+import com.gipra.vicibcomplete.MembersArea.GRCodeScanner;
 import com.gipra.vicibcomplete.MembersArea.IDCard;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.MyProfile;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
-import com.gipra.vicibcomplete.MembersArea.ProductStore;
-import com.gipra.vicibcomplete.MembersArea.SavePdf;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
 import com.google.android.material.tabs.TabLayout;
+import com.google.zxing.qrcode.encoder.QRCode;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -45,6 +55,9 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class DashBoardFragment extends Fragment {
+
+    String imgurl ="https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/profile_image_view";
+
     LinearLayout d_standard_layout,d_premium_layout,d_prof_layout;
     Button d_btnprofile,d_btnpremium,d_btnstandard;
     TabLayout tabLayout;
@@ -225,27 +238,55 @@ public class DashBoardFragment extends Fragment {
     private void ViewProfilePicture() {
 
 
-            SharedPreferences shpref;
-            shpref=getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-            String u=shpref.getString("ID","");
-            ApiInterface api = ApiClient.getClient().create(ApiInterface.class);
-            Call<ResponseImageView> call = api.ViewPhoto(Integer.parseInt(u));
-            call.enqueue(new Callback<ResponseImageView>() {
-                @Override
-                public void onResponse(Call<ResponseImageView> call, Response<ResponseImageView> response) {
-                    String img=response.body().getPath();
-                    if (response.body().getStatus().equals("1")) {
-                        Log.e("pathh",img);
-                        Glide.with(getContext())
-                                .load(img)
-                                .into(account_profile_pic);
+        SharedPreferences shpref;
+        shpref=getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+        final String u=shpref.getString("ID","");
+
+        RequestQueue requestQueue=new Volley().newRequestQueue(getContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, imgurl,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e(TAG, response);
+                        try {
+                            JSONObject cjsonObject = new JSONObject(response);
+
+                            if (cjsonObject.getString("status").equals("1")) {
+
+                                String img=cjsonObject.getString("path");
+                                Log.e("pathh",img);
+                                Glide.with(getContext())
+                                        .load(img)
+                                        .into(account_profile_pic);
+
+
+                            } else {
+                                Toast.makeText(getContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Log.e(TAG, e.toString());
+                        }
                     }
-                }
-                @Override
-                public void onFailure(Call<ResponseImageView> call, Throwable t) {
-                    Toast.makeText(getContext(), "Some error occured..Please try again later", Toast.LENGTH_SHORT).show();
-                }
-            });
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG,error+"");
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("user_id",u );
+                return map;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+
+
+
+
+
 
         }
 

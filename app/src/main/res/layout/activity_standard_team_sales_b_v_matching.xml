@@ -16,7 +16,6 @@
             android:fitsSystemWindows="true"
             app:elevation="0dp">
 
-
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/stand_teamsalesbvmatching_ToolBar"
                 android:layout_width="match_parent"
@@ -82,6 +81,7 @@
                             android:layout_height="wrap_content"/>
                         <EditText
                             android:hint="DD/MM/YYYY"
+                            android:gravity="center"
                             android:fontFamily="@font/open_sans_semibold"
                             android:id="@+id/standard_teamsales_bv_matching_todate"
                             android:textColor="#000000"

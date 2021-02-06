@@ -82,17 +82,23 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
         });
         p_imgone = findViewById(R.id.p_imgone);
         p_txtone = findViewById(R.id.p_txtone);
+
         p_imgtwo = findViewById(R.id.p_imgtwo);
-        p_imgthree = findViewById(R.id.p_imgthree);
         p_txttwo = findViewById(R.id.p_txttwo);
+
+        p_imgthree = findViewById(R.id.p_imgthree);
         p_txtthree = findViewById(R.id.p_txtthree);
+
         p_imgfour = findViewById(R.id.p_imgfour);
-        p_imgfive = findViewById(R.id.p_imgfive);
-        p_imgsix = findViewById(R.id.p_imgsix);
-        p_imgseven = findViewById(R.id.p_imgseven);
         p_txtfour = findViewById(R.id.p_txtfour);
+
+        p_imgfive = findViewById(R.id.p_imgfive);
         p_txtfive = findViewById(R.id.p_txtfive);
+
+        p_imgsix = findViewById(R.id.p_imgsix);
         p_txtsix = findViewById(R.id.p_txtsix);
+
+        p_imgseven = findViewById(R.id.p_imgseven);
         p_txtseven = findViewById(R.id.p_txtseven);
 
 
@@ -293,27 +299,27 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
                     if (uid2.equals("0")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.vacant)
-                                .into(p_imgtwo);
+                                .into(p_imgthree);
                     }
                     else if (mactive2.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.active)
-                                .into(p_imgtwo);
+                                .into(p_imgthree);
                     }
                     else if (mbactive2.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.bronzeactive)
-                                .into(p_imgtwo);
+                                .into(p_imgthree);
                     }
                     else if (bactive2.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.basicplan)
-                                .into(p_imgtwo);
+                                .into(p_imgthree);
                     }
                     else {
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.notactive)
-                                .into(p_imgtwo);
+                                .into(p_imgthree);
                     }
 
 
@@ -329,27 +335,27 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
                     if (uid3.equals("0")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.vacant)
-                                .into(p_imgthree);
+                                .into(p_imgfour);
                     }
                     else if (mactive3.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.active)
-                                .into(p_imgthree);
+                                .into(p_imgfour);
                     }
                     else if (mbactive3.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.bronzeactive)
-                                .into(p_imgthree);
+                                .into(p_imgfour);
                     }
                     else if (bactive3.equals("Y")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.basicplan)
-                                .into(p_imgthree);
+                                .into(p_imgfour);
                     }
                     else {
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.notactive)
-                                .into(p_imgthree);
+                                .into(p_imgfour);
                     }
 
 //                   postion 4

@@ -11,7 +11,8 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="1"
-            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/colorWhiteShoppy"
             android:gravity="center"
             android:textStyle="bold"
             android:background="@drawable/ic_round"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="Date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Team Sales Bonus"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -39,6 +42,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Gross Amount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -46,6 +50,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Deduction"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -53,6 +58,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Net Amount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -67,6 +73,7 @@
 
             <TextView
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -74,6 +81,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -81,6 +89,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -88,6 +97,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -95,6 +105,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -107,6 +118,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/standard_team_sales_bonus_date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="10/02/2020"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -115,6 +127,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/standard_team_sales_bonus_teambonus"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="154645"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -123,6 +136,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/standard_team_sales_bonus_grossamount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="3000"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -131,6 +145,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/standard_team_sales_bonus_deduction"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="3000"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -139,6 +154,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/standard_team_sales_bonus_netamount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="2500"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"

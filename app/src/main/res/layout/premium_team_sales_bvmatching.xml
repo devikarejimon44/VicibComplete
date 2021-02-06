@@ -11,7 +11,8 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="1"
-            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/colorWhiteShoppy"
             android:gravity="center"
             android:textStyle="bold"
             android:background="@drawable/ic_round"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="Date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Left Side Sales BV"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -39,6 +42,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Right Side Sales BV"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -46,6 +50,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Matching BV"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -53,6 +58,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Left Sale Carry BV"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -60,6 +66,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Right Sale Carry BV"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -67,6 +74,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Amount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -79,12 +87,14 @@
             android:layout_height="match_parent">
             <TextView
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:layout_marginTop="8dp"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -93,6 +103,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -100,6 +111,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -107,6 +119,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -114,6 +127,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -121,6 +135,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -133,6 +148,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/premium_team_salesbv_matching_date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="10/02/2020"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -141,6 +157,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_team_salesbv_matching_leftsidesalesbv"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="154645"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -149,6 +166,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_team_salesbv_matching_rightsidesalesbv"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="3000"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -157,6 +175,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_team_salesbv_matchingbv"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="3000"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -166,6 +185,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_team_salesbv_matching_leftsalecarrybv"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="2500"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -174,6 +194,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_team_salesbv_matching_rightsalecarrybv"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="2500"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -182,6 +203,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/premium_team_salesbv_matching_amount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="2500"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"

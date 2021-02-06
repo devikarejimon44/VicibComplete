@@ -112,6 +112,8 @@ public class StandardLeftSideSales extends AppCompatActivity {
 
     }
     private void searchFirstPurchaseReport() {
+
+
         m_shimmer_st_leftside_sales.setVisibility(View.VISIBLE);
         m_shimmer_st_leftside_sales.startShimmerAnimation();
         SharedPreferences shpref;
@@ -122,16 +124,15 @@ public class StandardLeftSideSales extends AppCompatActivity {
         String tdate=standard_left_side_sales_todate.getText().toString();
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
         //   Call<ResponseFirstPurchaseBVReport> usercall=api.SearchFirstPurchase(Integer.parseInt(id),fdate,tdate);
-        Call<ResponseStandardLeftSideSales> usercall=api.SearchStandardLeftSales(1,"01/01/2020","01/09/2020","Left");
+        Call<ResponseStandardLeftSideSales> usercall=api.SearchStandardLeftSales(1,"01/01/2018","01/11/2020","Right");
         usercall.enqueue(new Callback<ResponseStandardLeftSideSales>() {
             @Override
             public void onResponse(Call<ResponseStandardLeftSideSales> call, Response<ResponseStandardLeftSideSales> response) {
                 Log.i("onResponse", new Gson().toJson(response.body()));
                 if (response.body().getStatus().equals("1")){
-
+                    recycler_standard_left_side_sales.setVisibility(View.VISIBLE);
                     m_shimmer_st_leftside_sales.setVisibility(View.GONE);
                     m_shimmer_st_leftside_sales.stopShimmerAnimation();
-                    recycler_standard_left_side_sales.setVisibility(View.VISIBLE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseStandardLeftSideSales responseStandardLeftSideSales=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -153,6 +154,7 @@ public class StandardLeftSideSales extends AppCompatActivity {
                 m_shimmer_st_leftside_sales.stopShimmerAnimation();
             }
         });
+
 
     }
 }

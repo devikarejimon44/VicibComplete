@@ -20,8 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MembersArea.ProfileIcons.ProfileList"></activity>
-        <activity android:name=".MembersArea.IDCardPdf" />
+        <activity android:name=".MembersArea.GRCodeScanner"></activity>
+        <activity android:name=".MembersArea.ProfileIcons.ProfileList" />
         <activity android:name=".MembersArea.LogoutSheet" />
         <activity android:name=".MembersArea.Gene.StandardPlanGene" />
         <activity android:name=".MembersArea.Reports.BasicActiveMembers" />
@@ -65,8 +65,6 @@
         <activity android:name=".MembersArea.ProductStore" />
         <activity android:name=".MembersArea.MyProfile.MyProfile" />
         <activity android:name=".MembersArea.Login" />
-        <activity android:name=".MembersArea.SavePdf" />
-        <activity android:name=".MembersArea.PDFViewActivity" />
         <activity
             android:name=".MembersArea.MainActivity"
             android:label="@string/app_name"
@@ -81,7 +79,7 @@
         <activity android:name="com.gipra.vicibshoppy.activity.ViewcartActivity" />
         <activity android:name="com.gipra.vicibshoppy.activity.CategoryProducts" />
         <activity android:name="com.gipra.vicibshoppy.activity.ProductActivity" />
-        <activity android:name="com.gipra.vicibshoppy.activity.ShoppyHome"></activity>
+        <activity android:name="com.gipra.vicibshoppy.activity.ShoppyHome" />
 
         <receiver
             android:name="com.gipra.vicibshoppy.application.ConnectivityReceiver"

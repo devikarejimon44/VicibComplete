@@ -11,9 +11,10 @@
         android:layout_height="wrap_content">
         <TextView
             android:text="1"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorWhiteShoppy"
             android:gravity="center"
             android:textStyle="bold"
+            android:fontFamily="@font/open_sans_semibold"
             android:background="@drawable/ic_round"
             android:id="@+id/payoutledger_count"
             android:layout_width="30dp"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:text="Date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Description"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -39,6 +42,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Amount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -46,6 +50,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text="Balance"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -60,6 +65,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -68,6 +74,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -75,6 +82,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -83,6 +91,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:text=":"
+                android:fontFamily="@font/open_sans_semibold"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -97,6 +106,7 @@
             <TextView
 
                 android:id="@+id/payoutledger_date"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="154645"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -106,6 +116,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/payoutledger_description"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="154645"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -114,6 +125,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/payoutledger_amount"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="3000"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"
@@ -122,6 +134,7 @@
             <TextView
                 android:layout_marginTop="8dp"
                 android:id="@+id/payoutledger_balance"
+                android:fontFamily="@font/open_sans_semibold"
                 android:text="3000"
                 android:textSize="15dp"
                 android:textColor="@android:color/black"

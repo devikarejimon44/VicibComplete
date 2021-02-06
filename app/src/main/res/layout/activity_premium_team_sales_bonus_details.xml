@@ -62,9 +62,10 @@
                             android:id="@+id/premium_team_sales_bonus_details_fromdate"
                             android:layout_marginLeft="5dp"
                             android:textColor="#000000"
+                            android:gravity="center"
                             android:textSize="14sp"
                             android:background="@drawable/boxbg"
-                            android:layout_width="100dp"
+                            android:layout_width="130dp"
                             android:layout_height="45dp"/>
                         <TextView
                             android:textColor="#000000"
@@ -82,7 +83,8 @@
                             android:textSize="14sp"
                             android:layout_marginLeft="5dp"
                             android:background="@drawable/boxbg"
-                            android:layout_width="100dp"
+                            android:gravity="center"
+                            android:layout_width="130dp"
                             android:layout_height="45dp"/>
                     </LinearLayout>
                     <Button

@@ -28,12 +28,12 @@ public class PremiumTeamSalesBonusAdapter extends RecyclerView.Adapter<PremiumTe
     }
     public  void onBindViewHolder(PremiumTeamSalesBonusAdapter.ViewHolder viewHolder,final int i){
 
-        viewHolder.standard_team_sales_bonus_count.setText(String.valueOf(premiumListTeamSalesBonusDetails.get(i).getCount()));
-        viewHolder.standard_team_sales_bonus_date.setText(premiumListTeamSalesBonusDetails.get(i).getTodate());
-        viewHolder.standard_team_sales_bonus_teambonus.setText(premiumListTeamSalesBonusDetails.get(i).getNBinaryAmt());
-        viewHolder.standard_team_sales_bonus_deduction.setText(premiumListTeamSalesBonusDetails.get(i).getDeductionAmount());
-        viewHolder.standard_team_sales_bonus_netamount.setText(premiumListTeamSalesBonusDetails.get(i).getNetAmount());
-        viewHolder.standard_team_sales_bonus_grossamount.setText(premiumListTeamSalesBonusDetails.get(i).getGrossAmount());
+        viewHolder.premium_team_sales_bonus_count.setText(String.valueOf(premiumListTeamSalesBonusDetails.get(i).getCount()));
+        viewHolder.premium_team_sales_bonus_date.setText(premiumListTeamSalesBonusDetails.get(i).getTodate());
+        viewHolder.premium_team_sales_bonus_teambonus.setText(premiumListTeamSalesBonusDetails.get(i).getNBinaryAmt());
+        viewHolder.premium_team_sales_bonus_deduction.setText(premiumListTeamSalesBonusDetails.get(i).getDeductionAmount());
+        viewHolder.premium_team_sales_bonus_netamount.setText(premiumListTeamSalesBonusDetails.get(i).getNetAmount());
+        viewHolder.premium_team_sales_bonus_grossamount.setText(premiumListTeamSalesBonusDetails.get(i).getGrossAmount());
 
     }
     @Override
@@ -42,17 +42,17 @@ public class PremiumTeamSalesBonusAdapter extends RecyclerView.Adapter<PremiumTe
     }
     public  class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView standard_team_sales_bonus_count,standard_team_sales_bonus_date,standard_team_sales_bonus_teambonus,standard_team_sales_bonus_grossamount;
-        TextView standard_team_sales_bonus_deduction,standard_team_sales_bonus_netamount;
+        TextView premium_team_sales_bonus_count,premium_team_sales_bonus_date,premium_team_sales_bonus_teambonus,premium_team_sales_bonus_grossamount;
+        TextView premium_team_sales_bonus_deduction,premium_team_sales_bonus_netamount;
 
         public ViewHolder(View view) {
             super(view);
-            standard_team_sales_bonus_count=view.findViewById(R.id.standard_team_sales_bonus_count);
-            standard_team_sales_bonus_date=view.findViewById(R.id.standard_team_sales_bonus_date);
-            standard_team_sales_bonus_teambonus=view.findViewById(R.id.standard_team_sales_bonus_teambonus);
-            standard_team_sales_bonus_deduction=view.findViewById(R.id.standard_team_sales_bonus_deduction);
-            standard_team_sales_bonus_netamount=view.findViewById(R.id.standard_team_sales_bonus_netamount);
-            standard_team_sales_bonus_grossamount=view.findViewById(R.id.standard_team_sales_bonus_grossamount);
+            premium_team_sales_bonus_count=view.findViewById(R.id.premium_team_sales_bonus_count);
+            premium_team_sales_bonus_date=view.findViewById(R.id.premium_team_sales_bonus_date);
+            premium_team_sales_bonus_teambonus=view.findViewById(R.id.premium_team_sales_bonus_teambonus);
+            premium_team_sales_bonus_grossamount=view.findViewById(R.id.premium_team_sales_bonus_grossamount);
+            premium_team_sales_bonus_deduction=view.findViewById(R.id.premium_team_sales_bonus_deduction);
+            premium_team_sales_bonus_netamount=view.findViewById(R.id.premium_team_sales_bonus_netamount);
 
 
         }
