@@ -23,7 +23,6 @@ import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.Registration;
 import com.gipra.vicibcomplete.R;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -33,22 +32,23 @@ import retrofit2.Response;
 
 public class PremiumPlanGenealogy extends AppCompatActivity {
     PopupWindow popupWindow;
-    LinearLayout layout_premium;
+    LinearLayout p_layout;
 
 
     private static final String TAG = "BinaryGene";
     ImageView p_imgone,p_imgtwo,p_imgthree,p_imgfour,p_imgfive,p_imgsix,p_imgseven;
-    LinearLayout p_llimgone,lltwo,llthree,llfour,llfive,llsix,llseven;
+    LinearLayout p_llimgone,p_llimgtwo,p_llimgthree,p_llimgfour,p_llimgfive,p_llimgsix,p_llimgseven;
     LinearLayout p_llmain;
     TextView p_txtone,p_txttwo,p_txtthree,p_txtfour,p_txtfive,p_txtsix,p_txtseven;
     private ArrayList<ListPremiumPlanGenealogy> listPremiumPlanGenealogy;
-    TextView p_username_one,sponsor_userid_one,sponsor_username_one,type_one,leftGBV_one,rightGBV_one,leftcount_one,rightcount_one,leftactive_one,rightactive_one;
-    TextView username_two,sponsor_userid_two,sponsor_username_two,type_two,leftGBV_two,rightGBV_two,leftcount_two,rightcount_two,leftactive_two,rightactive_two;
-    TextView username_three,sponsor_userid_three,sponsor_username_three,type_three,leftGBV_three,rightGBV_three,leftcount_three,rightcount_three,leftactive_three,rightactive_three;
-    TextView username_four,sponsor_userid_four,sponsor_username_four,type_four,leftGBV_four,rightGBV_four,leftcount_four,rightcount_four,leftactive_four,rightactive_four;
-    TextView username_five,sponsor_userid_five,sponsor_username_five,type_five,leftGBV_five,rightGBV_five,leftcount_five,rightcount_five,leftactive_five,rightactive_five;
-    TextView username_six,sponsor_userid_six,sponsor_username_six,type_six,leftGBV_six,rightGBV_six,leftcount_six,rightcount_six,leftactive_six,rightactive_six;
-    TextView username_seven,sponsor_userid_seven,sponsor_username_seven,type_seven,leftGBV_seven,rightGBV_seven,leftcount_seven,rightcount_seven,leftactive_seven,rightactive_seven;
+    TextView p_username_one,p_username_two,p_username_three,p_username_four,p_username_five,p_username_six,p_username_seven;
+    TextView p_name_one,p_name_two,p_name_three,p_name_four,p_name_five,p_name_six,p_name_seven;
+    TextView p_sponsor_username_one,p_sponsor_username_two,p_sponsor_username_three,p_sponsor_username_four,p_sponsor_username_five,p_sponsor_username_six,p_sponsor_username_seven;
+    TextView p_sponsor_name_one,p_sponsor_name_two,p_sponsor_name_three,p_sponsor_name_four,p_sponsor_name_five,p_sponsor_name_six,p_sponsor_name_seven;
+    TextView p_leftBV_one,p_leftBV_two,p_leftBV_three,p_leftBV_four,p_leftBV_five,p_leftBV_six,p_leftBV_seven;
+    TextView p_rightBV_one,p_rightBV_two,p_rightBV_three,p_rightBV_four,p_rightBV_five,p_rightBV_six,p_rightBV_seven;
+    TextView p_leftcount_one,p_leftcount_two,p_leftcount_three,p_leftcount_four,p_leftcount_five,p_leftcount_six,p_leftcount_seven;
+    TextView p_rightcount_one,p_rightcount_two,p_rightcount_three,p_rightcount_four,p_rightcount_five,p_rightcount_six,p_rightcount_seven;
     String uid0,uid1,uid2,uid3,uid4,uid5,uid6;
     String t0,t1,t2,t3,t4,t5,t6;
 
@@ -67,19 +67,28 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             }
         });
         ImageView premium_info = findViewById(R.id.premium_info);
-        layout_premium = findViewById(R.id.layout_premium);
+        p_layout = findViewById(R.id.p_layout);
         premium_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater layoutInflater = (LayoutInflater) PremiumPlanGenealogy.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View premium_popup = layoutInflater.inflate(R.layout.premium_genepopup, null);
+//                LayoutInflater layoutInflater = (LayoutInflater) PremiumPlanGenealogy.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//                View premium_popup = layoutInflater.inflate(R.layout.standard_genepopup, null);
+//
+//                popupWindow = new PopupWindow(premium_popup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                popupWindow.showAtLocation(layout_premium, Gravity.CENTER, 0, 0);
+//                popupWindow.setFocusable(true);
+//                popupWindow.update();
+                InfoBottomSheet();
 
-                popupWindow = new PopupWindow(premium_popup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.showAtLocation(layout_premium, Gravity.CENTER, 0, 0);
-                popupWindow.setFocusable(true);
-                popupWindow.update();
             }
         });
+
+
+
+
+
+
+
         p_imgone = findViewById(R.id.p_imgone);
         p_txtone = findViewById(R.id.p_txtone);
 
@@ -100,6 +109,202 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
         p_imgseven = findViewById(R.id.p_imgseven);
         p_txtseven = findViewById(R.id.p_txtseven);
+
+
+
+
+        p_llimgone=findViewById(R.id.p_llimgone);
+        p_llimgtwo=findViewById(R.id.p_llimgtwo);
+        p_llimgthree=findViewById(R.id.p_llimgthree);
+        p_llimgfour=findViewById(R.id.p_llimgfour);
+        p_llimgfive=findViewById(R.id.p_llimgfive);
+        p_llimgsix=findViewById(R.id.p_llimgsix);
+        p_llimgseven=findViewById(R.id.p_llimgseven);
+
+        p_username_one=findViewById(R.id.p_username_one);
+        p_username_two=findViewById(R.id.p_username_two);
+        p_username_three=findViewById(R.id.p_username_three);
+        p_username_four=findViewById(R.id.p_username_four);
+        p_username_five=findViewById(R.id.p_username_five);
+        p_username_six=findViewById(R.id.p_username_six);
+        p_username_seven=findViewById(R.id.p_username_seven);
+
+        p_name_one=findViewById(R.id.p_name_one);
+        p_name_two=findViewById(R.id.p_name_two);
+        p_name_three=findViewById(R.id.p_name_three);
+        p_name_four=findViewById(R.id.p_name_four);
+        p_name_five=findViewById(R.id.p_name_five);
+        p_name_six=findViewById(R.id.p_name_six);
+        p_name_seven=findViewById(R.id.p_name_seven);
+
+
+        p_sponsor_username_one=findViewById(R.id.p_sponsor_username_one);
+        p_sponsor_username_two=findViewById(R.id.p_sponsor_username_two);
+        p_sponsor_username_three=findViewById(R.id.p_sponsor_username_three);
+        p_sponsor_username_four=findViewById(R.id.p_sponsor_username_four);
+        p_sponsor_username_five=findViewById(R.id.p_sponsor_username_five);
+        p_sponsor_username_six=findViewById(R.id.p_sponsor_username_six);
+        p_sponsor_username_seven=findViewById(R.id.p_sponsor_username_seven);
+
+
+        p_sponsor_name_one=findViewById(R.id.p_sponsor_name_one);
+        p_sponsor_name_two=findViewById(R.id.p_sponsor_name_two);
+        p_sponsor_name_three=findViewById(R.id.p_sponsor_name_three);
+        p_sponsor_name_four=findViewById(R.id.p_sponsor_name_four);
+        p_sponsor_name_five=findViewById(R.id.p_sponsor_name_five);
+        p_sponsor_name_six=findViewById(R.id.p_sponsor_name_six);
+        p_sponsor_name_seven=findViewById(R.id.p_sponsor_name_seven);
+
+
+        p_leftBV_one=findViewById(R.id.p_leftBV_one);
+        p_leftBV_two=findViewById(R.id.p_leftBV_two);
+        p_leftBV_three=findViewById(R.id.p_leftBV_three);
+        p_leftBV_four=findViewById(R.id.p_leftBV_four);
+        p_leftBV_five=findViewById(R.id.p_leftBV_five);
+        p_leftBV_six=findViewById(R.id.p_leftBV_six);
+        p_leftBV_seven=findViewById(R.id.p_leftBV_seven);
+
+        p_rightBV_one=findViewById(R.id.p_rightBV_one);
+        p_rightBV_two=findViewById(R.id.p_rightBV_two);
+        p_rightBV_three=findViewById(R.id.p_rightBV_three);
+        p_rightBV_four=findViewById(R.id.p_rightBV_four);
+        p_rightBV_five=findViewById(R.id.p_rightBV_five);
+        p_rightBV_six=findViewById(R.id.p_rightBV_six);
+        p_rightBV_seven=findViewById(R.id.p_rightBV_seven);
+
+
+        p_leftcount_one=findViewById(R.id.p_leftcount_one);
+        p_leftcount_two=findViewById(R.id.p_leftcount_two);
+        p_leftcount_three=findViewById(R.id.p_leftcount_three);
+        p_leftcount_four=findViewById(R.id.p_leftcount_four);
+        p_leftcount_five=findViewById(R.id.p_leftcount_five);
+        p_leftcount_six=findViewById(R.id.p_leftcount_six);
+        p_leftcount_seven=findViewById(R.id.p_leftcount_seven);
+
+
+        p_rightcount_one=findViewById(R.id.p_rightcount_one);
+        p_rightcount_two=findViewById(R.id.p_rightcount_two);
+        p_rightcount_three=findViewById(R.id.p_rightcount_three);
+        p_rightcount_four=findViewById(R.id.p_rightcount_four);
+        p_rightcount_five=findViewById(R.id.p_rightcount_five);
+        p_rightcount_six=findViewById(R.id.p_rightcount_six);
+        p_rightcount_seven=findViewById(R.id.p_rightcount_seven);
+
+
+
+        p_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+        p_imgone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.VISIBLE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+
+
+
+        p_imgtwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.VISIBLE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.GONE);
+
+            }
+        });
+
+
+        p_imgthree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.VISIBLE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.GONE);
+
+            }
+        });
+
+        p_imgfour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.VISIBLE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+        p_imgfive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.VISIBLE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.GONE);
+
+            }
+        });
+
+        p_imgsix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.VISIBLE);
+                p_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+
+        p_imgseven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                p_llimgone.setVisibility(View.GONE);
+                p_llimgtwo.setVisibility(View.GONE);
+                p_llimgthree.setVisibility(View.GONE);
+                p_llimgfour.setVisibility(View.GONE);
+                p_llimgfive.setVisibility(View.GONE);
+                p_llimgsix.setVisibility(View.GONE);
+                p_llimgseven.setVisibility(View.VISIBLE);
+            }
+        });
+
+
 
 
         SharedPreferences shpref;
@@ -471,6 +676,142 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
                                 .into(p_imgseven);
                     }
 
+                    String p_username1 = listPremiumPlanGenealogy.get(0).getUserid();
+                    Log.e("username",p_username1);
+                    p_username_one.setText(p_username1);
+                    String p_username2 = listPremiumPlanGenealogy.get(1).getUserid();
+                    Log.e("u",p_username2);
+                    p_username_two.setText(p_username2);
+                    String p_username3 = listPremiumPlanGenealogy.get(2).getUserid();
+                    Log.e("three",p_username3);
+                    p_username_three.setText(p_username3);
+                    String p_username4 = listPremiumPlanGenealogy.get(3).getUserid();
+                    p_username_four.setText(p_username4);
+                    String p_username5 = listPremiumPlanGenealogy.get(4).getUserid();
+                    p_username_five.setText(p_username5);
+                    String p_username6 = listPremiumPlanGenealogy.get(5).getUserid();
+                    p_username_six.setText(p_username6);
+                    String p_username7 = listPremiumPlanGenealogy.get(6).getUserid();
+                    p_username_seven.setText(p_username7);
+
+
+                    String p_name1=listPremiumPlanGenealogy.get(0).getName();
+                    p_name_one.setText(p_name1);
+                    String p_name2=listPremiumPlanGenealogy.get(1).getName();
+                    p_name_two.setText(p_name2);
+                    String p_name3=listPremiumPlanGenealogy.get(2).getName();
+                    p_name_three.setText(p_name3);
+                    String p_name4=listPremiumPlanGenealogy.get(3).getName();
+                    p_name_four.setText(p_name4);
+                    String p_name5=listPremiumPlanGenealogy.get(4).getName();
+                    p_name_five.setText(p_name5);
+                    String p_name6=listPremiumPlanGenealogy.get(5).getName();
+                    p_name_six.setText(p_name6);
+                    String p_name7=listPremiumPlanGenealogy.get(6).getName();
+                    p_name_seven.setText(p_name7);
+
+
+                    String p_sponsor_username1=listPremiumPlanGenealogy.get(0).getSponsorId();
+                    p_sponsor_username_one.setText(p_sponsor_username1);
+                    String p_sponsor_username2=listPremiumPlanGenealogy.get(1).getSponsorId();
+                    p_sponsor_username_two.setText(p_sponsor_username2);
+                    String p_sponsor_username3=listPremiumPlanGenealogy.get(2).getSponsorId();
+                    p_sponsor_username_three.setText(p_sponsor_username3);
+                    String p_sponsor_username4=listPremiumPlanGenealogy.get(3).getSponsorId();
+                    p_sponsor_username_four.setText(p_sponsor_username4);
+                    String p_sponsor_username5=listPremiumPlanGenealogy.get(4).getSponsorId();
+                    p_sponsor_username_five.setText(p_sponsor_username5);
+                    String p_sponsor_username6=listPremiumPlanGenealogy.get(5).getSponsorId();
+                    p_sponsor_username_six.setText(p_sponsor_username6);
+                    String p_sponsor_username7=listPremiumPlanGenealogy.get(6).getSponsorId();
+                    p_sponsor_username_seven.setText(p_sponsor_username7);
+
+
+                    String p_sponsor_name1=listPremiumPlanGenealogy.get(0).getSponsorName();
+                    p_sponsor_name_one.setText(p_sponsor_name1);
+                    String p_sponsor_name2=listPremiumPlanGenealogy.get(1).getSponsorName();
+                    p_sponsor_name_two.setText(p_sponsor_name2);
+                    String p_sponsor_name3=listPremiumPlanGenealogy.get(2).getSponsorName();
+                    p_sponsor_name_three.setText(p_sponsor_name3);
+                    String p_sponsor_name4=listPremiumPlanGenealogy.get(3).getSponsorName();
+                    p_name_four.setText(p_sponsor_name4);
+                    String p_sponsor_name5=listPremiumPlanGenealogy.get(4).getSponsorName();
+                    p_name_five.setText(p_sponsor_name5);
+                    String p_sponsor_name6=listPremiumPlanGenealogy.get(5).getSponsorName();
+                    p_name_six.setText(p_sponsor_name6);
+                    String p_sponsor_name7=listPremiumPlanGenealogy.get(6).getSponsorName();
+                    p_name_seven.setText(p_sponsor_name7);
+
+
+                    String p_leftBV1=listPremiumPlanGenealogy.get(0).getLeftPv();
+                    p_leftBV_one.setText(p_leftBV1);
+                    String p_leftBV2=listPremiumPlanGenealogy.get(1).getLeftPv();
+                    p_leftBV_two.setText(p_leftBV2);
+                    String p_leftBV3=listPremiumPlanGenealogy.get(2).getLeftPv();
+                    p_leftBV_three.setText(p_leftBV3);
+                    String p_leftBV4=listPremiumPlanGenealogy.get(3).getLeftPv();
+                    p_leftBV_four.setText(p_leftBV4);
+                    String p_leftBV5=listPremiumPlanGenealogy.get(4).getLeftPv();
+                    p_leftBV_five.setText(p_leftBV5);
+                    String p_leftBV6=listPremiumPlanGenealogy.get(5).getLeftPv();
+                    p_leftBV_six.setText(p_leftBV6);
+                    String p_leftBV7=listPremiumPlanGenealogy.get(6).getLeftPv();
+                    p_leftBV_seven.setText(p_leftBV7);
+
+
+                    String p_rightBV1=listPremiumPlanGenealogy.get(0).getRightPv();
+                    p_rightBV_one.setText(p_rightBV1);
+                    String p_rightBV2=listPremiumPlanGenealogy.get(1).getRightPv();
+                    p_rightBV_two.setText(p_rightBV2);
+                    String p_rightBV3=listPremiumPlanGenealogy.get(2).getRightPv();
+                    p_rightBV_three.setText(p_rightBV3);
+                    String p_rightBV4=listPremiumPlanGenealogy.get(3).getRightPv();
+                    p_rightBV_four.setText(p_rightBV4);
+                    String p_rightBV5=listPremiumPlanGenealogy.get(4).getRightPv();
+                    p_rightBV_five.setText(p_rightBV5);
+                    String p_rightBV6=listPremiumPlanGenealogy.get(5).getRightPv();
+                    p_rightBV_six.setText(p_rightBV6);
+                    String p_rightBV7=listPremiumPlanGenealogy.get(6).getRightPv();
+                    p_rightBV_seven.setText(p_rightBV7);
+
+
+
+
+
+                    String p_leftcount1 =listPremiumPlanGenealogy.get(0).getLeftCount();
+                    p_leftcount_one.setText(p_leftcount1);
+                    String p_leftcount2=listPremiumPlanGenealogy.get(1).getLeftCount();
+                    p_leftcount_two.setText(p_leftcount2);
+                    String p_leftcount3=listPremiumPlanGenealogy.get(2).getLeftCount();
+                    p_leftcount_three.setText(p_leftcount3);
+                    String p_leftcount4=listPremiumPlanGenealogy.get(3).getLeftCount();
+                    p_leftcount_four.setText(p_leftcount4);
+                    String p_leftcount5=listPremiumPlanGenealogy.get(4).getLeftCount();
+                    p_leftcount_five.setText(p_leftcount5);
+                    String p_leftcount6=listPremiumPlanGenealogy.get(5).getLeftCount();
+                    p_leftcount_six.setText(p_leftcount6);
+                    String p_leftcount7=listPremiumPlanGenealogy.get(6).getLeftCount();
+                    p_leftcount_seven.setText(p_leftcount7);
+
+
+                    String p_rightcount1 =listPremiumPlanGenealogy.get(0).getRightCount();
+                    p_rightcount_one.setText(p_rightcount1);
+                    String p_rightcount2=listPremiumPlanGenealogy.get(1).getRightCount();
+                    p_rightcount_two.setText(p_rightcount2);
+                    String p_rightcount3=listPremiumPlanGenealogy.get(2).getRightCount();
+                    p_rightcount_three.setText(p_rightcount3);
+                    String p_rightcount4=listPremiumPlanGenealogy.get(3).getRightCount();
+                    p_rightcount_four.setText(p_rightcount4);
+                    String p_rightcount5=listPremiumPlanGenealogy.get(4).getRightCount();
+                    p_rightcount_five.setText(p_rightcount5);
+                    String p_rightcount6=listPremiumPlanGenealogy.get(5).getRightCount();
+                    p_rightcount_six.setText(p_rightcount6);
+                    String p_rightcount7=listPremiumPlanGenealogy.get(6).getRightCount();
+                    p_rightcount_seven.setText(p_rightcount7);
+
+
+
+
                 }
             }
 
@@ -480,5 +821,15 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             }
         });
 
+    }
+    private void InfoBottomSheet(){
+
+        PremiumGeneBottomDailogue bottomSheet = new PremiumGeneBottomDailogue();
+        bottomSheet.show(getSupportFragmentManager(),
+                "ModalBottomSheet");
+
+
+        //val moreOrderDetails = OrderDetailSheet(applicationContext, orderID,login_id)
+        //        moreOrderDetails.show(getSupportFragmentManager(), moreOrderDetails.getTag())
     }
 }

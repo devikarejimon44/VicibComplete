@@ -19,7 +19,6 @@
             android:fitsSystemWindows="true"
             app:elevation="0dp">
 
-
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/standard_geneToolBar"
                 android:layout_width="match_parent"
@@ -71,7 +70,8 @@
                     android:layout_width="80dp"
                     android:layout_height="35dp"
                     android:gravity="center"
-                    android:background="#FFFFFF"
+                    android:background="@color/colorWhiteShoppy"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textColor="#000000"
                     android:textSize="12dp" />
             </LinearLayout>
@@ -129,6 +129,7 @@
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textColor="#000000"
                     android:textSize="12dp" />
 
@@ -140,6 +141,7 @@
                     android:background="#FFFFFF"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textColor="#000000"
                     android:textSize="12dp" />
             </LinearLayout>
@@ -236,6 +238,7 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:textColor="#000000"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textSize="12dp" />
 
                 <TextView
@@ -246,6 +249,7 @@
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textColor="#000000"
                     android:textSize="12dp" />
 
@@ -257,6 +261,7 @@
                     android:background="#FFFFFF"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textColor="#000000"
                     android:textSize="12dp" />
 
@@ -268,6 +273,7 @@
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:textColor="#000000"
                     android:textSize="12dp" />
             </LinearLayout>
@@ -275,17 +281,15 @@
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/st_llimgone"
-                android:layout_width="157dp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/st_head1"
                 android:layout_marginLeft="55dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
-               >
+              >
                 <!--                 android:layout_marginLeft="209dp"
                                 android:layout_marginTop="40dp"-->
                 <LinearLayout
@@ -296,14 +300,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -315,14 +321,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_name_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -334,14 +342,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_username_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -353,14 +363,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponser Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_name_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -372,14 +384,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftBV_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -391,14 +405,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightBV_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -410,14 +426,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -429,14 +447,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right Count:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -446,16 +466,13 @@
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/st_llimgtwo"
-                android:layout_width="157dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="118dp"
                 android:layout_marginTop="140dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
+                android:padding="10dp"
                 >
 
                 <LinearLayout
@@ -466,14 +483,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -485,14 +504,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_name_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -504,14 +525,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_username_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -523,14 +546,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_name_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -542,14 +567,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftBV_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -561,14 +588,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/st_rightGBV_two"
+                        android:id="@+id/st_rightBV_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -580,14 +609,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -599,14 +630,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right Count:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_two"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -615,16 +648,13 @@
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/st_llimgthree"
-                android:layout_width="157dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="95dp"
                 android:layout_marginTop="140dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
+               android:padding="10dp"
                >
 
                 <LinearLayout
@@ -635,14 +665,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -654,14 +686,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_name_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -673,14 +707,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_username_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -692,14 +728,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_name_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -711,14 +749,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/st_leftGBV_three"
+                        android:id="@+id/st_leftBV_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -730,14 +770,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/st_rightGBV_three"
+                        android:id="@+id/st_rightBV_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -749,14 +791,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -768,32 +812,31 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right Count:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_three"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+               android:visibility="gone"
                 android:id="@+id/st_llimgfour"
-                android:layout_width="157dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="71dp"
-                android:layout_marginTop="265dp"
+                android:layout_marginTop="300dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
+                android:padding="10dp"
                >
 
                 <LinearLayout
@@ -804,14 +847,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -823,14 +868,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_name_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -842,14 +889,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_username_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -862,14 +911,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_name_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -881,14 +932,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftBV_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -900,14 +953,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightBV_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -919,14 +974,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -938,14 +995,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right Count:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_four"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -954,16 +1013,13 @@
             <LinearLayout
                android:visibility="gone"
                 android:id="@+id/st_llimgfive"
-                android:layout_width="157dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="161dp"
-                android:layout_marginTop="265dp"
+                android:layout_marginTop="300dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
+                android:padding="10dp"
                 >
 
                 <LinearLayout
@@ -974,14 +1030,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -993,14 +1051,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_name_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1012,14 +1072,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_username_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1032,14 +1094,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_name_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1051,14 +1115,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftBV_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1070,14 +1136,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightBV_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1089,14 +1157,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1108,14 +1178,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right Count:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_five"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1125,18 +1197,15 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/st_llimgsix"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="49dp"
-                android:layout_marginTop="265dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="290dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
-                android:visibility="gone">
+               android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1146,14 +1215,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1165,14 +1236,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_name_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -1185,14 +1258,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_username_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -1205,14 +1280,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/sponsor_name_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1224,14 +1301,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftBV_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1243,14 +1322,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightBV_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1262,14 +1343,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
                 <LinearLayout
@@ -1280,14 +1363,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RightCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_six"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1295,18 +1380,16 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/st_llimgseven"
-                android:layout_width="157dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="139dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginLeft="179dp"
+                android:layout_marginTop="290dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
-                android:visibility="gone">
+              android:padding="10dp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1316,14 +1399,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_username_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1335,38 +1420,38 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
-
                     <TextView
                         android:id="@+id/st_name_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor Username:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
-
                     <TextView
-                        android:id="@+id/sponsor_username_seven"
+                        android:id="@+id/st_sponsor_username_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp"
 
                         />
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1376,14 +1461,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sponsor name:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_sponsor_name_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -1396,14 +1483,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Left BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftBV_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1415,14 +1504,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right BV:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightBV_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1434,14 +1525,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="LeftCount:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_leftcount_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -1453,18 +1546,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Right Count:"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/st_rightcount_seven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorText"
                         android:textSize="12sp" />
                 </LinearLayout>
-
-
             </LinearLayout>
 
         </RelativeLayout>

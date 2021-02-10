@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.SecondFragment">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -190,7 +190,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorWhiteShoppy"
                 android:textStyle="bold"
-                android:background="?selectableItemBackgroundBorderless"
+
                 app:backgroundTint="@color/colorAccent"
                 app:iconGravity="end">
 
@@ -207,12 +207,9 @@
                     android:textAlignment="center"
                     android:textColor="@color/colorWhiteShoppy"
                     android:textStyle="bold"
-                    android:background="?selectableItemBackgroundBorderless"
                     app:backgroundTint="@color/colorAccent"
                     app:iconGravity="end">
-
                 </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
-
 
             </LinearLayout>
         </LinearLayout>

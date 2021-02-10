@@ -110,9 +110,6 @@ public class IDCard extends AppCompatActivity {
     ImageView qr_image,bar_image;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,8 +184,6 @@ public class IDCard extends AppCompatActivity {
                     Value,
                     BarcodeFormat.DATA_MATRIX.QR_CODE,
                     QRcodeWidth, QRcodeWidth, null
-
-
 
 
             );

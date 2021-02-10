@@ -8,15 +8,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
@@ -38,12 +34,12 @@ public class StandardPlanGene extends AppCompatActivity {
     ImageView st_imgone,st_imgtwo,st_imgthree,st_imgfour,st_imgfive,st_imgsix,st_imgseven;
     TextView st_txtone,st_txttwo,st_txtthree,st_txtfour,st_txtfive,st_txtsix,st_txtseven;
     TextView st_username_one,st_name_one,st_sponsor_username_one,st_sponsor_name_one,st_leftBV_one,st_rightBV_one,st_leftcount_one,st_rightcount_one;
-    TextView st_username_two,st_name_two,st_sponsor_username_two,st_sponsor_name_two,st_leftBV_two,st_rightGBV_two,st_leftcount_two,st_rightcount_two;
-    TextView st_username_three,st_name_three,st_sponsor_username_three,st_sponsor_name_three,st_leftGBV_three,st_rightGBV_three,st_leftcount_three,st_rightcount_three;
+    TextView st_username_two,st_name_two,st_sponsor_username_two,st_sponsor_name_two,st_leftBV_two,st_rightBV_two,st_leftcount_two,st_rightcount_two;
+    TextView st_username_three,st_name_three,st_sponsor_username_three,st_sponsor_name_three,st_leftBV_three,st_rightBV_three,st_leftcount_three,st_rightcount_three;
     TextView st_username_four,st_name_four,st_sponsor_username_four,st_sponsor_name_four,st_leftBV_four,st_rightBV_four,st_leftcount_four,st_rightcount_four;
     TextView st_username_five,st_name_five,st_sponsor_username_five,st_sponsor_name_five,st_leftBV_five,st_rightBV_five,st_leftcount_five,st_rightcount_five ;
     TextView st_username_six,st_name_six,st_sponsor_username_six,sponsor_name_six,st_leftBV_six,st_rightBV_six,st_leftcount_six,st_rightcount_six;
-    TextView st_username_seven,st_name_seven,sponsor_username_seven,st_sponsor_name_seven,st_leftBV_seven,st_rightBV_seven,st_leftcount_seven,st_rightcount_seven;
+    TextView st_username_seven,st_name_seven,st_sponsor_username_seven,st_sponsor_name_seven,st_leftBV_seven,st_rightBV_seven,st_leftcount_seven,st_rightcount_seven;
     String uid0,uid1,uid2,uid3,uid4,uid5,uid6;
     String t0,t1,t2,t3,t4,t5,t6;
 
@@ -67,89 +63,207 @@ public class StandardPlanGene extends AppCompatActivity {
           st_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater layoutInflater = (LayoutInflater) StandardPlanGene.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View premium_popup = layoutInflater.inflate(R.layout.standard_genepopup, null);
 
-                popupWindow = new PopupWindow(premium_popup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.showAtLocation(st_layout, Gravity.CENTER, 0, 0);
-                popupWindow.setFocusable(true);
-                popupWindow.update();
+                BottomSheet();
+
+//                LayoutInflater layoutInflater = (LayoutInflater) StandardPlanGene.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//                View premium_popup = layoutInflater.inflate(R.layout.standard_genepopup, null);
+//
+//                popupWindow = new PopupWindow(premium_popup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                popupWindow.showAtLocation(st_layout, Gravity.CENTER, 0, 0);
+//                popupWindow.setFocusable(true);
+//                popupWindow.update();
+            }
+        });
+        st_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.GONE);
             }
         });
         st_imgone=findViewById(R.id.st_imgone);
         st_imgone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                st_llimgone.setVisibility(View.VISIBLE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+
+
+        st_imgtwo=findViewById(R.id.st_imgtwo);
+        st_imgtwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.VISIBLE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.GONE);
+
+            }
+        });
+
+
+
+        st_imgthree=findViewById(R.id.st_imgthree);
+        st_imgthree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.VISIBLE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.GONE);
+
+            }
+        });
+
+
+        st_imgfour=findViewById(R.id.st_imgfour);
+        st_imgfour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.VISIBLE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+        st_imgfive=findViewById(R.id.st_imgfive);
+        st_imgfive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.VISIBLE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.GONE);
+
+            }
+        });
+
+
+
+        st_imgsix=findViewById(R.id.st_imgsix);
+        st_imgsix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.VISIBLE);
+                st_llimgseven.setVisibility(View.GONE);
+            }
+        });
+
+        st_imgseven=findViewById(R.id.st_imgseven);
+        st_imgseven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                st_llimgone.setVisibility(View.GONE);
+                st_llimgtwo.setVisibility(View.GONE);
+                st_llimgthree.setVisibility(View.GONE);
+                st_llimgfour.setVisibility(View.GONE);
+                st_llimgfive.setVisibility(View.GONE);
+                st_llimgsix.setVisibility(View.GONE);
+                st_llimgseven.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+        st_txtone=findViewById(R.id.st_txtone);
+        st_txtone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 gene(uid0);
-              //  BottomSheet();
+
 //
 //                GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
 //                bottomSheet.show(getSupportFragmentManager(),
 //                        "ModalBottomSheet");
             }
         });
-        st_imgtwo=findViewById(R.id.st_imgtwo);
-        st_imgtwo.setOnClickListener(new View.OnClickListener() {
+        st_txttwo=findViewById(R.id.st_txttwo);
+        st_txttwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gene(uid1);
-            //    BottomSheet();
+
 //
             }
         });
-        st_imgthree=findViewById(R.id.st_imgthree);
-        st_imgthree.setOnClickListener(new View.OnClickListener() {
+        st_txtthree=findViewById(R.id.st_txtthree);
+        st_txtthree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gene(uid2);
-              //  BottomSheet();
+
 
             }
         });
-        st_imgfour=findViewById(R.id.st_imgfour);
-        st_imgfour.setOnClickListener(new View.OnClickListener() {
+        st_txtfour=findViewById(R.id.st_txtfour);
+        st_txtfour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gene(uid3);
-                //BottomSheet();
+
 
             }
         });
-        st_imgfive=findViewById(R.id.st_imgfive);
-        st_imgfive.setOnClickListener(new View.OnClickListener() {
+        st_txtfive=findViewById(R.id.st_txtfive);
+        st_txtfive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gene(uid4);
-              //  BottomSheet();
+
 
             }
         });
-        st_imgsix=findViewById(R.id.st_imgsix);
-        st_imgsix.setOnClickListener(new View.OnClickListener() {
+        st_txtsix=findViewById(R.id.st_txtsix);
+
+        st_txtsix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gene(uid5);
-              //  BottomSheet();
+
 
             }
         });
-        st_imgseven=findViewById(R.id.st_imgseven);
-        st_imgseven.setOnClickListener(new View.OnClickListener() {
+        st_txtseven=findViewById(R.id.st_txtseven);
+        st_txtseven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gene(uid6);
-               // BottomSheet();
+
 
             }
         });
-        st_txtone=findViewById(R.id.st_txtone);
-        st_txttwo=findViewById(R.id.st_txttwo);
-        st_txtthree=findViewById(R.id.st_txtthree);
-        st_txtfour=findViewById(R.id.st_txtfour);
-        st_txtfive=findViewById(R.id.st_txtfive);
-        st_txtsix=findViewById(R.id.st_txtsix);
-        st_txtseven=findViewById(R.id.st_txtseven);
-
         st_llimgone=findViewById(R.id.st_llimgone);
         st_username_one=findViewById(R.id.st_username_one);
         st_name_one=findViewById(R.id.st_name_one);
@@ -166,7 +280,7 @@ public class StandardPlanGene extends AppCompatActivity {
         st_sponsor_username_two=findViewById(R.id.st_sponsor_username_two);
         st_sponsor_name_two=findViewById(R.id.st_sponsor_name_two);
         st_leftBV_two=findViewById(R.id.st_leftBV_two);
-        st_rightGBV_two=findViewById(R.id.st_rightGBV_two);
+        st_rightBV_two=findViewById(R.id.st_rightBV_two);
         st_leftcount_two=findViewById(R.id.st_leftcount_two);
         st_rightcount_two=findViewById(R.id.st_rightcount_two);
 
@@ -175,8 +289,8 @@ public class StandardPlanGene extends AppCompatActivity {
         st_name_three=findViewById(R.id.st_name_three);
         st_sponsor_username_three=findViewById(R.id.st_sponsor_username_three);
         st_sponsor_name_three=findViewById(R.id.st_sponsor_name_three);
-        st_leftGBV_three=findViewById(R.id.st_leftGBV_three);
-        st_rightGBV_three=findViewById(R.id.st_rightGBV_three);
+        st_leftBV_three=findViewById(R.id.st_leftBV_three);
+        st_rightBV_three=findViewById(R.id.st_rightBV_three);
         st_leftcount_three=findViewById(R.id.st_leftcount_three);
         st_rightcount_three=findViewById(R.id.st_rightcount_three);
 
@@ -214,16 +328,18 @@ public class StandardPlanGene extends AppCompatActivity {
         st_llimgseven=findViewById(R.id.st_llimgseven);
         st_username_seven=findViewById(R.id.st_username_seven);
         st_name_seven=findViewById(R.id.st_name_seven);
-        sponsor_username_seven=findViewById(R.id.sponsor_username_seven);
+        st_sponsor_username_seven=findViewById(R.id.st_sponsor_username_seven);
         st_sponsor_name_seven=findViewById(R.id.st_sponsor_name_seven);
         st_leftBV_seven=findViewById(R.id.st_leftBV_seven);
         st_rightBV_seven=findViewById(R.id.st_rightBV_seven);
         st_leftcount_seven=findViewById(R.id.st_leftcount_seven);
         st_rightcount_seven=findViewById(R.id.st_rightcount_seven);
 
+
+
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-        String u=shpref.getString("ID","");
+         final  String u=shpref.getString("ID","");
         gene(u);
         st_txttwo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -597,6 +713,139 @@ public class StandardPlanGene extends AppCompatActivity {
                                 .into(st_imgseven);
                     }
 
+                    String st_username1 = listStandardPlanGenealogy.get(0).getUserid();
+                    Log.e("username",st_username1);
+                    st_username_one.setText(st_username1);
+                    String st_username2 = listStandardPlanGenealogy.get(1).getUserid();
+                    Log.e("u",st_username1);
+                    st_username_two.setText(st_username2);
+                    String st_username3 = listStandardPlanGenealogy.get(2).getUserid();
+                    Log.e("three",st_username3);
+                    st_username_three.setText(st_username3);
+                    String st_username4 = listStandardPlanGenealogy.get(3).getUserid();
+                    st_username_four.setText(st_username4);
+                    String st_username5 = listStandardPlanGenealogy.get(4).getUserid();
+                    st_username_five.setText(st_username5);
+                    String st_username6 = listStandardPlanGenealogy.get(5).getUserid();
+                    st_username_six.setText(st_username6);
+                    String st_username7 = listStandardPlanGenealogy.get(6).getUserid();
+                    st_username_seven.setText(st_username7);
+
+
+                    String st_name1=listStandardPlanGenealogy.get(0).getName();
+                    st_name_one.setText(st_name1);
+                    String st_name2=listStandardPlanGenealogy.get(1).getName();
+                    st_name_two.setText(st_name2);
+                    String st_name3=listStandardPlanGenealogy.get(2).getName();
+                    st_name_three.setText(st_name3);
+                    String st_name4=listStandardPlanGenealogy.get(3).getName();
+                    st_name_four.setText(st_name4);
+                    String st_name5=listStandardPlanGenealogy.get(4).getName();
+                    st_name_five.setText(st_name5);
+                    String st_name6=listStandardPlanGenealogy.get(5).getName();
+                    st_name_six.setText(st_name6);
+                    String st_name7=listStandardPlanGenealogy.get(6).getName();
+                    st_name_seven.setText(st_name7);
+
+
+                    String st_sponsor_username1=listStandardPlanGenealogy.get(0).getSponsorId();
+                    st_sponsor_username_one.setText(st_sponsor_username1);
+                    String st_sponsor_username2=listStandardPlanGenealogy.get(1).getSponsorId();
+                    st_sponsor_username_two.setText(st_sponsor_username2);
+                    String st_sponsor_username3=listStandardPlanGenealogy.get(2).getSponsorId();
+                    st_sponsor_username_three.setText(st_sponsor_username3);
+                    String st_sponsor_username4=listStandardPlanGenealogy.get(3).getSponsorId();
+                    st_sponsor_username_four.setText(st_sponsor_username4);
+                    String st_sponsor_username5=listStandardPlanGenealogy.get(4).getSponsorId();
+                    st_sponsor_username_five.setText(st_sponsor_username5);
+                    String st_sponsor_username6=listStandardPlanGenealogy.get(5).getSponsorId();
+                    st_sponsor_username_six.setText(st_sponsor_username6);
+                    String st_sponsor_username7=listStandardPlanGenealogy.get(6).getSponsorId();
+                    st_sponsor_username_seven.setText(st_sponsor_username7);
+
+
+                    String st_sponsor_name1=listStandardPlanGenealogy.get(0).getSponsorName();
+                    st_sponsor_name_one.setText(st_sponsor_name1);
+                    String st_sponsor_name2=listStandardPlanGenealogy.get(1).getSponsorName();
+                    st_sponsor_name_two.setText(st_sponsor_name2);
+                    String st_sponsor_name3=listStandardPlanGenealogy.get(2).getSponsorName();
+                    st_sponsor_name_three.setText(st_sponsor_name3);
+                    String st_sponsor_name4=listStandardPlanGenealogy.get(3).getSponsorName();
+                    st_name_four.setText(st_sponsor_name4);
+                    String st_sponsor_name5=listStandardPlanGenealogy.get(4).getSponsorName();
+                    st_name_five.setText(st_sponsor_name5);
+                    String st_sponsor_name6=listStandardPlanGenealogy.get(5).getSponsorName();
+                    st_name_six.setText(st_sponsor_name6);
+                    String st_sponsor_name7=listStandardPlanGenealogy.get(6).getSponsorName();
+                    st_name_seven.setText(st_sponsor_name7);
+
+
+                    String st_leftBV1=listStandardPlanGenealogy.get(0).getLeftPv();
+                    st_leftBV_one.setText(st_leftBV1);
+                    String st_leftBV2=listStandardPlanGenealogy.get(1).getLeftPv();
+                    st_leftBV_two.setText(st_leftBV2);
+                    String st_leftBV3=listStandardPlanGenealogy.get(2).getLeftPv();
+                    st_leftBV_three.setText(st_leftBV3);
+                    String st_leftBV4=listStandardPlanGenealogy.get(3).getLeftPv();
+                    st_leftBV_four.setText(st_leftBV4);
+                    String st_leftBV5=listStandardPlanGenealogy.get(4).getLeftPv();
+                    st_leftBV_five.setText(st_leftBV5);
+                    String st_leftBV6=listStandardPlanGenealogy.get(5).getLeftPv();
+                    st_leftBV_six.setText(st_leftBV6);
+                    String st_leftBV7=listStandardPlanGenealogy.get(6).getLeftPv();
+                    st_leftBV_seven.setText(st_leftBV7);
+
+
+                    String st_rightBV1=listStandardPlanGenealogy.get(0).getRightPv();
+                    st_rightBV_one.setText(st_rightBV1);
+                    String st_rightBV2=listStandardPlanGenealogy.get(1).getRightPv();
+                    st_rightBV_two.setText(st_rightBV2);
+                    String st_rightBV3=listStandardPlanGenealogy.get(2).getRightPv();
+                    st_rightBV_three.setText(st_rightBV3);
+                    String st_rightBV4=listStandardPlanGenealogy.get(3).getRightPv();
+                    st_rightBV_four.setText(st_rightBV4);
+                    String st_rightBV5=listStandardPlanGenealogy.get(4).getRightPv();
+                    st_rightBV_five.setText(st_rightBV5);
+                    String st_rightBV6=listStandardPlanGenealogy.get(5).getRightPv();
+                    st_rightBV_six.setText(st_rightBV6);
+                    String st_rightBV7=listStandardPlanGenealogy.get(6).getRightPv();
+                    st_rightBV_seven.setText(st_rightBV7);
+
+
+
+
+
+                    String st_leftcount1 =listStandardPlanGenealogy.get(0).getLeftCount();
+                    st_leftcount_one.setText(st_leftcount1);
+                    String st_leftcount2=listStandardPlanGenealogy.get(1).getLeftCount();
+                    st_leftcount_two.setText(st_leftcount2);
+                    String st_leftcount3=listStandardPlanGenealogy.get(2).getLeftCount();
+                    st_leftcount_three.setText(st_leftcount3);
+                    String st_leftcount4=listStandardPlanGenealogy.get(3).getLeftCount();
+                    st_leftcount_four.setText(st_leftcount4);
+                    String st_leftcount5=listStandardPlanGenealogy.get(4).getLeftCount();
+                    st_leftcount_five.setText(st_leftcount5);
+                    String st_leftcount6=listStandardPlanGenealogy.get(5).getLeftCount();
+                    st_leftcount_six.setText(st_leftcount6);
+                    String st_leftcount7=listStandardPlanGenealogy.get(6).getLeftCount();
+                    st_leftcount_seven.setText(st_leftcount7);
+
+
+                    String st_rightcount1 =listStandardPlanGenealogy.get(0).getRightCount();
+                    st_rightcount_one.setText(st_rightcount1);
+                    String st_rightcount2=listStandardPlanGenealogy.get(1).getRightCount();
+                    st_rightcount_two.setText(st_rightcount2);
+                    String st_rightcount3=listStandardPlanGenealogy.get(2).getRightCount();
+                    st_rightcount_three.setText(st_rightcount3);
+                    String st_rightcount4=listStandardPlanGenealogy.get(3).getRightCount();
+                    st_rightcount_four.setText(st_rightcount4);
+                    String st_rightcount5=listStandardPlanGenealogy.get(4).getRightCount();
+                    st_rightcount_five.setText(st_rightcount5);
+                    String st_rightcount6=listStandardPlanGenealogy.get(5).getRightCount();
+                    st_rightcount_six.setText(st_rightcount6);
+                    String st_rightcount7=listStandardPlanGenealogy.get(6).getRightCount();
+                    st_rightcount_seven.setText(st_rightcount7);
+
                 }
             }
 
@@ -607,12 +856,15 @@ public class StandardPlanGene extends AppCompatActivity {
         });
 
     }
-//    private void BottomSheet(){
-//
-//        GeneBottomDailogue bottomSheet = new GeneBottomDailogue();
-//        bottomSheet.show(getSupportFragmentManager(),
-//                "ModalBottomSheet");
-//    }
+    private void BottomSheet(){
+
+        StandardGeneBottomDailogue bottomSheet = new StandardGeneBottomDailogue();
+        bottomSheet.show(getSupportFragmentManager(),
+                "ModalBottomSheet");
+
+        //val moreOrderDetails = OrderDetailSheet(applicationContext, orderID,login_id)
+        //        moreOrderDetails.show(getSupportFragmentManager(), moreOrderDetails.getTag())
+    }
 
 
 }

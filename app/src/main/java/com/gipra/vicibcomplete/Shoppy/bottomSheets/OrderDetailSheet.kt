@@ -48,7 +48,6 @@ class OrderDetailSheet(
 
         getOrderDetails(loginId, orderID)
     }
-
     private fun getOrderDetails(loginId: String?, orderID: String) {
         val stringRequest =
             object : StringRequest(

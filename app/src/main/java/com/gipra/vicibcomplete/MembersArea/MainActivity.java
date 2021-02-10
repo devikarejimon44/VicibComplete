@@ -48,6 +48,7 @@ import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintStatus;
 import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 
+import com.gipra.vicibcomplete.MembersArea.Gene.PremiumGeneBottomDailogue;
 import com.gipra.vicibcomplete.MembersArea.Gene.PremiumPlanGenealogy;
 import com.gipra.vicibcomplete.MembersArea.Gene.StandardPlanGene;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
@@ -640,41 +641,6 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
 
-            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View customview = layoutInflater.inflate(R.layout.logoutpopup, null);
-            Button yes = customview.findViewById(R.id.yes);
-            yes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    logout();
-                    popupWindow2.dismiss();
-                }
-            });
-            Button no = customview.findViewById(R.id.no);
-            no.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    popupWindow2.dismiss();
-                }
-            });
-            popupWindow2 = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            popupWindow2.showAtLocation(mainlayout, Gravity.CENTER, 0, 0);
-            popupWindow2.setFocusable(true);
-            popupWindow2.update();
-
-
-
-            logout();
-
-            return true;
-        }
-//        else  if (id==R.id.changepsd){
-//            startActivity(new Intent(getApplicationContext(),ChangePassword.class));
-//        }
-//        else if(id==R.id.logout) {
-//
-//        }
-
 //            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //            View customview = layoutInflater.inflate(R.layout.logoutpopup, null);
 //            Button yes = customview.findViewById(R.id.yes);
@@ -696,6 +662,21 @@ public class MainActivity extends AppCompatActivity {
 //            popupWindow2.showAtLocation(mainlayout, Gravity.CENTER, 0, 0);
 //            popupWindow2.setFocusable(true);
 //            popupWindow2.update();
+
+
+
+            logout();
+
+            return true;
+        }
+//        else  if (id==R.id.changepsd){
+//            startActivity(new Intent(getApplicationContext(),ChangePassword.class));
+//        }
+//        else if(id==R.id.logout) {
+//
+//        }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -730,35 +711,41 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     private void logout(){
-        logout_loader.setVisibility(View.VISIBLE);
-        SharedPreferences shpref;
-        shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
-        String username=shpref.getString("USERNAME","");
-        ApiInterface api=ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseLogout> usercall=api.Logout(username);
-        usercall.enqueue(new Callback<ResponseLogout>() {
-            @Override
-            public void onResponse(Call<ResponseLogout> call, Response<ResponseLogout> response) {
-                Log.i("onResponse", new Gson().toJson(response.body()));
-                if(response.body().getStatus().equals("1")){
-                    logout_loader.setVisibility(View.GONE);
+//        logout_loader.setVisibility(View.VISIBLE);
+//                    SharedPreferences shpref;
+//                    shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+//                    String username=shpref.getString("USERNAME","");
+//                    ApiInterface api=ApiClient.getClient().create(ApiInterface.class);
+//                    Call<ResponseLogout> usercall=api.Logout(username);
+//                    usercall.enqueue(new Callback<ResponseLogout>() {
+//                        @Override
+//                        public void onResponse(Call<ResponseLogout> call, Response<ResponseLogout> response) {
+//                            Log.i("onResponse", new Gson().toJson(response.body()));
+//                            if(response.body().getStatus().equals("1")){
+//                                logout_loader.setVisibility(View.GONE);
+//
+//                                //startActivity(new Intent(getApplicationContext(),Login.class));
+//                                Intent intent = new Intent(MainActivity.this, Login.class);
+//                                startActivity(intent);
+//                            }
+//                            else {
+//                                logout_loader.setVisibility(View.GONE);
+//                                Toast.makeText(MainActivity.this, "Please exit the Application and Login again", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<ResponseLogout> call, Throwable t) {
+//                            logout_loader.setVisibility(View.GONE);
+//
+//                        }
+//                    });
+//
+        LogoutSheet bottomSheet = new LogoutSheet();
+        bottomSheet.show(getSupportFragmentManager(),
+                "ModalBottomSheet");
 
-                    //startActivity(new Intent(getApplicationContext(),Login.class));
-                    Intent intent = new Intent(MainActivity.this, Login.class);
-                    startActivity(intent);
-                }
-                else {
-                    logout_loader.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, "Please exit the Application and Login again", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseLogout> call, Throwable t) {
-                logout_loader.setVisibility(View.GONE);
-
-            }
-        });
     }
 
     public void onBackPressed() {
