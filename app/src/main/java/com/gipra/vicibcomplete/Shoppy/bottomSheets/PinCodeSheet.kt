@@ -11,6 +11,7 @@ import com.gipra.vicibcomplete.R
 import com.gipra.vicibshoppy.utlis.showToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.shoppy_picode_sheet.*
+import kotlinx.android.synthetic.main.shoppy_picode_sheet.view.*
 
 class PinCodeSheet : BottomSheetDialogFragment() {
 
@@ -20,6 +21,7 @@ class PinCodeSheet : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var pincodeValue = pinCode.text
 
         pinCode.addTextChangedListener(object  : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -31,20 +33,31 @@ class PinCodeSheet : BottomSheetDialogFragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-              if (s.toString().length < 6 || s.toString().length >6 )
-                  pinCode.setError("PinCode length must be 6")
+                if (s.toString().length < 6 || s.toString().length >6 || s.toString().isEmpty())
+                    pinCode.setError("PinCode length must be 6")
             }
 
         })
-
         submitPincode.setOnClickListener {
-             var pincodeValue = pinCode.text
-            savePincode(pincodeValue.toString())
+
+            //(acc.isEmpty() || acc.length() <= 11 ||acc.length()>=18)
+            //val content = it.text.toString()
+            //  it.error = if (content.length >= 6) null else "message"
+//            String pvalue=pinCode.getText.tostring();
+//            if (pvalue.isEmpty() || pvalue.length()!=10){
+//                activity!!.showToast("Error")
+//            }
+            var pvalue=pinCode.text.toString();
+            if (pvalue.isEmpty()|| pvalue.length!=6){
+                activity!!.showToast("Invalid Pincode")
+            }
+            else{
+                savePincode(pincodeValue.toString())
+            }
+
         }
 
-
     }
-
     private fun savePincode(pincodeValue: String?) {
         val sp =
             activity!!.getSharedPreferences("User", Context.MODE_PRIVATE).edit()
@@ -53,9 +66,13 @@ class PinCodeSheet : BottomSheetDialogFragment() {
         sp.commit()
 
         activity!!.showToast("PinCode added successfully")
+        dismiss()
 
-        if (!sp.equals(null)){
-          dismiss()
-        }
+//        if (!sp.equals(null)){
+//
+//
+//
+//      //    dismiss()
+//        }
     }
 }

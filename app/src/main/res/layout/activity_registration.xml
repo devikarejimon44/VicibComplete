@@ -122,6 +122,7 @@
                             android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
                             android:singleLine="true"
+                            android:inputType="textEmailAddress"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -141,6 +142,7 @@
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:singleLine="true"
                             android:inputType="number"
+                            android:maxLength="10"
                             android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
@@ -182,6 +184,7 @@
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:textColor="#000000"
                             android:textSize="15dp"
+                            android:maxLines="4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -201,6 +204,7 @@
                             android:backgroundTint="@color/colorBlackShoppy"
                             android:singleLine="true"
                             android:inputType="number"
+                            android:maxLength="6"
                             android:textColor="#000000"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
@@ -288,15 +292,16 @@
                     android:paddingBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
-                        android:text="PLACEMENT DETAILS"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:drawableLeft="@drawable/ic_placement"
-                        android:layout_gravity="center_vertical"
-                        android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_placement"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:text="PLACEMENT DETAILS"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold" />
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -319,8 +324,8 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/check_msg"
+                        android:textColor="@color/colorPrimaryShoppy"
                         android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                     <LinearLayout
@@ -367,11 +372,11 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/check_upline"
+                        android:textColor="@color/colorPrimaryShoppy"
                         android:fontFamily="@font/open_sans_semibold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
-
                     <Spinner
                         android:id="@+id/reg_position"
                         android:layout_marginTop="10dp"
@@ -520,7 +525,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Nominee name *"
+                        android:hint="Nominee Name *"
                         android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
@@ -540,7 +545,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Nominee relation *"
+                        android:hint="Nominee Relation *"
                         android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
@@ -552,8 +557,6 @@
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
-                            android:singleLine="true"
-                            android:inputType="textPassword"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>

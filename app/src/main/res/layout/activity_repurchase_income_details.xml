@@ -136,6 +136,16 @@
                     android:id="@+id/Recycler_repurchase_income_details"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/nodata_repurchase_income_details"
+                    android:visibility="gone"
+                    android:layout_width="400dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp" />
+
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

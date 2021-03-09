@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
@@ -145,7 +146,10 @@ public class RepurchaseIncomeDetails extends AppCompatActivity {
                     m_shimmer_repurchase_income_details.setVisibility(View.GONE);
                     m_shimmer_repurchase_income_details.stopShimmerAnimation();
 
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                   ImageView nodata_repurchase_income_details=findViewById(R.id.nodata_repurchase_income_details);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_repurchase_income_details);
                 }
             }
             @Override
@@ -155,6 +159,10 @@ public class RepurchaseIncomeDetails extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
 }

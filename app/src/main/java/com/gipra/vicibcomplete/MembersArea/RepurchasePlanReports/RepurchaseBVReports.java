@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -144,7 +145,12 @@ public class RepurchaseBVReports extends AppCompatActivity {
                 else {
                     m_shimmer_repurchase_bvreport.setVisibility(View.GONE);
                     m_shimmer_repurchase_bvreport.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    ImageView nodata_repurchase_bv_reports=findViewById(R.id.nodata_repurchase_bv_reports);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_repurchase_bv_reports);
+
+
                 }
             }
             @Override
@@ -154,5 +160,9 @@ public class RepurchaseBVReports extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

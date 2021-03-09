@@ -1,55 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/curved_rect"
-    tools:context=".ui.RegistrationFragment">
+    android:id="@+id/layout_regvaccant"
+    tools:context=".MembersArea.Gene.RegVaccant">
+
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:background="@android:color/white"
         android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/reg_vac_ToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="Registration"
+                android:fontFamily="@font/open_sans_semibold"
+                app:titleTextColor="@color/colorWhiteShoppy">
+
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
                 android:orientation="vertical"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
+                android:layout_margin="10dp"
+                android:paddingBottom="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <LinearLayout
-                    android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:background="@drawable/whitebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
                         android:text="PERSONAL INFO"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_personal_info"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
-                    <Spinner
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/linebg"
-                        android:layout_width="match_parent"
-                        android:layout_height="43dp"/>
+                    <!--                    <Spinner-->
+                    <!--                        android:id="@+id/reg_honorific"-->
+                    <!--                        android:layout_marginTop="10dp"-->
+                    <!--                        android:background="@drawable/linebg"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="43dp"/>-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Name *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
+                            android:id="@+id/reg_vac_name"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:singleLine="true"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -59,14 +88,22 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Date Of Birth *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
+                            android:id="@+id/reg_vac_dob"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:singleLine="true"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:cursorVisible="false"
                             android:textSize="15dp"
+                            android:clickable="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -75,14 +112,19 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Email Id *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
+                            android:id="@+id/reg_vac_emailid"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
+                            android:singleLine="true"
+                            android:inputType="textEmailAddress"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -91,13 +133,19 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Mobile Number *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
+                            android:id="@+id/reg_vac_mobilenum"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -111,11 +159,15 @@
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:background="@drawable/whitebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
                         android:text="ADDRESS"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
@@ -123,14 +175,18 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Address *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="90dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
+                            android:id="@+id/reg_vac_address"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:backgroundTint="@color/colorBlackShoppy"
                             android:textColor="#000000"
                             android:textSize="15dp"
+                            android:maxLines="4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -139,78 +195,91 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Pincode *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
+                            android:id="@+id/reg_vac_pincode"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:maxLength="6"
                             android:textColor="#000000"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="10dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Country *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:text="Country"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <Spinner
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/reg_vac_country"
+                        android:background="@drawable/linebg"
+                        android:textColor="@color/colorBlackShoppy"
+                        android:textSize="15dp"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
-                            android:textSize="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                        </com.google.android.material.textfield.TextInputEditText>
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="10dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="State *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:layout_height="43dp"/>
+
+                    <TextView
+                        android:text="State"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <Spinner
+                        android:id="@+id/reg_vac_state"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/linebg"
+                        android:textColor="@color/colorBlackShoppy"
+                        android:textSize="15dp"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
-                            android:textSize="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                        </com.google.android.material.textfield.TextInputEditText>
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_marginTop="10dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="District *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:layout_height="43dp"/>
+                    <TextView
+                        android:text="District"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <Spinner
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/reg_vac_district"
+                        android:background="@drawable/linebg"
+                        android:textColor="@color/colorBlackShoppy"
+                        android:textSize="15dp"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
-                            android:textSize="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                        </com.google.android.material.textfield.TextInputEditText>
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="43dp"/>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Panchayat *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_panchayath"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorBlackShoppy"
                             android:textSize="15dp"
+                            android:singleLine="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -223,72 +292,88 @@
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:background="@drawable/whitebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_placement"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:text="PLACEMENT DETAILS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold" />
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/linebg"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:hint="Sponsor Username *"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColorHint="@color/colorBlackShoppy"
+                        android:backgroundTint="@color/colorBlackShoppy"
                         android:layout_width="match_parent"
-                        android:layout_height="43dp"/>
-
-
+                        android:layout_height="50dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_sponsorusername"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:backgroundTint="@color/colorBlackShoppy"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:textSize="15dp"
+                            android:singleLine="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/reg_vac_check_msg"
+                        android:textColor="@color/colorPrimaryShoppy"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
                     <LinearLayout
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
+
+                        android:id="@+id/reg_vac_ll_sponsor_check"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+                        <TextView
+                            android:text="Sponsor Name : "
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                        <TextView
+                            android:id="@+id/reg_vac_sp_name"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:textColor="@color/colorBlackShoppy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Sponsor name :" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text=" MANU" />
                     </LinearLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <TextView
+                            android:id="@+id/reg_vac_uplineusername"
+                            android:fontFamily="@font/open_sans_semibold"
 
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Name *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                           android:background="@drawable/linebg"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                        </com.google.android.material.textfield.TextInputEditText>
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
+                            android:layout_height="43dp"/>
+
+
+
+                    <TextView
+                        android:id="@+id/reg_vac_position"
                         android:layout_marginTop="10dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Upline Username *"
-                        android:textColorHint="#000000"
-                        android:backgroundTint="#000000"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:backgroundTint="#000000"
-                            android:textColor="#000000"
-                            android:textSize="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                        </com.google.android.material.textfield.TextInputEditText>
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <Spinner
-                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
                         android:background="@drawable/linebg"
                         android:layout_width="match_parent"
                         android:layout_height="43dp"/>
@@ -300,23 +385,30 @@
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:background="@drawable/whitebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
                         android:text="KYC DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:drawableLeft="@drawable/ic_kyc"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="PAN Card Number *"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:singleLine="true"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_pancardnumber"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -328,11 +420,15 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Bank Name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
+                        android:singleLine="true"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_bankname"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -344,13 +440,17 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Branch Name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_branchname"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
+                            android:singleLine="true"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -360,14 +460,19 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Account Number *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_accnum"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
+                            android:singleLine="true"
+                            android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -376,13 +481,17 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="IFSC code *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_ifsc"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
+                            android:singleLine="true"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -396,26 +505,33 @@
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:background="@drawable/whitebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
                         android:text="NOMINEE DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:drawableLeft="@drawable/ic_nominee"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Nominee name *"
+                        android:hint="Nominee Name *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_nomname"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
+                            android:singleLine="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -423,12 +539,15 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:hint="Nominee relation *"
+                        android:hint="Nominee Relation *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_nomrelation"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
                             android:textSize="15dp"
@@ -444,11 +563,15 @@
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:background="@drawable/whitebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
                         android:text="LOGIN DETAILS"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:drawableLeft="@drawable/ic_login_details"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
@@ -456,13 +579,18 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Password *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_psd"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
+                            android:singleLine="true"
+                            android:inputType="textPassword"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -472,22 +600,67 @@
                         android:layout_marginTop="10dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:hint="Confirm Password *"
+                        android:fontFamily="@font/open_sans_semibold"
                         android:textColorHint="#000000"
                         android:backgroundTint="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/reg_vac_confirmpsd"
+                            android:fontFamily="@font/open_sans_semibold"
                             android:backgroundTint="#000000"
                             android:textColor="#000000"
+                            android:singleLine="true"
+                            android:inputType="textPassword"
                             android:textSize="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <Button
+                        android:id="@+id/reg_vac_register"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:layout_gravity="center"
+                        android:text="Register"
+                        android:textSize="15dp"
+                        android:textColor="#FFFFFF"
+                        android:textAllCaps="false"
+                        android:background="@drawable/bluebg"
+                        android:layout_width="100dp"
+                        android:layout_height="45dp"/>
+                    <Button
+                        android:id="@+id/reg_vac_reset"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="center"
+                        android:text="Reset"
+                        android:textSize="15dp"
+                        android:textColor="#FFFFFF"
+                        android:textAllCaps="false"
+                        android:background="@drawable/bluebg"
+                        android:layout_width="100dp"
+                        android:layout_height="45dp"/>
+                </LinearLayout>
 
             </LinearLayout>
 
         </ScrollView>
     </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:id="@+id/reg_vac__loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorName="LineSpinFadeLoaderIndicator"
+        app:indicatorColor="#FFC107"
+        />
+
 </RelativeLayout>

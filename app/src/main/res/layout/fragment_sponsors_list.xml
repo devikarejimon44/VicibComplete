@@ -3,12 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Report.SponsorsList">
+    android:background="@android:color/white"
+    tools:context=".MembersArea.MenuFragments.Reports.SponsorsListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".MembersArea.Reports.SponsorsList">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+
+                android:id="@+id/m_shimmer_sponsorlist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                    <include layout="@layout/member_shimmer_sponsorlist"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:padding="10dp"
+                android:id="@+id/recycler_sponsorlist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/nodata_sponsors_list"
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
 </FrameLayout>

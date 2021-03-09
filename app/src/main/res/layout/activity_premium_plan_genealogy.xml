@@ -8,1562 +8,1568 @@
     android:id="@+id/p_layout"
     tools:context=".MembersArea.Gene.PremiumPlanGenealogy">
 
-    <LinearLayout
-            android:id="@+id/p_llmain"
-            android:background="@drawable/genebackground"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:fitsSystemWindows="true"
-            app:elevation="0dp">
-
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/premium_geneToolBar"
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:title="Premium Plan Genealogy"
-                android:fontFamily="@font/open_sans_semibold"
-                app:titleTextColor="@color/colorWhiteShoppy">
-
-                <ImageView
-                    android:id="@+id/premium_info"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="right"
-                    android:src="@drawable/info" />
-            </com.google.android.material.appbar.MaterialToolbar>
-        </com.google.android.material.appbar.AppBarLayout>
-
-
-
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical|center_horizontal">
-                <LinearLayout
-                    android:id="@+id/p_head1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/whitecircle"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/p_imgone"
-                        android:layout_width="33dp"
-                        android:layout_height="44dp"
-                        android:layout_gravity="center" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="63dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/p_txtone"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:gravity="center"
-                        android:background="#FFFFFF"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="210dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="92dp"
-                    android:src="@drawable/line" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="147dp"
-                    android:gravity="center">
-
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/whitecircle"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/p_imgtwo"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="130dp"
-                        android:background="@drawable/whitecircle"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/p_imgthree"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="212dp"
-                    android:gravity="center_horizontal">
-
-                    <TextView
-                        android:id="@+id/p_txttwo"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:background="#FFFFFF"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/p_txtthree"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="100dp"
-                        android:background="#FFFFFF"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="230dp"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/line" />
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="95dp"
-                        android:src="@drawable/line" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="277dp"
-                    android:gravity="center_horizontal">
-
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/whitecircle"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/p_imgfour"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="32dp"
-                        android:background="@drawable/whitecircle"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/p_imgfive"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="32dp"
-                        android:background="@drawable/whitecircle"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/p_imgsix"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="32dp"
-                        android:background="@drawable/whitecircle"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:id="@+id/p_imgseven"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="340dp"
-                    android:gravity="center_horizontal">
-
-                    <TextView
-                        android:id="@+id/p_txtfour"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:background="#FFFFFF"
-                        android:gravity="center"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:layout_gravity="center"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/p_txtfive"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="12dp"
-                        android:background="#FFFFFF"
-                        android:gravity="center"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:layout_gravity="center"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/p_txtsix"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="12dp"
-                        android:background="#FFFFFF"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/p_txtseven"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="12dp"
-                        android:background="#FFFFFF"
-                        android:gravity="center"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:layout_gravity="center"
-                        android:textColor="#000000"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-            <LinearLayout
-              android:visibility="gone"
-                android:id="@+id/p_llimgone"
-                android:padding="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/st_head1"
-                android:layout_marginLeft="55dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                >
-                <!--                 android:layout_marginLeft="209dp"
-                                android:layout_marginTop="40dp"-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_name_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_username_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponser Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right Count:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/p_llimgtwo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="118dp"
-                android:layout_marginTop="140dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_name_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_username_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right Count:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_two"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/p_llimgthree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="95dp"
-                android:layout_marginTop="140dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_name_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_username_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right Count:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_three"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/p_llimgfour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="71dp"
-                android:layout_marginTop="300dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_name_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_username_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right Count:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_four"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/p_llimgfive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="161dp"
-                android:layout_marginTop="300dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_name_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_username_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right Count:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_five"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/p_llimgsix"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="290dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_name_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_username_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="RightCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_six"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/p_llimgseven"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="179dp"
-                android:layout_marginTop="290dp"
-                android:background="@drawable/llgenebg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_username_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                    <TextView
-                        android:id="@+id/p_name_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor Username:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                    <TextView
-                        android:id="@+id/p_sponsor_username_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp"
-
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sponsor name:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_sponsor_name_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftBV_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right BV:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightBV_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LeftCount:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_leftcount_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Right Count:"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/p_rightcount_seven"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:textColor="@color/colorText"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-
-        </RelativeLayout>
-        </LinearLayout>
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/premium_refresh"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <LinearLayout
+          android:id="@+id/p_llmain"
+          android:background="@drawable/genebackground"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+          <com.google.android.material.appbar.AppBarLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/colorPrimary"
+              android:fitsSystemWindows="true"
+              app:elevation="0dp">
+
+
+              <com.google.android.material.appbar.MaterialToolbar
+                  android:id="@+id/premium_geneToolBar"
+                  android:layout_width="match_parent"
+                  android:layout_height="?actionBarSize"
+                  app:layout_scrollFlags="scroll|enterAlways|snap"
+                  app:title="Premium Plan Genealogy"
+                  android:fontFamily="@font/open_sans_semibold"
+                  app:titleTextColor="@color/colorWhiteShoppy">
+
+                  <ImageView
+                      android:id="@+id/premium_info"
+                      android:layout_marginLeft="5dp"
+                      android:layout_width="40dp"
+                      android:layout_height="30dp"
+                      android:layout_gravity="right"
+                      android:src="@drawable/info" />
+              </com.google.android.material.appbar.MaterialToolbar>
+          </com.google.android.material.appbar.AppBarLayout>
+
+
+
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_vertical|center_horizontal">
+              <LinearLayout
+                  android:id="@+id/p_head1"
+                  android:layout_width="60dp"
+                  android:layout_height="60dp"
+                  android:layout_centerHorizontal="true"
+                  android:background="@drawable/whitecircle"
+                  android:gravity="center">
+
+                  <ImageView
+                      android:id="@+id/p_imgone"
+                      android:layout_width="33dp"
+                      android:layout_height="44dp"
+                      android:layout_gravity="center" />
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="80dp"
+                  android:layout_height="35dp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginTop="63dp"
+                  android:orientation="vertical">
+
+                  <TextView
+                      android:id="@+id/p_txtone"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:gravity="center"
+                      android:background="#FFFFFF"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+              </LinearLayout>
+
+              <ImageView
+                  android:layout_width="210dp"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginTop="92dp"
+                  android:src="@drawable/line" />
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="147dp"
+                  android:gravity="center">
+
+                  <LinearLayout
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:background="@drawable/whitecircle"
+                      android:gravity="center">
+
+                      <ImageView
+                          android:id="@+id/p_imgtwo"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_marginLeft="130dp"
+                      android:background="@drawable/whitecircle"
+                      android:gravity="center">
+
+                      <ImageView
+                          android:id="@+id/p_imgthree"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp" />
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="212dp"
+                  android:gravity="center_horizontal">
+
+                  <TextView
+                      android:id="@+id/p_txttwo"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:background="#FFFFFF"
+                      android:gravity="center"
+                      android:layout_gravity="center"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+
+                  <TextView
+                      android:id="@+id/p_txtthree"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:layout_marginLeft="100dp"
+                      android:background="#FFFFFF"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="230dp"
+                  android:gravity="center_horizontal">
+
+                  <ImageView
+                      android:layout_width="95dp"
+                      android:layout_height="wrap_content"
+                      android:src="@drawable/line" />
+
+                  <ImageView
+                      android:layout_width="95dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="95dp"
+                      android:src="@drawable/line" />
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="277dp"
+                  android:gravity="center_horizontal">
+
+                  <LinearLayout
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:background="@drawable/whitecircle"
+                      android:gravity="center">
+
+                      <ImageView
+                          android:id="@+id/p_imgfour"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_marginLeft="32dp"
+                      android:background="@drawable/whitecircle"
+                      android:gravity="center">
+
+                      <ImageView
+                          android:id="@+id/p_imgfive"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_marginLeft="32dp"
+                      android:background="@drawable/whitecircle"
+                      android:gravity="center">
+
+                      <ImageView
+                          android:id="@+id/p_imgsix"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="60dp"
+                      android:layout_height="60dp"
+                      android:layout_marginLeft="32dp"
+                      android:background="@drawable/whitecircle"
+                      android:gravity="center">
+
+                      <ImageView
+                          android:id="@+id/p_imgseven"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp" />
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="340dp"
+                  android:gravity="center_horizontal">
+
+                  <TextView
+                      android:id="@+id/p_txtfour"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:background="#FFFFFF"
+                      android:gravity="center"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:layout_gravity="center"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+
+                  <TextView
+                      android:id="@+id/p_txtfive"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:layout_marginLeft="12dp"
+                      android:background="#FFFFFF"
+                      android:gravity="center"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:layout_gravity="center"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+
+                  <TextView
+                      android:id="@+id/p_txtsix"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:layout_marginLeft="12dp"
+                      android:background="#FFFFFF"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+
+                  <TextView
+                      android:id="@+id/p_txtseven"
+                      android:layout_width="80dp"
+                      android:layout_height="35dp"
+                      android:layout_marginLeft="12dp"
+                      android:background="#FFFFFF"
+                      android:gravity="center"
+                      android:fontFamily="@font/open_sans_semibold"
+                      android:layout_gravity="center"
+                      android:textColor="#000000"
+                      android:textSize="12dp" />
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgone"
+                  android:padding="10dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_alignRight="@+id/st_head1"
+                  android:layout_marginLeft="55dp"
+                  android:layout_marginTop="30dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  >
+                  <!--                 android:layout_marginLeft="209dp"
+                                  android:layout_marginTop="40dp"-->
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_name_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_username_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponser Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right Count:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_one"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgtwo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="118dp"
+                  android:layout_marginTop="140dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  android:padding="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_name_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_username_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right Count:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_two"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgthree"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="95dp"
+                  android:layout_marginTop="140dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  android:padding="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_name_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_username_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right Count:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_three"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgfour"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="71dp"
+                  android:layout_marginTop="300dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  android:padding="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_name_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_username_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right Count:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_four"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgfive"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="161dp"
+                  android:layout_marginTop="300dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  android:padding="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_name_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_username_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right Count:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_five"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgsix"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="100dp"
+                  android:layout_marginTop="290dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  android:padding="10dp">
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_name_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_username_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="RightCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_six"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:visibility="gone"
+                  android:id="@+id/p_llimgseven"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="179dp"
+                  android:layout_marginTop="290dp"
+                  android:background="@drawable/llgenebg"
+                  android:orientation="vertical"
+                  android:padding="10dp"
+                  >
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_username_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                      <TextView
+                          android:id="@+id/p_name_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor Username:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                      <TextView
+                          android:id="@+id/p_sponsor_username_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp"
+
+                          />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Sponsor name:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_sponsor_name_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#FFFFFF"
+                          android:textSize="12sp" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Left BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftBV_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right BV:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightBV_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="LeftCount:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_leftcount_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Right Count:"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+
+                      <TextView
+                          android:id="@+id/p_rightcount_seven"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/open_sans_semibold"
+                          android:textColor="@color/colorText"
+                          android:textSize="12sp" />
+                  </LinearLayout>
+              </LinearLayout>
+
+
+          </RelativeLayout>
+      </LinearLayout>
+
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
     </LinearLayout>

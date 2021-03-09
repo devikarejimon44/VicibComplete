@@ -3,12 +3,181 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Report.MyProducts">
+    android:background="@android:color/white"
+    tools:context=".MembersArea.MenuFragments.Reports.MyProductsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/rlmyproducts"
+        tools:context=".MembersArea.Reports.Mem_MyProducts.MyProducts">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--            <com.google.android.material.appbar.AppBarLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@color/colorPrimary"-->
+<!--                android:fitsSystemWindows="true"-->
+<!--                app:elevation="0dp">-->
+
+
+<!--                <com.google.android.material.appbar.MaterialToolbar-->
+<!--                    android:id="@+id/myproducts_ToolBar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="?actionBarSize"-->
+<!--                    app:layout_scrollFlags="scroll|enterAlways|snap"-->
+<!--                    app:title="My Products"-->
+<!--                    android:fontFamily="@font/open_sans_semibold"-->
+<!--                    app:titleTextColor="@color/colorWhiteShoppy">-->
+
+
+
+<!--                </com.google.android.material.appbar.MaterialToolbar>-->
+
+
+<!--            </com.google.android.material.appbar.AppBarLayout>-->
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/ll_myproducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:text="From"
+                                android:textColor="#000000"
+                                android:textSize="15sp" />
+
+                            <EditText
+                                android:id="@+id/fromdate"
+                                android:layout_width="130dp"
+                                android:layout_height="45dp"
+                                android:layout_marginLeft="8dp"
+                                android:background="@drawable/boxbg"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:gravity="center"
+                                android:hint="DD/MM/YYYY"
+                                android:textColor="#000000"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="18dp"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:text="To"
+                                android:textColor="#000000"
+                                android:textSize="15sp" />
+
+                            <EditText
+                                android:id="@+id/todate"
+                                android:layout_width="130dp"
+                                android:layout_height="45dp"
+                                android:layout_marginLeft="8dp"
+                                android:background="@drawable/boxbg"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:gravity="center"
+                                android:hint="DD/MM/YYYY"
+                                android:textColor="#000000"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/myproduct_search"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/bluebg"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:text="Search"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/m_shimmer_myproducts"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                            <include layout="@layout/member_shimmer_myproducts" />
+
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_myproducts"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/nodata_myproducts"
+                        android:layout_width="400dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="40dp" />
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </FrameLayout>

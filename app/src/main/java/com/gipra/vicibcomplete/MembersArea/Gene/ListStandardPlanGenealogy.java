@@ -7,6 +7,15 @@ public class ListStandardPlanGenealogy {
     @SerializedName("postion")
     @Expose
     private String postion;
+    @SerializedName("side")
+    @Expose
+    private String side;
+    @SerializedName("sponsorid")
+    @Expose
+    private String sponsorid;
+    @SerializedName("sponsorusername")
+    @Expose
+    private String sponsorusername;
     @SerializedName("userid")
     @Expose
     private String userid;
@@ -52,9 +61,6 @@ public class ListStandardPlanGenealogy {
     @SerializedName("gold1")
     @Expose
     private String gold1;
-    @SerializedName("c_basic_active_active")
-    @Expose
-    private Integer cBasicActiveActive;
 
     public String getPostion() {
         return postion;
@@ -62,6 +68,30 @@ public class ListStandardPlanGenealogy {
 
     public void setPostion(String postion) {
         this.postion = postion;
+    }
+
+    public String getSide() {
+        return side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public String getSponsorid() {
+        return sponsorid;
+    }
+
+    public void setSponsorid(String sponsorid) {
+        this.sponsorid = sponsorid;
+    }
+
+    public String getSponsorusername() {
+        return sponsorusername;
+    }
+
+    public void setSponsorusername(String sponsorusername) {
+        this.sponsorusername = sponsorusername;
     }
 
     public String getUserid() {
@@ -184,11 +214,4 @@ public class ListStandardPlanGenealogy {
         this.gold1 = gold1;
     }
 
-    public Integer getCBasicActiveActive() {
-        return cBasicActiveActive;
-    }
-
-    public void setCBasicActiveActive(Integer cBasicActiveActive) {
-        this.cBasicActiveActive = cBasicActiveActive;
-    }
 }

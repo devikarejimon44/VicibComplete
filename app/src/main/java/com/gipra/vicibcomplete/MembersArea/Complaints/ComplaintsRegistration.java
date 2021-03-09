@@ -72,6 +72,7 @@ public class ComplaintsRegistration extends AppCompatActivity {
     EditText comp_subject,comp_description;
     MaterialButton comp_image_upload,comp_submit,comp_reset;
     ImageView c_image;
+    TextView error_compin,error_prio;
 
     private static final int SELECT_PIC = 100;
 
@@ -111,10 +112,9 @@ public class ComplaintsRegistration extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), list.get(arg2).toString(),
                     //				Toast.LENGTH_SHORT).show();
 //                    comp_category=adapterView.getSelectedItem().toString();
-                    Toast.makeText(getBaseContext(), "Select Issue", Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(getBaseContext(), "Select Issue", Toast.LENGTH_SHORT).show();
 
-                    TextView errorTextview = (TextView) comp_complaints_in.getSelectedView();
-                    errorTextview.setError("Your Error Message here");
+
 
 
                 }else {
@@ -128,13 +128,14 @@ public class ComplaintsRegistration extends AppCompatActivity {
             }
         });
 
-
         comp_priority=findViewById(R.id.comp_priority);
         List<String> priority=new ArrayList<>();
         priority.add(0,"Select Priority");
         priority.add("High");
         priority.add("Medium");
         priority.add("Low");
+
+
 
 
 
@@ -145,8 +146,8 @@ public class ComplaintsRegistration extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(adapterView.getItemAtPosition(i).equals("Select Priority")){
-                    Toast.makeText(getBaseContext(), "Select Priority",
-                    				Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getBaseContext(), "Select Priority",
+//                    				Toast.LENGTH_SHORT).show();
                  //   c_priority=adapterView.getSelectedItem().toString();
 //
 
@@ -175,7 +176,10 @@ public class ComplaintsRegistration extends AppCompatActivity {
         comp_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sumbit();
+                if (validate()){
+                    Sumbit();
+                }
+
             }
         });
         comp_reset=findViewById(R.id.comp_reset);
@@ -188,6 +192,41 @@ public class ComplaintsRegistration extends AppCompatActivity {
 
     }
 
+    private boolean validate() {
+        boolean valid = true;
+
+
+        String comp_in=comp_complaints_in.getSelectedItem().toString();
+        String comp_prio=comp_priority.getSelectedItem().toString();
+        String comp_sub=comp_subject.getText().toString();
+        String comp_desc=comp_description.getText().toString();
+        if(comp_in.equals("Select Issue")){
+            valid=false;
+            error_compin = (TextView)comp_complaints_in.getSelectedView();
+            error_compin.setError("");
+            error_compin.setText("Select Position");
+            comp_complaints_in.requestFocus();
+        }
+        else if(comp_prio.equals("Select Priority")){
+            valid=false;
+            error_prio = (TextView)comp_priority.getSelectedView();
+            error_prio.setError("");
+            error_prio.setText("Select Position");
+            comp_priority.requestFocus();
+        }else if(comp_sub.isEmpty()){
+            comp_subject.setError("Enter name");
+            comp_subject.requestFocus();
+        }else if (comp_desc.isEmpty()){
+            comp_description.setError("Enter name");
+            comp_description.requestFocus();
+        }else {
+            valid=true;
+            Sumbit();
+        }
+
+        return valid;
+
+    }
 
     private void Sumbit() {
         SharedPreferences shpref;
@@ -397,6 +436,10 @@ public class ComplaintsRegistration extends AppCompatActivity {
 
     }
 
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
 
   
 }

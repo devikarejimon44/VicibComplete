@@ -13,7 +13,6 @@ class ConnectivityReceiver: BroadcastReceiver() {
             connectivityReceiverListener!!.onNetworkConnectionChanged(isConnectedOrConnecting(context!!))
         }
 
-
     }
 
 
@@ -33,14 +32,4 @@ class ConnectivityReceiver: BroadcastReceiver() {
     }
 }
 
-//companion object {
-//    var connectivityReceiverListener: ConnectivityReceiver.ConnectivityReceiverListener? = null
-//    val isConnected: Boolean
-//        get() {
-//            val cm = ShoppyApplication.instance?.applicationContext
-//                ?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//            val activeNetwork = cm.activeNetworkInfo
-//            return (activeNetwork != null
-//                    && activeNetwork.isConnectedOrConnecting)
-//        }
 

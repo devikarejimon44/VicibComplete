@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -50,7 +51,7 @@ public class ComplaintStatus extends AppCompatActivity {
     private List<ListComplaintList> listComplaintList;
     private ComplaintsStatusAdapter complaintsStatusAdapter;
     ShimmerFrameLayout m_shimmer_complaints_status;
-
+    ImageView nodata_complaint_status;
 
 
     @Override
@@ -68,8 +69,12 @@ public class ComplaintStatus extends AppCompatActivity {
         m_shimmer_complaints_status=findViewById(R.id.m_shimmer_complaints_status);
         comp_fromdate=findViewById(R.id.comp_fromdate);
         comp_todate=findViewById(R.id.comp_todate);
+        nodata_complaint_status=findViewById(R.id.nodata_complaint_status);
 
-        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+
+        //dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         comp_fromdate.setInputType(InputType.TYPE_NULL);
         comp_fromdate.requestFocus();
         comp_fromdate.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +132,8 @@ public class ComplaintStatus extends AppCompatActivity {
         String fdate=comp_fromdate.getText().toString();
         String tdate=comp_todate.getText().toString();
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        //   Call<ResponseFirstPurchaseBVReport> usercall=api.SearchFirstPurchase(Integer.parseInt(id),fdate,tdate);
-        Call<ResponseComplaintsList> usercall=api.ComplaintsList(1,"2021-01-21","2021-01-22");
+           Call<ResponseComplaintsList> usercall=api.ComplaintsList(Integer.parseInt(id),fdate,tdate);
+     //   Call<ResponseComplaintsList> usercall=api.ComplaintsList(1,"2021-01-21","2021-01-22");
         usercall.enqueue(new Callback<ResponseComplaintsList>() {
             @Override
             public void onResponse(Call<ResponseComplaintsList> call, Response<ResponseComplaintsList> response) {
@@ -137,6 +142,7 @@ public class ComplaintStatus extends AppCompatActivity {
                     m_shimmer_complaints_status.setVisibility(View.GONE);
                     m_shimmer_complaints_status.stopShimmerAnimation();
                     Recycler_complaints_status.setVisibility(View.VISIBLE);
+                    nodata_complaint_status.setVisibility(View.GONE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponseComplaintsList responseComplaintsList=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -149,7 +155,11 @@ public class ComplaintStatus extends AppCompatActivity {
                 else {
                     m_shimmer_complaints_status.setVisibility(View.GONE);
                     m_shimmer_complaints_status.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+
+                  nodata_complaint_status.setVisibility(View.VISIBLE);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_complaint_status);
                 }
             }
             @Override
@@ -158,5 +168,9 @@ public class ComplaintStatus extends AppCompatActivity {
                 m_shimmer_complaints_status.stopShimmerAnimation();
             }
         });
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

@@ -43,9 +43,11 @@ public class SplashScreen extends AppCompatActivity {
                         Log.d("onResponse", "" + response.body().getMessage());
                         if (response.body().getStatus().equals("1")){
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish();
                         }
                         else {
                             startActivity(new Intent(getApplicationContext(), Login.class));
+                            finish();
 
                         }
                         finish();

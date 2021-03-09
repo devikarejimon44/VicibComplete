@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -54,6 +57,7 @@ public class MyProducts extends AppCompatActivity {
 
     RelativeLayout rlmyproducts;
     ShimmerFrameLayout m_shimmer_myproducts;
+    ImageView nodata_myproducts;
 
 
     @Override
@@ -137,8 +141,9 @@ public class MyProducts extends AppCompatActivity {
         String fdate=fromdate.getText().toString();
         String tdate=todate.getText().toString();
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseMyproductsDateOnly> usercall=api.SearchMyproductsDateonly(1,"06-01-2020","08-09-2020");
-      //  Call<ResponseMyProducts> usercall=api.searchmyproducts(1,fdate,tdate);
+       // Call<ResponseMyproductsDateOnly> usercall=api.SearchMyproductsDateonly(1,"06-01-2020","08-09-2020");
+       // Call<ResponseMyproductsDateOnly> usercall=api.SearchMyproductsDateonly(1,"17/2/2021","17/2/2021");
+        Call<ResponseMyproductsDateOnly> usercall=api.SearchMyproductsDateonly(Integer.parseInt(id));
         usercall.enqueue(new Callback<ResponseMyproductsDateOnly>() {
             @Override
             public void onResponse(Call<ResponseMyproductsDateOnly> call, Response<ResponseMyproductsDateOnly> response) {
@@ -172,16 +177,28 @@ public class MyProducts extends AppCompatActivity {
                 else {
                     m_shimmer_myproducts.setVisibility(View.GONE);
                     m_shimmer_myproducts.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+//                  Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    nodata_myproducts=findViewById(R.id.nodata_myproducts);
+                    nodata_myproducts.setVisibility(View.VISIBLE);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_myproducts);
+
                 }
             }
             @Override
             public void onFailure(Call<ResponseMyproductsDateOnly> call, Throwable t) {
                 m_shimmer_myproducts.setVisibility(View.GONE);
                 m_shimmer_myproducts.stopShimmerAnimation();
+                Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+
 
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

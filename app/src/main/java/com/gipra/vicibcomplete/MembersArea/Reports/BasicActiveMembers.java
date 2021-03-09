@@ -2,6 +2,7 @@ package com.gipra.vicibcomplete.MembersArea.Reports;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
+import com.gipra.vicibcomplete.MembersArea.MainActivity;
 import com.gipra.vicibcomplete.R;
 import com.google.gson.Gson;
 
@@ -156,6 +158,10 @@ public class BasicActiveMembers extends AppCompatActivity {
     });
 
 }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
 
 
 }

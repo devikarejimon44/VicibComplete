@@ -2,6 +2,7 @@ package com.gipra.vicibcomplete.MembersArea.Gene;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
+import com.gipra.vicibcomplete.MembersArea.MainActivity;
 import com.gipra.vicibcomplete.MembersArea.Registration;
 import com.gipra.vicibcomplete.R;
 
@@ -42,6 +44,7 @@ public class StandardPlanGene extends AppCompatActivity {
     TextView st_username_seven,st_name_seven,st_sponsor_username_seven,st_sponsor_name_seven,st_leftBV_seven,st_rightBV_seven,st_leftcount_seven,st_rightcount_seven;
     String uid0,uid1,uid2,uid3,uid4,uid5,uid6;
     String t0,t1,t2,t3,t4,t5,t6;
+    SwipeRefreshLayout standard_refresh;
 
 
     @Override
@@ -75,6 +78,16 @@ public class StandardPlanGene extends AppCompatActivity {
 //                popupWindow.update();
             }
         });
+        standard_refresh=findViewById(R.id.standard_refresh);
+        standard_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                startActivity(new Intent(getApplicationContext(),StandardPlanGene.class));
+                standard_refresh.setRefreshing(false);
+            }
+        });
+
+
         st_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -437,7 +450,10 @@ public class StandardPlanGene extends AppCompatActivity {
     }
     private  void gene(final String id){
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseStandardGenealogy>call=api.StandardGene(Integer.parseInt(id));
+    //    Call<ResponseStandardGenealogy>call=api.StandardGene(Integer.parseInt(id));
+  //  Call<ResponseStandardGenealogy>call=api.StandardGene(10739);
+        Call<ResponseStandardGenealogy>call=api.StandardGene(1);
+
         call.enqueue(new Callback<ResponseStandardGenealogy>() {
             @Override
             public void onResponse(Call<ResponseStandardGenealogy> call, Response<ResponseStandardGenealogy> response) {
@@ -460,6 +476,13 @@ public class StandardPlanGene extends AppCompatActivity {
                     String bactive0=listStandardPlanGenealogy.get(0).getBasicActive();
                     t0=listStandardPlanGenealogy.get(0).getName();
 
+                    String spid1=listStandardPlanGenealogy.get(0).getSponsorId();
+                    if (spid1==null){
+                        st_txtone.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgone);
+                    }
 
 
                     st_txtone.setText(t0);
@@ -500,6 +523,16 @@ public class StandardPlanGene extends AppCompatActivity {
                     t1=listStandardPlanGenealogy.get(1).getName();
 
 
+                    String spid2=listStandardPlanGenealogy.get(1).getSponsorId();
+                    if (spid2==null){
+                        st_txttwo.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgtwo);
+                    }
+
+
+
 
                     st_txttwo.setText(t1);
                     if (uid1.equals("0")){
@@ -536,6 +569,15 @@ public class StandardPlanGene extends AppCompatActivity {
                     String mbactive2=listStandardPlanGenealogy.get(2).getMemberbronzeActive();
                     String bactive2=listStandardPlanGenealogy.get(2).getBasicActive();
                     t2=listStandardPlanGenealogy.get(2).getName();
+
+
+                    String spid3=listStandardPlanGenealogy.get(2).getSponsorId();
+                    if (spid3==null){
+                        st_txtthree.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgthree);
+                    }
 
 
                     st_txtthree.setText(t2);
@@ -575,6 +617,15 @@ public class StandardPlanGene extends AppCompatActivity {
                     t3=listStandardPlanGenealogy.get(3).getName();
                     st_txtfour.setText(t3);
 
+
+                    String spid4=listStandardPlanGenealogy.get(3).getSponsorId();
+                    if (spid4==null){
+                        st_txtfour.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgfour);
+                    }
+
                     if (uid3.equals("0")){
                         Glide.with(getApplicationContext())
                                 .load(R.drawable.vacant)
@@ -609,6 +660,14 @@ public class StandardPlanGene extends AppCompatActivity {
                     String bactive4=listStandardPlanGenealogy.get(4).getBasicActive();
                     t4=listStandardPlanGenealogy.get(4).getName();
                     st_txtfive.setText(t4);
+
+                    String spid5=listStandardPlanGenealogy.get(4).getSponsorId();
+                    if (spid5==null){
+                        st_txtfive.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgfive);
+                    }
 
 
                     if (uid4.equals("0")){
@@ -648,6 +707,15 @@ public class StandardPlanGene extends AppCompatActivity {
                     st_txtsix.setText(t5);
 
 
+                    String spid6=listStandardPlanGenealogy.get(5).getSponsorId();
+                    if (spid6==null){
+                        st_txtsix.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgsix);
+                    }
+
+
 
                     if (uid5.equals("0")){
                         Glide.with(getApplicationContext())
@@ -685,6 +753,16 @@ public class StandardPlanGene extends AppCompatActivity {
                     String bactive6=listStandardPlanGenealogy.get(6).getBasicActive();
                     t6=listStandardPlanGenealogy.get(6).getName();
                     st_txtseven.setText(t6);
+
+
+                    String spid7=listStandardPlanGenealogy.get(6).getSponsorId();
+                    if (spid7==null){
+                        st_txtseven.setText("Vaccant");
+                        Glide.with(getApplicationContext())
+                                .load(R.drawable.vacant)
+                                .into(st_imgseven);
+                    }
+
 
 
                     if (uid6.equals("0")){
@@ -864,6 +942,11 @@ public class StandardPlanGene extends AppCompatActivity {
 
         //val moreOrderDetails = OrderDetailSheet(applicationContext, orderID,login_id)
         //        moreOrderDetails.show(getSupportFragmentManager(), moreOrderDetails.getTag())
+    }
+
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
 

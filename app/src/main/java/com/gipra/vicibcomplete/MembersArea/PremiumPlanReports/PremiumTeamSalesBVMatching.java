@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -47,6 +49,7 @@ public class PremiumTeamSalesBVMatching extends AppCompatActivity {
     private List<PremiumListTeamSalesBVMatching> premiumListLeftSideSales;
     private PremiumTeamSalesBvAdapter premiumTeamSalesBvAdapter;
     ShimmerFrameLayout m_shimmer_pr_team_sales_bvmatching;
+    ImageView nodata_pr_team_salesbv_matching;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,9 @@ public class PremiumTeamSalesBVMatching extends AppCompatActivity {
         Recycler_premium_team_salesbv_matching=findViewById(R.id.Recycler_premium_team_salesbv_matching);
         premium_team_salesbv_matching_fromdate=findViewById(R.id.premium_team_salesbv_matching_fromdate);
         premium_team_salesbv_matching_todate=findViewById(R.id.premium_team_salesbv_matching_todate);
+
+        nodata_pr_team_salesbv_matching=findViewById(R.id.nodata_pr_team_salesbv_matching);
+
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         premium_team_salesbv_matching_fromdate.setInputType(InputType.TYPE_NULL);
@@ -130,6 +136,8 @@ public class PremiumTeamSalesBVMatching extends AppCompatActivity {
                     m_shimmer_pr_team_sales_bvmatching.setVisibility(View.GONE);
                     m_shimmer_pr_team_sales_bvmatching.stopShimmerAnimation();
                     Recycler_premium_team_salesbv_matching.setVisibility(View.VISIBLE);
+                    nodata_pr_team_salesbv_matching.setVisibility(View.GONE);
+
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponsePremiumTeamSalesBVMatching responsePremiumTeamSalesBVMatching=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -142,7 +150,10 @@ public class PremiumTeamSalesBVMatching extends AppCompatActivity {
                 else {
                     m_shimmer_pr_team_sales_bvmatching.setVisibility(View.GONE);
                     m_shimmer_pr_team_sales_bvmatching.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    nodata_pr_team_salesbv_matching.setVisibility(View.VISIBLE);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_pr_team_salesbv_matching);
                 }
             }
             @Override
@@ -152,5 +163,9 @@ public class PremiumTeamSalesBVMatching extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

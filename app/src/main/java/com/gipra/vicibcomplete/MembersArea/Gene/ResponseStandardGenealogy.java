@@ -28,5 +28,4 @@ public class ResponseStandardGenealogy {
     public void setData(List<ListStandardPlanGenealogy> data) {
         this.data = data;
     }
-
 }

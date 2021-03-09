@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -47,6 +49,7 @@ public class StandardLeftSideSales extends AppCompatActivity {
     private List<Standard_ListLeftSideSales> standard_listLeftSideSales;
     private StandardLeftSideSalesAdapter standardLeftSideSalesAdapter;
     ShimmerFrameLayout m_shimmer_st_leftside_sales;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +148,10 @@ public class StandardLeftSideSales extends AppCompatActivity {
                 else {
                     m_shimmer_st_leftside_sales.setVisibility(View.GONE);
                     m_shimmer_st_leftside_sales.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                   ImageView nodata_st_leftside_sales=findViewById(R.id.nodata_st_leftside_sales);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_st_leftside_sales);
                 }
             }
             @Override
@@ -156,5 +162,9 @@ public class StandardLeftSideSales extends AppCompatActivity {
         });
 
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

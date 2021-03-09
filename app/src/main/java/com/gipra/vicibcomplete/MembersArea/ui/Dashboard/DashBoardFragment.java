@@ -6,20 +6,28 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 
@@ -32,14 +40,11 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
-import com.gipra.vicibcomplete.MembersArea.GRCodeScanner;
 import com.gipra.vicibcomplete.MembersArea.IDCard;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.MyProfile;
-import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
 import com.google.android.material.tabs.TabLayout;
-import com.google.zxing.qrcode.encoder.QRCode;
 
 import org.json.JSONObject;
 
@@ -74,6 +79,7 @@ public class DashBoardFragment extends Fragment {
     TextView d_std_currentleftbv,d_std_currenrightbv,d_std_todaysbusinessleftbv,d_std_todaysbusinessrightbv;
 
     CircleImageView account_profile_pic;
+    FrameLayout fragment_dashboard;
 
 
 
@@ -90,7 +96,20 @@ public class DashBoardFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dash_board, container, false);
         Toolbar toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("DashBoard");
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dashboard");
+
+
+        final SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshData(); // your code
+                pullToRefresh.setRefreshing(false);
+            }
+        });
+        fragment_dashboard=view.findViewById(R.id.fragment_dashboard);
+
 
         d_totalearnings=view.findViewById(R.id.d_totalearnings);
         d_premiumearnings=view.findViewById(R.id.d_premiumearnings);
@@ -204,6 +223,7 @@ public class DashBoardFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ShoppyHome.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 //        dash_compliants=view.findViewById(R.id.dash_compliants);
@@ -234,6 +254,17 @@ public class DashBoardFragment extends Fragment {
 
         return view;
     }
+
+    private void refreshData() {
+
+        DashBoardFragment dashBoardFragment = new DashBoardFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_dashboard, dashBoardFragment);
+        fragmentTransaction.commit();
+
+    }
+
 
     private void ViewProfilePicture() {
 

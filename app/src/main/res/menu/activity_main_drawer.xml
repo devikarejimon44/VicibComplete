@@ -7,18 +7,7 @@
 
             android:icon="@drawable/dashboard"
             android:id="@+id/nav_dashboard"
-            android:title="Dashboard"
-
-            />
-
-        <item
-            android:icon="@drawable/strategy"
-            android:id="@+id/nav_productstore"
-            android:title="Product Store" />
-        <item
-            android:icon="@drawable/registrationform"
-            android:id="@+id/nav_regform"
-            android:title="Registration Form" />
+            android:title="Dashboard" />
 
         <item
             android:icon="@drawable/genealogy"
@@ -28,25 +17,20 @@
                 <item
                     android:visible="true"
                     android:id="@+id/nav_silver_plan_genealogy"
-                    android:title="Silver Plan Genealogy" />
+                    android:title="Premium Plan Genealogy" />
                 <item
                     android:visible="true"
                     android:id="@+id/nav_gold_plan_genealogy"
-                    android:title=" Gold Plan Geneology" />
-                <item
-                    android:visible="true"
-                    android:id="@+id/nav_sponsortree"
-                    android:title=" Sponsor Tree" />
-                <item
-                    android:visible="true"
-                    android:id="@+id/nav_sponsortree_tabularview"
-                    android:title=" * Sponsor Tree Tabular View" />
-                <item
-                    android:visible="true"
-                    android:id="@+id/nav_sponsor_downline_list"
-                    android:title=" * Sponsor Downline List" />
+                    android:title="Standard Plan Geneology" />
+
             </menu>
         </item>
+
+        <item
+            android:icon="@drawable/registrationform"
+            android:id="@+id/nav_regform"
+            android:title="Registration Form" />
+
 
         <item
             android:icon="@drawable/wallet"
@@ -63,12 +47,20 @@
                     android:title="First Purchase BV Report" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_left_side_member"
-                    android:title="Left Side Member" />
+                    android:id="@+id/nav_sponsors_list"
+                    android:title="Sponsors List" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_right_side_member"
-                    android:title="Right Side Member" />
+                    android:id="@+id/nav_left_side_members"
+                    android:title="Left Side Members" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_right_side_members"
+                    android:title="Right Side Members" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_basic_active_members"
+                    android:title="Basic Active Members" />
 
             </menu>
         </item>
@@ -76,48 +68,47 @@
         <item
             android:icon="@drawable/report"
             android:id="@+id/nav_silver_plan_reports"
-            android:title="Silver Plan Reports" >
+            android:title="Standard Plan Reports" >
             <menu>
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_left_side_sales"
+                    android:id="@+id/nav_st_left_side_sales"
                     android:title=" Left Side Sales" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_right_side_sales"
+                    android:id="@+id/nav_st_right_side_sales"
                     android:title=" Right Side Sales" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_team_salesbv"
+                    android:id="@+id/nav_st_team_salesbv"
                     android:title=" Team Sales BV Matching" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_team_sales_bonus"
+                    android:id="@+id/nav_st_team_sales_bonus"
                     android:title="Team Sales Bonus Details" />
 
             </menu>
         </item>
-
         <item
             android:icon="@drawable/incomedetails"
             android:id="@+id/nav_gold_plan_reports"
-            android:title="Gold Plan Reports" >
+            android:title="Premium Plan Reports" >
             <menu>
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_gold_left_side_sales"
+                    android:id="@+id/nav_p_left_side_sales"
                     android:title=" Right Side Sales" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_gold_right_side_sales"
+                    android:id="@+id/nav_p_right_side_sales"
                     android:title=" Right Side Sales" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_gold_team_salesbv"
+                    android:id="@+id/nav_p_team_salesbv"
                     android:title=" Team Sales BV Matching" />
                 <item
                     android:visible="true"
-                    android:id="@+id/nav_gold_team_sales_bonus"
+                    android:id="@+id/nav_p_team_sales_bonus"
                     android:title=" Team Sales Bonus Details" />
             </menu>
         </item>
@@ -145,7 +136,28 @@
 
             </menu>
         </item>
+        <item
+            android:icon="@drawable/registrationform"
+            android:id="@+id/nav_payout_ledger"
+            android:title="Payout Ledger" />
 
+
+        <item
+            android:icon="@drawable/compliants"
+            android:id="@+id/nav_complaints"
+            android:title="Complaints">
+            <menu>
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_complaints_registrtion"
+                    android:title="Compliant's Registration" />
+                <item
+                    android:visible="true"
+                    android:id="@+id/nav_complaints_status"
+                    android:title="Complaints Status" />
+
+            </menu>
+        </item>
 
     </group>
 

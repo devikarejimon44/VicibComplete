@@ -24,7 +24,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.shimmer_chechout_layout.*
-import kotlinx.android.synthetic.main.shimmer_chechout_layout.totalPrice
+
 
 import kotlinx.android.synthetic.main.shoppy_activity_checkout.*
 import kotlinx.android.synthetic.main.shoppy_activity_viewcart.*
@@ -194,7 +194,7 @@ class CheckoutActivity : AppCompatActivity(), CartItemRecycler.CartItemClickList
 
 
         totalLayout.visibility - View.VISIBLE
-        totalPrice.text = "₹ " + total + ".00"
+        checkout_totalPrice.text = "₹ " + total + ".00"
         // jsonResponse.getString("total_count").toString()
     }
 

@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     android:id="@+id/st_layout"
     tools:context=".MembersArea.Gene.StandardPlanGene">
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/standard_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/st_llmain"
         android:background="@drawable/genebackground"
@@ -24,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:title="Standard Plan Genealogy"
+
                 android:fontFamily="@font/open_sans_semibold"
                 app:titleTextColor="@color/colorWhiteShoppy">
 
@@ -289,7 +293,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-              >
+                >
                 <!--                 android:layout_marginLeft="209dp"
                                 android:layout_marginTop="40dp"-->
                 <LinearLayout
@@ -654,8 +658,8 @@
                 android:layout_marginTop="140dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-               android:padding="10dp"
-               >
+                android:padding="10dp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -828,7 +832,7 @@
             </LinearLayout>
 
             <LinearLayout
-               android:visibility="gone"
+                android:visibility="gone"
                 android:id="@+id/st_llimgfour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -837,7 +841,7 @@
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
                 android:padding="10dp"
-               >
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1011,7 +1015,7 @@
             </LinearLayout>
 
             <LinearLayout
-               android:visibility="gone"
+                android:visibility="gone"
                 android:id="@+id/st_llimgfive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -1205,7 +1209,7 @@
                 android:layout_marginTop="290dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-               android:padding="10dp">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1388,7 +1392,7 @@
                 android:layout_marginTop="290dp"
                 android:background="@drawable/llgenebg"
                 android:orientation="vertical"
-              android:padding="10dp"
+                android:padding="10dp"
                 >
 
                 <LinearLayout
@@ -1562,6 +1566,8 @@
 
         </RelativeLayout>
     </LinearLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

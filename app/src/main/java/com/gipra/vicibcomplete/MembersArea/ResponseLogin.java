@@ -22,6 +22,12 @@ public class ResponseLogin {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("address")
+    @Expose
+    private String address;
+    @SerializedName("pincode")
+    @Expose
+    private String pincode;
     @SerializedName("message")
     @Expose
     private String message;
@@ -72,6 +78,22 @@ public class ResponseLogin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
     }
 
     public String getMessage() {

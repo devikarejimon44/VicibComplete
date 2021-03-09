@@ -151,7 +151,10 @@ class CartRecycler(
                     Response.Listener { response ->
                         Log.e("Response ", "$response")
 
+
+
                         var jsonObject = JSONObject(response)
+
 
 
                         if (jsonObject.getString("status") == "1") {
@@ -160,11 +163,22 @@ class CartRecycler(
                             button.isEnabled = true
 
 
-                            itemView.pCount.text =   count.toString()
+                            itemView.pCount.text = count.toString()
                             var priceChange = count * price
-                            itemView.actualPrice.text = "₹ " + priceChange.toString() +"0"
+
+                            itemView.actualPrice.text = "₹ " + priceChange.toString() + "0"
+
 
                             var totalSum = jsonObject.getString("total_price")
+
+
+//                            var totalPrice = 0
+//                            for (i in 0 until dbList.size()) {
+//                                totalPrice += dbList.get(i).getPrice()
+//                            }
+
+
+
 
                             clickListiner.onChangeCount(totalSum)
 
@@ -237,7 +251,7 @@ class CartRecycler(
                         context?.showToasty(jsonObject.getString("message"))
                         array.remove(position)
                         notifyItemRemoved(position)
- 
+
                         clickListiner.onDelete(jsonObject)
 
                         // clickListiner.onDelete(productID, "4", position)

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -47,6 +48,7 @@ public class PayoutLedger extends AppCompatActivity {
     private List<ListPayoutLedger> listPayoutLedger;
     private PayoutLedgerAdapter payoutLedgerAdapter;
     ShimmerFrameLayout m_shimmer_payout_ledger;
+    ImageView nodata_payoutledger;
 
 
     @Override
@@ -65,6 +67,7 @@ public class PayoutLedger extends AppCompatActivity {
         Recycler_payoutledger=findViewById(R.id.Recycler_payoutledger);
         payoutledger_fromdate=findViewById(R.id.payoutledger_fromdate);
         payoutledger_todate=findViewById(R.id.payoutledger_todate);
+        nodata_payoutledger=findViewById(R.id.nodata_payoutledger);
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         payoutledger_fromdate.setInputType(InputType.TYPE_NULL);
@@ -132,6 +135,7 @@ public class PayoutLedger extends AppCompatActivity {
                     m_shimmer_payout_ledger.setVisibility(View.GONE);
                     m_shimmer_payout_ledger.stopShimmerAnimation();
                     Recycler_payoutledger.setVisibility(View.VISIBLE);
+                    nodata_payoutledger.setVisibility(View.GONE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponsePayoutLedger responsePayoutLedger=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -144,7 +148,10 @@ public class PayoutLedger extends AppCompatActivity {
                 else {
                     m_shimmer_payout_ledger.setVisibility(View.GONE);
                     m_shimmer_payout_ledger.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    nodata_payoutledger.setVisibility(View.VISIBLE);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_payoutledger);
                 }
             }
             @Override
@@ -154,6 +161,10 @@ public class PayoutLedger extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
 }

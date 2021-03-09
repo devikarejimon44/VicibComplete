@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".MembersArea.MenuFragments.StandardPlanReports.St_TeamSalesBVMatchingFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="From"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:textColor="#000000"
+                                android:textSize="15sp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <EditText
+                                android:hint="DD/MM/YYYY"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:id="@+id/standard_teamsales_bv_matching_fromdate"
+                                android:layout_marginLeft="8dp"
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:background="@drawable/boxbg"
+                                android:layout_width="130dp"
+                                android:layout_height="45dp"/>
+                            <TextView
+                                android:textColor="#000000"
+                                android:textSize="15sp"
+                                android:layout_marginLeft="15dp"
+                                android:text="To"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <EditText
+                                android:hint="DD/MM/YYYY"
+                                android:gravity="center"
+                                android:fontFamily="@font/open_sans_semibold"
+                                android:id="@+id/standard_teamsales_bv_matching_todate"
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:layout_marginLeft="8dp"
+                                android:background="@drawable/boxbg"
+                                android:layout_width="130dp"
+                                android:layout_height="45dp"/>
+                        </LinearLayout>
+                        <Button
+                            android:layout_marginTop="15dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:id="@+id/standard_teamsales_bv_matching_search"
+                            android:text="Search"
+                            android:fontFamily="@font/open_sans_semibold"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bluebg"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+                    </LinearLayout>
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:visibility="gone"
+                        android:id="@+id/m_shimmer_st_team_sales_bvmatching"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+                            <include layout="@layout/member_shimmer_st_teamsales_bv_matching"/>
+
+
+
+                        </LinearLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:visibility="gone"
+                        android:padding="10dp"
+                        android:id="@+id/Recycler_standard_teamsales_bv_matching"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:id="@+id/nodata_st_team_salesbv_matching"
+                        android:visibility="gone"
+                        android:layout_width="400dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="40dp" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

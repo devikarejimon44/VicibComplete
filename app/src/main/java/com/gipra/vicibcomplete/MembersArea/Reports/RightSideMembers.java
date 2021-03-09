@@ -163,4 +163,8 @@ public class RightSideMembers extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
 }

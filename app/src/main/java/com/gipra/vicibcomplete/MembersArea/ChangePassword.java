@@ -51,15 +51,7 @@ public class ChangePassword extends AppCompatActivity {
 
             }
         });
-//        cancelpsd=findViewById(R.id.cancelpsd);
-//        cancelpsd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                currentpsd.setText("");
-//                newpsd.setText("");
-//                confirmpsd.setText("");
-//            }
-//        });
+
     }
     public  Boolean validate() {
         boolean valid = true;

@@ -16,14 +16,14 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.NestedScrollView
 import androidx.core.widget.NestedScrollView.OnScrollChangeListener
-import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
+import com.gipra.vicibcomplete.MembersArea.MainActivity
 import com.gipra.vicibcomplete.R
-
 import com.gipra.vicibshoppy.application.ConnectivityReceiver
 import com.gipra.vicibshoppy.bottomSheets.PinCodeSheet
 import com.gipra.vicibshoppy.fragment.PageFragment
@@ -33,7 +33,6 @@ import com.gipra.vicibshoppy.pageAdaptor.BannerSlider
 import com.gipra.vicibshoppy.pageAdaptor.CategoryPageAdaptor
 import com.gipra.vicibshoppy.recyclerAdaptor.CategoryTestRecycler
 import com.gipra.vicibshoppy.recyclerAdaptor.TopRateRecycler
-import com.gipra.vicibshoppy.server.ServiceVolley
 import com.gipra.vicibshoppy.utlis.MySingleton
 import com.gipra.vicibshoppy.utlis.changeStatusBarColor
 import com.gipra.vicibshoppy.utlis.showToast
@@ -41,12 +40,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
-import es.dmoral.toasty.Toasty
+import com.wang.avi.AVLoadingIndicatorView
 import kotlinx.android.synthetic.main.shoppy_appbar_home.*
 import kotlinx.android.synthetic.main.shoppy_content_main.*
 import kotlinx.android.synthetic.main.shoppy_show_cart.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.time.ExperimentalTime
@@ -66,12 +63,20 @@ class ShoppyHome : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceive
     private var flag: Int = 0
     private var login_id: String = ""
 
+
     @ExperimentalTime
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shoppy_activity_home)
         changeStatusBarColor(blue = 36, red = 237, green = 28, window = window)
 
+
+        refresh_shoppyhome.setOnRefreshListener(OnRefreshListener {
+            val intent = Intent(applicationContext, ShoppyHome::class.java)
+            startActivity(intent)
+            finish()
+            refresh_shoppyhome.setRefreshing(false)
+        })
 
         login_id = "4"
         init(login_id)
@@ -117,17 +122,37 @@ class ShoppyHome : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceive
             Log.e(TAG, " value : $pName ")
         }
 
+
+
+        back_shoppy.setOnClickListener {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
+
 //        autoCompleteText.setOnFocusChangeListener { v, hasFocus ->
 //            //autoCompleteText.showDropDown()
 //            val intent = Intent(applicationContext, SearchActivity::class.java)
 //            startActivity(intent)
 //        }
 
+
         autoCompleteText.setOnClickListener {
             //autoCompleteText.showDropDown()
             val intent = Intent(applicationContext, SearchActivity::class.java)
             startActivity(intent)
         }
+//        shoppy_dash.setOnClickListener{
+//            val intent=Intent(applicationContext,MainActivity::class.java)
+//            startActivity(intent)
+//        }
+//        shoppy_idcard.setOnClickListener {
+//            val intent=Intent(applicationContext,IDCard::class.java)
+//            startActivity(intent)
+//        }
+//        shoppy_profile.setOnClickListener {
+//            val intent=Intent(applicationContext,MyProfile::class.java)
+//            startActivity(intent)
+//        }
 
         autoCompleteText.setOnKeyListener(object : View.OnKeyListener {
             override fun onKey(v: View?, keyCode: Int, event: KeyEvent): Boolean {
@@ -147,8 +172,6 @@ class ShoppyHome : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceive
             val intent = Intent(applicationContext, ViewcartActivity::class.java)
             startActivity(intent)
         }
-
-
 
 
 

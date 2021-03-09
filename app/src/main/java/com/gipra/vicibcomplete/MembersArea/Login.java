@@ -56,6 +56,7 @@ public class Login extends AppCompatActivity {
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     login_loader.setVisibility(View.GONE);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
                     Toast.makeText(Login.this, "You are succesfully logged in", Toast.LENGTH_SHORT).show();
                     String id=response.body().getUserId();
                     String uname=response.body().getUsername();
@@ -63,6 +64,7 @@ public class Login extends AppCompatActivity {
                     Log.i(TAG, "getname : " + name);
                     String mob=response.body().getMobile();
                     String email=response.body().getEmail();
+                    String add=response.body().getAddress();
                     SharedPreferences sharedPreferences;
                     sharedPreferences = getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor=sharedPreferences.edit();
@@ -71,6 +73,7 @@ public class Login extends AppCompatActivity {
                     editor.putString("NAME",name);
                     editor.putString("MOBILE",mob);
                     editor.putString("EMAIL",email);
+                    editor.putString("ADD",add);
                     editor.commit();
                 }
                 else {

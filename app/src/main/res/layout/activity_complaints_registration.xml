@@ -16,7 +16,6 @@
             android:fitsSystemWindows="true"
             app:elevation="0dp">
 
-
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/compliant_reg_ToolBar"
                 android:layout_width="match_parent"
@@ -25,7 +24,6 @@
                 app:title="Complaint Registration"
                 android:fontFamily="@font/open_sans_semibold"
                 app:titleTextColor="@color/colorWhiteShoppy">
-
 
 
             </com.google.android.material.appbar.MaterialToolbar>
@@ -166,7 +164,6 @@
                        android:layout_width="100dp"
                        android:layout_height="40dp"/>
                </LinearLayout>
-
            </LinearLayout>
        </ScrollView>
     </LinearLayout>

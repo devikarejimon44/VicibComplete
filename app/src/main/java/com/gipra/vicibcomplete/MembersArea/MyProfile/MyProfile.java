@@ -40,6 +40,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.loader.content.CursorLoader;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import com.android.volley.AuthFailureError;
@@ -50,6 +51,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
+import com.gipra.vicibcomplete.MembersArea.Gene.PremiumPlanGenealogy;
 import com.gipra.vicibcomplete.MembersArea.IDCard;
 import com.gipra.vicibcomplete.MembersArea.MainActivity;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
@@ -76,6 +78,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
@@ -125,12 +129,15 @@ public class MyProfile extends AppCompatActivity {
     private static final String TAG = "MyProfile";
     String imgurl ="https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/profile_image_view";
 
+    TextView error_gender,error_country;
+    SwipeRefreshLayout profile_refresh;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
-       Toolbar toolbar=findViewById(R.id.myprofileToolBar);
+        Toolbar toolbar=findViewById(R.id.myprofileToolBar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +151,14 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), OrderHistoryActivity.class));
+            }
+        });
+        profile_refresh=findViewById(R.id.profile_refresh);
+        profile_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                startActivity(new Intent(getApplicationContext(), MyProfile.class));
+                profile_refresh.setRefreshing(false);
             }
         });
 
@@ -224,15 +239,10 @@ public class MyProfile extends AppCompatActivity {
 
 
 
-
-
-
         List<String> gen=new ArrayList<>();
-        gen.add(0,"Select Position");
+        gen.add(0,"Select Gender");
         gen.add("Female");
         gen.add("Male");
-
-
 
 
 
@@ -246,7 +256,6 @@ public class MyProfile extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), list.get(arg2).toString(),
                     //				Toast.LENGTH_SHORT).show();
                     g=adapterView.getSelectedItem().toString();
-
 
 
                 }else {
@@ -291,7 +300,10 @@ public class MyProfile extends AppCompatActivity {
         edit_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Upadte();
+               if (validatebank()){
+                   Update();
+               }
+
             }
         });
         SharedPreferences shpref;
@@ -313,10 +325,13 @@ public class MyProfile extends AppCompatActivity {
         edit_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                layout_bankinfo.setVisibility(View.VISIBLE);
-                layout_personalinfo.setVisibility(View.GONE);
-                cardview_bankinfo.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                cardview_personalinfo.setCardBackgroundColor(Color.parseColor("#AFABAB"));
+
+                if(validate()){
+                  Next();
+                }
+
+
+
             }
         });
 
@@ -338,10 +353,9 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                layout_bankinfo.setVisibility(View.VISIBLE);
-                layout_personalinfo.setVisibility(View.GONE);
-                cardview_bankinfo.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                cardview_personalinfo.setCardBackgroundColor(Color.parseColor("#AFABAB"));
+              if (validate()){
+                  BankInfo();
+              }
 
 
             }
@@ -392,6 +406,21 @@ public class MyProfile extends AppCompatActivity {
          }
      });
     }
+
+    private void Next() {
+        layout_bankinfo.setVisibility(View.VISIBLE);
+        layout_personalinfo.setVisibility(View.GONE);
+        cardview_bankinfo.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        cardview_personalinfo.setCardBackgroundColor(Color.parseColor("#AFABAB"));
+    }
+    private void BankInfo()
+    {
+        layout_bankinfo.setVisibility(View.VISIBLE);
+        layout_personalinfo.setVisibility(View.GONE);
+        cardview_bankinfo.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        cardview_personalinfo.setCardBackgroundColor(Color.parseColor("#AFABAB"));
+    }
+
     public void itemClicked(View v) {
         //code to check if this checkbox is checked!
         CheckBox checkBox = (CheckBox)v;
@@ -448,7 +477,7 @@ public class MyProfile extends AppCompatActivity {
                                 });
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             Log.e(TAG, e.toString());
@@ -469,7 +498,6 @@ public class MyProfile extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
-
 
     private void loadDistrict(){
         RequestQueue requestQueue=new Volley().newRequestQueue(this);
@@ -513,7 +541,7 @@ public class MyProfile extends AppCompatActivity {
                                     }
                                 });
                             } else {
-                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             Log.e(TAG, e.toString());
@@ -534,11 +562,136 @@ public class MyProfile extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
     }
+    private boolean validate() {
+
+        boolean valid = true;
+        String name = edit_name.getText().toString();
+        String gen = edit_gender.getSelectedItem().toString();
+        String dob = edit_dob.getText().toString();
+        String mob = edit_mobile.getText().toString();
+        String email = edit_email.getText().toString();
+        String emailpattern =  "^[A-Za-z0-9+_.-]+@(.+)$";
+        String add = edit_address.getText().toString();
+
+        String con = edit_country.getSelectedItem().toString();
+        String panchayath = edit_panchayath.getText().toString();
+        String zip = edit_zipcode.getText().toString();
+        String no_name = edit_nomineename.getText().toString();
+        String no_rela = edit_nomineerelation.getText().toString();
 
 
 
 
-    private void Upadte() {
+        if (name.isEmpty()) {
+            valid=false;
+            edit_name.setError("Enter name");
+            edit_name.requestFocus();
+        }else if(gen.equals("Select Gender")){
+            valid=false;
+            error_gender = (TextView)edit_gender.getSelectedView();
+            error_gender.setError("");
+            error_gender.setText("Select Gender");
+            edit_gender.requestFocus();
+        }
+
+        else if (dob.isEmpty()) {
+            valid=false;
+            edit_dob.setError("Enter DOB");
+            edit_dob.requestFocus();
+        }
+        else if (mob.isEmpty() || mob.length()!=10) {
+            valid=false;
+            edit_mobile.setError("Enter valid mobile number");
+            edit_mobile.requestFocus();
+        }
+        else if (email.isEmpty() || !email.matches(emailpattern)) {
+            valid=false;
+            edit_email.setError("Enter Valid email address");
+            edit_email.requestFocus();
+
+        }
+        else if (add.isEmpty()) {
+            valid=false;
+            edit_address.setError("Enter Address");
+            edit_address.requestFocus();
+        }else if (con.equals("Select Country")){
+            valid=false;
+            error_country= (TextView)edit_country.getSelectedView();
+            error_country.setError("");
+            error_country.setText("Select Country");
+            edit_country.requestFocus();
+        }
+        else if (panchayath.isEmpty()) {
+            valid=false;
+            edit_panchayath.setError("Enter panchayath");
+            edit_panchayath.requestFocus();
+        }else if (zip.isEmpty() || zip.length()!=6) {
+            valid=false;
+            edit_zipcode.setError("Enter valid zipcode");
+            edit_zipcode.requestFocus();
+        }else if (no_name.isEmpty()) {
+            valid=false;
+            edit_nomineename.setError("Enter sponsorname");
+            edit_nomineename.requestFocus();
+        }else if (no_rela.isEmpty()) {
+            valid=false;
+            edit_nomineerelation.setError("Enter upline username");
+            edit_nomineerelation.requestFocus();
+        }
+
+        else{
+            valid = true;
+
+        }
+
+        return valid;
+    }
+    private boolean validatebank() {
+        boolean valid=true;
+        String bank = edit_bankname.getText().toString();
+        String branch = edit_branch.getText().toString();
+        String acc = edit_accountnum.getText().toString();
+        String ifsc = edit_ifsc.getText().toString();
+        String ifscpattern = "^[A-Z]{4}0[A-Z0-9]{6}$";
+
+
+        if (bank.isEmpty()) {
+            valid=false;
+            edit_bankname.setError("Enter bank name");
+            edit_bankname.requestFocus();
+        }
+
+        else if (branch.isEmpty()) {
+            valid=false;
+            edit_branch.setError("Enter branch name");
+            edit_branch.requestFocus();
+        }
+        else if (acc.isEmpty() || acc.length() <= 11 ||acc.length()>=18) {
+            valid=false;
+            edit_accountnum.setError("Enter valid account number");
+            edit_accountnum.requestFocus();
+        }
+
+//            valid=false;
+//            edit_ifsc.setError("Enter IFSC code");
+//            edit_ifsc.requestFocus();
+        else if (ifsc.isEmpty()) {
+            edit_ifsc.setError("Field cannot be empty");
+            return false;
+        } else if (ifsc.isEmpty() || !ifsc.matches(ifscpattern)) {
+            edit_ifsc.setError("Invalid IFSC ");
+            edit_ifsc.requestFocus();
+            return false;
+        }
+        else{
+            valid = true;
+
+        }
+        return valid;
+    }
+
+
+     private void Update() {
 
         SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
@@ -588,7 +741,7 @@ public class MyProfile extends AppCompatActivity {
     private  void ViewPhoto(){
 
 
-      SharedPreferences shpref;
+        SharedPreferences shpref;
         shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         final String u=shpref.getString("ID","");
 
@@ -613,7 +766,6 @@ public class MyProfile extends AppCompatActivity {
                                 Glide.with(getApplicationContext())
                                         .load(img)
                                         .into(acc_account_profile_pic);
-
 
 
 
@@ -891,18 +1043,18 @@ public class MyProfile extends AppCompatActivity {
                 if (response.body().getStatus().equals("1")) {
                     Log.d("onResponse", "" + response.body().getMessage());
                     photo_loader.setVisibility(View.INVISIBLE);
-                    Toast.makeText(getApplicationContext(), "updated successfully", Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getApplicationContext(), "updated successfully", Toast.LENGTH_LONG).show();
 
                 } else {
                     photo_loader.setVisibility(View.INVISIBLE);
-                    Toast.makeText(getApplicationContext(), "Some error occurred..Please try again", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(getApplicationContext(), "Some error occurred..Please try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBankProofUpload> call, Throwable t) {
                 photo_loader.setVisibility(View.INVISIBLE);
-                Toast.makeText(getApplicationContext(), "Some error occurred..", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "Some error occurred..", Toast.LENGTH_LONG).show();
             }
         });
 

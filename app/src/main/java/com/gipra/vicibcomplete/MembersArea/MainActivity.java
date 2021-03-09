@@ -1,13 +1,16 @@
 package com.gipra.vicibcomplete.MembersArea;
 
+import android.R.id;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.CollapsibleActionView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,6 +54,31 @@ import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 import com.gipra.vicibcomplete.MembersArea.Gene.PremiumGeneBottomDailogue;
 import com.gipra.vicibcomplete.MembersArea.Gene.PremiumPlanGenealogy;
 import com.gipra.vicibcomplete.MembersArea.Gene.StandardPlanGene;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Complaints.CompliantRegFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Complaints.CompliantRegistrationFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Complaints.CompliantStatusFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Genealogy.PremiumGeneFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Genealogy.StandardGeneFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.PayoutLedger.PayoutLedgerFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.PremiumPlanReports.P_LeftSideSalesFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.PremiumPlanReports.P_RightSideSalesFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.PremiumPlanReports.P_TeamSalesBVMatchingFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.PremiumPlanReports.P_TeamSalesBonusDetailsFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Registration.RegFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Reports.BasicActiveMembersFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Reports.FirstPurchaseBVReportFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Reports.LeftSideMembersFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Reports.MyProductsFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Reports.RightSideMembersFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.Reports.SponsorsListFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.RepurchasePlanReports.DownlineRepurchaseDetailsFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.RepurchasePlanReports.RepurchaseBVReportFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.RepurchasePlanReports.RepurchaseIncomeDetailsFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.RepurchasePlanReports.RepurchaseIncomeFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.StandardPlanReports.St_LeftSideSalesFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.StandardPlanReports.St_RightSideSalesFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.StandardPlanReports.St_TeamSalesBVMatchingFragment;
+import com.gipra.vicibcomplete.MembersArea.MenuFragments.StandardPlanReports.St_TeamSalesBonusDetailsFragment;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
 import com.gipra.vicibcomplete.MembersArea.Payout.PayoutLedger;
 import com.gipra.vicibcomplete.MembersArea.PremiumPlanReports.PremiumLeftSideSales;
@@ -71,9 +99,13 @@ import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardLeftSideS
 import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardRightSideSales;
 import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardTeamSalesBVMatching;
 import com.gipra.vicibcomplete.MembersArea.StandardPlanReports.StandardTeamSalesBonusDetails;
+import com.gipra.vicibcomplete.MembersArea.ui.Dashboard.DashBoardFragment;
 import com.gipra.vicibcomplete.R;
 import com.gipra.vicibshoppy.activity.ShoppyHome;
+import com.gipra.vicibshoppy.application.ConnectivityReceiver;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -91,7 +123,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private static final String TAG = "MainActivity";
     TextView txtusername,txtname;
     CircleImageView userimg;
@@ -114,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
     CoordinatorLayout layout_home;
      String imgurl ="https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/profile_image_view";
 
-    @Override
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -122,42 +155,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         logout_loader=findViewById(R.id.logout_loader);
         layout_home=findViewById(R.id.layout_home);
-     //   logout=findViewById(R.id.logout);
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//                LogoutSheet logoutSheet = new LogoutSheet();
-//                logoutSheet.show(getSupportFragmentManager(),
-//                        "ModalBottomSheet");
 
-
-//                LayoutInflater layoutInflater = (LayoutInflater) MainActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                View customview = layoutInflater.inflate(R.layout.story_delete_popup, null);
-//                Button yes = customview.findViewById(R.id.yes);
-//                yes.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        logout();
-//
-//                    }
-//                });
-//                Button no = customview.findViewById(R.id.no);
-//                no.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        popupWindow2.dismiss();
-//                    }
-//                });
-//                popupWindow2 = new PopupWindow(customview, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                popupWindow2.showAtLocation(layout_home, Gravity.CENTER, 0, 0);
-//                popupWindow2.setFocusable(true);
-//                popupWindow2.update();
-//
-
-//            }
-//        });
         setSupportActionBar(toolbar);
 
 
@@ -194,20 +192,16 @@ public class MainActivity extends AppCompatActivity {
         populateExpandableList();
 
 
-
-
-
 //         Passing each menu ID as a set of Ids because each
 //         menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_dashboard,
-                R.id.nav_regform, R.id.nav_productstore, R.id.nav_genealogy,
-                R.id.nav_silver_plan_genealogy, R.id.nav_gold_plan_genealogy, R.id.nav_sponsortree, R.id.nav_sponsortree_tabularview,
-                R.id.nav_sponsor_downline_list, R.id.nav_myproducts, R.id.nav_first_purchase_bv,
-                R.id.nav_left_side_member, R.id.nav_right_side_member, R.id.nav_silver_plan_reports, R.id.nav_left_side_sales, R.id.nav_right_side_sales,
-                R.id.nav_team_salesbv, R.id.nav_team_sales_bonus, R.id.nav_gold_left_side_sales, R.id.nav_gold_right_side_sales,
-                R.id.nav_gold_team_salesbv, R.id.nav_gold_team_sales_bonus, R.id.nav_repurchase_plan_report, R.id.nav_repurchase_bv_report, R.id.nav_downline_repurchase_details, R.id.nav_repurchase_income,
-                R.id.nav_repurchase_income_details)
+                R.id.nav_regform, R.id.nav_myproducts, R.id.nav_first_purchase_bv,
+                R.id.nav_sponsors_list, R.id.nav_left_side_members, R.id.nav_right_side_members, R.id.nav_basic_active_members,
+                R.id.nav_st_left_side_sales, R.id.nav_st_right_side_sales, R.id.nav_st_team_salesbv,
+                R.id.nav_st_team_sales_bonus, R.id.nav_p_left_side_sales, R.id.nav_p_right_side_sales, R.id.nav_p_team_salesbv, R.id.nav_p_team_sales_bonus,
+                R.id.nav_repurchase_bv_report, R.id.nav_downline_repurchase_details, R.id.nav_repurchase_income, R.id.nav_repurchase_income_details,
+                R.id.nav_payout_ledger, R.id.nav_complaints_registrtion, R.id.nav_complaints_status)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -284,8 +278,13 @@ public class MainActivity extends AppCompatActivity {
 //        if (!menuModel.hasChildren) {
 //            childList.put(menuModel, null);
 //        }
+        MenuModel menuModel =new MenuModel("Dashboard",true,true,R.drawable.ic_form);
+        headerList.add(menuModel);
+        if (!menuModel.hasChildren) {
+            childList.put(menuModel, null);
+        }
 
-        MenuModel menuModel = new MenuModel("Genealogy", true, true,R.drawable.ic_genealogy); //Menu of Java Tutorials
+         menuModel = new MenuModel("Genealogy", true, true,R.drawable.ic_genealogy); //Menu of Java Tutorials
         headerList.add(menuModel);
         List<MenuModel> childModelsList = new ArrayList<>();
         MenuModel childModel = new MenuModel(" Premium Plan Genealogy ", false, false,R.drawable.ic_arrow);
@@ -302,6 +301,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("API123","here");
             childList.put(menuModel, childModelsList);
         }
+
+
 
         menuModel = new MenuModel("Registration Form", true,true,R.drawable.ic_form); //Menu of Android Tutorial. No sub menus
         headerList.add(menuModel);
@@ -436,14 +437,30 @@ public class MainActivity extends AppCompatActivity {
 //
 //
 //                }
-                if(groupPosition==1) {
-                    startActivity(new Intent(getApplicationContext(), Registration.class));
 
+                if (groupPosition==0){
+                    DashBoardFragment dashBoardFragment=new DashBoardFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.nav_host_fragment,dashBoardFragment,dashBoardFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                    onBackPressed();
+                }
+
+                if(groupPosition==2) {
+                   // startActivity(new Intent(getApplicationContext(), Registration.class));
+                    RegFragment fragment = new RegFragment();
+                                        getSupportFragmentManager().beginTransaction()
+                                                .replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                                     //   toolbar.setTitle("Complaint's Registration");
+                                        onBackPressed();
 
                 }
-                if (groupPosition==6){
-                    startActivity(new Intent(getApplicationContext(), PayoutLedger.class));
+                if (groupPosition==7){
+//                    startActivity(new Intent(getApplicationContext(), PayoutLedger.class));
 
+                    PayoutLedgerFragment payoutLedgerFragment=new PayoutLedgerFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.nav_host_fragment,payoutLedgerFragment,payoutLedgerFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                    onBackPressed();
 
                 }
 //                if (groupPosition==9){
@@ -459,164 +476,271 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
-                if(groupPosition==0) {
+                if(groupPosition==1) {
 
                     if (childPosition == 0) {
+                        PremiumGeneFragment premiumGeneFragment=new PremiumGeneFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.nav_host_fragment,premiumGeneFragment,getClass().getSimpleName()).addToBackStack(null).commit();
+                        onBackPressed();
 
-                        Intent Intent = new Intent(getApplicationContext(), PremiumPlanGenealogy.class);
-                        startActivity(Intent);
+//                        Intent Intent = new Intent(getApplicationContext(), PremiumPlanGenealogy.class);
+//                        startActivity(Intent);
 
 
                     }
                     if (childPosition == 1) {
 
-                        Intent Intent = new Intent(getApplicationContext(), StandardPlanGene.class);
-                        startActivity(Intent);
+                        StandardGeneFragment standardGeneFragment=new StandardGeneFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.nav_host_fragment,standardGeneFragment,standardGeneFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                        onBackPressed();
+
+//                        Intent Intent = new Intent(getApplicationContext(), StandardPlanGene.class);
+//                        startActivity(Intent);
 
 
                     }
 
                 }
 
-
-                if (groupPosition==2){
+                if (groupPosition==3){
                         if(childPosition == 0){
-                            Intent Intent = new Intent(getApplicationContext(), MyProducts.class);
-                            startActivity(Intent);
+//                            Intent Intent = new Intent(getApplicationContext(), MyProducts.class);
+//                            startActivity(Intent);
+                            MyProductsFragment myProductsFragment=new MyProductsFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,myProductsFragment,myProductsFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
 
 
                         }
                         if(childPosition == 1){
-                            Intent Intent = new Intent(getApplicationContext(), FirstPurchaseBVReport.class);
-                            startActivity(Intent);
+//                            Intent Intent = new Intent(getApplicationContext(), FirstPurchaseBVReport.class);
+//                            startActivity(Intent);
+                            FirstPurchaseBVReportFragment firstPurchaseBVReportFragment=new FirstPurchaseBVReportFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,firstPurchaseBVReportFragment,firstPurchaseBVReportFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
 
 
                         }
 
                         if(childPosition == 2){
-                            Intent Intent = new Intent(getApplicationContext(), SponsorsList.class);
-                            startActivity(Intent);
+                            SponsorsListFragment sponsorsListFragment=new SponsorsListFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,sponsorsListFragment,sponsorsListFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
 
 
                         }
                         if(childPosition == 3){
-                            Intent Intent = new Intent(getApplicationContext(), LeftSideMembers.class);
-                            startActivity(Intent);
+                            LeftSideMembersFragment leftSideMembersFragment=new LeftSideMembersFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,leftSideMembersFragment,leftSideMembersFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
 
 
                         }
 
                         if(childPosition == 4){
-                            Intent Intent = new Intent(getApplicationContext(), RightSideMembers.class);
-                            startActivity(Intent);
+                            RightSideMembersFragment rightSideMembersFragment=new RightSideMembersFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,rightSideMembersFragment,rightSideMembersFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
 
                         }
                         if (childPosition==5){
-                            Intent Intent = new Intent(getApplicationContext(), BasicActiveMembers.class);
-                            startActivity(Intent);
+                            BasicActiveMembersFragment basicActiveMembersFragment=new BasicActiveMembersFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,basicActiveMembersFragment,basicActiveMembersFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
                         }
-
-                    }
-                    if (groupPosition==3) {
-
-                        if(childPosition == 0){
-                            Intent Intent = new Intent(getApplicationContext(), StandardLeftSideSales.class);
-                            startActivity(Intent);
-
-
-
-                        }
-                        if(childPosition == 1){
-
-                            Intent Intent = new Intent(getApplicationContext(), StandardRightSideSales.class);
-                            startActivity(Intent);
-
-
-                        }
-                        if(childPosition == 2){
-                            Intent Intent = new Intent(getApplicationContext(), StandardTeamSalesBVMatching.class);
-                            startActivity(Intent);
-
-
-                        }
-
-
-                        if(childPosition == 3){
-                            Intent Intent = new Intent(getApplicationContext(), StandardTeamSalesBonusDetails.class);
-                            startActivity(Intent);
-
-
-                        }
-
 
                     }
                     if (groupPosition==4) {
-                        if(childPosition == 0){
-                            Intent Intent = new Intent(getApplicationContext(), PremiumLeftSideSales.class);
-                            startActivity(Intent);
 
+                        if(childPosition == 0){
+//                            Intent Intent = new Intent(getApplicationContext(), StandardLeftSideSales.class);
+//                            startActivity(Intent);
+
+                            St_LeftSideSalesFragment st_leftSideSalesFragment=new St_LeftSideSalesFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,st_leftSideSalesFragment,st_leftSideSalesFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
 
                         }
                         if(childPosition == 1){
-                            Intent Intent = new Intent(getApplicationContext(), PremiumRightSideSales.class);
-                            startActivity(Intent);
+//
+//                            Intent Intent = new Intent(getApplicationContext(), StandardRightSideSales.class);
+//                            startActivity(Intent);
 
+                            St_RightSideSalesFragment st_rightSideSalesFragment=new St_RightSideSalesFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,st_rightSideSalesFragment,st_rightSideSalesFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
 
 
                         }
                         if(childPosition == 2){
-                            Intent Intent = new Intent(getApplicationContext(), PremiumTeamSalesBVMatching.class);
-                            startActivity(Intent);
+//                            Intent Intent = new Intent(getApplicationContext(), StandardTeamSalesBVMatching.class);
+//                            startActivity(Intent);
+
+                           St_TeamSalesBVMatchingFragment st_teamSalesBVMatchingFragment=new St_TeamSalesBVMatchingFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,st_teamSalesBVMatchingFragment,st_teamSalesBVMatchingFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
+
+                        }
+
+
+                        if(childPosition == 3){
+//                            Intent Intent = new Intent(getApplicationContext(), StandardTeamSalesBonusDetails.class);
+//                            startActivity(Intent);
+
+                            St_TeamSalesBonusDetailsFragment st_teamSalesBonusDetailsFragment=new St_TeamSalesBonusDetailsFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,st_teamSalesBonusDetailsFragment,st_teamSalesBonusDetailsFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
+
+
+                        }
+                    }
+                    if (groupPosition==5) {
+                        if(childPosition == 0){
+//                            Intent Intent = new Intent(getApplicationContext(), PremiumLeftSideSales.class);
+//                            startActivity(Intent);
+
+                            P_LeftSideSalesFragment p_leftSideSalesFragment=new P_LeftSideSalesFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,p_leftSideSalesFragment,p_leftSideSalesFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
+
+                        }
+                        if(childPosition == 1){
+//                            Intent Intent = new Intent(getApplicationContext(), PremiumRightSideSales.class);
+//                            startActivity(Intent);
+
+
+                            P_RightSideSalesFragment p_rightSideSalesFragment=new P_RightSideSalesFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,p_rightSideSalesFragment,p_rightSideSalesFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
+
+                        }
+                        if(childPosition == 2){
+
+//                            Intent Intent = new Intent(getApplicationContext(), PremiumTeamSalesBVMatching.class);
+//                            startActivity(Intent);
+
+                            P_TeamSalesBVMatchingFragment p_teamSalesBVMatchingFragment=new P_TeamSalesBVMatchingFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,p_teamSalesBVMatchingFragment,p_teamSalesBVMatchingFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
+
 
 
                         }
                         if(childPosition == 3){
-                            Intent Intent = new Intent(getApplicationContext(), PremiumTeamSalesBonusDetails.class);
-                            startActivity(Intent);
+//                            Intent Intent = new Intent(getApplicationContext(), PremiumTeamSalesBonusDetails.class);
+//                            startActivity(Intent);
+
+                            P_TeamSalesBonusDetailsFragment pTeamSalesBonusDetailsFragment=new P_TeamSalesBonusDetailsFragment();
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.nav_host_fragment,pTeamSalesBonusDetailsFragment,pTeamSalesBonusDetailsFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                            onBackPressed();
+
 
 
                         }
 
                     }
 
-                   if (groupPosition==5) {
+                   if (groupPosition==6) {
                        if(childPosition == 0){
-                           Intent Intent = new Intent(getApplicationContext(), RepurchaseBVReports.class);
-                           startActivity(Intent);
+//                           Intent Intent = new Intent(getApplicationContext(), RepurchaseBVReports.class);
+//                           startActivity(Intent);
+
+                           RepurchaseBVReportFragment repurchaseBVReportFragment=new RepurchaseBVReportFragment();
+                           getSupportFragmentManager().beginTransaction()
+                                   .replace(R.id.nav_host_fragment,repurchaseBVReportFragment,repurchaseBVReportFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                           onBackPressed();
 
 
 
                        }
                        if(childPosition == 1){
-                           Intent Intent = new Intent(getApplicationContext(), DownlineRepurchaseDetails.class);
-                           startActivity(Intent);
+//                           Intent Intent = new Intent(getApplicationContext(), DownlineRepurchaseDetails.class);
+//                           startActivity(Intent);
+
+                           DownlineRepurchaseDetailsFragment downlineRepurchaseDetailsFragment=new DownlineRepurchaseDetailsFragment();
+                           getSupportFragmentManager().beginTransaction()
+                                   .replace(R.id.nav_host_fragment,downlineRepurchaseDetailsFragment,downlineRepurchaseDetailsFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                           onBackPressed();
 
 
 
                        }
                        if(childPosition == 2){
-                           Intent Intent = new Intent(getApplicationContext(), RepurchaseIncome.class);
-                           startActivity(Intent);
+//                          Intent Intent = new Intent(getApplicationContext(), RepurchaseIncome.class);
+//                           startActivity(Intent);
+
+
+                           RepurchaseIncomeFragment repurchaseIncomeFragment=new RepurchaseIncomeFragment();
+                           getSupportFragmentManager().beginTransaction()
+                                   .replace(R.id.nav_host_fragment,repurchaseIncomeFragment,repurchaseIncomeFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                           onBackPressed();
 
 
 
                        }
                        if(childPosition == 3){
-                           Intent Intent = new Intent(getApplicationContext(), RepurchaseIncomeDetails.class);
-                           startActivity(Intent);
+//                           Intent Intent = new Intent(getApplicationContext(), RepurchaseIncomeDetails.class);
+//                           startActivity(Intent);
+
+                           RepurchaseIncomeDetailsFragment repurchaseIncomeDetailsFragment=new RepurchaseIncomeDetailsFragment();
+                           getSupportFragmentManager().beginTransaction()
+                                   .replace(R.id.nav_host_fragment,repurchaseIncomeDetailsFragment,repurchaseIncomeDetailsFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                           onBackPressed();
 
                        }
 
                    }
-                   if (groupPosition==7){
+                   if (groupPosition==8){
                        if (childPosition==0){
-                           Intent Intent = new Intent(getApplicationContext(), ComplaintsRegistration.class);
-                           startActivity(Intent);
+//                           Intent Intent = new Intent(getApplicationContext(), ComplaintsRegistration.class);
+//                           startActivity(Intent);
+
+
+//                            CompliantRegFragment fragment = new CompliantRegFragment();
+//                                        getSupportFragmentManager().beginTransaction()
+//                                                .replace(R.id.nav_host_fragment, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+//                                     //   toolbar.setTitle("Complaint's Registration");
+//                                        onBackPressed();
+                           CompliantRegFragment registrationFragment = new CompliantRegFragment();
+                           getSupportFragmentManager().beginTransaction()
+                                   .replace(R.id.nav_host_fragment, registrationFragment, registrationFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                           //toolbar.setTitle("Registration");
+                           onBackPressed();
 
                        }
                        if (childPosition==1){
-                           Intent Intent = new Intent(getApplicationContext(), ComplaintStatus.class);
-                           startActivity(Intent);
+//                           Intent Intent = new Intent(getApplicationContext(), ComplaintStatus.class);
+//                           startActivity(Intent);
+
+                           CompliantStatusFragment compliantStatusFragment = new CompliantStatusFragment();
+                           getSupportFragmentManager().beginTransaction()
+                                   .replace(R.id.nav_host_fragment, compliantStatusFragment, compliantStatusFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                           //toolbar.setTitle("Registration");
+                           onBackPressed();
+
 
                        }
                    }
@@ -675,7 +799,6 @@ public class MainActivity extends AppCompatActivity {
 //        else if(id==R.id.logout) {
 //
 //        }
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -748,12 +871,41 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    public void onBackPressed() {
+////        Intent a = new Intent(Intent.ACTION_MAIN);
+////        a.addCategory(Intent.CATEGORY_HOME);
+////        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+////        startActivity(a);
+////        finish();
+//
+//
+//
+//        DrawerLayout layout = (DrawerLayout)findViewById(R.id.drawer_layout);
+//        if (layout.isDrawerOpen(GravityCompat.START)) {
+//            layout.closeDrawer(GravityCompat.START);
+//        }
+//        else{
+//            FragmentManager fm = getFragmentManager();
+//            if (fm.getBackStackEntryCount() > 0 && fm.getBackStackEntryCount() != 1) {
+//                fm.popBackStackImmediate();
+//            } else if (fm.getBackStackEntryCount() == 1) {
+//
+//                toolbar.setTitle("Dashboard");
+//
+//
+//                fm.popBackStackImmediate();
+//            } else {
+//                toolbar.setTitle("Dashboard");
+//                super.onBackPressed();
+//
+//            }
+//
+//           MainActivity.super.onBackPressed();
+//
+//        }
+
+
     public void onBackPressed() {
-//        Intent a = new Intent(Intent.ACTION_MAIN);
-//        a.addCategory(Intent.CATEGORY_HOME);
-//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(a);
-//        finish();
 
         DrawerLayout layout = (DrawerLayout)findViewById(R.id.drawer_layout);
         if (layout.isDrawerOpen(GravityCompat.START)) {
@@ -764,25 +916,19 @@ public class MainActivity extends AppCompatActivity {
             if (fm.getBackStackEntryCount() > 0 && fm.getBackStackEntryCount() != 1) {
                 fm.popBackStackImmediate();
             } else if (fm.getBackStackEntryCount() == 1) {
-
-                toolbar.setTitle("DASHBOARD");
-
-
-
+                toolbar.setTitle("Dashboard..");
                 fm.popBackStackImmediate();
+                super.onBackPressed();
             } else {
-                toolbar.setTitle("DASHBOARD");
+                toolbar.setTitle("Dashboard");
                 super.onBackPressed();
 
             }
 
-           //MainActivity.super.onBackPressed();
+         //  MainActivity.super.onBackPressed();
 
         }
 
-
-
     }
-
-
 }
+

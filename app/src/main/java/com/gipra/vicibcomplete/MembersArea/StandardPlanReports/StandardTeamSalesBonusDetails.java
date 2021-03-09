@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -144,7 +145,10 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
                 else {
                     m_shimmer_st_team_sales_bonus_details.setVisibility(View.GONE);
                     m_shimmer_st_team_sales_bonus_details.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    ImageView nodata_st_team_sales_bonus=findViewById(R.id.nodata_st_team_sales_bonus);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_st_team_sales_bonus);
                 }
             }
             @Override
@@ -155,5 +159,9 @@ public class StandardTeamSalesBonusDetails extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

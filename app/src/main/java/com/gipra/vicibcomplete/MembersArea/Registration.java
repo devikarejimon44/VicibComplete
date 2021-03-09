@@ -65,6 +65,9 @@ public class Registration extends AppCompatActivity {
  AVLoadingIndicatorView reg_loader;
  LinearLayout ll_sponsor_check;
 
+    TextView error_position,error_country;
+    TextView sp_name;
+
     DatePickerDialog from;
     SimpleDateFormat dateFormatter;
 
@@ -100,6 +103,8 @@ public class Registration extends AppCompatActivity {
         reg_panchayath=findViewById(R.id.reg_panchayath);
         ll_sponsor_check=findViewById(R.id.ll_sponsor_check);
         check_msg=findViewById(R.id.check_msg);
+        sp_name=findViewById(R.id.sp_name);
+
         check_upline=findViewById(R.id.check_upline);
         reg_sponsorusername=findViewById(R.id.reg_sponsorusername);
         reg_sponsorusername.addTextChangedListener(new TextWatcher() {
@@ -155,10 +160,21 @@ public class Registration extends AppCompatActivity {
         reg_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Register();
+
+                if(validate()){
+                    Register();
+                }
+
             }
         });
         reg_reset=findViewById(R.id.reg_reset);
+        reg_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Reset();
+
+            }
+        });
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         reg_regdob.setInputType(InputType.TYPE_NULL);
@@ -249,7 +265,7 @@ public class Registration extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), list.get(arg2).toString(),
                     //				Toast.LENGTH_SHORT).show();
                     p=adapterView.getSelectedItem().toString();
-                    Toast.makeText(getBaseContext(), ""+p, Toast.LENGTH_SHORT).show();
+
 
                 }else {
                     final String item=adapterView.getItemAtPosition(i).toString();
@@ -310,8 +326,6 @@ public class Registration extends AppCompatActivity {
 
     }
 
-
-
     private void sponsorname_check() {
         final String u = reg_sponsorusername.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://www.vicibhomelyindia.com/api_demo/api_demo/Webservices/Membersarea/sponsor_check",
@@ -349,7 +363,6 @@ public class Registration extends AppCompatActivity {
             String sp_msg=jsonObject.getString("message");
 
             if (jsonObject.getString("status").equals("1")) {
-                TextView sp_name=findViewById(R.id.sp_name);
                 sp_name.setText(sp);
 
             }
@@ -409,7 +422,7 @@ public class Registration extends AppCompatActivity {
                                 });
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             Log.e(TAG, e.toString());
@@ -472,7 +485,7 @@ public class Registration extends AppCompatActivity {
                                     }
                                 });
                             } else {
-                                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+                              //  Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             Log.e(TAG, e.toString());
@@ -493,6 +506,152 @@ public class Registration extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
     }
+
+    public  Boolean validate() {
+        boolean valid = true;
+        String name = reg_name.getText().toString();
+        String dob = reg_regdob.getText().toString();
+        String email = reg_emailid.getText().toString();
+        String emailpattern="^[A-Za-z0-9+_.-]+@(.+)$";
+        String mob = reg_mobilenum.getText().toString();
+        String add = reg_address.getText().toString();
+        String pin = reg_pincode.getText().toString();
+
+        String panchayath = reg_panchayath.getText().toString();
+        String spname = reg_sponsorusername.getText().toString();
+        String upline = reg_uplineusername.getText().toString();
+        String pan = reg_pancardnumber.getText().toString();
+        String panpattern="[A-Z]{5}[0-9]{4}[A-Z]{1}";
+        String bank = reg_bankname.getText().toString();
+        String branch = reg_branchname.getText().toString();
+        String acc = reg_accnum.getText().toString();
+        String ifsc = reg_ifsc.getText().toString();
+        String ifscpattern = "^[A-Z]{4}0[A-Z0-9]{6}$";
+        String n_name = reg_nomname.getText().toString();
+        String n_rela = reg_nomrelation.getText().toString();
+        String psd = reg_psd.getText().toString();
+        String cpsd = reg_confirmpsd.getText().toString();
+        String con=reg_country.getSelectedItem().toString();
+        String pos=reg_position.getSelectedItem().toString();
+
+
+
+        if (name.isEmpty()) {
+            valid=false;
+            reg_name.setError("Enter name");
+            reg_name.requestFocus();
+        } else if (dob.isEmpty()) {
+            valid=false;
+            reg_regdob.setError("Enter DOB");
+            reg_regdob.requestFocus();
+        }
+        else if (email.isEmpty() || !email.matches(emailpattern)) {
+            valid=false;
+            reg_emailid.setError("Enter email ID");
+            reg_emailid.requestFocus();
+        }
+        else if (mob.isEmpty() || mob.length()!=10) {
+            valid=false;
+            reg_mobilenum.setError("Enter mobile number");
+            reg_mobilenum.requestFocus();
+        }
+        else if (add.isEmpty()) {
+            valid=false;
+            reg_address.setError("Enter Address");
+            reg_address.requestFocus();
+        }
+
+
+        else if (pin.isEmpty() || pin.length()!=6) {
+            valid=false;
+            reg_pincode.setError("Enter new password");
+            reg_pincode.requestFocus();
+        }else if (panchayath.isEmpty()) {
+            valid=false;
+            reg_panchayath.setError("Enter panchayath");
+            reg_panchayath.requestFocus();
+        }else if (spname.isEmpty()) {
+            valid=false;
+            reg_sponsorusername.setError("Enter sponsorname");
+            reg_sponsorusername.requestFocus();
+        }else if (upline.isEmpty()) {
+            valid=false;
+            reg_uplineusername.setError("Enter upline username");
+            reg_uplineusername.requestFocus();
+        }
+
+        else if (pan.isEmpty() || !pan.matches(panpattern)) {
+            valid=false;
+            reg_pancardnumber.setError("Enter Pancard Number");
+            reg_pancardnumber.requestFocus();
+        }
+        else if (bank.isEmpty()) {
+            valid=false;
+            reg_bankname.setError("Enter bank name");
+            reg_bankname.requestFocus();
+        }
+
+        else if (branch.isEmpty()) {
+            valid=false;
+            reg_branchname.setError("Enter branch name");
+            reg_branchname.requestFocus();
+        }
+        else if (acc.isEmpty() || acc.length() <= 11 ||acc.length()>=18) {
+            valid=false;
+            reg_accnum.setError("Enter valid account number");
+            reg_accnum.requestFocus();
+        }
+        else if (ifsc.isEmpty() || !ifsc.matches(ifscpattern)) {
+            reg_ifsc.setError("Enter valid IFSC ");
+            reg_ifsc.requestFocus();
+            return false;
+
+
+        }
+
+        else if (n_name.isEmpty()) {
+            valid=false;
+            reg_nomname.setError("Enter nominee name");
+            reg_nomname.requestFocus();
+        }
+        else if (n_rela.isEmpty()) {
+            valid=false;
+            reg_nomrelation.setError("Enter nominee relation");
+            reg_nomrelation.requestFocus();
+        }
+        else if (psd.isEmpty()) {
+            valid=false;
+            reg_psd.setError("Enter password");
+            reg_psd.requestFocus();
+        }
+        else if(cpsd.isEmpty() || !cpsd.equals(psd)){
+            valid=false;
+            reg_confirmpsd.setError("Password mismatch");
+            reg_confirmpsd.requestFocus();
+        }
+        else if (con.equals("Select Country")){
+            valid=false;
+            error_country= (TextView)reg_country.getSelectedView();
+            error_country.setError("");
+            error_country.setText("Select Country");
+            reg_country.requestFocus();
+        }else if(pos.equals("Select Position")){
+            valid=false;
+            error_position = (TextView)reg_position.getSelectedView();
+            error_position.setError("");
+            error_position.setText("Select Position");
+            reg_country.requestFocus();
+        }
+
+
+        else{
+            valid = true;
+           Register();
+        }
+
+        return valid;
+    }
+
     private void Register(){
         reg_loader.setVisibility(View.VISIBLE);
 
@@ -542,6 +701,46 @@ public class Registration extends AppCompatActivity {
             }
         });
 
+    }
+    private void Reset(){
+        reg_name.setText("");
+        reg_regdob.setText("");
+        reg_emailid.setText("");
+        reg_mobilenum.setText("");
+        reg_address.setText("");
+        reg_pincode.setText("");
+        reg_country.setSelection(0);
+        reg_state.setSelection(0);
+        reg_district.setSelection(0);
+        sp_name.setText("");
+        reg_panchayath.setText("");
+        reg_sponsorusername.setText("");
+        reg_uplineusername.setText("");
+        check_upline.setText("");
+        check_msg.setText("");
+        reg_position.setSelection(0);
+        reg_nomname.setText("");
+        reg_nomrelation.setText("");
+
+
+        reg_psd.setText("");
+        reg_confirmpsd.setText("");
+        reg_pancardnumber.setText("");
+        reg_bankname.setText("");
+        reg_branchname.setText("");
+        reg_accnum.setText("");
+        reg_ifsc.setText("");
+        reg_accnum.setText("");
+        reg_ifsc.setText("");
+
+//                error_country.setText("");
+//                error_position.setText("");
+
+
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
 

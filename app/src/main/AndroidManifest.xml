@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MembersArea.GRCodeScanner"></activity>
+        <activity android:name=".MembersArea.Gene.RegVaccant" />
+        <activity android:name=".MembersArea.GRCodeScanner" />
         <activity android:name=".MembersArea.ProfileIcons.ProfileList" />
         <activity android:name=".MembersArea.LogoutSheet" />
         <activity android:name=".MembersArea.Gene.StandardPlanGene" />

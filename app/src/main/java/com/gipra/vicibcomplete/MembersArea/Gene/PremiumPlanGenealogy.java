@@ -13,14 +13,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import com.bumptech.glide.Glide;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
+import com.gipra.vicibcomplete.MembersArea.MainActivity;
 import com.gipra.vicibcomplete.MembersArea.Registration;
 import com.gipra.vicibcomplete.R;
 
@@ -52,6 +55,12 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
     String uid0,uid1,uid2,uid3,uid4,uid5,uid6;
     String t0,t1,t2,t3,t4,t5,t6;
 
+    SwipeRefreshLayout premium_refresh;
+
+    String side0,side1,side2,side3,side4,side5,side6;
+
+    String sp_upline0,sp_upline1,sp_upline2,sp_upline3,sp_upline4,sp_upline5,sp_upline6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,10 +91,14 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
             }
         });
-
-
-
-
+        premium_refresh=findViewById(R.id.premium_refresh);
+        premium_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                startActivity(new Intent(getApplicationContext(),PremiumPlanGenealogy.class));
+                premium_refresh.setRefreshing(false);
+            }
+        });
 
 
 
@@ -109,7 +122,6 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
         p_imgseven = findViewById(R.id.p_imgseven);
         p_txtseven = findViewById(R.id.p_txtseven);
-
 
 
 
@@ -317,7 +329,9 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
                 if (uid1.equals("0")) {
 
 
-                    Intent i = new Intent(getApplicationContext(), Registration.class);
+                    Intent i = new Intent(getApplicationContext(), RegVaccant.class);
+                    i.putExtra("SIDE",side1);
+                    i.putExtra("UPLINE",sp_upline1);
                     startActivity(i);
 
 //                    getActivity().getSupportFragmentManager().beginTransaction()
@@ -338,7 +352,9 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             public void onClick(View v) {
                 if (uid2.equals("0")) {
 
-                    Intent i = new Intent(getApplicationContext(), Registration.class);
+                    Intent i = new Intent(getApplicationContext(), RegVaccant.class);
+                    i.putExtra("SIDE",side2);
+                    i.putExtra("UPLINE",sp_upline2);
                     startActivity(i);
                 } else {
                     gene(uid2);
@@ -352,7 +368,9 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             public void onClick(View v) {
                 if (uid3.equals("0")) {
 
-                    Intent i = new Intent(getApplicationContext(), Registration.class);
+                    Intent i = new Intent(getApplicationContext(), RegVaccant.class);
+                    i.putExtra("SIDE",side3);
+                    i.putExtra("UPLINE",sp_upline3);
                     startActivity(i);
                 } else {
                     gene(uid3);
@@ -365,7 +383,9 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             public void onClick(View v) {
                 if (uid4.equals("0")) {
 
-                    Intent i = new Intent(getApplicationContext(), Registration.class);
+                    Intent i = new Intent(getApplicationContext(), RegVaccant.class);
+                    i.putExtra("SIDE",side4);
+                    i.putExtra("UPLINE",sp_upline4);
                     startActivity(i);
                 } else {
                     gene(uid4);
@@ -378,7 +398,9 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             public void onClick(View v) {
                 if (uid5.equals("0")) {
 
-                    Intent i = new Intent(getApplicationContext(), Registration.class);
+                    Intent i = new Intent(getApplicationContext(), RegVaccant.class);
+                    i.putExtra("SIDE",side5);
+                    i.putExtra("UPLINE",sp_upline5);
                     startActivity(i);
                 } else {
                     gene(uid5);
@@ -391,8 +413,11 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
             public void onClick(View v) {
                 if (uid6.equals("0")) {
 
-                    Intent i = new Intent(getApplicationContext(), Registration.class);
+                    Intent i = new Intent(getApplicationContext(), RegVaccant.class);
+                    i.putExtra("SIDE",side6);
+                    i.putExtra("UPLINE",sp_upline6);
                     startActivity(i);
+
                 } else {
                     gene(uid6);
                 }
@@ -402,7 +427,9 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
     }
     private  void gene(final String id){
         ApiInterface api= ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponsePremiumGenealogy>call=api.PremiumGene(Integer.parseInt(id));
+      //  Call<ResponsePremiumGenealogy>call=api.PremiumGene(Integer.parseInt(id));
+        Call<ResponsePremiumGenealogy>call=api.PremiumGene(20191);
+
         call.enqueue(new Callback<ResponsePremiumGenealogy>() {
             @Override
             public void onResponse(Call<ResponsePremiumGenealogy> call, Response<ResponsePremiumGenealogy> response) {
@@ -418,11 +445,13 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 0
 
-                    uid0=listPremiumPlanGenealogy.get(0).getUserid();
-                    String mactive0=listPremiumPlanGenealogy.get(0).getMemberActive();
-                    String mbactive0=listPremiumPlanGenealogy.get(0).getMemberbronzeActive();
-                    String bactive0=listPremiumPlanGenealogy.get(0).getBasicActive();
+                    uid0= listPremiumPlanGenealogy.get(0).getUserid();
+                    String mactive0= listPremiumPlanGenealogy.get(0).getMemberActive();
+                    String mbactive0= listPremiumPlanGenealogy.get(0).getMemberbronzeActive();
+                    String bactive0= listPremiumPlanGenealogy.get(0).getBasicActive();
                     t0=listPremiumPlanGenealogy.get(0).getName();
+                    side0=listPremiumPlanGenealogy.get(0).getSide();
+                    sp_upline0=listPremiumPlanGenealogy.get(0).getSponsorusername();
 
 
 
@@ -457,11 +486,14 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 1
 
-                    uid1=listPremiumPlanGenealogy.get(1).getUserid();
-                    String mactive1=listPremiumPlanGenealogy.get(1).getMemberActive();
-                    String mbactive1=listPremiumPlanGenealogy.get(1).getMemberbronzeActive();
-                    String bactive1=listPremiumPlanGenealogy.get(1).getBasicActive();
+                    uid1= String.valueOf(listPremiumPlanGenealogy.get(1).getUserid());
+                    String mactive1= String.valueOf(listPremiumPlanGenealogy.get(1).getMemberActive());
+                    String mbactive1= String.valueOf(listPremiumPlanGenealogy.get(1).getMemberbronzeActive());
+                    String bactive1= String.valueOf(listPremiumPlanGenealogy.get(1).getBasicActive());
                     t1=listPremiumPlanGenealogy.get(1).getName();
+                    side1=listPremiumPlanGenealogy.get(1).getSide();
+                   sp_upline1=listPremiumPlanGenealogy.get(1).getSponsorusername();
+
 
 
                     p_txttwo.setText(t1);
@@ -494,11 +526,13 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 2
 
-                    uid2=listPremiumPlanGenealogy.get(2).getUserid();
-                    String mactive2=listPremiumPlanGenealogy.get(2).getMemberActive();
-                    String mbactive2=listPremiumPlanGenealogy.get(2).getMemberbronzeActive();
-                    String bactive2=listPremiumPlanGenealogy.get(2).getBasicActive();
+                    uid2= String.valueOf(listPremiumPlanGenealogy.get(2).getUserid());
+                    String mactive2= String.valueOf(listPremiumPlanGenealogy.get(2).getMemberActive());
+                    String mbactive2= String.valueOf(listPremiumPlanGenealogy.get(2).getMemberbronzeActive());
+                    String bactive2= String.valueOf(listPremiumPlanGenealogy.get(2).getBasicActive());
                     t2=listPremiumPlanGenealogy.get(2).getName();
+                    side2=listPremiumPlanGenealogy.get(2).getSide();
+                   sp_upline2=listPremiumPlanGenealogy.get(2).getSponsorusername();
 
                     p_txtthree.setText(t2);
                     if (uid2.equals("0")){
@@ -530,12 +564,14 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 3
 
-                    uid3=listPremiumPlanGenealogy.get(3).getUserid();
-                    String mactive3=listPremiumPlanGenealogy.get(3).getMemberActive();
-                    String mbactive3=listPremiumPlanGenealogy.get(3).getMemberbronzeActive();
-                    String bactive3=listPremiumPlanGenealogy.get(3).getBasicActive();
+                    uid3= String.valueOf(listPremiumPlanGenealogy.get(3).getUserid());
+                    String mactive3= String.valueOf(listPremiumPlanGenealogy.get(3).getMemberActive());
+                    String mbactive3= String.valueOf(listPremiumPlanGenealogy.get(3).getMemberbronzeActive());
+                    String bactive3= String.valueOf(listPremiumPlanGenealogy.get(3).getBasicActive());
                     t3=listPremiumPlanGenealogy.get(3).getName();
                     p_txtfour.setText(t3);
+                    side3=listPremiumPlanGenealogy.get(3).getSide();
+                    sp_upline3=listPremiumPlanGenealogy.get(3).getSponsorusername();
 
                     if (uid3.equals("0")){
                         Glide.with(getApplicationContext())
@@ -565,12 +601,14 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 4
 
-                    uid4=listPremiumPlanGenealogy.get(4).getUserid();
-                    String mactive4=listPremiumPlanGenealogy.get(4).getMemberActive();
-                    String mbactive4=listPremiumPlanGenealogy.get(4).getMemberbronzeActive();
-                    String bactive4=listPremiumPlanGenealogy.get(4).getBasicActive();
+                    uid4= String.valueOf(listPremiumPlanGenealogy.get(4).getUserid());
+                    String mactive4= String.valueOf(listPremiumPlanGenealogy.get(4).getMemberActive());
+                    String mbactive4= String.valueOf(listPremiumPlanGenealogy.get(4).getMemberbronzeActive());
+                    String bactive4= String.valueOf(listPremiumPlanGenealogy.get(4).getBasicActive());
                     t4=listPremiumPlanGenealogy.get(4).getName();
                     p_txtfive.setText(t4);
+                    side4=listPremiumPlanGenealogy.get(4).getSide();
+                    sp_upline4=listPremiumPlanGenealogy.get(4).getSponsorusername();
 
 
 
@@ -603,12 +641,16 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 5
 
-                    uid5=listPremiumPlanGenealogy.get(5).getUserid();
-                    String mactive5=listPremiumPlanGenealogy.get(5).getMemberActive();
-                    String mbactive5=listPremiumPlanGenealogy.get(5).getMemberbronzeActive();
-                    String bactive5=listPremiumPlanGenealogy.get(5).getBasicActive();
+                    uid5= String.valueOf(listPremiumPlanGenealogy.get(5).getUserid());
+                    String mactive5= String.valueOf(listPremiumPlanGenealogy.get(5).getMemberActive());
+                    String mbactive5= String.valueOf(listPremiumPlanGenealogy.get(5).getMemberbronzeActive());
+                    String bactive5= String.valueOf(listPremiumPlanGenealogy.get(5).getBasicActive());
                     t5=listPremiumPlanGenealogy.get(5).getName();
                     p_txtsix.setText(t5);
+                    side5=listPremiumPlanGenealogy.get(5).getSide();
+                    sp_upline5=listPremiumPlanGenealogy.get(5).getSponsorusername();
+
+
 
 
 
@@ -642,12 +684,15 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
 //                   postion 6
 
-                    uid6=listPremiumPlanGenealogy.get(6).getUserid();
-                    String mactive6=listPremiumPlanGenealogy.get(6).getMemberActive();
-                    String mbactive6=listPremiumPlanGenealogy.get(6).getMemberbronzeActive();
-                    String bactive6=listPremiumPlanGenealogy.get(6).getBasicActive();
+                    uid6= String.valueOf(listPremiumPlanGenealogy.get(6).getUserid());
+                    String mactive6= String.valueOf(listPremiumPlanGenealogy.get(6).getMemberActive());
+                    String mbactive6= String.valueOf(listPremiumPlanGenealogy.get(6).getMemberbronzeActive());
+                    String bactive6= String.valueOf(listPremiumPlanGenealogy.get(6).getBasicActive());
                     t6=listPremiumPlanGenealogy.get(6).getName();
                     p_txtseven.setText(t6);
+                    side6=listPremiumPlanGenealogy.get(6).getSide();
+                   sp_upline6=listPremiumPlanGenealogy.get(6).getSponsorusername();
+
 
 
                     if (uid6.equals("0")){
@@ -676,22 +721,22 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
                                 .into(p_imgseven);
                     }
 
-                    String p_username1 = listPremiumPlanGenealogy.get(0).getUserid();
+                    String p_username1 = String.valueOf(listPremiumPlanGenealogy.get(0).getUserid());
                     Log.e("username",p_username1);
                     p_username_one.setText(p_username1);
-                    String p_username2 = listPremiumPlanGenealogy.get(1).getUserid();
+                    String p_username2 = String.valueOf(listPremiumPlanGenealogy.get(1).getUserid());
                     Log.e("u",p_username2);
                     p_username_two.setText(p_username2);
-                    String p_username3 = listPremiumPlanGenealogy.get(2).getUserid();
+                    String p_username3 = String.valueOf(listPremiumPlanGenealogy.get(2).getUserid());
                     Log.e("three",p_username3);
                     p_username_three.setText(p_username3);
-                    String p_username4 = listPremiumPlanGenealogy.get(3).getUserid();
+                    String p_username4 = String.valueOf(listPremiumPlanGenealogy.get(3).getUserid());
                     p_username_four.setText(p_username4);
-                    String p_username5 = listPremiumPlanGenealogy.get(4).getUserid();
+                    String p_username5 = String.valueOf(listPremiumPlanGenealogy.get(4).getUserid());
                     p_username_five.setText(p_username5);
-                    String p_username6 = listPremiumPlanGenealogy.get(5).getUserid();
+                    String p_username6 = String.valueOf(listPremiumPlanGenealogy.get(5).getUserid());
                     p_username_six.setText(p_username6);
-                    String p_username7 = listPremiumPlanGenealogy.get(6).getUserid();
+                    String p_username7 = String.valueOf(listPremiumPlanGenealogy.get(6).getUserid());
                     p_username_seven.setText(p_username7);
 
 
@@ -711,102 +756,102 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
                     p_name_seven.setText(p_name7);
 
 
-                    String p_sponsor_username1=listPremiumPlanGenealogy.get(0).getSponsorId();
+                    String p_sponsor_username1= String.valueOf(listPremiumPlanGenealogy.get(0).getSponsorId());
                     p_sponsor_username_one.setText(p_sponsor_username1);
-                    String p_sponsor_username2=listPremiumPlanGenealogy.get(1).getSponsorId();
+                    String p_sponsor_username2= String.valueOf(listPremiumPlanGenealogy.get(1).getSponsorId());
                     p_sponsor_username_two.setText(p_sponsor_username2);
-                    String p_sponsor_username3=listPremiumPlanGenealogy.get(2).getSponsorId();
+                    String p_sponsor_username3= String.valueOf(listPremiumPlanGenealogy.get(2).getSponsorId());
                     p_sponsor_username_three.setText(p_sponsor_username3);
-                    String p_sponsor_username4=listPremiumPlanGenealogy.get(3).getSponsorId();
+                    String p_sponsor_username4= String.valueOf(listPremiumPlanGenealogy.get(3).getSponsorId());
                     p_sponsor_username_four.setText(p_sponsor_username4);
-                    String p_sponsor_username5=listPremiumPlanGenealogy.get(4).getSponsorId();
+                    String p_sponsor_username5= String.valueOf(listPremiumPlanGenealogy.get(4).getSponsorId());
                     p_sponsor_username_five.setText(p_sponsor_username5);
-                    String p_sponsor_username6=listPremiumPlanGenealogy.get(5).getSponsorId();
+                    String p_sponsor_username6= String.valueOf(listPremiumPlanGenealogy.get(5).getSponsorId());
                     p_sponsor_username_six.setText(p_sponsor_username6);
-                    String p_sponsor_username7=listPremiumPlanGenealogy.get(6).getSponsorId();
+                    String p_sponsor_username7= String.valueOf(listPremiumPlanGenealogy.get(6).getSponsorId());
                     p_sponsor_username_seven.setText(p_sponsor_username7);
 
 
-                    String p_sponsor_name1=listPremiumPlanGenealogy.get(0).getSponsorName();
+                    String p_sponsor_name1= String.valueOf(listPremiumPlanGenealogy.get(0).getSponsorName());
                     p_sponsor_name_one.setText(p_sponsor_name1);
-                    String p_sponsor_name2=listPremiumPlanGenealogy.get(1).getSponsorName();
+                    String p_sponsor_name2= String.valueOf(listPremiumPlanGenealogy.get(1).getSponsorName());
                     p_sponsor_name_two.setText(p_sponsor_name2);
-                    String p_sponsor_name3=listPremiumPlanGenealogy.get(2).getSponsorName();
+                    String p_sponsor_name3= String.valueOf(listPremiumPlanGenealogy.get(2).getSponsorName());
                     p_sponsor_name_three.setText(p_sponsor_name3);
-                    String p_sponsor_name4=listPremiumPlanGenealogy.get(3).getSponsorName();
+                    String p_sponsor_name4= String.valueOf(listPremiumPlanGenealogy.get(3).getSponsorName());
                     p_name_four.setText(p_sponsor_name4);
-                    String p_sponsor_name5=listPremiumPlanGenealogy.get(4).getSponsorName();
+                    String p_sponsor_name5= String.valueOf(listPremiumPlanGenealogy.get(4).getSponsorName());
                     p_name_five.setText(p_sponsor_name5);
-                    String p_sponsor_name6=listPremiumPlanGenealogy.get(5).getSponsorName();
+                    String p_sponsor_name6= String.valueOf(listPremiumPlanGenealogy.get(5).getSponsorName());
                     p_name_six.setText(p_sponsor_name6);
-                    String p_sponsor_name7=listPremiumPlanGenealogy.get(6).getSponsorName();
+                    String p_sponsor_name7= String.valueOf(listPremiumPlanGenealogy.get(6).getSponsorName());
                     p_name_seven.setText(p_sponsor_name7);
 
 
-                    String p_leftBV1=listPremiumPlanGenealogy.get(0).getLeftPv();
+                    String p_leftBV1= String.valueOf(listPremiumPlanGenealogy.get(0).getLeftPv());
                     p_leftBV_one.setText(p_leftBV1);
-                    String p_leftBV2=listPremiumPlanGenealogy.get(1).getLeftPv();
+                    String p_leftBV2= String.valueOf(listPremiumPlanGenealogy.get(1).getLeftPv());
                     p_leftBV_two.setText(p_leftBV2);
-                    String p_leftBV3=listPremiumPlanGenealogy.get(2).getLeftPv();
+                    String p_leftBV3= String.valueOf(listPremiumPlanGenealogy.get(2).getLeftPv());
                     p_leftBV_three.setText(p_leftBV3);
-                    String p_leftBV4=listPremiumPlanGenealogy.get(3).getLeftPv();
+                    String p_leftBV4= String.valueOf(listPremiumPlanGenealogy.get(3).getLeftPv());
                     p_leftBV_four.setText(p_leftBV4);
-                    String p_leftBV5=listPremiumPlanGenealogy.get(4).getLeftPv();
+                    String p_leftBV5= String.valueOf(listPremiumPlanGenealogy.get(4).getLeftPv());
                     p_leftBV_five.setText(p_leftBV5);
-                    String p_leftBV6=listPremiumPlanGenealogy.get(5).getLeftPv();
+                    String p_leftBV6= String.valueOf(listPremiumPlanGenealogy.get(5).getLeftPv());
                     p_leftBV_six.setText(p_leftBV6);
-                    String p_leftBV7=listPremiumPlanGenealogy.get(6).getLeftPv();
+                    String p_leftBV7= String.valueOf(listPremiumPlanGenealogy.get(6).getLeftPv());
                     p_leftBV_seven.setText(p_leftBV7);
 
 
-                    String p_rightBV1=listPremiumPlanGenealogy.get(0).getRightPv();
+                    String p_rightBV1= String.valueOf(listPremiumPlanGenealogy.get(0).getRightPv());
                     p_rightBV_one.setText(p_rightBV1);
-                    String p_rightBV2=listPremiumPlanGenealogy.get(1).getRightPv();
+                    String p_rightBV2= String.valueOf(listPremiumPlanGenealogy.get(1).getRightPv());
                     p_rightBV_two.setText(p_rightBV2);
-                    String p_rightBV3=listPremiumPlanGenealogy.get(2).getRightPv();
+                    String p_rightBV3= String.valueOf(listPremiumPlanGenealogy.get(2).getRightPv());
                     p_rightBV_three.setText(p_rightBV3);
-                    String p_rightBV4=listPremiumPlanGenealogy.get(3).getRightPv();
+                    String p_rightBV4= String.valueOf(listPremiumPlanGenealogy.get(3).getRightPv());
                     p_rightBV_four.setText(p_rightBV4);
-                    String p_rightBV5=listPremiumPlanGenealogy.get(4).getRightPv();
+                    String p_rightBV5= String.valueOf(listPremiumPlanGenealogy.get(4).getRightPv());
                     p_rightBV_five.setText(p_rightBV5);
-                    String p_rightBV6=listPremiumPlanGenealogy.get(5).getRightPv();
+                    String p_rightBV6= String.valueOf(listPremiumPlanGenealogy.get(5).getRightPv());
                     p_rightBV_six.setText(p_rightBV6);
-                    String p_rightBV7=listPremiumPlanGenealogy.get(6).getRightPv();
+                    String p_rightBV7= String.valueOf(listPremiumPlanGenealogy.get(6).getRightPv());
                     p_rightBV_seven.setText(p_rightBV7);
 
 
 
 
 
-                    String p_leftcount1 =listPremiumPlanGenealogy.get(0).getLeftCount();
+                    String p_leftcount1 = String.valueOf(listPremiumPlanGenealogy.get(0).getLeftCount());
                     p_leftcount_one.setText(p_leftcount1);
-                    String p_leftcount2=listPremiumPlanGenealogy.get(1).getLeftCount();
+                    String p_leftcount2= String.valueOf(listPremiumPlanGenealogy.get(1).getLeftCount());
                     p_leftcount_two.setText(p_leftcount2);
-                    String p_leftcount3=listPremiumPlanGenealogy.get(2).getLeftCount();
+                    String p_leftcount3= String.valueOf(listPremiumPlanGenealogy.get(2).getLeftCount());
                     p_leftcount_three.setText(p_leftcount3);
-                    String p_leftcount4=listPremiumPlanGenealogy.get(3).getLeftCount();
+                    String p_leftcount4= String.valueOf(listPremiumPlanGenealogy.get(3).getLeftCount());
                     p_leftcount_four.setText(p_leftcount4);
-                    String p_leftcount5=listPremiumPlanGenealogy.get(4).getLeftCount();
+                    String p_leftcount5= String.valueOf(listPremiumPlanGenealogy.get(4).getLeftCount());
                     p_leftcount_five.setText(p_leftcount5);
-                    String p_leftcount6=listPremiumPlanGenealogy.get(5).getLeftCount();
+                    String p_leftcount6= String.valueOf(listPremiumPlanGenealogy.get(5).getLeftCount());
                     p_leftcount_six.setText(p_leftcount6);
-                    String p_leftcount7=listPremiumPlanGenealogy.get(6).getLeftCount();
+                    String p_leftcount7= String.valueOf(listPremiumPlanGenealogy.get(6).getLeftCount());
                     p_leftcount_seven.setText(p_leftcount7);
 
 
-                    String p_rightcount1 =listPremiumPlanGenealogy.get(0).getRightCount();
+                    String p_rightcount1 = String.valueOf(listPremiumPlanGenealogy.get(0).getRightCount());
                     p_rightcount_one.setText(p_rightcount1);
-                    String p_rightcount2=listPremiumPlanGenealogy.get(1).getRightCount();
+                    String p_rightcount2= String.valueOf(listPremiumPlanGenealogy.get(1).getRightCount());
                     p_rightcount_two.setText(p_rightcount2);
-                    String p_rightcount3=listPremiumPlanGenealogy.get(2).getRightCount();
+                    String p_rightcount3= String.valueOf(listPremiumPlanGenealogy.get(2).getRightCount());
                     p_rightcount_three.setText(p_rightcount3);
-                    String p_rightcount4=listPremiumPlanGenealogy.get(3).getRightCount();
+                    String p_rightcount4= String.valueOf(listPremiumPlanGenealogy.get(3).getRightCount());
                     p_rightcount_four.setText(p_rightcount4);
-                    String p_rightcount5=listPremiumPlanGenealogy.get(4).getRightCount();
+                    String p_rightcount5= String.valueOf(listPremiumPlanGenealogy.get(4).getRightCount());
                     p_rightcount_five.setText(p_rightcount5);
-                    String p_rightcount6=listPremiumPlanGenealogy.get(5).getRightCount();
+                    String p_rightcount6= String.valueOf(listPremiumPlanGenealogy.get(5).getRightCount());
                     p_rightcount_six.setText(p_rightcount6);
-                    String p_rightcount7=listPremiumPlanGenealogy.get(6).getRightCount();
+                    String p_rightcount7= String.valueOf(listPremiumPlanGenealogy.get(6).getRightCount());
                     p_rightcount_seven.setText(p_rightcount7);
 
 
@@ -826,10 +871,14 @@ public class PremiumPlanGenealogy extends AppCompatActivity {
 
         PremiumGeneBottomDailogue bottomSheet = new PremiumGeneBottomDailogue();
         bottomSheet.show(getSupportFragmentManager(),
-                "ModalBottomSheet");
+                "ModalBotxtomSheet");
 
 
         //val moreOrderDetails = OrderDetailSheet(applicationContext, orderID,login_id)
         //        moreOrderDetails.show(getSupportFragmentManager(), moreOrderDetails.getTag())
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

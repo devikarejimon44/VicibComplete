@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -148,7 +149,10 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
                 else {
                     m_shimmer_downline_purchase_details.setVisibility(View.GONE);
                     m_shimmer_downline_purchase_details.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    ImageView nodata_downline_repurchase_details=findViewById(R.id.nodata_downline_repurchase_details);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_downline_repurchase_details);
                 }
             }
             @Override
@@ -159,6 +163,10 @@ public class DownlineRepurchaseDetails extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }
 

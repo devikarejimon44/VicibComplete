@@ -7,6 +7,15 @@ public class ListPremiumPlanGenealogy {
     @SerializedName("postion")
     @Expose
     private String postion;
+    @SerializedName("side")
+    @Expose
+    private String side;
+    @SerializedName("sponsorid")
+    @Expose
+    private String sponsorid;
+    @SerializedName("sponsorusername")
+    @Expose
+    private String sponsorusername;
     @SerializedName("userid")
     @Expose
     private String userid;
@@ -59,6 +68,30 @@ public class ListPremiumPlanGenealogy {
 
     public void setPostion(String postion) {
         this.postion = postion;
+    }
+
+    public String getSide() {
+        return side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public String getSponsorid() {
+        return sponsorid;
+    }
+
+    public void setSponsorid(String sponsorid) {
+        this.sponsorid = sponsorid;
+    }
+
+    public String getSponsorusername() {
+        return sponsorusername;
+    }
+
+    public void setSponsorusername(String sponsorusername) {
+        this.sponsorusername = sponsorusername;
     }
 
     public String getUserid() {

@@ -35,6 +35,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -59,6 +60,7 @@ import com.gipra.vicibcomplete.MembersArea.Complaints.ComplaintsRegistration;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.MyProfile;
 import com.gipra.vicibcomplete.MembersArea.MyProfile.ResponseImageView;
 import com.gipra.vicibcomplete.R;
+import com.gipra.vicibshoppy.activity.ShoppyHome;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -108,6 +110,7 @@ public class IDCard extends AppCompatActivity {
     Bitmap qrbitmap ;
     String qrlink="https://www.vicibhomelyindia.com/";
     ImageView qr_image,bar_image;
+    TextView id_name,id_username,id_address;
 
 
     @Override
@@ -122,6 +125,19 @@ public class IDCard extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        SharedPreferences shpref;
+        shpref=getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
+        final String uname=shpref.getString("USERNAME","");
+        final String name=shpref.getString("NAME","");
+        final String add=shpref.getString("ADD","");
+
+        id_name=findViewById(R.id.id_name);
+        id_name.setText(name);
+        id_username=findViewById(R.id.id_username);
+        id_username.setText(uname);
+        id_address=findViewById(R.id.id_address);
+        id_address.setText(add);
+
 
         id_dash=findViewById(R.id.id_dash);
         id_dash.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +153,7 @@ public class IDCard extends AppCompatActivity {
         id_productstore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), ShoppyHome.class));
             }
         });
 

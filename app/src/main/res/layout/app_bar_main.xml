@@ -17,14 +17,19 @@
             android:layout_height="?actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
-            <TextView
-                android:text="Dashboard"
-                android:textColor="@color/colorWhiteShoppy"
-                android:textSize="25dp"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/bungee"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+
+
+<!--            <TextView-->
+<!--                android:text="Dashboard"-->
+<!--                android:textColor="@color/colorWhiteShoppy"-->
+<!--                android:textSize="25dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:fontFamily="@font/bungee"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"/>-->
+
+
+
 
 <!--            <ImageView-->
 <!--                android:id="@+id/logout"-->
@@ -37,8 +42,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <include layout="@layout/content_main" />
+
     <com.wang.avi.AVLoadingIndicatorView
        android:visibility="gone"
        android:layout_gravity="center"

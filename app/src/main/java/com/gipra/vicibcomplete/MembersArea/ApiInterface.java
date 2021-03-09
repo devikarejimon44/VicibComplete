@@ -81,9 +81,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("Myproduct_date_only")
-    Call<ResponseMyproductsDateOnly>SearchMyproductsDateonly(@Field("userid") int userid,
-                                                             @Field("fromdate") String fromdate,
-                                                             @Field("todate") String todate);
+    Call<ResponseMyproductsDateOnly>SearchMyproductsDateonly(@Field("userid") int userid);
 
     @FormUrlEncoded
     @POST("Myproducts_bill")
@@ -211,10 +209,10 @@ public interface ApiInterface {
                                                         @Field("from_date") String fromdate,
                                                         @Field("to_date") String todate);
 
-
-    @FormUrlEncoded
-    @POST("Complaint_list")
-    Call<ResponsePayoutLedger>SearchPayoutLedger(@Field("id") int id);
+//
+//    @FormUrlEncoded
+//    @POST("Complaint_list")
+//    Call<ResponsePayoutLedger>SearchPayoutLedger(@Field("id") int id);
 
 
     @FormUrlEncoded
@@ -255,7 +253,7 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
-    @POST("Silver_geneology1")
+    @POST("Silvergeneology")
     Call<ResponseStandardGenealogy>StandardGene(@Field("userid") int userid);
 
 

@@ -156,4 +156,8 @@ public void onFailure(Call<ResponseFirstPurchaseBVReport> call, Throwable t) {
         });
 
         }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
         }

@@ -12,12 +12,19 @@
 
         tools:layout="@layout/fragment_dash_board" />
 
+<!--        <fragment-->
+<!--            android:id="@+id/nav_regform"-->
+<!--            android:name="com.Vicib.vicibapp.ui.RegistrationFragment"-->
+<!--            android:label="Registration"-->
+<!--            tools:layout="@layout/fragment_registration" />-->
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_regform"-->
-<!--        android:name="com.Vicib.vicibapp.ui.RegistrationFragment"-->
-<!--        android:label="Registration"-->
-<!--        tools:layout="@layout/fragment_registration" />-->
+
+
+    <fragment
+        android:id="@+id/nav_complaints_registrtion"
+        android:name="com.gipra.vicibcomplete.MembersArea.MenuFragments.Complaints.CompliantRegFragment"
+        android:label="Complaint's Registration"
+        tools:layout="@layout/fragment_reg" />
 
 
 

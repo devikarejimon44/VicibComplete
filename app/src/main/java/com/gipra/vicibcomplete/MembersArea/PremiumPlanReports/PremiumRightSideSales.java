@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -47,6 +48,7 @@ public class PremiumRightSideSales extends AppCompatActivity {
     private List<PremiumListLeftSideSales> premiumListLeftSideSales;
     private PremiumLeftSideSalesAdapter premiumLeftSideSalesAdapter;
     ShimmerFrameLayout m_shimmer_pr_rightside_sales;
+    ImageView nodata_pr_rightside_sales;
 
 
     @Override
@@ -55,6 +57,8 @@ public class PremiumRightSideSales extends AppCompatActivity {
         setContentView(R.layout.activity_premium_right_side_sales);
         Toolbar toolbar=findViewById(R.id.premium_rightsales_ToolBar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+        nodata_pr_rightside_sales=findViewById(R.id.nodata_pr_rightside_sales);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,6 +136,7 @@ public class PremiumRightSideSales extends AppCompatActivity {
                     m_shimmer_pr_rightside_sales.setVisibility(View.GONE);
                     m_shimmer_pr_rightside_sales.stopShimmerAnimation();
                     Recycler_premium_right_side_sales.setVisibility(View.VISIBLE);
+                    nodata_pr_rightside_sales.setVisibility(View.GONE);
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponsePremiumListLeftSideSales responsePremiumListLeftSideSales=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -144,7 +149,10 @@ public class PremiumRightSideSales extends AppCompatActivity {
                 else {
                     m_shimmer_pr_rightside_sales.setVisibility(View.GONE);
                     m_shimmer_pr_rightside_sales.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    nodata_pr_rightside_sales.setVisibility(View.VISIBLE);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_pr_rightside_sales);
                 }
             }
             @Override
@@ -155,5 +163,9 @@ public class PremiumRightSideSales extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

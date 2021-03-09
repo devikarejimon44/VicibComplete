@@ -131,6 +131,13 @@
                     android:id="@+id/Recycler_standard_teamsales_bv_matching"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+                <ImageView
+                    android:id="@+id/nodata_st_team_salesbv_matching"
+                    android:visibility="gone"
+                    android:layout_width="400dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

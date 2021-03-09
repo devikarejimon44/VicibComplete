@@ -1,12 +1,14 @@
 package com.gipra.vicibshoppy.activity
 
 import VolleySingleton
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -17,6 +19,7 @@ import com.gipra.vicibshoppy.recyclerAdaptor.OrderRecyclerAdaptor
 import com.gipra.vicibshoppy.utlis.MySingleton
 import com.gipra.vicibshoppy.utlis.changeStatusBarColor
 import kotlinx.android.synthetic.main.shoppy_activity_order_history.*
+import kotlinx.android.synthetic.main.shoppy_content_main.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -26,6 +29,7 @@ class OrderHistoryActivity : AppCompatActivity() ,OrderRecyclerAdaptor.OrderItem
     private val TAG = "OrderHistoryActivity"
     private var login_id: String? = null
     var Adaptor: OrderRecyclerAdaptor? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shoppy_activity_order_history)
@@ -41,15 +45,20 @@ class OrderHistoryActivity : AppCompatActivity() ,OrderRecyclerAdaptor.OrderItem
         get_SharedPreferences()
         getOrderHistory()
 
+        refresh_orderhistory.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            val intent = Intent(applicationContext, OrderHistoryActivity::class.java)
+            startActivity(intent)
+            finish();
+            refresh_orderhistory.setRefreshing(false)
+        })
+
+
     }
-
-
     private fun get_SharedPreferences() {
         var user = applicationContext.getSharedPreferences("Login", MODE_PRIVATE)
         login_id = user.getString("user_id", "4")
 
     }
-    
     private fun getOrderHistory() {
         shimmerOrderHistory.startShimmerAnimation()
         val stringRequest =

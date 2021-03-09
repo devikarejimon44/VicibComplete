@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.gipra.vicibcomplete.MembersArea.ApiClient;
 import com.gipra.vicibcomplete.MembersArea.ApiInterface;
@@ -48,6 +49,7 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
     private List<PremiumListTeamSalesBonusDetails> premiumListTeamSalesBonusDetails;
     private PremiumTeamSalesBonusAdapter premiumTeamSalesBonusAdapter;
     ShimmerFrameLayout m_shimmer_pr_team_sales_binus_details;
+    ImageView nodata_pr_team_sales_bonus_details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
         setContentView(R.layout.activity_premium_team_sales_bonus_details);
         Toolbar toolbar=findViewById(R.id.premium_teamsales_ToolBar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_shoppy);
+       nodata_pr_team_sales_bonus_details=findViewById(R.id.nodata_pr_team_sales_bonus_details);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,6 +138,8 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
                     m_shimmer_pr_team_sales_binus_details.setVisibility(View.GONE);
                     m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
                     Recycler_premium_team_sales_bonus_details.setVisibility(View.VISIBLE);
+                    nodata_pr_team_sales_bonus_details.setVisibility(View.GONE);
+
                     Log.i("onResponse", new Gson().toJson(response.body()));
                     ResponsePremiumTeamSalesBonusDetails responsePremiumTeamSalesBonusDetails=response.body();
                     final LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
@@ -146,7 +152,10 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
                 else {
                     m_shimmer_pr_team_sales_binus_details.setVisibility(View.GONE);
                     m_shimmer_pr_team_sales_binus_details.stopShimmerAnimation();
-                    Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+                    nodata_pr_team_sales_bonus_details.setVisibility(View.VISIBLE);
+                    Glide.with(getApplicationContext())
+                            .load(R.drawable.nodatafound)
+                            .into(nodata_pr_team_sales_bonus_details);
                 }
             }
             @Override
@@ -202,5 +211,9 @@ public class PremiumTeamSalesBonusDetails extends AppCompatActivity {
 //            }
 //        });
 
+    }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }
