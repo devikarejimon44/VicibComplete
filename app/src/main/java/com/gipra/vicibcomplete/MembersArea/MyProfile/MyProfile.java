@@ -98,9 +98,9 @@ public class MyProfile extends AppCompatActivity {
  EditText edit_name,edit_dob,edit_mobile,edit_email,edit_address,edit_panchayath,edit_zipcode,edit_pannumber,edit_nomineename,edit_nomineerelation;
  EditText edit_bankname,edit_branch,edit_accountnum,edit_ifsc;
  Spinner edit_country,edit_state,edit_district;
- Button edit_update;
+ Button edit_update,edit_reset;
  Spinner edit_gender;
-    String g;
+  String g;
 
     LinearLayout ll_edit_pancard;
     CheckBox pan_check;
@@ -304,6 +304,14 @@ public class MyProfile extends AppCompatActivity {
                    Update();
                }
 
+            }
+        });
+
+        edit_reset=findViewById(R.id.edit_reset);
+        edit_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Reset();
             }
         });
         SharedPreferences shpref;
@@ -581,7 +589,6 @@ public class MyProfile extends AppCompatActivity {
 
 
 
-
         if (name.isEmpty()) {
             valid=false;
             edit_name.setError("Enter name");
@@ -723,6 +730,14 @@ public class MyProfile extends AppCompatActivity {
             public void onResponse(Call<ResponseEditProfile> call, Response<ResponseEditProfile> response) {
                 if (response.body().getStatus().equals("1")){
                     Toast.makeText(MyProfile.this,""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+
+
                 }
                 else
                 {
@@ -735,6 +750,18 @@ public class MyProfile extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    private void Reset()
+    {
+
+
+
+        Intent intent= getIntent();
+        finish();
+        startActivity(intent);
 
 
     }

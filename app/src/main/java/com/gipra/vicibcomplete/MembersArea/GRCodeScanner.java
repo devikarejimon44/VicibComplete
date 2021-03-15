@@ -42,7 +42,6 @@ public class GRCodeScanner extends AppCompatActivity {
         imageViewResult = findViewById(R.id.imageViewResult);
 
 
-
         buttonGenerate_onClick();
 
 

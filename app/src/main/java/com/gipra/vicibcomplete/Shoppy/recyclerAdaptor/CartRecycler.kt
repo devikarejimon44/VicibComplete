@@ -169,16 +169,13 @@ class CartRecycler(
                             itemView.actualPrice.text = "₹ " + priceChange.toString() + "0"
 
 
-                            var totalSum = jsonObject.getString("total_price")
+                            var totalSum = jsonObject.getString("total_sum")
 
 
 //                            var totalPrice = 0
 //                            for (i in 0 until dbList.size()) {
 //                                totalPrice += dbList.get(i).getPrice()
 //                            }
-
-
-
 
                             clickListiner.onChangeCount(totalSum)
 

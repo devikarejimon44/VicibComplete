@@ -345,8 +345,6 @@ public class PremiumGeneFragment extends Fragment {
         });
 
 
-
-
         SharedPreferences shpref;
         shpref = getContext().getSharedPreferences("MYPREF", Context.MODE_PRIVATE);
         String u = shpref.getString("ID", "");
@@ -910,8 +908,26 @@ public class PremiumGeneFragment extends Fragment {
         //val moreOrderDetails = OrderDetailSheet(applicationContext, orderID,login_id)
         //        moreOrderDetails.show(getSupportFragmentManager(), moreOrderDetails.getTag())
     }
-    public void onBackPressed(){
-        startActivity(new Intent(getContext(), MainActivity.class));
+//    public void onBackPressed(){
+//        startActivity(new Intent(getContext(), MainActivity.class));
+//        getActivity().finish();
+//    }
+
+    public boolean onBackPressed() {
+//         DashBoardFragment dashBoardFragment=new DashBoardFragment();
+//                           getActivity().getSupportFragmentManager().beginTransaction()
+//                                    .replace(R.id.nav_host_fragment,dashBoardFragment,dashBoardFragment.getClass().getSimpleName()).addToBackStack(null).commit();
+//                            onBackPressed();
+
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
         getActivity().finish();
+
+        return false;
     }
+
+
+
 }

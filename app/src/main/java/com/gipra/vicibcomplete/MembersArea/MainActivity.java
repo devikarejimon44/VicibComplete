@@ -907,7 +907,8 @@ public class MainActivity extends AppCompatActivity{
 
     public void onBackPressed() {
 
-        DrawerLayout layout = (DrawerLayout)findViewById(R.id.drawer_layout);
+
+     DrawerLayout layout = (DrawerLayout)findViewById(R.id.drawer_layout);
         if (layout.isDrawerOpen(GravityCompat.START)) {
             layout.closeDrawer(GravityCompat.START);
         }

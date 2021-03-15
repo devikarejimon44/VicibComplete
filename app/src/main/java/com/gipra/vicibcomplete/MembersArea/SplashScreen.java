@@ -50,7 +50,7 @@ public class SplashScreen extends AppCompatActivity {
                             finish();
 
                         }
-                        finish();
+//                        finish();
                     }
                     @Override
                     public void onFailure(Call<ResponseLoginCheck> call, Throwable t) {

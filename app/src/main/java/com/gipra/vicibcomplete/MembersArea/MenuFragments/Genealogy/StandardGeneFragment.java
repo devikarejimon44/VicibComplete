@@ -170,7 +170,6 @@ public class StandardGeneFragment extends Fragment {
         });
 
 
-
         st_imgthree=view.findViewById(R.id.st_imgthree);
         st_imgthree.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -65,7 +65,6 @@ class SelectAddress : AppCompatActivity() , AddressRecycler.AddressClickListiner
 
                             setListView(array)
 
-
                         }
 
                     } catch (e: JSONException) {

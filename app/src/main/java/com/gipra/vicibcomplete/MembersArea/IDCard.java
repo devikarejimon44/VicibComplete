@@ -504,7 +504,6 @@ folder=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECT
             Log.e(TAG,"file not exist");
         }
     }
-
     public Bitmap getBitmapFromView(View vv, int totalHeight, int totalWidth) {
 
         Bitmap returnedBitmap = Bitmap.createBitmap(totalWidth,totalHeight , Bitmap.Config.ARGB_8888);
@@ -517,6 +516,11 @@ folder=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECT
         vv.draw(canvas);
         return returnedBitmap;
     }
+    public void onBackPressed(){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
+
 
 }
 
